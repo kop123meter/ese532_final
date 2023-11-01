@@ -135,6 +135,7 @@ int main(int argc, char* argv[]) {
 	std::cout << "Input Throughput to Encoder: " << input_throughput << " Mb/s."
 			<< " (Latency: " << ethernet_latency << "s)." << std::endl;
 
+	printf("12138");
 	return 0;
 }
 
