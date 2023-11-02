@@ -3,12 +3,16 @@
 
 #define DICT_CAPACITY 65535   // Capacity of the dictionary
 /* Global variables */
-struct {
+struct Node {
     int suffix;
     int parent;
     int firstChild;
     int nextSibling;
-} dictionary[DICT_CAPACITY + 1];
+};
+
+Node dictionary[DICT_CAPACITY + 1];
+
+
 extern int nextNodeIdx;    // Index of next node (i.e. next dictionary entry)
 extern int decStack[DICT_CAPACITY]; // Stack for decoding a phrase
 
