@@ -35,6 +35,8 @@ LZW(input_packet;UniqueChunks_Boundaries[];Deduplicated_Uniquechunks[]){
 }
 Output_Function(UniqueChunks_Boundaries[];Deduplicated_Uniquechunks[];DuplicatedChunks_Info[];output_packet){
   // base on deduplicated unique chunks and duplicated chunks' info generate output_packet
+  // for unique chunks, output their's deduplicated version
+  // for duplicated chunks, output their according unique chunks' deduplicated version
   // input 1: UniqueChunks_Boundaries[]:indicates the boundaries of unique chunks
   // input 2: Deduplicated_Uniquechunks[]: Deduplicated version of uniquechunks
   // input 3: DuplicatedChunks:Info[] : indicates the duplicated chunks' information, 
