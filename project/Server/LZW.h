@@ -3,14 +3,14 @@
 
 #define DICT_CAPACITY 65535   // Capacity of the dictionary
 /* Global variables */
-struct Node {
+struct dict {
     int suffix;
     int parent;
     int firstChild;
     int nextSibling;
 };
 
-Node dictionary[DICT_CAPACITY + 1];
+dict dictionary[DICT_CAPACITY + 1];
 
 
 extern int nextNodeIdx;    // Index of next node (i.e. next dictionary entry)
