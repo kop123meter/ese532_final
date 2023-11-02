@@ -14,6 +14,7 @@
 #include <sys/mman.h>
 #include <math.h>
 #include "stopwatch.h"
+#include "LZW.h"
 
 #define NUM_PACKETS 8
 #define pipe_depth 4
