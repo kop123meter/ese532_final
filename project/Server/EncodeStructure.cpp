@@ -1,6 +1,6 @@
 main(input_packet){
 
-  // general idea: 1. CDC把inputpacket划分成许多chunks ➡
+  // general idea: 1. CDC把inputpacket划分成许多chunks 
   //               2. SHA计算每一个chunk的 hash value
   //               3. ChunkDuplicationDetect 检测hash value一样的chunk，
   //                  （方法：挨个把chunk放在list里， 后面的chunk 的hash value 如果跟list里的chunk的hash value重复
