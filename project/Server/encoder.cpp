@@ -80,10 +80,10 @@ void SHA256(unsigned char *buffer, uint64_t * hash_table)
 	uint64_t hash = 0;
 	uint64_t temp = 0;
 	for(int i = 0;i<length;i++){
-		temp = (uint64_t)buffer[start_point+i] % modulous;
+		temp = (uint64_t)buffer[start_point+i];
 		hash = hash + temp;
 	}
-	hash_table[chunk] = hash;
+	hash_table[chunk] = hash % modulous;
 	start_point = end_point;
 	end_point = chunk_boundary[chunk+1];
 	}
@@ -109,6 +109,7 @@ void hashing_deduplication(uint64_t * hash_table,uint64_t * dedup_chunk,uint64_t
 		}
 	}
 }
+
 
 
 
