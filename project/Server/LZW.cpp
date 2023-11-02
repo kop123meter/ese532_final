@@ -1,7 +1,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include "LZW.h"
-
+int nextNodeIdx;    
+int decStack[DICT_CAPACITY];
 
 void InitialiseDict() {	// Dictionary initialisation (initialise root node 0-255)
 	for (int i = 0; i < 256; i++) {

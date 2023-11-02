@@ -15,8 +15,9 @@ struct{
 }dictionary[DICT_CAPACITY + 1];
 
 
-int nextNodeIdx;    // Index of next node (i.e. next dictionary entry)
-int decStack[DICT_CAPACITY]; // Stack for decoding a phrase
+
+extern int nextNodeIdx;    // Index of next node (i.e. next dictionary entry)
+extern int decStack[DICT_CAPACITY]; // Stack for decoding a phrase
 
 /* Functions */
 int LzwEncoding(unsigned char * outputfile,unsigned char * inputfile,int chunk_start,int chunk_end,int offset);
