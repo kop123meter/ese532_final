@@ -3,7 +3,7 @@ main(input_packet){
   // general idea: 1. CDC把inputpacket划分成许多chunks 
   //               2. SHA计算每一个chunk的 hash value
   //               3. ChunkDuplicationDetect 检测hash value一样的chunk，
-  //                  （方法：挨个把chunk放在list里， 后面的chunk 的hash value 如果跟list里的chunk的hash value重复
+  //                  （方法：挨个把每个chunk的hash value放在list里， 后面的chunk的hash value 如果跟list里的hash value重复
   //                         那它就是duplicated chunk，记录它的信息到 DuplicatedChunks_Info[] 里
   //                         如果它的hash value和list里的chunk的hash value都不一样 那它就是unique chunk，把它的信息加到UniqueChunks_Boundaries[]里
   //               4. LZW 计算unique chunk们的压缩版
