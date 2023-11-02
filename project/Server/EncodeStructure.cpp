@@ -11,7 +11,7 @@ ChunkMatching(input_packet;Boundaries_Array[];UniqueChunks_Boundries[];Duplicate
 // input 2: Boundaries_Array[]
 // output 1: UniqueChunks_Boundries[] indicates the unique chunks' boundries
 // output 2: DuplicatedChunks_Info[] indicates the duplicated chunks' information, 
-//         including its boundaries & indicate the position of the according unique chunk.
+//         including its boundaries & indicate the according unique chunk.
 
   SHA(input_packet;Boundries_Array[];Hash_Array[]){
   // base on positions of boundaries, calculate hash value of each chunk
