@@ -12,6 +12,7 @@
 #include <errno.h>
 #include <fcntl.h>
 #include <sys/mman.h>
+#include <math.h>
 #include "stopwatch.h"
 
 #define NUM_PACKETS 8
@@ -20,6 +21,10 @@
 #define DONE_BIT_H (1 << 15)
 
 int offset = 0;
+int chunk_number = 0;
+int chunk_boundary[1000];
+int ded_chunk_number = 0;
+int unique_chunk_number = 0;
 unsigned char* file;
 
 void handle_input(int argc, char* argv[], int* blocksize) {
@@ -38,9 +43,78 @@ void handle_input(int argc, char* argv[], int* blocksize) {
 		}
 	}
 }
+// placeholder hash function
+uint64_t hash_func(unsigned char *input, unsigned int pos)
+{
+        uint64_t hash = 0;
+        uint64_t temp = 0;
+        for(int i = 0;i < WIN_SIZE ; i++){
+                temp =  (uint64_t)(input[pos+WIN_SIZE-1-i]);
+                temp = temp * pow(PRIME,i+1);
+                hash = hash + temp;
+        }
+        return hash;
+}
+
+void cdc(unsigned char *buff, unsigned int buff_size)
+{
+    for(u_int i = WIN_SIZE; i < (buff_size - WIN_SIZE);i++){
+        if((hash_func(buff,i) % MODULUS) == TARGET){
+            //create chunk here
+			chunk_boundary[chunk_number] = i;
+			chunk_number++;
+		}
+    }
+}
+
+// placeholder hash function
+
+void SHA256(unsigned char *buffer, uint64_t * hash_table)
+{
+	// hash now contains the SHA-256 hash of buffer
+	uint64_t modulous = pow(2,64);
+	int start_point = 0;
+	int end_point = chunk_boundary[0];
+	for(int chunk = 0; chunk < chunk_number;chunk++){
+	int length = end_point - start_point;
+	uint64_t hash = 0;
+	uint64_t temp = 0;
+	for(int i = 0;i<length;i++){
+		temp = (uint64_t)buffer[start_point+i] % modulous;
+		hash = hash + temp;
+	}
+	hash_table[chunk] = hash;
+	start_point = end_point;
+	end_point = chunk_boundary[chunk+1];
+	}
+	
+}
+
+void hashing_deduplication(uint64_t * hash_table,uint64_t * dedup_chunk,uint64_t * unique_chunk){
+	ded_chunk_number = 0;
+	unique_chunk_number = 0;
+	for(int i = 0;i<chunk_number;i++){
+		int flag = 0;
+		for(int j = 0;j<i;j++){
+			if(hash_table[i] == hash_table[j] && i != j){
+				flag = 1;
+				break;
+			}
+		}
+		if(flag == 0){
+			unique_chunk[unique_chunk_number++] = i;
+		}
+		else if(flag == 1){
+			dedup_chunk[ded_chunk_number++] = i;
+		}
+	}
+}
+
+
 
 int main(int argc, char* argv[]) {
 	stopwatch ethernet_timer;
+
 	unsigned char* input[NUM_PACKETS];
 	int writer = 0;
 	int done = 0;
@@ -86,6 +160,16 @@ int main(int argc, char* argv[]) {
 
 	// we are just memcpy'ing here, but you should call your
 	// top function here.
+
+
+	chunk_number = 0; // initialize chunk number
+	cdc(&buffer[HEADER], length);
+	uint64_t hash_table[chunk_number];
+	uint64_t dedup_chunk[chunk_number];
+	uint64_t unique_chunk[chunk_number];
+	SHA256(&buffer[HEADER],hash_table);
+	hashing_deduplication(hash_table,dedup_chunk,unique_chunk);
+
 	memcpy(&file[offset], &buffer[HEADER], length);
 
 	offset += length;
@@ -135,7 +219,7 @@ int main(int argc, char* argv[]) {
 	std::cout << "Input Throughput to Encoder: " << input_throughput << " Mb/s."
 			<< " (Latency: " << ethernet_latency << "s)." << std::endl;
 
-	printf("12138");
+
 	return 0;
 }
 
