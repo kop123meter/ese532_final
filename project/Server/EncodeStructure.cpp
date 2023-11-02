@@ -8,6 +8,8 @@ main(input_packet){
   //                         如果它的hash value和list里的chunk的hash value都不一样 那它就是unique chunk，把它的信息加到UniqueChunks_Boundaries[]里
   //               4. LZW 计算unique chunk们的压缩版
   //               5. OutputFunction 生成output，unique chunk输出它的压缩版本，duplicated chunk输出它对应的unique chunk的压缩版本
+
+  
 CDC(input_packet;Boundaries_Array[]){
 // calculate hash value of windows, output positions of doundaries
 // input: input_packet
