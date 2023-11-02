@@ -2,7 +2,7 @@ main(input_packet){
 CDC(input_packet;Boundaries_Array[]){
 // calculate hash value of windows, output positions of doundaries
 // input: input_packet
-// output: Boundaries_Array: contains the position of doundaries
+// output: Boundaries_Array: contains positions of doundaries
 }
 
 ChunkMatching(input_packet;Boundaries_Array[];UniqueChunks_Boundries[];DuplicatedChunks_Info[]){
