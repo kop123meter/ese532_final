@@ -85,7 +85,7 @@ $(DECODER_EXE): $(DECODER_OBJECTS)
 	$(HOST_CXX) -o "$@" $(+) $(LDFLAGS)
 
 .cpp.o:
-	$(HOST_CXX) $(CXXFLAGS) -I./server -o "$@" "$<"
+	$(HOST_CXX) $(CXXFLAGS) -I./Server -o "$@" "$<"
 
 #
 # primary build targets

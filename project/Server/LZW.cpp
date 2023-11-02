@@ -84,7 +84,7 @@ int LzwEncoding(unsigned char * outputfile,unsigned char * inputfile,int chunk_s
 	previousStr = -1;	// Initialise P
 
 	// Read first character
-	currentChar = (int)inputfile[flag];
+	currentChar = inputfile[flag++];
 
 	//fprintf(outFilePtr, "LZW-encoded string: ");
 	while (size!=0) {
@@ -102,6 +102,10 @@ int LzwEncoding(unsigned char * outputfile,unsigned char * inputfile,int chunk_s
 			}
 			previousStr = currentChar;	// Set P = C
 		}
+
+		//update current char
+		currentChar = inputfile[flag++];
+		size--;
 	}
 
 	//Output(outBitFilePtr, previousStr);	

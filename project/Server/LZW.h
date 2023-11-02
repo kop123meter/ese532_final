@@ -1,3 +1,5 @@
+#ifndef LZW_H
+#define LZW_H
 #include <iostream>
 #include <stdlib.h>
 
@@ -20,3 +22,4 @@ extern int decStack[DICT_CAPACITY]; // Stack for decoding a phrase
 int LzwEncoding(unsigned char * outputfile,unsigned char * inputfile,int chunk_start,int chunk_end,int offset);
 
 //void LzwDecoding();
+#endif
