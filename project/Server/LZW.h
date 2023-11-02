@@ -1,16 +1,16 @@
-#include "encoder.h"
-#include "server.h"
+#include <iostream>
+#include <stdlib.h>
 
 #define DICT_CAPACITY 65535   // Capacity of the dictionary
+#define HEADER 2
+
 /* Global variables */
-struct dict {
+struct{
     int suffix;
     int parent;
     int firstChild;
     int nextSibling;
-};
-
-dict dictionary[DICT_CAPACITY + 1];
+}dictionary[DICT_CAPACITY + 1];
 
 
 extern int nextNodeIdx;    // Index of next node (i.e. next dictionary entry)
