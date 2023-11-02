@@ -67,15 +67,15 @@ void NewDictEntry(int P, int C) {
 	nextNodeIdx++;	//Index of the next entry + 1
 }
 
-void LzwEncoding(FILE* inFilePtr, BITFILE* outBitFilePtr,int * chunk_boundary) {
+int LzwEncoding(unsigned char * outputfile,unsigned char * inputfile,int chunk_start,int chunk_end,int offset) {
 	int previousStr;	// P
 	int currentChar;	// C
 	int PC;	// P & C combined as 1 character
 
-	/* Get the Chunk */
-	int start_chunk_boundary = 0;
-    int flag = 0;
-    int end_chunk_boundary = chunk_boundary[flag++];
+	/* Get the Chunk Size */
+	int size = chunk_end - chunk_start;
+	int flag = HEADER;
+	int output_flag = offset;
 
 
 
@@ -83,14 +83,20 @@ void LzwEncoding(FILE* inFilePtr, BITFILE* outBitFilePtr,int * chunk_boundary) {
 	InitialiseDict();
 	previousStr = -1;	// Initialise P
 
+	// Read first character
+	currentChar = (int)inputfile[flag];
+
 	//fprintf(outFilePtr, "LZW-encoded string: ");
-	while ( (currentChar = fgetc(inFilePtr)) != EOF ) {
+	while (size!=0) {
 		/* Check if PC is in the dictionary */
 		PC = InDict(previousStr, currentChar);
 		if (PC >= 0) {	/* PC is in the dictionary */
 			previousStr = PC;	// Set P = PC
 		} else {	/* PC isn't in the dictionary */
-			Output(outBitFilePtr, previousStr);	// Output P
+			//Output(outBitFilePtr, previousStr);	
+			// Output P
+			outputfile[output_flag++] = previousStr;
+
 			if (nextNodeIdx < DICT_CAPACITY) {	/* Enough space to add PC into the dictionary */
 				NewDictEntry(previousStr, currentChar);
 			}
@@ -98,6 +104,13 @@ void LzwEncoding(FILE* inFilePtr, BITFILE* outBitFilePtr,int * chunk_boundary) {
 		}
 	}
 
-	Output(outBitFilePtr, previousStr);	// Output the last unencoded character(s)
+	//Output(outBitFilePtr, previousStr);	
+	// Output the last unencoded character(s)
+	outputfile[output_flag++] = previousStr;
+    
+	return output_flag;
+
+
+
 }
 

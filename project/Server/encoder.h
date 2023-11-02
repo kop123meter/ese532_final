@@ -9,5 +9,6 @@
 #define TARGET 0
 #define MODULUS 256
 
+#include "LZW.h"
 
 #endif

@@ -23,8 +23,6 @@
 int offset = 0;
 int chunk_number = 0;
 int chunk_boundary[1000];
-int ded_chunk_number = 0;
-int unique_chunk_number = 0;
 unsigned char* file;
 
 void handle_input(int argc, char* argv[], int* blocksize) {
@@ -72,17 +70,17 @@ void cdc(unsigned char *buff, unsigned int buff_size)
 void SHA256(unsigned char *buffer, uint64_t * hash_table)
 {
 	// hash now contains the SHA-256 hash of buffer
-	uint64_t modulous = pow(2,64);
+	uint64_t modulous = pow(2,32);
 	int start_point = 0;
 	int end_point = chunk_boundary[0];
 	for(int chunk = 0; chunk < chunk_number;chunk++){
-	int length = end_point - start_point;
-	uint64_t hash = 0;
-	uint64_t temp = 0;
-	for(int i = 0;i<length;i++){
-		temp = (uint64_t)buffer[start_point+i];
-		hash = hash + temp;
-	}
+		int length = end_point - start_point;
+		uint64_t hash = 0;
+		uint64_t temp = 0;
+		for(int i = 0;i<length;i++){
+			temp = (uint64_t)buffer[start_point+i];
+			hash = hash + temp;
+		}
 	hash_table[chunk] = hash % modulous;
 	start_point = end_point;
 	end_point = chunk_boundary[chunk+1];
@@ -90,11 +88,13 @@ void SHA256(unsigned char *buffer, uint64_t * hash_table)
 	
 }
 
-void hashing_deduplication(uint64_t * hash_table,uint64_t * dedup_chunk,uint64_t * unique_chunk){
-	ded_chunk_number = 0;
-	unique_chunk_number = 0;
+void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned char * output){
+	int start = 0;
+	int end = chunk_boundary[0];
+	int offset = 0;
 	for(int i = 0;i<chunk_number;i++){
 		int flag = 0;
+		int chunk_size = end - start;
 		for(int j = 0;j<i;j++){
 			if(hash_table[i] == hash_table[j] && i != j){
 				flag = 1;
@@ -102,11 +102,17 @@ void hashing_deduplication(uint64_t * hash_table,uint64_t * dedup_chunk,uint64_t
 			}
 		}
 		if(flag == 0){
-			unique_chunk[unique_chunk_number++] = i;
+			//unique_chunk[unique_chunk_number++] = i;
+			memcpy(&output[offset],&input[start],chunk_size);
+			offset = offset + chunk_size;
+
 		}
 		else if(flag == 1){
-			dedup_chunk[ded_chunk_number++] = i;
+			//dedup_chunk[ded_chunk_number++] = i;
+			offset = LzwEncoding(output,input,start,end,offset);
 		}
+		start = end;
+		end = chunk_boundary[i+1];
 	}
 }
 
@@ -162,16 +168,14 @@ int main(int argc, char* argv[]) {
 	// we are just memcpy'ing here, but you should call your
 	// top function here.
 
-
+    
 	chunk_number = 0; // initialize chunk number
 	cdc(&buffer[HEADER], length);
 	uint64_t hash_table[chunk_number];
-	uint64_t dedup_chunk[chunk_number];
-	uint64_t unique_chunk[chunk_number];
 	SHA256(&buffer[HEADER],hash_table);
-	hashing_deduplication(hash_table,dedup_chunk,unique_chunk);
+	hashing_deduplication(hash_table,&buffer[HEADER],&file[offset]);
 
-	memcpy(&file[offset], &buffer[HEADER], length);
+	//memcpy(&file[offset], &buffer[HEADER], length);
 
 	offset += length;
 	writer++;
@@ -197,7 +201,14 @@ int main(int argc, char* argv[]) {
 		length = buffer[0] | (buffer[1] << 8);
 		length &= ~DONE_BIT_H;
 		//printf("length: %d offset %d\n",length,offset);
-		memcpy(&file[offset], &buffer[HEADER], length);
+		chunk_number = 0; // initialize chunk number
+		cdc(&buffer[HEADER], length);
+		uint64_t hash_table_temp[chunk_number];
+		SHA256(&buffer[HEADER],hash_table_temp);
+		hashing_deduplication(hash_table_temp,&buffer[HEADER],&file[offset]);
+
+
+		//memcpy(&file[offset], &buffer[HEADER], length);
 
 		offset += length;
 		writer++;

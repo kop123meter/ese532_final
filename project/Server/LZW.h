@@ -13,6 +13,6 @@ extern int nextNodeIdx;    // Index of next node (i.e. next dictionary entry)
 extern int decStack[DICT_CAPACITY]; // Stack for decoding a phrase
 
 /* Functions */
-void LzwEncoding();
+int LzwEncoding(unsigned char * outputfile,unsigned char * inputfile,int chunk_start,int chunk_end,int offset);
 
 //void LzwDecoding();
