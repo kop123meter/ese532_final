@@ -27,16 +27,16 @@ ChunkMatching(input_packet;Boundaries_Array[];UniqueChunks_Boundries[];Duplicate
 
   }
 }
-LZW(input_packet;UniqueChunks_Boundaries[];Deduplicated_uniquechunks[]){
+LZW(input_packet;UniqueChunks_Boundaries[];Deduplicated_Uniquechunks[]){
 // output deduplicated unique chunks
 // input1: input_packet
 // input2: UniqueChunks_Boundaries[]:indicates the boundaries of unique chunks
-// output: Deduplicated_uniquechunks[]: Deduplicated version of uniquechunks
+// output: Deduplicated_Uniquechunks[]: Deduplicated version of uniquechunks
 }
-Output_Function(UniqueChunks_Boundaries[];Deduplicated_uniquechunks[];DuplicatedChunks_Info[];output_packet){
+Output_Function(UniqueChunks_Boundaries[];Deduplicated_Uniquechunks[];DuplicatedChunks_Info[];output_packet){
   // base on deduplicated unique chunks, and duplicated chunks' info generate output_packet
   // input 1: UniqueChunks_Boundaries[]:indicates the boundaries of unique chunks
-  // input 2: Deduplicated_uniquechunks[]: Deduplicated version of uniquechunks
+  // input 2: Deduplicated_Uniquechunks[]: Deduplicated version of uniquechunks
   // input 3: DuplicatedChunks:Info[] : indicates the duplicated chunks' information, 
   //         including its boundaries & indicate the position of the same unique chunk.
   // output: output_packet: deduplicated version of input_packet
