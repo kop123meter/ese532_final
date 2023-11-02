@@ -1,6 +1,6 @@
 main(input_packet){
 CDC(input_packet;Boundaries_Array[]){
-// calculatw hash value of windows, output the position of doundaries
+// calculate hash value of windows, output the position of doundaries
 // input: input_packet
 // output: Boundaries_Array: contains the position of doundaries
 }
