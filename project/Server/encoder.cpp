@@ -103,13 +103,14 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 		}
 		if(flag == 0){
 			//unique_chunk[unique_chunk_number++] = i;
-			memcpy(&output[offset],&input[start],chunk_size);
-			offset = offset + chunk_size;
+			offset = LzwEncoding(output,input,start,end,offset);
 
 		}
 		else if(flag == 1){
 			//dedup_chunk[ded_chunk_number++] = i;
-			offset = LzwEncoding(output,input,start,end,offset);
+			memcpy(&output[offset],&input[start],chunk_size);
+			offset = offset + chunk_size;
+			flag = 0;
 		}
 		start = end;
 		end = chunk_boundary[i+1];
