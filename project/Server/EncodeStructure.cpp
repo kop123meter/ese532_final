@@ -20,7 +20,7 @@ ChunkMatching(input_packet;Boundaries_Array[];UniqueChunks_Boundries[];Duplicate
   // output: Hash_Array[]: indicates the hash value of each chunk 
   }
   ChunkDuplicationDetect(Boundaries_Array[];Hash_Array[];UniqueChunks_Boundaries[];DuplicatedChunks_Info[]){
-  //check duplication in Hash_Array,recor duplicated chunks info and unique chunks boundaries
+  //check duplication in Hash_Array,record duplicated chunks info and unique chunks boundaries
   // output: UniqueChunks_Boundaries[] : indicates the boundaries of unique chunks
   // output: DuplicatedChunks:Info[] : indicates the duplicated chunks' information, 
   //         including its boundaries & indicate the position of the same unique chunk.
