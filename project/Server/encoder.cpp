@@ -115,10 +115,16 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 		}
 		else if(flag == 1){
 			//dedup_chunk[ded_chunk_number++] = i;
+			/*
 			lzw_header[0] = chunk_index << 1 || 1;
 			lzw_header[1] = chunk_index >> 7;
 			lzw_header[2] = chunk_index >> 15;
 			lzw_header[3] = chunk_index >> 23;
+			*/
+			lzw_header[3] = chunk_index << 1 || 1;
+			lzw_header[2] = chunk_index >> 7;
+			lzw_header[1] = chunk_index >> 15;
+			lzw_header[0] = chunk_index >> 23;
 			memcpy(&output[offset],&lzw_header, 4);
 			offset = offset + 4;
 			flag = 0;
