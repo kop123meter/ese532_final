@@ -15,6 +15,7 @@
 #include <math.h>
 #include "stopwatch.h"
 #include "LZW.h"
+#include "LZW_new.h"
 
 #define NUM_PACKETS 8
 #define pipe_depth 4
@@ -89,10 +90,11 @@ void SHA256(unsigned char *buffer, uint64_t * hash_table)
 	
 }
 
+
+
 void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned char * output){
 	int start = 0;
 	int end = chunk_boundary[0];
-	int offset = 0;
 	uint32_t chunk_index = 0;
 	unsigned char *lzw_header = (unsigned char*)malloc(4 * sizeof(unsigned char));
 	for(int i = 0;i<chunk_number;i++){
@@ -107,26 +109,33 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 		}
 		if(flag == 0){
 			//unique_chunk[unique_chunk_number++] = i;
+			int input_size = end - start;
 			unsigned char *output_temp = (unsigned char*) malloc(sizeof(unsigned char) * 8192);
-			offset = LzwEncoding(output_temp,input,start,end,offset);
-			//lzw_header[0] = 
-			// TODO: need to send lzw header + output_temp
+			unsigned char *input_chunk = (unsigned char*) malloc(sizeof(unsigned char) * input_size);
+			memcpy(&input_chunk[0],&input[start],input_size);
+			int * size = (int *)malloc(sizeof(int)*1);
+			hardware_encoding(input_chunk,output_temp,size,input_size);
+			lzw_header[3] = size[0] << 1;
+			lzw_header[2] = size[0] >> 7;
+			lzw_header[1] = size[0] >> 15;
+			lzw_header[0] = size[0] >> 23;
+			memcpy(&output[offset],&lzw_header, 4);
+			offset  = offset  + 4;
+			memcpy(&output[offset], output_temp, size[0]);
+			offset  = offset  + size[0];
+			free(size);
+			free(input_chunk);
+			free(output_temp);
 
 		}
 		else if(flag == 1){
 			//dedup_chunk[ded_chunk_number++] = i;
-			/*
-			lzw_header[0] = chunk_index << 1 || 1;
-			lzw_header[1] = chunk_index >> 7;
-			lzw_header[2] = chunk_index >> 15;
-			lzw_header[3] = chunk_index >> 23;
-			*/
 			lzw_header[3] = chunk_index << 1 || 1;
 			lzw_header[2] = chunk_index >> 7;
 			lzw_header[1] = chunk_index >> 15;
 			lzw_header[0] = chunk_index >> 23;
 			memcpy(&output[offset],&lzw_header, 4);
-			offset = offset + 4;
+			offset  = offset  + 4;
 			flag = 0;
 		}
 		start = end;
@@ -194,9 +203,9 @@ int main(int argc, char* argv[]) {
 	SHA256(&buffer[HEADER],hash_table);
 	hashing_deduplication(hash_table,&buffer[HEADER],&file[offset]);
 
-	//memcpy(&file[offset], &buffer[HEADER], length);
 
-	offset += length;
+	//memcpy(&file[offset], &buffer[HEADER], length);
+	//offset += length;
 	writer++;
 
 	//last message
@@ -229,7 +238,6 @@ int main(int argc, char* argv[]) {
 
 		//memcpy(&file[offset], &buffer[HEADER], length);
 
-		offset += length;
 		writer++;
 	}
 
