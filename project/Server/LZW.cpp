@@ -75,7 +75,7 @@ int LzwEncoding(unsigned char * outputfile,unsigned char * inputfile,int chunk_s
 
 	/* Get the Chunk Size */
 	int size = chunk_end - chunk_start;
-	int flag = HEADER;
+	int flag = 0;
 	int output_flag = offset;
 
 
@@ -96,7 +96,7 @@ int LzwEncoding(unsigned char * outputfile,unsigned char * inputfile,int chunk_s
 		} else {	/* PC isn't in the dictionary */
 			//Output(outBitFilePtr, previousStr);	
 			// Output P
-			outputfile[output_flag++] = previousStr;
+			
 
 			if (nextNodeIdx < DICT_CAPACITY) {	/* Enough space to add PC into the dictionary */
 				NewDictEntry(previousStr, currentChar);

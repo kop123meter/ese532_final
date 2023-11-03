@@ -93,29 +93,40 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 	int start = 0;
 	int end = chunk_boundary[0];
 	int offset = 0;
+	uint32_t chunk_index = 0;
+	unsigned char *lzw_header = (unsigned char*)malloc(4 * sizeof(unsigned char));
 	for(int i = 0;i<chunk_number;i++){
 		int flag = 0;
 		int chunk_size = end - start;
 		for(int j = 0;j<i;j++){
-			if(hash_table[i] == hash_table[j] && i != j){
+			if((hash_table[i] == hash_table[j] )&& (i != j)){
 				flag = 1;
+				chunk_index = i;
 				break;
 			}
 		}
 		if(flag == 0){
 			//unique_chunk[unique_chunk_number++] = i;
-			offset = LzwEncoding(output,input,start,end,offset);
+			unsigned char *output_temp = (unsigned char*) malloc(sizeof(unsigned char) * 8192);
+			offset = LzwEncoding(output_temp,input,start,end,offset);
+			//lzw_header[0] = 
+			// TODO: need to send lzw header + output_temp
 
 		}
 		else if(flag == 1){
 			//dedup_chunk[ded_chunk_number++] = i;
-			memcpy(&output[offset],&input[start],chunk_size);
-			offset = offset + chunk_size;
+			lzw_header[0] = chunk_index << 1 || 1;
+			lzw_header[1] = chunk_index >> 7;
+			lzw_header[2] = chunk_index >> 15;
+			lzw_header[3] = chunk_index >> 23;
+			memcpy(&output[offset],&lzw_header, 4);
+			offset = offset + 4;
 			flag = 0;
 		}
 		start = end;
 		end = chunk_boundary[i+1];
 	}
+	free(lzw_header);
 }
 
 

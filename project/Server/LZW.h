@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 #define DICT_CAPACITY 65535   // Capacity of the dictionary
-#define HEADER 2
 
 /* Global variables */
 struct{
