@@ -25,10 +25,10 @@ static int Read_code(void)
   {
     if (Input_position % 8 == 0){
       Byte = Input.get();
-      std::cout << "Byte: "<< Byte<<std::endl;
+      //std::cout << "Byte: "<< Byte<<std::endl;
     }
     Code = (Code << 1) | ((Byte >> (7 - Input_position % 8)) & 1);
-    std::cout << "Code: "<< Code <<std::endl;
+    //std::cout << "Code: "<< Code <<std::endl;
     Input_position++;
   }
   return Code;
