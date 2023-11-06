@@ -61,25 +61,30 @@ static const std::string Decompress(size_t Size)
 
 int main(int Parameter_count, char * Parameters[])
 {
+  /*
   if (Parameter_count < 3)
   {
     std::cout << "Usage: " << Parameters[0] << " <Compressed file> <Decompressed file>\n";
     return EXIT_SUCCESS;
   }
+  */
 
-  Input.open(Parameters[1], std::ios::binary);
+  //Input.open(Parameters[1], std::ios::binary);
+  Input.open("./output_cpu.bin", std::ios::binary);
   if (!Input.good())
   {
     std::cerr << "Could not open input file.\n";
     return EXIT_FAILURE;
   }
-
-  std::ofstream Output(Parameters[2], std::ios::binary);
+  std::cout<<"Open input file!"<<std::endl;
+  //std::ofstream Output(Parameters[2], std::ios::binary);
+  std::ofstream Output("./new_out.txt", std::ios::binary);
   if (!Output.good())
   {
     std::cerr << "Could not open output file.\n";
     return EXIT_FAILURE;
   }
+   std::cout<<"Open Output file!"<<std::endl;
 
   chunk_list Chunks;
   int i = 0;
@@ -87,12 +92,14 @@ int main(int Parameter_count, char * Parameters[])
   {
     uint32_t Header;
     Input.read((char *) &Header, sizeof(int32_t));
+    std::cout<<"Header   "<<Header<<std::endl;
     if (Input.eof())
       break;
 
     if ((Header & 1) == 0)
     {
       int Chunk_size = Header >> 1;
+      std::cout<<"Chunk Size   "<< Chunk_size <<std::endl;
       const std::string & Chunk = Decompress(Chunk_size);
       Chunks.push_back(Chunk);
       std::cout << "Decompressed chunk of size " << Chunk.length() << ".\n";

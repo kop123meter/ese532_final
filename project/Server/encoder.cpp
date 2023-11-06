@@ -43,7 +43,7 @@ void handle_input(int argc, char* argv[], int* blocksize) {
 		}
 	}
 }
-// placeholder hash function
+// placeholder hash function for cdc
 uint64_t hash_func(unsigned char *input, unsigned int pos)
 {
         uint64_t hash = 0;
@@ -67,7 +67,7 @@ void cdc(unsigned char *buff, unsigned int buff_size)
     }
 }
 
-// placeholder hash function
+// placeholder SHA function
 
 void SHA256(unsigned char *buffer, uint64_t * hash_table)
 {
@@ -119,6 +119,7 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 			lzw_header[2] = size[0] >> 7;
 			lzw_header[1] = size[0] >> 15;
 			lzw_header[0] = size[0] >> 23;
+			std::cout << "size "<< size[0] << std::endl;
 			memcpy(&output[offset],&lzw_header, 4);
 			offset  = offset  + 4;
 			memcpy(&output[offset], output_temp, size[0]);
@@ -199,6 +200,13 @@ int main(int argc, char* argv[]) {
     
 	chunk_number = 0; // initialize chunk number
 	cdc(&buffer[HEADER], length);
+
+	std::cout << "Print Chunk_boundary" << std::endl;
+	for(int i = 0; i < chunk_number; i++){
+		std::cout<< chunk_boundary[i] << std::endl;
+	}
+	std::cout << "Print sizes" << std::endl;
+
 	uint64_t hash_table[chunk_number];
 	SHA256(&buffer[HEADER],hash_table);
 	hashing_deduplication(hash_table,&buffer[HEADER],&file[offset]);
