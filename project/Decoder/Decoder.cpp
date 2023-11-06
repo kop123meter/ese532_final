@@ -92,12 +92,14 @@ int main(int Parameter_count, char * Parameters[])
   {
     uint32_t Header;
     Input.read((char *) &Header, sizeof(int32_t));
+    std::cout<<"Header   "<<Header<<std::endl;
     if (Input.eof())
       break;
 
     if ((Header & 1) == 0)
     {
       int Chunk_size = Header >> 1;
+      std::cout<<"Chunk Size   "<<Chunk_size<<std::endl;
       const std::string & Chunk = Decompress(Chunk_size);
       Chunks.push_back(Chunk);
       std::cout << "Decompressed chunk of size " << Chunk.length() << ".\n";
