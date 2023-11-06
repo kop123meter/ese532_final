@@ -122,7 +122,7 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 			
 			memcpy(&output[offset],&lzw_header[0], 4);
 			offset  = offset  + 4;
-			memcpy(&output[offset], output_temp, size[0]);
+			memcpy(&output[offset], &output_temp[0], size[0]);
 			offset  = offset  + size[0];
 			free(size);
 			free(input_chunk);
