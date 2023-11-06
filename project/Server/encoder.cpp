@@ -115,10 +115,10 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 			memcpy(&input_chunk[0],&input[start],input_size);
 			int * size = (int *)malloc(sizeof(int)*1);
 			hardware_encoding(input_chunk,output_temp,size,input_size);
-			lzw_header[3] = size[0] << 1;
-			lzw_header[2] = size[0] >> 7;
-			lzw_header[1] = size[0] >> 15;
-			lzw_header[0] = size[0] >> 23;
+			lzw_header[0] = size[0] << 1;
+			lzw_header[1] = size[0] >> 7;
+			lzw_header[2] = size[0] >> 15;
+			lzw_header[3] = size[0] >> 23;
 			std::cout << "size "<< size[0] << std::endl;
 			memcpy(&output[offset],&lzw_header, 4);
 			offset  = offset  + 4;
@@ -131,10 +131,10 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 		}
 		else if(flag == 1){
 			//dedup_chunk[ded_chunk_number++] = i;
-			lzw_header[3] = chunk_index << 1 || 1;
-			lzw_header[2] = chunk_index >> 7;
-			lzw_header[1] = chunk_index >> 15;
-			lzw_header[0] = chunk_index >> 23;
+			lzw_header[0] = chunk_index << 1 || 1;
+			lzw_header[1] = chunk_index >> 7;
+			lzw_header[2] = chunk_index >> 15;
+			lzw_header[3] = chunk_index >> 23;
 			memcpy(&output[offset],&lzw_header, 4);
 			offset  = offset  + 4;
 			flag = 0;
