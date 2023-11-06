@@ -43,7 +43,7 @@ void handle_input(int argc, char* argv[], int* blocksize) {
 		}
 	}
 }
-// placeholder hash function
+// placeholder hash function for cdc
 uint64_t hash_func(unsigned char *input, unsigned int pos)
 {
         uint64_t hash = 0;
@@ -67,7 +67,7 @@ void cdc(unsigned char *buff, unsigned int buff_size)
     }
 }
 
-// placeholder hash function
+// placeholder SHA function
 
 void SHA256(unsigned char *buffer, uint64_t * hash_table)
 {
