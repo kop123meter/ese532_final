@@ -178,6 +178,8 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * size,int 
     assoc_mem my_assoc_mem;
     int output_pos = 0;
     size[0] = 0;
+    output_char = 0;
+    output_bit = 0;
 
     // make sure the memories are clear
     for(int i = 0; i < CAPACITY; i++)

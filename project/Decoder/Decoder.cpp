@@ -108,6 +108,13 @@ int main(int Parameter_count, char * Parameters[])
       Chunks.push_back(Chunk);
       std::cout << "Decompressed chunk of size " << Chunk.length() << ".\n";
       Output.write(&Chunk[0], Chunk.length());
+      
+      // Test output file
+      FILE *outfd = fopen("output_cpu.bin", "wb");
+	    int bytes_written = fwrite(&Chunk[0], 1, Chunk.length(), outfd);
+	    printf("write file with %d\n", bytes_written);
+	    fclose(outfd);
+
     }
     else
     {
