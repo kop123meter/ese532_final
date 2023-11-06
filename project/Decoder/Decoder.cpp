@@ -23,9 +23,12 @@ static int Read_code(void)
   int Length = CODE_LENGTH;
   for (int i = 0; i < Length; i++)
   {
-    if (Input_position % 8 == 0)
+    if (Input_position % 8 == 0){
       Byte = Input.get();
+      std::cout << "Byte: "<< Byte<<std::endl;
+    }
     Code = (Code << 1) | ((Byte >> (7 - Input_position % 8)) & 1);
+    std::cout << "Code: "<< Code <<std::endl;
     Input_position++;
   }
   return Code;
@@ -42,6 +45,7 @@ static const std::string Decompress(size_t Size)
   int Old = Read_code();
   std::string Symbol(1, Old);
   std::string Output = Symbol;
+  std::cout << "Symbol:  "<<Symbol << std::endl;
   while (Input_position / 8 < Size - 1)
   {
     int New = Read_code();
