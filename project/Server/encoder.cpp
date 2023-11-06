@@ -10,7 +10,6 @@
 #include <fcntl.h>
 #include <pthread.h>
 #include <errno.h>
-#include <fcntl.h>
 #include <sys/mman.h>
 #include <math.h>
 #include "stopwatch.h"
@@ -120,7 +119,8 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 			lzw_header[2] = size[0] >> 15;
 			lzw_header[3] = size[0] >> 23;
 			std::cout << "size "<< size[0] << std::endl;
-			memcpy(&output[offset],&lzw_header, 4);
+			
+			memcpy(&output[offset],&lzw_header[0], 4);
 			offset  = offset  + 4;
 			memcpy(&output[offset], output_temp, size[0]);
 			offset  = offset  + size[0];
@@ -135,7 +135,7 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 			lzw_header[1] = chunk_index >> 7;
 			lzw_header[2] = chunk_index >> 15;
 			lzw_header[3] = chunk_index >> 23;
-			memcpy(&output[offset],&lzw_header, 4);
+			memcpy(&output[offset],&lzw_header[0], 4);
 			offset  = offset  + 4;
 			flag = 0;
 		}
