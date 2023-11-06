@@ -196,9 +196,9 @@ int main(int argc, char* argv[]) {
 
 	// we are just memcpy'ing here, but you should call your
 	// top function here.
-	unsigned char test[] = {0x01, 0x02, 0x03, 0x04};
-	memcpy(&file[offset],&test, 4);
-	offset += 4;
+	// unsigned char test[] = {0x01, 0x02, 0x03, 0x04};
+	// memcpy(&file[offset],&test, 4);
+	// offset += 4;
 
 	chunk_number = 0; // initialize chunk number
 	cdc(&buffer[HEADER], length);
