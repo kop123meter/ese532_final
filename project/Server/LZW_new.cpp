@@ -208,7 +208,7 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * size,int 
     {
         if(i + 1 == len)
         {
-            // std::cout << prefix_code;
+            std::cout << i<<"Prefix_code:   "<<prefix_code<<std::endl;
             // std::cout << "\n";
             output[output_pos] = prefix_code;
             output_pos++;
@@ -223,6 +223,7 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * size,int 
         lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
         if(!hit)
         {
+            std::cout <<i<< "Prefix_code:   "<<prefix_code<<std::endl;
             // std::cout << prefix_code;
             // std::cout << "\n";
             output[output_pos] = prefix_code;
