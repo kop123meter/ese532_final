@@ -8,6 +8,8 @@
 // try  uncommenting the line above and commenting line 6 to make the hash table smaller 
 // and see what happens to the number of entries in the assoc mem 
 // (make sure to also comment line 27 and uncomment line 28)
+static unsigned char output_char = 0;
+static int output_bit = 0;
 
 unsigned int my_hash(unsigned long key)
 {
@@ -208,8 +210,23 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * size,int 
     {
         if(i + 1 == len)
         {
-            std::cout << i<<"Prefix_code:   "<<prefix_code<<std::endl;
-            // std::cout << "\n";
+            // transfer
+            for(int x = 12; x >= 0; x--){
+                output_char = (output_char << 1) | (prefix_code >> (x) & 0x1);
+                output_bit++;
+                if(output_bit % 8 == 0){
+                    output[output_pos++] = output_char;
+                    output_char = 0;
+                    size[0]++;
+                }
+            }
+            if(output_bit % 8 != 0){
+                output_char = output_char << (8 - (output_bit % 8));
+                output[output_pos++] = output_char;
+                output_char = 0;
+                size[0]++;
+            }
+            // end
             output[output_pos] = prefix_code;
             output_pos++;
             size[0]++;
@@ -223,12 +240,17 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * size,int 
         lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
         if(!hit)
         {
-            std::cout <<i<< "Prefix_code:   "<<prefix_code<<std::endl;
-            // std::cout << prefix_code;
-            // std::cout << "\n";
-            output[output_pos] = prefix_code;
-            output_pos++;
-            size[0]++;
+            // transfer
+            for(int x = 12; x >= 0; x--){
+                output_char = (output_char << 1) | (prefix_code >> (x) & 0x1);
+                output_bit++;
+                if(output_bit % 8 == 0){
+                    output[output_pos++] = output_char;
+                    output_char = 0;
+                    size[0]++;
+                }
+            }
+            // end
             
 
 
