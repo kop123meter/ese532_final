@@ -208,8 +208,8 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * size,int 
     {
         if(i + 1 == len)
         {
-            std::cout << prefix_code;
-            std::cout << "\n";
+            // std::cout << prefix_code;
+            // std::cout << "\n";
             output[output_pos] = prefix_code;
             output_pos++;
             size[0]++;
@@ -223,8 +223,8 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * size,int 
         lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
         if(!hit)
         {
-            std::cout << prefix_code;
-            std::cout << "\n";
+            // std::cout << prefix_code;
+            // std::cout << "\n";
             output[output_pos] = prefix_code;
             output_pos++;
             size[0]++;
@@ -249,7 +249,7 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * size,int 
         }
         i += 1;
     }
-    std::cout << std::endl << "assoc mem entry count: " << my_assoc_mem.fill << std::endl;
+   // std::cout << std::endl << "assoc mem entry count: " << my_assoc_mem.fill << std::endl;
 }
 //****************************************************************************************************************
 std::vector<int> encoding(std::string s1)

@@ -119,7 +119,7 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 			lzw_header[2] = size[0] >> 7;
 			lzw_header[1] = size[0] >> 15;
 			lzw_header[0] = size[0] >> 23;
-			std::cout << "size "<< size << std::endl;
+			std::cout << "size "<< size[0] << std::endl;
 			memcpy(&output[offset],&lzw_header, 4);
 			offset  = offset  + 4;
 			memcpy(&output[offset], output_temp, size[0]);
