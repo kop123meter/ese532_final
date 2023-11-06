@@ -110,7 +110,7 @@ int main(int Parameter_count, char * Parameters[])
       Output.write(&Chunk[0], Chunk.length());
       
       // Test output file
-      FILE *outfd = fopen("output_cpu.bin", "wb");
+      FILE *outfd = fopen("output.txt", "wb");
 	    int bytes_written = fwrite(&Chunk[0], 1, Chunk.length(), outfd);
 	    printf("write file with %d\n", bytes_written);
 	    fclose(outfd);
