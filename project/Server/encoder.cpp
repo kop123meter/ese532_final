@@ -119,6 +119,7 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 			lzw_header[2] = size[0] >> 15;
 			lzw_header[3] = size[0] >> 23;
 			std::cout << "size "<< size[0] << std::endl;
+			std::cout << "Header "<< lzw_header << std::endl;
 			
 			memcpy(&output[offset],&lzw_header[0], 4);
 			offset  = offset  + 4;
@@ -229,6 +230,7 @@ int main(int argc, char* argv[]) {
 	std::cout<<offset<<std::endl;
 	std::cout<<"************"<<std::endl;
 	//last message
+	std::cout<<"************Second Packet***********"<<std::endl;
 	while (!done) {
 		// reset ring buffer
 		if (writer == NUM_PACKETS) {
@@ -243,11 +245,6 @@ int main(int argc, char* argv[]) {
 
 		// get packet
 		unsigned char* buffer = input[writer];
-		std::cout << std::endl;
-		std::cout<<buffer<<std::endl;
-		std::cout << std::endl;
-		std::cout << std::endl;
-
 		// decode
 		done = buffer[1] & DONE_BIT_L;
 		length = buffer[0] | (buffer[1] << 8);
