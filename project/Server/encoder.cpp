@@ -184,7 +184,7 @@ int main(int argc, char* argv[]) {
 	server.setup_server(blocksize);
 
 	writer = pipe_depth;
-	/*
+	
 	server.get_packet(input[writer]);
 
 	// get packet
@@ -201,7 +201,7 @@ int main(int argc, char* argv[]) {
 	SHA256(&buffer[HEADER],hash_table);
 	hashing_deduplication(hash_table,&buffer[HEADER],&file[offset]);
 	writer++;
-	*/
+	
 	while (!done) {
 		// reset ring buffer
 		if (writer == NUM_PACKETS) {
