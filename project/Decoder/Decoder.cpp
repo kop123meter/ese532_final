@@ -111,6 +111,9 @@ int main(int Parameter_count, char * Parameters[])
       if (!Output.write(&Chunk[0],Chunk.length())) {
      std::cerr << "Failed to write to the file.\n";
 }
+else{
+  std::cout<<"OK!"<<std::endl;
+}
       
       // Test output file
       // FILE *outfd = fopen("output.txt", "wb");
