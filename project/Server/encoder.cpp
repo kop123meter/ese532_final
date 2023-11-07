@@ -255,6 +255,10 @@ int main(int argc, char* argv[]) {
 		cdc(&buffer[HEADER], length);
 		uint64_t hash_table_temp[chunk_number];
 		SHA256(&buffer[HEADER],hash_table_temp);
+		std::cout << "Hash_table_temp***********************" << std::endl;
+		for(int i = 0; i < chunk_number; i++){
+			std::cout << hash_table_temp[i] << std::endl;
+		}
 		hashing_deduplication(hash_table_temp,&buffer[HEADER],&file[offset]);
 
 
