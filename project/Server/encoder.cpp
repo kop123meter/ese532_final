@@ -96,7 +96,7 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 	int end = chunk_boundary[0];
 	uint32_t chunk_index = 0;
 	unsigned char *lzw_header = (unsigned char*)malloc(4 * sizeof(unsigned char));
-	for(int i = 0;i<chunk_number;i++){
+	for(int i = 0;i < chunk_number;i++){
 		int flag = 0;
 		int chunk_size = end - start;
 		for(int j = 0; j < i;j++){
@@ -130,6 +130,8 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 
 		}
 		else if(flag == 1){
+			std:cout<<"******Chunk Index********"<<std::endl;
+			std::cout << chunk_index << std::endl;
 			//dedup_chunk[ded_chunk_number++] = i;
 			lzw_header[0] = chunk_index << 1 || 0x1;
 			lzw_header[1] = chunk_index >> 7;
