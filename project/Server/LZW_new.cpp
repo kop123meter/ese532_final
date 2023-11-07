@@ -171,13 +171,13 @@ void lookup(unsigned long* hash_table, assoc_mem* mem, unsigned int key, bool* h
     }
 }
 //****************************************************************************************************************
-void hardware_encoding(unsigned char * s1,unsigned char * output,int * size,int len)
+void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int len)
 {
     // create hash table and assoc mem
     unsigned long hash_table[CAPACITY];
     assoc_mem my_assoc_mem;
     int output_pos = 0;
-    size[0] = 0;
+    size = 0;
     output_char = 0;
     output_bit = 0;
 
@@ -219,14 +219,14 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * size,int 
                 if(output_bit % 8 == 0){
                     output[output_pos++] = output_char;
                     output_char = 0;
-                    size[0]++;
+                    size++;
                 }
             }
             if(output_bit % 8 != 0){
                 output_char = output_char << (8 - (output_bit % 8));
                 output[output_pos++] = output_char;
                 output_char = 0;
-                size[0]++;
+                size++;
             }
             // end
             // output[output_pos] = prefix_code;
@@ -248,7 +248,7 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * size,int 
                 if(output_bit % 8 == 0){
                     output[output_pos++] = output_char;
                     output_char = 0;
-                    size[0]++;
+                    size++;
                 }
             }
             // end
