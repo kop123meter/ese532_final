@@ -130,7 +130,7 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 
 		}
 		else if(flag == 1){
-			std:cout<<"******Chunk Index********"<<std::endl;
+			std::cout<<"******Chunk Index********"<<std::endl;
 			std::cout << chunk_index << std::endl;
 			//dedup_chunk[ded_chunk_number++] = i;
 			lzw_header[0] = chunk_index << 1 || 0x1;
