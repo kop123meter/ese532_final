@@ -99,10 +99,10 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 	for(int i = 0;i<chunk_number;i++){
 		int flag = 0;
 		int chunk_size = end - start;
-		for(int j = 0;j<i;j++){
-			if((hash_table[i] == hash_table[j] )&& (i != j)){
+		for(int j = 0; j < i;j++){
+			if((hash_table[i] == hash_table[j]) && (i != j)){
 				flag = 1;
-				chunk_index = i;
+				chunk_index = j;
 				break;
 			}
 		}
