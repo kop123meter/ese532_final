@@ -191,6 +191,7 @@ int main(int argc, char* argv[]) {
 			// unique chunk
 			int lzw_size = 0;
 			int input_size = end - start;
+			std::cout<<"input_size: "<<input_size<<std::endl;
 			memcpy(&input_temp[0],&buffer[start],input_size);
 			hardware_encoding(&input_temp[0],&output_temp[0],lzw_size,input_size);
 			getlzwheader(&lzw_header[0],lzw_size,0);
