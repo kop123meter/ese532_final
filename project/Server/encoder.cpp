@@ -130,7 +130,7 @@ int main(int argc, char* argv[]) {
 	int length = 0;
 	unsigned char* lzw_header = (unsigned char*)malloc(4 * sizeof(unsigned char));
 	unsigned char* output_temp = (unsigned char*)malloc(70000000 * sizeof(unsigned char));
-	
+	unsigned char* input_temp = (unsigned char*)malloc(70000000 * sizeof(unsigned char));
 
 	ESE532_Server server;
 
@@ -177,6 +177,8 @@ int main(int argc, char* argv[]) {
 
 	int flag = 0;
 	int chunk_index = 0;
+	int start = HEADER;
+	int end = chunk_boundary[0];
 	for(int i = 0 ; i < chunk_number ;i++){
 		hashing_deduplication(hash_table,i,flag,chunk_index);
 		if(flag == 1){
@@ -188,13 +190,17 @@ int main(int argc, char* argv[]) {
 		else{
 			// unique chunk
 			int lzw_size = 0;
-			hardware_encoding(&buffer[chunk_boundary[i]],&output_temp[0],lzw_size,chunk_boundary[i+1]-chunk_boundary[i]);
+			int input_size = end - start;
+			memcpy(&input_temp[0],&buffer[start],input_size);
+			hardware_encoding(&input_temp[0],&output_temp[0],lzw_size,input_size);
 			getlzwheader(&lzw_header[0],lzw_size,0);
 			memcpy(&file[offset], &lzw_header[0], 4);
 			offset += 4;
 			memcpy(&file[offset], &output_temp[0], lzw_size);
 			offset += lzw_size;
 		}
+		start = end;
+		end = chunk_boundary[i+1];
 	}
 
 
@@ -225,9 +231,11 @@ int main(int argc, char* argv[]) {
 		SHA256(&buffer[HEADER],hash_table_temp);
 
 		//deduplication
-		chunk_index = 0;
 		flag = 0;
-		for(int i = 0 ; i < chunk_number ;i++){
+		chunk_index = 0;
+		start = HEADER;
+		end = chunk_boundary[0];
+	for(int i = 0 ; i < chunk_number ;i++){
 		hashing_deduplication(hash_table,i,flag,chunk_index);
 		if(flag == 1){
 			getlzwheader(&lzw_header[0],chunk_index,1);
@@ -238,13 +246,17 @@ int main(int argc, char* argv[]) {
 		else{
 			// unique chunk
 			int lzw_size = 0;
-			hardware_encoding(&buffer[chunk_boundary[i]],&output_temp[0],lzw_size,chunk_boundary[i+1]-chunk_boundary[i]);
+			int input_size = end - start;
+			memcpy(&input_temp[0],&buffer[start],input_size);
+			hardware_encoding(&input_temp[0],&output_temp[0],lzw_size,input_size);
 			getlzwheader(&lzw_header[0],lzw_size,0);
 			memcpy(&file[offset], &lzw_header[0], 4);
 			offset += 4;
 			memcpy(&file[offset], &output_temp[0], lzw_size);
 			offset += lzw_size;
 		}
+		start = end;
+		end = chunk_boundary[i+1];
 	}
 
 
@@ -267,6 +279,7 @@ int main(int argc, char* argv[]) {
 	free(file);
 	free(lzw_header);
 	free(output_temp);
+	free(input_temp);
 	std::cout << "--------------- Key Throughputs ---------------" << std::endl;
 	float ethernet_latency = ethernet_timer.latency() / 1000.0;
 	float input_throughput = (bytes_written * 8 / 1000000.0) / ethernet_latency; // Mb/s
