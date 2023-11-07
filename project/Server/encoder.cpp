@@ -241,6 +241,10 @@ int main(int argc, char* argv[]) {
 
 		// get packet
 		unsigned char* buffer = input[writer];
+		std::cout << std::endl;
+		std::cout<<buffer<<std::endl;
+		std::cout << std::endl;
+		std::cout << std::endl;
 
 		// decode
 		done = buffer[1] & DONE_BIT_L;
