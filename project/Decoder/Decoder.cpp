@@ -23,12 +23,9 @@ static int Read_code(void)
   int Length = CODE_LENGTH;
   for (int i = 0; i < Length; i++)
   {
-    if (Input_position % 8 == 0){
+    if (Input_position % 8 == 0)
       Byte = Input.get();
-      //std::cout << "Byte: "<< Byte<<std::endl;
-    }
     Code = (Code << 1) | ((Byte >> (7 - Input_position % 8)) & 1);
-    //std::cout << "Code: "<< Code <<std::endl;
     Input_position++;
   }
   return Code;
@@ -45,7 +42,6 @@ static const std::string Decompress(size_t Size)
   int Old = Read_code();
   std::string Symbol(1, Old);
   std::string Output = Symbol;
-  std::cout << "Symbol:  "<<Symbol << std::endl;
   while (Input_position / 8 < Size - 1)
   {
     int New = Read_code();
@@ -65,30 +61,25 @@ static const std::string Decompress(size_t Size)
 
 int main(int Parameter_count, char * Parameters[])
 {
-  /*
   if (Parameter_count < 3)
   {
     std::cout << "Usage: " << Parameters[0] << " <Compressed file> <Decompressed file>\n";
     return EXIT_SUCCESS;
   }
-  */
 
-  //Input.open(Parameters[1], std::ios::binary);
-  Input.open("./output_cpu.bin", std::ios::binary);
+  Input.open(Parameters[1], std::ios::binary);
   if (!Input.good())
   {
     std::cerr << "Could not open input file.\n";
     return EXIT_FAILURE;
   }
-  std::cout<<"Open input file!"<<std::endl;
-  //std::ofstream Output(Parameters[2], std::ios::binary);
-  std::ofstream Output("./new_out.txt", std::ios::binary);
+
+  std::ofstream Output(Parameters[2], std::ios::binary);
   if (!Output.good())
   {
     std::cerr << "Could not open output file.\n";
     return EXIT_FAILURE;
   }
-   std::cout<<"Open Output file!"<<std::endl;
 
   chunk_list Chunks;
   int i = 0;
@@ -96,31 +87,16 @@ int main(int Parameter_count, char * Parameters[])
   {
     uint32_t Header;
     Input.read((char *) &Header, sizeof(int32_t));
-    std::cout<<"Header   "<<Header<<std::endl;
     if (Input.eof())
       break;
 
     if ((Header & 1) == 0)
     {
       int Chunk_size = Header >> 1;
-      std::cout<<"Chunk Size   "<< Chunk_size <<std::endl;
       const std::string & Chunk = Decompress(Chunk_size);
       Chunks.push_back(Chunk);
       std::cout << "Decompressed chunk of size " << Chunk.length() << ".\n";
-      //Output.write(&Chunk[0], Chunk.length());
-      if (!Output.write(&Chunk[0],Chunk.length())) {
-     std::cerr << "Failed to write to the file.\n";
-}
-else{
-  std::cout<<"OK!"<<std::endl;
-}
-      
-      // Test output file
-      // FILE *outfd = fopen("output.txt", "wb");
-	    // int bytes_written = fwrite(&Chunk[0], 1, Chunk.length(), outfd);
-	    // printf("write file with %d\n", bytes_written);
-	    // fclose(outfd);
-
+      Output.write(&Chunk[0], Chunk.length());
     }
     else
     {
@@ -128,7 +104,7 @@ else{
       if (Location<Chunks.size()) {  // defensive programming to avoid out-of-bounds reference
           const std::string & Chunk = Chunks[Location];
           std::cout << "Found chunk of size " << Chunk.length() << " in database.\n";
-          //Output.write(&Chunk[0], Chunk.length());
+          Output.write(&Chunk[0], Chunk.length());
 	  }
       else
       {
