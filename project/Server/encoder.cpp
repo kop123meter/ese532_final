@@ -225,7 +225,9 @@ int main(int argc, char* argv[]) {
 	//memcpy(&file[offset], &buffer[HEADER], length);
 	//offset += length;
 	writer++;
-
+    std::cout<<"****OFFSET*****"<<std::endl;
+	std::cout<<offset<<std::endl;
+	std::cout<<"************"<<std::endl;
 	//last message
 	while (!done) {
 		// reset ring buffer
@@ -260,6 +262,9 @@ int main(int argc, char* argv[]) {
 			std::cout << hash_table_temp[i] << std::endl;
 		}
 		hashing_deduplication(hash_table_temp,&buffer[HEADER],&file[offset]);
+		  std::cout<<"****OFFSET*****"<<std::endl;
+	std::cout<<offset<<std::endl;
+	std::cout<<"************"<<std::endl;
 
 
 		//memcpy(&file[offset], &buffer[HEADER], length);
