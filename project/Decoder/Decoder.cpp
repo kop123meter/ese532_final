@@ -128,7 +128,7 @@ else{
       if (Location<Chunks.size()) {  // defensive programming to avoid out-of-bounds reference
           const std::string & Chunk = Chunks[Location];
           std::cout << "Found chunk of size " << Chunk.length() << " in database.\n";
-          Output.write(&Chunk[0], Chunk.length());
+          //Output.write(&Chunk[0], Chunk.length());
 	  }
       else
       {
