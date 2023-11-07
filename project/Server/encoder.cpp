@@ -211,6 +211,12 @@ int main(int argc, char* argv[]) {
 
 	uint64_t hash_table[chunk_number];
 	SHA256(&buffer[HEADER],hash_table);
+	std::cout<<std::endl;
+	std::cout << "*********SHA value********"<<std::endl;
+	for(int i = 0;i<chunk_number;i++){
+		std::cout<<hash_table[i]<<std::endl;
+	}
+	std::cout << "***************************"<<std::endl;
 	hashing_deduplication(hash_table,&buffer[HEADER],&file[offset]);
 
 
