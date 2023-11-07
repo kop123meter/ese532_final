@@ -158,7 +158,7 @@ int main(int argc, char* argv[]) {
 	int writer = 0;
 	int done = 0;
 	int length = 0;
-	int count = 0;
+
 	ESE532_Server server;
 
 	// default is 2k
@@ -167,7 +167,7 @@ int main(int argc, char* argv[]) {
 	// set blocksize if decalred through command line
 	handle_input(argc, argv, &blocksize);
 
-	file = (unsigned char*) malloc(sizeof(unsigned char) * 700000000000000);
+	file = (unsigned char*) malloc(sizeof(unsigned char) *  70000000);
 	if (file == NULL) {
 		printf("help\n");
 	}
@@ -184,8 +184,8 @@ int main(int argc, char* argv[]) {
 	server.setup_server(blocksize);
 
 	writer = pipe_depth;
+	/*
 	server.get_packet(input[writer]);
-	count++;
 
 	// get packet
 	unsigned char* buffer = input[writer];
@@ -194,43 +194,14 @@ int main(int argc, char* argv[]) {
 	done = buffer[1] & DONE_BIT_L;
 	length = buffer[0] | (buffer[1] << 8);
 	length &= ~DONE_BIT_H;
-	// printing takes time so be weary of transfer rate
-	//printf("length: %d offset %d\n",length,offset);
-
-	// we are just memcpy'ing here, but you should call your
-	// top function here.
-	// unsigned char test[] = {0x01, 0x02, 0x03, 0x04};
-	// memcpy(&file[offset],&test, 4);
-	// offset += 4;
 
 	chunk_number = 0; // initialize chunk number
 	cdc(&buffer[HEADER], length);
-
-	std::cout << "Print Chunk_boundary" << std::endl;
-	for(int i = 0; i < chunk_number; i++){
-		std::cout<< chunk_boundary[i] << std::endl;
-	}
-	std::cout << "Print sizes" << std::endl;
-
 	uint64_t hash_table[chunk_number];
 	SHA256(&buffer[HEADER],hash_table);
-	std::cout<<std::endl;
-	std::cout << "*********SHA value********"<<std::endl;
-	for(int i = 0;i<chunk_number;i++){
-		std::cout<<hash_table[i]<<std::endl;
-	}
-	std::cout << "***************************"<<std::endl;
 	hashing_deduplication(hash_table,&buffer[HEADER],&file[offset]);
-
-
-	//memcpy(&file[offset], &buffer[HEADER], length);
-	//offset += length;
 	writer++;
-    std::cout<<"****OFFSET*****"<<std::endl;
-	std::cout<<offset<<std::endl;
-	std::cout<<"************"<<std::endl;
-	//last message
-	std::cout<<"************Second Packet***********"<<std::endl;
+	*/
 	while (!done) {
 		// reset ring buffer
 		if (writer == NUM_PACKETS) {
@@ -241,7 +212,6 @@ int main(int argc, char* argv[]) {
 		server.get_packet(input[writer]);
 		ethernet_timer.stop();
 
-		count++;
 
 		// get packet
 		unsigned char* buffer = input[writer];
@@ -249,19 +219,11 @@ int main(int argc, char* argv[]) {
 		done = buffer[1] & DONE_BIT_L;
 		length = buffer[0] | (buffer[1] << 8);
 		length &= ~DONE_BIT_H;
-		//printf("length: %d offset %d\n",length,offset);
 		chunk_number = 0; // initialize chunk number
 		cdc(&buffer[HEADER], length);
 		uint64_t hash_table_temp[chunk_number];
 		SHA256(&buffer[HEADER],hash_table_temp);
-		std::cout << "Hash_table_temp***********************" << std::endl;
-		for(int i = 0; i < chunk_number; i++){
-			std::cout << hash_table_temp[i] << std::endl;
-		}
 		hashing_deduplication(hash_table_temp,&buffer[HEADER],&file[offset]);
-		  std::cout<<"****OFFSET*****"<<std::endl;
-	std::cout<<offset<<std::endl;
-	std::cout<<"************"<<std::endl;
 
 
 		//memcpy(&file[offset], &buffer[HEADER], length);
