@@ -12,6 +12,7 @@
 #include <errno.h>
 #include <sys/mman.h>
 #include <math.h>
+#include <bitset>
 #include "stopwatch.h"
 #include "LZW.h"
 #include "LZW_new.h"
@@ -119,7 +120,7 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 			lzw_header[2] = size[0] >> 15;
 			lzw_header[3] = size[0] >> 23;
 			std::cout << "size "<< size[0] << std::endl;
-			std::cout << "Header "<< lzw_header << std::endl;
+			std::cout << "Header "<< bitset<sizeof(unsigned char)*8>(lzw_header) << std::endl;
 			
 			memcpy(&output[offset],&lzw_header[0], 4);
 			offset  = offset  + 4;
@@ -194,7 +195,7 @@ int main(int argc, char* argv[]) {
 	done = buffer[1] & DONE_BIT_L;
 	length = buffer[0] | (buffer[1] << 8);
 	length &= ~DONE_BIT_H;
-
+    
 	chunk_number = 0; // initialize chunk number
 	cdc(&buffer[HEADER], length);
 	uint64_t hash_table[chunk_number];
@@ -219,7 +220,7 @@ int main(int argc, char* argv[]) {
 	// hashing_deduplication(hash_table_tmp,&buffer2[HEADER],&file[offset]);
 	// writer++;
 
-	/*
+	
 	while (!done) {
 		// reset ring buffer
 		if (writer == NUM_PACKETS) {
@@ -248,7 +249,7 @@ int main(int argc, char* argv[]) {
 
 		writer++;
 	}
-	*/
+	
 
 	// write file to root and you can use diff tool on board
 	FILE *outfd = fopen("output_cpu.bin", "wb");
