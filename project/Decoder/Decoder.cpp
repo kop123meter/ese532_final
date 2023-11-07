@@ -105,16 +105,18 @@ int main(int Parameter_count, char * Parameters[])
       int Chunk_size = Header >> 1;
       std::cout<<"Chunk Size   "<< Chunk_size <<std::endl;
       const std::string & Chunk = Decompress(Chunk_size);
-      std::cout<<"String:  "<<Chunk<<std::endl;
       Chunks.push_back(Chunk);
       std::cout << "Decompressed chunk of size " << Chunk.length() << ".\n";
-      Output.write(&Chunk[0], Chunk.length());
+      //Output.write(&Chunk[0], Chunk.length());
+      if (!Output.write(&Chunk[0],Chunk.length())) {
+     std::cerr << "Failed to write to the file.\n";
+}
       
       // Test output file
-      FILE *outfd = fopen("output.txt", "wb");
-	    int bytes_written = fwrite(&Chunk[0], 1, Chunk.length(), outfd);
-	    printf("write file with %d\n", bytes_written);
-	    fclose(outfd);
+      // FILE *outfd = fopen("output.txt", "wb");
+	    // int bytes_written = fwrite(&Chunk[0], 1, Chunk.length(), outfd);
+	    // printf("write file with %d\n", bytes_written);
+	    // fclose(outfd);
 
     }
     else
