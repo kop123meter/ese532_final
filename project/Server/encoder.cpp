@@ -202,6 +202,24 @@ int main(int argc, char* argv[]) {
 	hashing_deduplication(hash_table,&buffer[HEADER],&file[offset]);
 	writer++;
 	
+
+	server.get_packet(input[writer]);
+	// get packet
+	unsigned char* buffer = input[writer];
+
+	// decode
+	done = buffer[1] & DONE_BIT_L;
+	length = buffer[0] | (buffer[1] << 8);
+	length &= ~DONE_BIT_H;
+
+	chunk_number = 0; // initialize chunk number
+	cdc(&buffer[HEADER], length);
+	uint64_t hash_table_tmp[chunk_number];
+	SHA256(&buffer[HEADER],hash_table_tmp);
+	hashing_deduplication(hash_table_tmp,&buffer[HEADER],&file[offset]);
+	writer++;
+
+	/*
 	while (!done) {
 		// reset ring buffer
 		if (writer == NUM_PACKETS) {
@@ -230,6 +248,7 @@ int main(int argc, char* argv[]) {
 
 		writer++;
 	}
+	*/
 
 	// write file to root and you can use diff tool on board
 	FILE *outfd = fopen("output_cpu.bin", "wb");
