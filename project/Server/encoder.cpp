@@ -119,11 +119,15 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 			lzw_header[1] = size[0] >> 7;
 			lzw_header[2] = size[0] >> 15;
 			lzw_header[3] = size[0] >> 23;
+
+	
+
 			std::cout << "size "<< size[0] << std::endl;
-			std::cout << "Header "<< bitset<sizeof(unsigned char)*8>(lzw_header) << std::endl;
+	
 			
 			memcpy(&output[offset],&lzw_header[0], 4);
 			offset  = offset  + 4;
+			std::cout << output_temp << std::endl;
 			memcpy(&output[offset], &output_temp[0], size[0]);
 			offset  = offset  + size[0];
 			free(size);
@@ -154,6 +158,7 @@ void hashing_deduplication(uint64_t * hash_table,unsigned char * input,unsigned 
 
 int main(int argc, char* argv[]) {
 	stopwatch ethernet_timer;
+	
 
 	unsigned char* input[NUM_PACKETS];
 	int writer = 0;
