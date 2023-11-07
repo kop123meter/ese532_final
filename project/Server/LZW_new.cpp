@@ -229,10 +229,9 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * size,int 
                 size[0]++;
             }
             // end
-            output[output_pos] = prefix_code;
-            output_pos++;
-            size[0]++;
-
+            // output[output_pos] = prefix_code;
+            // output_pos++;
+            // size[0]++;
             break;
         }
         next_char = s1[i + 1];
