@@ -170,6 +170,15 @@ int main(int argc, char* argv[]) {
     
 	chunk_number = 0; // initialize chunk number
 	cdc(&buffer[HEADER], length);
+
+	// hash
+	std::cout << "*************** hash table ***************" << std::endl;
+	for(int i = 0; i < chunk_number;i++){
+		std::cout<<"chunk_boundary: "<<chunk_boundary[i]<<std::endl;
+	}
+	std::cout << "*************** hash table ***************" << std::endl;
+
+
 	uint64_t hash_table[chunk_number];
 	SHA256(&buffer[HEADER],hash_table);
 	
@@ -181,6 +190,8 @@ int main(int argc, char* argv[]) {
 	int end = chunk_boundary[0];
 	for(int i = 0 ; i < chunk_number ;i++){
 		hashing_deduplication(hash_table,i,flag,chunk_index);
+		int input_size = end - start;
+		std::cout<<"input_size: "<<input_size<<std::endl;
 		if(flag == 1){
 			getlzwheader(&lzw_header[0],chunk_index,1);
 			memcpy(&file[offset], &lzw_header[0], 4);
@@ -190,8 +201,6 @@ int main(int argc, char* argv[]) {
 		else{
 			// unique chunk
 			int lzw_size = 0;
-			int input_size = end - start;
-			std::cout<<"input_size: "<<input_size<<std::endl;
 			memcpy(&input_temp[0],&buffer[start],input_size);
 			hardware_encoding(&input_temp[0],&output_temp[0],lzw_size,input_size);
 			getlzwheader(&lzw_header[0],lzw_size,0);
@@ -226,6 +235,9 @@ int main(int argc, char* argv[]) {
 		done = buffer[1] & DONE_BIT_L;
 		length = buffer[0] | (buffer[1] << 8);
 		length &= ~DONE_BIT_H;
+
+
+
 		chunk_number = 0; // initialize chunk number
 		cdc(&buffer[HEADER], length);
 		uint64_t hash_table_temp[chunk_number];
