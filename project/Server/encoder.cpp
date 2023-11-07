@@ -205,18 +205,18 @@ int main(int argc, char* argv[]) {
 
 	server.get_packet(input[writer]);
 	// get packet
-	unsigned char* buffer = input[writer];
+	unsigned char* buffer2 = input[writer];
 
 	// decode
-	done = buffer[1] & DONE_BIT_L;
-	length = buffer[0] | (buffer[1] << 8);
+	done = buffer2[1] & DONE_BIT_L;
+	length = buffer2[0] | (buffer2[1] << 8);
 	length &= ~DONE_BIT_H;
 
 	chunk_number = 0; // initialize chunk number
-	cdc(&buffer[HEADER], length);
+	cdc(&buffer2[HEADER], length);
 	uint64_t hash_table_tmp[chunk_number];
-	SHA256(&buffer[HEADER],hash_table_tmp);
-	hashing_deduplication(hash_table_tmp,&buffer[HEADER],&file[offset]);
+	SHA256(&buffer2[HEADER],hash_table_tmp);
+	hashing_deduplication(hash_table_tmp,&buffer2[HEADER],&file[offset]);
 	writer++;
 
 	/*
