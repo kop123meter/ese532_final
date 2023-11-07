@@ -167,7 +167,7 @@ int main(int argc, char* argv[]) {
 	// set blocksize if decalred through command line
 	handle_input(argc, argv, &blocksize);
 
-	file = (unsigned char*) malloc(sizeof(unsigned char) * 70000000);
+	file = (unsigned char*) malloc(sizeof(unsigned char) * 700000000000000);
 	if (file == NULL) {
 		printf("help\n");
 	}
