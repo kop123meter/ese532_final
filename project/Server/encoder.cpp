@@ -187,6 +187,10 @@ int main(int argc, char* argv[]) {
 
 	//Copy DATA to buffer
 	memcpy(&input_packet_buffer[0],&buffer[HEADER],length);
+
+	std::cout << "*************** DATA Length ***************" << std::endl;
+	std::cout << "length: " << length << std::endl;
+	std::cout << "*************** DATA Length ***************" << std::endl;
 	
 	// Deduplicate
 
