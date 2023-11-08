@@ -48,7 +48,8 @@ uint64_t hash_func(unsigned char *input, unsigned int pos)
 {
         uint64_t hash = 0;
         uint64_t temp = 0;
-        for(int i = 0;i < WIN_SIZE ; i++){
+		// Change initial I value to header
+        for(int i = HEADER;i < WIN_SIZE ; i++){
                 temp =  (uint64_t)(input[pos+WIN_SIZE-1-i]);
                 temp = temp * pow(PRIME,i+1);
                 hash = hash + temp;
