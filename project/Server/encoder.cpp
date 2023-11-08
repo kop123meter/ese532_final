@@ -189,7 +189,7 @@ int main(int argc, char* argv[]) {
 	int flag = 0;
 	int chunk_index = 0;
 	int start = HEADER;
-	int end = chunk_boundary[0];
+	int end = chunk_boundary[0] + HEADER;
 	for(int i = 0 ; i < chunk_number ;i++){
 		hashing_deduplication(hash_table,i,flag,chunk_index);
 		int input_size = end - start;
@@ -212,7 +212,7 @@ int main(int argc, char* argv[]) {
 			offset += lzw_size;
 		}
 		start = end;
-		end = chunk_boundary[i+1];
+		end = chunk_boundary[i+1] + HEADER;
 	}
 
 
