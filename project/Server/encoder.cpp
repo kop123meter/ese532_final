@@ -78,7 +78,7 @@ void cdc(unsigned char *buff, unsigned int buff_size)
 void SHA256(unsigned char *buffer, uint64_t * hash_table)
 {
 	// hash now contains the SHA-256 hash of buffer
-	uint64_t modulous = pow(2,32);
+	uint64_t modulous = pow(2,40);
 	int start_point = 0;
 	int end_point = chunk_boundary[0];
 	for(int chunk = 0; chunk < chunk_number;chunk++){
