@@ -5,7 +5,7 @@
 #include <string>
 #include <stdint.h>
 
-#define CODE_LENGTH (13)
+#define CODE_LENGTH (12)
 
 typedef std::vector<std::string> code_table;
 typedef std::vector<std::string> chunk_list;

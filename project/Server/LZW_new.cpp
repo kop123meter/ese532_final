@@ -213,7 +213,7 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
         if(i + 1 == len)
         {
             // transfer
-            for(int x = 12; x >= 0; x--){
+            for(int x = 11; x >= 0; x--){
                 output_char = (output_char << 1) | (prefix_code >> (x) & 0x1);
                 output_bit++;
                 if(output_bit % 8 == 0){
@@ -242,7 +242,7 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
         if(!hit)
         {
             // transfer
-            for(int x = 12; x >= 0; x--){
+            for(int x = 11; x >= 0; x--){
                 output_char = (output_char << 1) | (prefix_code >> (x) & 0x1);
                 output_bit++;
                 if(output_bit % 8 == 0){
