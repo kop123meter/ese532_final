@@ -131,6 +131,10 @@ void hashing_deduplication(uint64_t * hash_table,int i,int &flag,int &chunk_inde
 
 
 int main(int argc, char* argv[]) {
+	if(argc < 2){
+		std::cout << "Usage:  " << argv[0] << " <Compressed file>"<<std::endl;
+    return EXIT_SUCCESS;
+	}
 	stopwatch ethernet_timer;
 	
 
@@ -313,7 +317,7 @@ int main(int argc, char* argv[]) {
 	
 
 	// write file to root and you can use diff tool on board
-	FILE *outfd = fopen("output_cpu.bin", "wb");
+	FILE *outfd = fopen(argv[1], "wb");
 	int bytes_written = fwrite(&file[0], 1, offset, outfd);
 	printf("write file with %d\n", bytes_written);
 	fclose(outfd);
