@@ -282,8 +282,6 @@ int main(int argc, char* argv[]) {
 	for(int i = 0 ; i < chunk_number ;i++){
 		hashing_deduplication(hash_table, total_chunk_number + i,flag,chunk_index);
 		if(flag == 1){
-			std::cout << i+1 <<"Chunk" << "\tsame\t" << chunk_index + 1 <<std::endl;
-			std::cout << hash_table[i] << "\t:::::\t" << hash_table[chunk_index] << std::endl;
 			getlzwheader(&lzw_header[0],chunk_index,1);
 			memcpy(&file[offset], &lzw_header[0], 4);
 			offset += 4;
@@ -296,7 +294,6 @@ int main(int argc, char* argv[]) {
 			//memcpy(&input_temp[0],&input_packet_buffer[start],input_size);
 			//hardware_encoding(&input_temp[0],&output_temp[0],lzw_size,input_size);
 			hardware_encoding(&input_packet_buffer[start],&output_temp[0],lzw_size,input_size);
-			std::cout<<"lzw_size: "<<lzw_size<<std::endl;
 			getlzwheader(&lzw_header[0],lzw_size,0);
 			memcpy(&file[offset], &lzw_header[0], 4);
 			offset += 4;
