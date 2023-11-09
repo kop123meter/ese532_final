@@ -248,6 +248,9 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
         //std::cout << "prefix_code " << prefix_code << " next_char " << next_char << std::endl;
         lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
         std::cout << "prefix_code:" << prefix_code << "\thit:" << hit << "\tcode:" << code << "\tnext char"<<next_char << "\tnext_code:" << next_code << std::endl;
+        std::cout << "assoc upper mem entry count: " << my_assoc_mem.upper_key_mem[0] << std::endl;
+        std::cout << "assoc middle mem entry count: " << my_assoc_mem.middle_key_mem[164] << std::endl;
+        std::cout << "assoc lower mem entry count: " << my_assoc_mem.lower_key_mem[288] << std::endl;
         if(!hit)
         {
             // transfer
