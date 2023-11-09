@@ -108,17 +108,7 @@ void assoc_insert(assoc_mem* mem,  unsigned int key, unsigned int value, bool* c
         mem->middle_key_mem[(key >> 9)%512] |= (1 << mem->fill);  // set the fill'th bit to 1, while preserving everything else
         mem->lower_key_mem[(key >> 0)%512] |= (1 << mem->fill);   // set the fill'th bit to 1, while preserving everything else
         mem->value[mem->fill] = value;
-        
-        // if(value == 283){
-        // std::cout << "\tinserted into the assoc mem" << std::endl;
-        // std::cout << "\t(k,v) = " << key << " " << value << std::endl;
-        // std::cout << "FILL  " << mem->fill << std::endl;
-        // }
-        // if(key == ((329 << 8) + 32) || key == 84256){
-        // std::cout<<"CHINA NO 1"<<std::endl;
-        // std::cout << "\tinserted into the assoc mem" << std::endl;
-        // std::cout << "\t(k,v) = " << key << " " << value << std::endl;
-        // }
+
         mem->fill++;
         *collision = 0;
     }
@@ -176,17 +166,10 @@ void insert(unsigned long* hash_table, assoc_mem* mem, unsigned int key, unsigne
 void lookup(unsigned long* hash_table, assoc_mem* mem, unsigned int key, bool* hit, unsigned int* result)
 {
     hash_lookup(hash_table, key, hit, result);
-    if(key == ((329 << 8) + 32)){
-        std::cout << "hash hit? " << *hit << std::endl;
-        std::cout << "hash_result" << *result << std::endl;
-    }
+
     if(!*hit)
     {
         assoc_lookup(mem, key, hit, result);
-        if(key == ((329 << 8) + 32)){
-        std::cout << "assoc hit? " << *hit << std::endl;
-        std::cout << "assoc_result" << *result << std::endl;
-    }
     }
 }
 //****************************************************************************************************************
@@ -249,27 +232,12 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
                 size++;
             }
             // end
-            // output[output_pos] = prefix_code;
-            // output_pos++;
-            // size[0]++;
             break;
         }
         next_char = s1[i + 1];
 
         bool hit = 0;
-        //std::cout << "prefix_code " << prefix_code << " next_char " << next_char << std::endl;
         lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
-        //std::cout << "prefix_code:" << prefix_code << "\thit:" << hit << "\tcode:" << code << "\tnext char"<<next_char << "\tnext_code:" << next_code << std::endl;
-        // std::cout << "hash table entry count: " << my_assoc_mem.fill << std::endl;
-        // if(i ==0){
-        //     std::cout << "assoc middle memory" << std::endl;
-        //     for(int i = 0 ;i < 512;i++){
-        //         std::cout<<"middle_key_mem: "<<my_assoc_mem.middle_key_mem[i]<<std::endl;
-        //     }
-        // }
-        // std::cout << "assoc upper mem entry count: " << my_assoc_mem.upper_key_mem[0] << std::endl;
-        // std::cout << "assoc middle mem entry count: " << my_assoc_mem.middle_key_mem[164] << std::endl;
-        // std::cout << "assoc lower mem entry count: " << my_assoc_mem.lower_key_mem[288] << std::endl;
         if(!hit)
         {
             // transfer

@@ -210,7 +210,7 @@ int main(int argc, char* argv[]) {
 	
 
 
-	std::cout << "*************** LZW Size ***************" << std::endl;
+
 	// Deduplicate
 
 	int flag = 0;
@@ -220,7 +220,6 @@ int main(int argc, char* argv[]) {
 	for(int i = 0 ; i < chunk_number ;i++){
 		hashing_deduplication(hash_table,i,flag,chunk_index);
 		int input_size = end - start;
-		//std::cout<<"input_size: "<<input_size<<std::endl;
 		if(flag == 1){
 			getlzwheader(&lzw_header[0],chunk_index,1);
 			memcpy(&file[offset], &lzw_header[0], 4);
@@ -230,10 +229,7 @@ int main(int argc, char* argv[]) {
 		else{
 			// unique chunk
 			int lzw_size = 0;
-			// memcpy(&input_temp[0],&buffer[start],input_size);
-			// hardware_encoding(&input_temp[0],&output_temp[0],lzw_size,input_size);
 			hardware_encoding(&input_packet_buffer[start],&output_temp[0],lzw_size,input_size);
-			std::cout<<"lzw_size: "<<lzw_size<<std::endl;
 			getlzwheader(&lzw_header[0],lzw_size,0);
 			memcpy(&file[offset], &lzw_header[0], 4);
 			offset += 4;
@@ -244,12 +240,6 @@ int main(int argc, char* argv[]) {
 		end = chunk_boundary[i+1];
 	}
 	total_chunk_number += chunk_number;
-	// hash
-	std::cout << "*************** hash table  packet 1***************" << std::endl;
-	for(int i = 0; i < total_chunk_number;i++){
-		std::cout<<"chunk_boundary: "<<hash_table[i]<<std::endl;
-	}
-	std::cout << "*************** hash table packet 1***************" << std::endl;
 
 	writer++;
 	
@@ -278,23 +268,6 @@ int main(int argc, char* argv[]) {
 		cdc(&buffer[HEADER], length);
 		// uint64_t hash_table[chunk_number];
 		SHA256(&buffer[HEADER],hash_table);
-	   // hash
-	     std::cout << "*************** hash table  packet 2***************" << std::endl;
-	     for(int i = 0; i < (chunk_number+total_chunk_number);i++){
-	    	std::cout<<"chunk_boundary: "<<hash_table[i]<<std::endl;
-	}
-	std::cout << "*************** hash table packet 2***************" << std::endl;
-        //
-		std::cout << "Check HASH Table in Packet 2"<<std::endl;
-		int s = 0;
-		int e = chunk_boundary[0];
-		for(int i = 0; i < chunk_number; i++){
-		std::cout <<i+1 << "Chunk\t" <<"\thash_table:" << hash_table[i] << std::endl;
-		std::cout << i+1 << "Chunk\t" << "\tChunk Size:"<< e - s<<std::endl;
-		s = e;
-		e = chunk_boundary[i+1];
-	}
-	std::cout << "**************************END***************"<<std::endl;
 
 
 
