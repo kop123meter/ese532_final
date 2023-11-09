@@ -67,10 +67,10 @@ void cdc(unsigned char *buff, unsigned int buff_size)
 			chunk_number++;
 		}
     }
-	// if(chunk_boundary[chunk_number-1] != (buff_size)){
-	// 	chunk_boundary[chunk_number] = buff_size;
-	// 	chunk_number++;
-	// }
+	if(chunk_boundary[chunk_number-1] != (buff_size)){
+		chunk_boundary[chunk_number] = buff_size;
+		chunk_number++;
+	}
 }
 
 // placeholder SHA function
