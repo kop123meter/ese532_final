@@ -99,6 +99,7 @@ void SHA256(unsigned char *buffer, uint64_t * hash_table)
 	
 }
 
+
 void getlzwheader(unsigned char *lzw_header,int size,int flag){
 	if(flag == 0){
 		lzw_header[0] = size << 1;
@@ -181,16 +182,11 @@ int main(int argc, char* argv[]) {
 	chunk_number = 0; // initialize chunk number
 	cdc(&buffer[HEADER], length);
 
-	// hash
-	std::cout << "*************** hash table ***************" << std::endl;
-	for(int i = 0; i < chunk_number;i++){
-		std::cout<<"chunk_boundary: "<<chunk_boundary[i]<<std::endl;
-	}
-	std::cout << "*************** hash table ***************" << std::endl;
+	
 
 
 	SHA256(&buffer[HEADER],hash_table);
-
+	
      /*
 
 
@@ -248,6 +244,13 @@ int main(int argc, char* argv[]) {
 		end = chunk_boundary[i+1];
 	}
 	total_chunk_number += chunk_number;
+	// hash
+	std::cout << "*************** hash table  packet 1***************" << std::endl;
+	for(int i = 0; i < total_chunk_number;i++){
+		std::cout<<"chunk_boundary: "<<hash_table[i]<<std::endl;
+	}
+	std::cout << "*************** hash table packet 1***************" << std::endl;
+
 	writer++;
 	
 	
@@ -275,6 +278,12 @@ int main(int argc, char* argv[]) {
 		cdc(&buffer[HEADER], length);
 		// uint64_t hash_table[chunk_number];
 		SHA256(&buffer[HEADER],hash_table);
+	   // hash
+	     std::cout << "*************** hash table  packet 2***************" << std::endl;
+	     for(int i = 0; i < (chunk_number+total_chunk_number);i++){
+	    	std::cout<<"chunk_boundary: "<<hash_table[i]<<std::endl;
+	}
+	std::cout << "*************** hash table packet 2***************" << std::endl;
         //
 		std::cout << "Check HASH Table in Packet 2"<<std::endl;
 		int s = 0;
@@ -298,7 +307,7 @@ int main(int argc, char* argv[]) {
 		start = 0;
 		end = chunk_boundary[0];
 	for(int i = 0 ; i < chunk_number ;i++){
-		hashing_deduplication(hash_table,i,flag,chunk_index);
+		hashing_deduplication(hash_table, total_chunk_number + i,flag,chunk_index);
 		if(flag == 1){
 			std::cout << i+1 <<"Chunk" << "\tsame\t" << chunk_index + 1 <<std::endl;
 			std::cout << hash_table[i] << "\t:::::\t" << hash_table[chunk_index] << std::endl;
