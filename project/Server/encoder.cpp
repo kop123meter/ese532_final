@@ -67,10 +67,10 @@ void cdc(unsigned char *buff, unsigned int buff_size)
 			chunk_number++;
 		}
     }
-	// if(chunk_boundary[chunk_number-1] != (buff_size)){
-	// 	chunk_boundary[chunk_number] = buff_size;
-	// 	chunk_number++;
-	// }
+	if(chunk_boundary[chunk_number-1] != (buff_size)){
+		chunk_boundary[chunk_number] = buff_size;
+		chunk_number++;
+	}
 }
 
 // placeholder SHA function
@@ -188,6 +188,9 @@ int main(int argc, char* argv[]) {
 
 	uint64_t hash_table[chunk_number];
 	SHA256(&buffer[HEADER],hash_table);
+	for(int i = 0; i < chunk_number; i++){
+		std::cout << "hash_table:" << hash_table[i] << std::endl;
+	}
 
 	//Copy DATA to buffer
 	memcpy(&input_packet_buffer[0],&buffer[HEADER],length);
