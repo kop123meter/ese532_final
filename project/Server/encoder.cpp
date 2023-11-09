@@ -271,16 +271,16 @@ int main(int argc, char* argv[]) {
 
 
 
-		chunk_number = 0; // initialize chunk number
+		//chunk_number = 0; // initialize chunk number
 		cdc(&buffer[HEADER], length);
-		uint64_t hash_table_temp[chunk_number];
-		SHA256(&buffer[HEADER],hash_table_temp);
+		// uint64_t hash_table[chunk_number];
+		SHA256(&buffer[HEADER],hash_table);
         //
 		std::cout << "Check HASH Table in Packet 2"<<std::endl;
 		int s = 0;
 		int e = chunk_boundary[0];
 		for(int i = 0; i < chunk_number; i++){
-		std::cout <<i+1 << "Chunk\t" <<"\thash_table:" << hash_table_temp[i] << std::endl;
+		std::cout <<i+1 << "Chunk\t" <<"\thash_table:" << hash_table[i] << std::endl;
 		std::cout << i+1 << "Chunk\t" << "\tChunk Size:"<< e - s<<std::endl;
 		s = e;
 		e = chunk_boundary[i+1];
@@ -298,10 +298,10 @@ int main(int argc, char* argv[]) {
 		start = 0;
 		end = chunk_boundary[0];
 	for(int i = 0 ; i < chunk_number ;i++){
-		hashing_deduplication(hash_table_temp,i,flag,chunk_index);
+		hashing_deduplication(hash_table,i,flag,chunk_index);
 		if(flag == 1){
 			std::cout << i+1 <<"Chunk" << "\tsame\t" << chunk_index + 1 <<std::endl;
-			std::cout << hash_table_temp[i] << "\t:::::\t" << hash_table_temp[chunk_index] << std::endl;
+			std::cout << hash_table[i] << "\t:::::\t" << hash_table[chunk_index] << std::endl;
 			getlzwheader(&lzw_header[0],chunk_index,1);
 			memcpy(&file[offset], &lzw_header[0], 4);
 			offset += 4;
