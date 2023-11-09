@@ -147,8 +147,10 @@ void assoc_lookup(assoc_mem* mem, unsigned int key, bool* hit, unsigned int* res
     {
         *result = mem->value[address];
         *hit = 1;
-        //std::cout << "\thit the assoc" << std::endl;
-        //std::cout << "\t(k,v) = " << key << " " << *result << std::endl;
+        if(*result == 283){
+        std::cout << "\thit the assoc" << std::endl;
+        std::cout << "\t(k,v) = " << key << " " << *result << std::endl;
+        }
     }
     else
     {
