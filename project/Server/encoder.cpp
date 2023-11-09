@@ -300,6 +300,8 @@ int main(int argc, char* argv[]) {
 	for(int i = 0 ; i < chunk_number ;i++){
 		hashing_deduplication(hash_table_temp,i,flag,chunk_index);
 		if(flag == 1){
+			std::cout << i+1 <<"Chunk" << "\tsame\t" << chunk_index + 1 <<std::endl;
+			std::cout << hash_table_temp[i] << "\t:::::\t" << hash_table_temp[chunk_index] << std::endl;
 			getlzwheader(&lzw_header[0],chunk_index,1);
 			memcpy(&file[offset], &lzw_header[0], 4);
 			offset += 4;
