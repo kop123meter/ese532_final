@@ -108,15 +108,19 @@ void assoc_insert(assoc_mem* mem,  unsigned int key, unsigned int value, bool* c
         mem->middle_key_mem[(key >> 9)%512] |= (1 << mem->fill);  // set the fill'th bit to 1, while preserving everything else
         mem->lower_key_mem[(key >> 0)%512] |= (1 << mem->fill);   // set the fill'th bit to 1, while preserving everything else
         mem->value[mem->fill] = value;
-        mem->fill++;
-        *collision = 0;
+        
+        if(value == 283){
         std::cout << "\tinserted into the assoc mem" << std::endl;
         std::cout << "\t(k,v) = " << key << " " << value << std::endl;
+        std::cout << "FILL  " << mem->fill << std::endl;
+        }
+        mem->fill++;
+        *collision = 0;
     }
     else
     {
         *collision = 1;
-        //std::cout << "\tcollision in the assoc mem" << std::endl;
+        std::cout << "\tcollision in the assoc mem" << std::endl;
     }
 }
 
