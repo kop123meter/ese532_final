@@ -16,6 +16,7 @@
 #include "stopwatch.h"
 #include "LZW.h"
 #include "LZW_new.h"
+#include "sha256.h"
 
 #define NUM_PACKETS 8
 #define pipe_depth 4
@@ -27,7 +28,7 @@ int offset = 0;
 int chunk_number = 0;
 int total_chunk_number = 0;
 int chunk_boundary[CHUNK_NUMBER_MAX];
-uint64_t hash_table[CHUNK_NUMBER_MAX];
+std::string hash_table[CHUNK_NUMBER_MAX];	
 unsigned char* file;
 
 void handle_input(int argc, char* argv[], int* blocksize) {
@@ -77,8 +78,8 @@ void cdc(unsigned char *buff, unsigned int buff_size)
 }
 
 // placeholder SHA function
-
-void SHA256(unsigned char *buffer, uint64_t * hash_table)
+// la ji
+void SHA256_old(unsigned char *buffer, uint64_t * hash_table)
 {
 	// hash now contains the SHA-256 hash of buffer
 	uint64_t modulous = pow(2,40);
@@ -93,6 +94,27 @@ void SHA256(unsigned char *buffer, uint64_t * hash_table)
 			hash = hash + temp;
 		}
 	hash_table[total_chunk_number + chunk] = hash % modulous;
+	start_point = end_point;
+	end_point = chunk_boundary[chunk+1];
+	}
+	
+}
+
+void SHA256_New(unsigned char *buffer, std::string * hash_table)
+{
+	// hash now contains the SHA-256 hash of buffer
+	SHA256 sha256;
+	int start_point = 0;
+	int end_point = chunk_boundary[0];
+	for(int chunk = 0; chunk < chunk_number;chunk++){
+		int length = end_point - start_point;
+		uint64_t hash = 0;
+		uint64_t temp = 0;
+		for(int i = 0;i<length;i++){
+			temp = (uint64_t)buffer[start_point+i];
+			hash = hash + temp;
+		}
+	hash_table[total_chunk_number + chunk] = sha256(&buffer[start_point],length);
 	start_point = end_point;
 	end_point = chunk_boundary[chunk+1];
 	}
@@ -116,7 +138,7 @@ void getlzwheader(unsigned char *lzw_header,int size,int flag){
 }
 
 
-void hashing_deduplication(uint64_t * hash_table,int i,int &flag,int &chunk_index){
+void hashing_deduplication(std::string * hash_table,int i,int &flag,int &chunk_index){
 	//unsigned char *lzw_header = (unsigned char*)malloc(4 * sizeof(unsigned char));
 		for(int j = 0; j < i;j++){
 			if((hash_table[i] == hash_table[j]) && (i != j)){
@@ -189,7 +211,7 @@ int main(int argc, char* argv[]) {
 	
 
 
-	SHA256(&buffer[HEADER],hash_table);
+	SHA256_New(&buffer[HEADER],hash_table);
 	
      /*
 
@@ -271,7 +293,7 @@ int main(int argc, char* argv[]) {
 		chunk_number = 0; // initialize chunk number
 		cdc(&buffer[HEADER], length);
 		// uint64_t hash_table[chunk_number];
-		SHA256(&buffer[HEADER],hash_table);
+		SHA256_New(&buffer[HEADER],hash_table);
 
 
 
