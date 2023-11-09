@@ -201,9 +201,7 @@ int main(int argc, char* argv[]) {
 	 
 	 */
 
-	for(int i = 0; i < chunk_number; i++){
-		std::cout << "hash_table:" << hash_table[i] << std::endl;
-	}
+	
 
 	//Copy DATA to buffer
 	memcpy(&input_packet_buffer[0],&buffer[HEADER],length);
@@ -277,6 +275,13 @@ int main(int argc, char* argv[]) {
 		cdc(&buffer[HEADER], length);
 		uint64_t hash_table_temp[chunk_number];
 		SHA256(&buffer[HEADER],hash_table_temp);
+        //
+		std::cout << "Check HASH Table in Packet 2"<<std::endl;
+		for(int i = 0; i < chunk_number; i++){
+		std::cout << "hash_table:" << hash_table_temp[i] << std::endl;
+	}
+
+
 
 		//Copy DATA to buffer
 		memcpy(&input_packet_buffer[0],&buffer[HEADER],length);
