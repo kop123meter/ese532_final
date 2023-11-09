@@ -114,6 +114,11 @@ void assoc_insert(assoc_mem* mem,  unsigned int key, unsigned int value, bool* c
         std::cout << "\t(k,v) = " << key << " " << value << std::endl;
         std::cout << "FILL  " << mem->fill << std::endl;
         }
+        if(key == ((329 << 8) + 32) || key == 84256){
+        std::cout<<"CHINA NO 1"<<std::endl;
+        std::cout << "\tinserted into the assoc mem" << std::endl;
+        std::cout << "\t(k,v) = " << key << " " << value << std::endl;
+        }
         mem->fill++;
         *collision = 0;
     }
