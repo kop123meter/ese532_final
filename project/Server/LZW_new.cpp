@@ -165,9 +165,17 @@ void insert(unsigned long* hash_table, assoc_mem* mem, unsigned int key, unsigne
 void lookup(unsigned long* hash_table, assoc_mem* mem, unsigned int key, bool* hit, unsigned int* result)
 {
     hash_lookup(hash_table, key, hit, result);
+    if(key == (329 << 8 + 32)){
+        std::cout << "hash hit? " << hit << std::endl;
+        std::cout << "hash_result" << result << std::endl;
+    }
     if(!*hit)
     {
         assoc_lookup(mem, key, hit, result);
+        if(key == (329 << 8 + 32)){
+        std::cout << "assoc hit? " << hit << std::endl;
+        std::cout << "assoc_result" << result << std::endl;
+    }
     }
 }
 //****************************************************************************************************************
@@ -239,7 +247,7 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
         bool hit = 0;
         //std::cout << "prefix_code " << prefix_code << " next_char " << next_char << std::endl;
         lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
-        std::cout << "prefix_code:" << prefix_code << "\thit:" << hit << "\tcode:" << code << "\tnext char"<<(int)next_char<< std::endl;
+        std::cout << "prefix_code:" << prefix_code << "\thit:" << hit << "\tcode:" << code << "\tnext char"<<(int)next_char<< << "\tnext_code:" << next_code << std::endl;
         if(!hit)
         {
             // transfer
