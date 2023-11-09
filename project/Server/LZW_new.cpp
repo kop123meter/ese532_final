@@ -209,6 +209,7 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
     for(int i = 0; i < 512; i++)
     {
         my_assoc_mem.upper_key_mem[i] = 0;
+        my_assoc_mem.middle_key_mem[i] = 0;
         my_assoc_mem.lower_key_mem[i] = 0;
     }
 
