@@ -19,12 +19,15 @@
 
 #define NUM_PACKETS 8
 #define pipe_depth 4
+#define CHUNK_NUMBER_MAX 100000
 #define DONE_BIT_L (1 << 7)
 #define DONE_BIT_H (1 << 15)
 
 int offset = 0;
 int chunk_number = 0;
-int chunk_boundary[1000];
+int total_chunk_number = 0;
+int chunk_boundary[CHUNK_NUMBER_MAX];
+uint64_t hash_table[CHUNK_NUMBER_MAX];
 unsigned char* file;
 
 void handle_input(int argc, char* argv[], int* blocksize) {
@@ -89,7 +92,7 @@ void SHA256(unsigned char *buffer, uint64_t * hash_table)
 			temp = (uint64_t)buffer[start_point+i];
 			hash = hash + temp;
 		}
-	hash_table[chunk] = hash % modulous;
+	hash_table[total_chunk_number + chunk] = hash % modulous;
 	start_point = end_point;
 	end_point = chunk_boundary[chunk+1];
 	}
@@ -186,7 +189,6 @@ int main(int argc, char* argv[]) {
 	std::cout << "*************** hash table ***************" << std::endl;
 
 
-	uint64_t hash_table[chunk_number];
 	SHA256(&buffer[HEADER],hash_table);
 
      /*
@@ -245,9 +247,7 @@ int main(int argc, char* argv[]) {
 		start = end;
 		end = chunk_boundary[i+1];
 	}
-
-
-
+	total_chunk_number += chunk_number;
 	writer++;
 	
 	
@@ -271,7 +271,7 @@ int main(int argc, char* argv[]) {
 
 
 
-		//chunk_number = 0; // initialize chunk number
+		chunk_number = 0; // initialize chunk number
 		cdc(&buffer[HEADER], length);
 		// uint64_t hash_table[chunk_number];
 		SHA256(&buffer[HEADER],hash_table);
@@ -329,6 +329,7 @@ int main(int argc, char* argv[]) {
 		//memcpy(&file[offset], &buffer[HEADER], length);
 
 		writer++;
+		total_chunk_number += chunk_number;
 	}
 	
 
