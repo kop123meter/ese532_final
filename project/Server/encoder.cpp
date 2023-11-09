@@ -277,9 +277,15 @@ int main(int argc, char* argv[]) {
 		SHA256(&buffer[HEADER],hash_table_temp);
         //
 		std::cout << "Check HASH Table in Packet 2"<<std::endl;
+		int s = 0;
+		int e = chunk_boundary[0];
 		for(int i = 0; i < chunk_number; i++){
-		std::cout << "hash_table:" << hash_table_temp[i] << std::endl;
+		std::cout <<i+1 << "Chunk\t" <<"\thash_table:" << hash_table_temp[i] << std::endl;
+		std::cout << i+1 << "Chunk\t" << "\tChunk Size:"<< e - s<<std::endl;
+		s = e;
+		e = chunk_boundary[i+1];
 	}
+	std::cout << "**************************END***************"<<std::endl;
 
 
 
