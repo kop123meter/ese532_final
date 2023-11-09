@@ -258,6 +258,8 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
 
             bool collision = 0;
             insert(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, next_code, &collision);
+            std::cout << "prefix_code:" << prefix_code << "\tnext_code:" << next_code << std::endl;
+            
             if(collision)
             {
                 std::cout << "ERROR: FAILED TO INSERT! NO MORE ROOM IN ASSOC MEM!" << std::endl;
