@@ -166,15 +166,15 @@ void lookup(unsigned long* hash_table, assoc_mem* mem, unsigned int key, bool* h
 {
     hash_lookup(hash_table, key, hit, result);
     if(key == ((329 << 8) + 32)){
-        std::cout << "hash hit? " << hit << std::endl;
-        std::cout << "hash_result" << result << std::endl;
+        std::cout << "hash hit? " << *hit << std::endl;
+        std::cout << "hash_result" << *result << std::endl;
     }
     if(!*hit)
     {
         assoc_lookup(mem, key, hit, result);
         if(key == ((329 << 8) + 32)){
-        std::cout << "assoc hit? " << hit << std::endl;
-        std::cout << "assoc_result" << result << std::endl;
+        std::cout << "assoc hit? " << *hit << std::endl;
+        std::cout << "assoc_result" << *result << std::endl;
     }
     }
 }
