@@ -14,7 +14,6 @@
 #include <math.h>
 #include <bitset>
 #include "stopwatch.h"
-#include "LZW.h"
 #include "LZW_new.h"
 #include "sha256.h"
 
