@@ -163,6 +163,7 @@ int main(int argc, char* argv[]) {
 	int writer = 0;
 	int done = 0;
 	int length = 0;
+	int packet_index = 0;
 	unsigned char* lzw_header = (unsigned char*)malloc(4 * sizeof(unsigned char));
 	unsigned char* output_temp = (unsigned char*)malloc(70000000 * sizeof(unsigned char));
 	unsigned char* input_temp = (unsigned char*)malloc(70000000 * sizeof(unsigned char));
@@ -229,9 +230,9 @@ int main(int argc, char* argv[]) {
 	//Copy DATA to buffer
 	memcpy(&input_packet_buffer[0],&buffer[HEADER],length);
 
-	std::cout << "*************** DATA Length ***************" << std::endl;
+	std::cout << "*************** Packet 1 DATA Length ***************" << std::endl;
 	std::cout << "length: " << length << std::endl;
-	std::cout << "*************** DATA Length ***************" << std::endl;
+	std::cout << "****************************************************" << std::endl;
 	
 
 
@@ -267,6 +268,7 @@ int main(int argc, char* argv[]) {
 	total_chunk_number += chunk_number;
 
 	writer++;
+	packet_index++;
 	
 	
 	while (!done) {
@@ -286,6 +288,10 @@ int main(int argc, char* argv[]) {
 		done = buffer[1] & DONE_BIT_L;
 		length = buffer[0] | (buffer[1] << 8);
 		length &= ~DONE_BIT_H;
+		std::cout << "*************** Packet "<< packet_index + 1<<" DATA Length ***************" << std::endl;
+	    std::cout << "length: " << length << std::endl;
+	    std::cout << "****************************************************" << std::endl;
+	
 
 
 
