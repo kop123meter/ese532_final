@@ -157,6 +157,7 @@ int main(int argc, char* argv[]) {
     return EXIT_SUCCESS;
 	}
 	stopwatch ethernet_timer;
+	stopwatch encode_timer;
 	
 
 	unsigned char* input[NUM_PACKETS];
@@ -204,14 +205,11 @@ int main(int argc, char* argv[]) {
 	length = buffer[0] | (buffer[1] << 8);
 	length &= ~DONE_BIT_H;
     
+	encode_timer.start();
 	chunk_number = 0; // initialize chunk number
 	cdc(&buffer[HEADER], length);
 
-	
-
-
 	SHA256_New(&buffer[HEADER],hash_table);
-	
 
 	memcpy(&input_packet_buffer[0],&buffer[HEADER],length);
 
@@ -254,6 +252,7 @@ int main(int argc, char* argv[]) {
 
 	writer++;
 	packet_index++;
+	encode_timer.stop();
 	
 	
 	while (!done) {
@@ -279,7 +278,7 @@ int main(int argc, char* argv[]) {
 	
 
 
-
+		encode_timer.start();
 		chunk_number = 0; // initialize chunk number
 		cdc(&buffer[HEADER], length);
 		// uint64_t hash_table[chunk_number];
@@ -323,6 +322,7 @@ int main(int argc, char* argv[]) {
 
 		writer++;
 		total_chunk_number += chunk_number;
+		encode_timer.stop();
 	}
 	
 	std::cout << "Without Deduplication" << std::endl;
@@ -342,9 +342,15 @@ int main(int argc, char* argv[]) {
 	free(input_packet_buffer);
 	std::cout << "--------------- Key Throughputs ---------------" << std::endl;
 	float ethernet_latency = ethernet_timer.latency() / 1000.0;
+	float encoder_latency = encode_timer.latency() / 1000.0;
+
 	float input_throughput = (bytes_written * 8 / 1000000.0) / ethernet_latency; // Mb/s
+	float encoder_throughput = (bytes_written * 8 / 1000000.0) / encoder_latency; // Mb/s
+
 	std::cout << "Input Throughput to Encoder: " << input_throughput << " Mb/s."
 			<< " (Latency: " << ethernet_latency << "s)." << std::endl;
+	std::cout << "Input Throughput to Encoder: " << encoder_throughput / 1000.0 << " Gb/s."
+			<< " (Latency: " << encoder_latency << "s)." << std::endl;
 
 
 	return 0;
