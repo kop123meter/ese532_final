@@ -213,21 +213,7 @@ int main(int argc, char* argv[]) {
 
 	SHA256_New(&buffer[HEADER],hash_table);
 	
-     /*
 
-
-
-	 
-	 TODO:
-	 SHA256 may not correct
-     we need to check the hash table in Packet 2
-	 
-	 
-	 */
-
-	
-
-	//Copy DATA to buffer
 	memcpy(&input_packet_buffer[0],&buffer[HEADER],length);
 
 	std::cout << "*************** Packet 1 DATA Length ***************" << std::endl;
@@ -244,15 +230,15 @@ int main(int argc, char* argv[]) {
 	int start = 0;
 	int end = chunk_boundary[0];
 	for(int i = 0 ; i < chunk_number ;i++){
-		hashing_deduplication(hash_table,i,flag,chunk_index);
+		//hashing_deduplication(hash_table,i,flag,chunk_index);
 		int input_size = end - start;
-		if(flag == 1){
-			getlzwheader(&lzw_header[0],chunk_index,1);
-			memcpy(&file[offset], &lzw_header[0], 4);
-			offset += 4;
-			flag = 0;
-		}
-		else{
+		// if(flag == 1){
+		// 	getlzwheader(&lzw_header[0],chunk_index,1);
+		// 	memcpy(&file[offset], &lzw_header[0], 4);
+		// 	offset += 4;
+		// 	flag = 0;
+		// }
+		// else{
 			// unique chunk
 			int lzw_size = 0;
 			hardware_encoding(&input_packet_buffer[start],&output_temp[0],lzw_size,input_size);
@@ -261,7 +247,7 @@ int main(int argc, char* argv[]) {
 			offset += 4;
 			memcpy(&file[offset], &output_temp[0], lzw_size);
 			offset += lzw_size;
-		}
+		//}
 		start = end;
 		end = chunk_boundary[i+1];
 	}
@@ -311,14 +297,14 @@ int main(int argc, char* argv[]) {
 		start = 0;
 		end = chunk_boundary[0];
 	for(int i = 0 ; i < chunk_number ;i++){
-		hashing_deduplication(hash_table, total_chunk_number + i,flag,chunk_index);
-		if(flag == 1){
-			getlzwheader(&lzw_header[0],chunk_index,1);
-			memcpy(&file[offset], &lzw_header[0], 4);
-			offset += 4;
-			flag = 0;
-		}
-		else{
+		// hashing_deduplication(hash_table, total_chunk_number + i,flag,chunk_index);
+		// if(flag == 1){
+		// 	getlzwheader(&lzw_header[0],chunk_index,1);
+		// 	memcpy(&file[offset], &lzw_header[0], 4);
+		// 	offset += 4;
+		// 	flag = 0;
+		// }
+		//else{
 			// unique chunk
 			int lzw_size = 0;
 			int input_size = end - start;
@@ -330,7 +316,7 @@ int main(int argc, char* argv[]) {
 			offset += 4;
 			memcpy(&file[offset], &output_temp[0], lzw_size);
 			offset += lzw_size;
-		}
+		//}
 		start = end;
 		end = chunk_boundary[i+1];
 	}
@@ -342,7 +328,7 @@ int main(int argc, char* argv[]) {
 		total_chunk_number += chunk_number;
 	}
 	
-
+	std::cout << "Without Deduplication" << std::endl;
 	// write file to root and you can use diff tool on board
 	FILE *outfd = fopen(argv[1], "wb");
 	int bytes_written = fwrite(&file[0], 1, offset, outfd);
