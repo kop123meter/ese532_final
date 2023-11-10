@@ -166,7 +166,6 @@ int main(int argc, char* argv[]) {
 	int packet_index = 0;
 	unsigned char* lzw_header = (unsigned char*)malloc(4 * sizeof(unsigned char));
 	unsigned char* output_temp = (unsigned char*)malloc(70000000 * sizeof(unsigned char));
-	unsigned char* input_temp = (unsigned char*)malloc(70000000 * sizeof(unsigned char));
 	unsigned char* input_packet_buffer = (unsigned char*)malloc(70000000 * sizeof(unsigned char));
 
 	ESE532_Server server;
@@ -230,15 +229,15 @@ int main(int argc, char* argv[]) {
 	int start = 0;
 	int end = chunk_boundary[0];
 	for(int i = 0 ; i < chunk_number ;i++){
-		//hashing_deduplication(hash_table,i,flag,chunk_index);
+		hashing_deduplication(hash_table,i,flag,chunk_index);
 		int input_size = end - start;
-		// if(flag == 1){
-		// 	getlzwheader(&lzw_header[0],chunk_index,1);
-		// 	memcpy(&file[offset], &lzw_header[0], 4);
-		// 	offset += 4;
-		// 	flag = 0;
-		// }
-		// else{
+		if(flag == 1){
+			getlzwheader(&lzw_header[0],chunk_index,1);
+			memcpy(&file[offset], &lzw_header[0], 4);
+			offset += 4;
+			flag = 0;
+		}
+		else{
 			// unique chunk
 			int lzw_size = 0;
 			hardware_encoding(&input_packet_buffer[start],&output_temp[0],lzw_size,input_size);
@@ -247,7 +246,7 @@ int main(int argc, char* argv[]) {
 			offset += 4;
 			memcpy(&file[offset], &output_temp[0], lzw_size);
 			offset += lzw_size;
-		//}
+		}
 		start = end;
 		end = chunk_boundary[i+1];
 	}
@@ -297,26 +296,24 @@ int main(int argc, char* argv[]) {
 		start = 0;
 		end = chunk_boundary[0];
 	for(int i = 0 ; i < chunk_number ;i++){
-		// hashing_deduplication(hash_table, total_chunk_number + i,flag,chunk_index);
-		// if(flag == 1){
-		// 	getlzwheader(&lzw_header[0],chunk_index,1);
-		// 	memcpy(&file[offset], &lzw_header[0], 4);
-		// 	offset += 4;
-		// 	flag = 0;
-		// }
-		//else{
+		hashing_deduplication(hash_table, total_chunk_number + i,flag,chunk_index);
+		if(flag == 1){
+			getlzwheader(&lzw_header[0],chunk_index,1);
+			memcpy(&file[offset], &lzw_header[0], 4);
+			offset += 4;
+			flag = 0;
+		}
+		else{
 			// unique chunk
 			int lzw_size = 0;
 			int input_size = end - start;
-			//memcpy(&input_temp[0],&input_packet_buffer[start],input_size);
-			//hardware_encoding(&input_temp[0],&output_temp[0],lzw_size,input_size);
 			hardware_encoding(&input_packet_buffer[start],&output_temp[0],lzw_size,input_size);
 			getlzwheader(&lzw_header[0],lzw_size,0);
 			memcpy(&file[offset], &lzw_header[0], 4);
 			offset += 4;
 			memcpy(&file[offset], &output_temp[0], lzw_size);
 			offset += lzw_size;
-		//}
+		}
 		start = end;
 		end = chunk_boundary[i+1];
 	}
@@ -342,7 +339,6 @@ int main(int argc, char* argv[]) {
 	free(file);
 	free(lzw_header);
 	free(output_temp);
-	free(input_temp);
 	free(input_packet_buffer);
 	std::cout << "--------------- Key Throughputs ---------------" << std::endl;
 	float ethernet_latency = ethernet_timer.latency() / 1000.0;
