@@ -1,5 +1,3 @@
-#include "encoder.h"
-
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -15,6 +13,7 @@
 #include <bitset>
 #include "stopwatch.h"
 #include "LZW_new.h"
+#include "encoder.h"
 #include "sha256.h"
 
 #define NUM_PACKETS 8
