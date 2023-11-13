@@ -2,6 +2,7 @@
 #include <vector>
 #include <unordered_map>
 #include <stdlib.h>
+#include "LZW_new.h"
 //****************************************************************************************************************
 #define CAPACITY 32768 // hash output is 15 bits, and we have 1 entry per bucket, so capacity is 2^15
 //#define CAPACITY 4096
@@ -175,6 +176,7 @@ void lookup(unsigned long* hash_table, assoc_mem* mem, unsigned int key, bool* h
 //****************************************************************************************************************
 void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int len)
 {
+	int hit_second = 2;
     // create hash table and assoc mem
     unsigned long hash_table[CAPACITY];
     assoc_mem my_assoc_mem;
@@ -199,6 +201,7 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
     // init the memories with the first 256 codes
     for(unsigned long i = 0; i < 256; i++)
     {
+#pragma HLS unroll
         bool collision = 0;
         unsigned int key = (i << 8) + 0UL; // lower 8 bits are the next char, the upper bits are the prefix code
         insert(hash_table, &my_assoc_mem, key, i, &collision);
@@ -208,10 +211,11 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
 
     int prefix_code = s1[0];
     unsigned int code = 0;
-    char next_char = 0;
+    unsigned char next_char = 0;
 
-    int i = 0;
-    while(i < len)
+
+    for(int i = 0;i<len;)
+//#pragma HLS pipeline II=1
     {
         if(i + 1 == len)
         {
@@ -267,6 +271,7 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
             next_code += 1;
 
             prefix_code = next_char;
+
         }
         else
         {
@@ -277,9 +282,12 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
    // std::cout << std::endl << "assoc mem entry count: " << my_assoc_mem.fill << std::endl;
 }
 //****************************************************************************************************************
-std::vector<int> encoding(std::string s1)
+void encoding(unsigned char * s1,unsigned char * output,int &size,int len)
 {
-    std::cout << "Encoding\n";
+	bool send_two = false;
+	unsigned char high_four;
+	int output_pos = 0;
+
     std::unordered_map<std::string, int> table;
     for (int i = 0; i <= 255; i++) {
         std::string ch = "";
@@ -291,26 +299,45 @@ std::vector<int> encoding(std::string s1)
     p += s1[0];
     int code = 256;
     std::vector<int> output_code;
-    std::cout << "String\tOutput_Code\tAddition\n";
-    for (int i = 0; i < s1.length(); i++) {
-        if (i != s1.length() - 1)
+    for (int i = 0; i < len; i++) {
+        if (i != len - 1)
             c += s1[i + 1];
         if (table.find(p + c) != table.end()) {
             p = p + c;
         }
         else {
-            std::cout << p << "\t" << table[p] << "\t\t"
-                 << p + c << "\t" << code << std::endl;
-            output_code.push_back(table[p]);
+            // output_code.push_back(table[p]);
+            if(!send_two){
+            	output[output_pos++] = (unsigned char)(table[p] >> 4);
+            	send_two = true;
+            	high_four = (unsigned char)(table[p] << 4) & 0xf0;
+            } else{
+            	output[output_pos++] = high_four | ((unsigned char)(table[p] >> 8) & 0x0f);
+            	output[output_pos++] = (unsigned char)(table[p]) & 0xff;
+            	send_two = false;
+            }
+            size += 1;
             table[p + c] = code;
             code++;
             p = c;
         }
         c = "";
     }
-    std::cout << p << "\t" << table[p] << std::endl;
     output_code.push_back(table[p]);
-    return output_code;
+    if(!send_two){
+    	output[output_pos++] = (unsigned char)(table[p] >> 4);
+        send_two = true;
+        high_four = (unsigned char)(table[p] << 4) & 0xf0;
+    } else{
+    	output[output_pos++] = high_four | ((unsigned char)((table[p] >> 8) & 0x0f));
+    	output[output_pos++] = (unsigned char)(table[p]) & 0xff;
+        send_two = false;
+    }
+
+    if(send_two){
+    	output[output_pos++] = high_four;
+    }
+    size = output_pos;
 }
 
 void decoding(std::vector<int> op)

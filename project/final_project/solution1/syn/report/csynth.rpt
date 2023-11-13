@@ -1,0 +1,29 @@
+
+
+================================================================
+== Synthesis Summary Report of 'hardware_encoding'
+================================================================
++ General Information: 
+    * Date:           Sun Nov 12 20:23:37 2023
+    * Version:        2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)
+    * Project:        final_project
+    * Solution:       solution1 (Vitis Kernel Flow Target)
+    * Product family: zynquplus
+    * Target device:  xczu3eg-sbva484-1-i
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-----------------------+--------+-------+---------+-----------+----------+---------+-------+----------+----------+----+-----------+-------------+-----+
+    |        Modules        |  Issue |       | Latency |  Latency  | Iteration|         |  Trip |          |          |    |           |             |     |
+    |        & Loops        |  Type  | Slack | (cycles)|    (ns)   |  Latency | Interval| Count | Pipelined|   BRAM   | DSP|     FF    |     LUT     | URAM|
+    +-----------------------+--------+-------+---------+-----------+----------+---------+-------+----------+----------+----+-----------+-------------+-----+
+    |+ hardware_encoding    |  Timing|  48.46|        -|          -|         -|        -|      -|        no|  68 (15%)|   -|  9846 (6%)|  20736 (29%)|    -|
+    | + grp_insert_fu_2380  |      II|  -0.05|       12|    639.959|         -|        2|      -|       yes|         -|   -|  2380 (1%)|    4938 (6%)|    -|
+    | o VITIS_LOOP_189_1    |       -|  -4.87|    32768|  1.748e+06|         1|        1|  32768|       yes|         -|   -|          -|            -|    -|
+    | o VITIS_LOOP_194_2    |       -|  -4.87|      512|  2.730e+04|         1|        1|    512|       yes|         -|   -|          -|            -|    -|
+    | o VITIS_LOOP_217_4    |      II|  -4.87|        -|          -|       154|       86|      -|       yes|         -|   -|          -|            -|    -|
+    | o VITIS_LOOP_223_5    |       -|  -4.87|       81|  4.320e+03|        71|        1|     12|       yes|         -|   -|          -|            -|    -|
+    +-----------------------+--------+-------+---------+-----------+----------+---------+-------+----------+----------+----+-----------+-------------+-----+
+

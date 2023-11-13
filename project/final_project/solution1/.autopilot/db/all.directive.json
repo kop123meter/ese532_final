@@ -1,0 +1,29 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [
+        {
+          "functionName": "hardware_encoding",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "hardware_encoding"
+              }]
+          }
+        },
+        {
+          "functionName": "hardware_encoding",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "hardware_encoding"
+              }]
+          }
+        }
+      ]
+    }]}

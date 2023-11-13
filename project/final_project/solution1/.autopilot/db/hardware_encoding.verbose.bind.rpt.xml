@@ -1,0 +1,50 @@
+<profile>
+
+<section name = "Vitis HLS Report for 'hardware_encoding'" level="0">
+<item name = "Date">Sun Nov 12 20:22:44 2023
+</item>
+<item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
+<item name = "Project">final_project</item>
+<item name = "Solution">solution1 (Vitis Kernel Flow Target)</item>
+<item name = "Product family">zynquplus</item>
+<item name = "Target device">xczu3eg-sbva484-1-i</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">6.67 ns, 53.330 ns, 1.80 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, ?, ?, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_insert_fu_2380">insert, 12, 12, 0.640 us, 0.640 us, 2, 2, yes</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_189_1">32768, 32768, 1, 1, 1, 32768, yes</column>
+<column name="- VITIS_LOOP_194_2">512, 512, 1, 1, 1, 512, yes</column>
+<column name="- VITIS_LOOP_217_4">?, ?, 154, 86, 1, ?, yes</column>
+<column name="- VITIS_LOOP_223_5">81, 81, 71, 1, 1, 12, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

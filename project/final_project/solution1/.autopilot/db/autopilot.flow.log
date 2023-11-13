@@ -1,0 +1,871 @@
+INFO-FLOW: Workspace /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1 opened at Sun Nov 12 20:21:47 EST 2023
+Execute     ap_set_clock -name default -period 6.667 -unit ns -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.667ns.
+Execute     import_lib /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/zynquplus/zynquplus 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.hlp 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.hlp 
+Execute     source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/common/xilinx.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/plb46.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/axi4.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/util.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfft.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfir.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.gen 
+Execute     import_lib /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/zynquplus/zynquplus_fpv7 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.hlp 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.hlp 
+Execute     source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/common/xilinx.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/plb46.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/axi4.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/util.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfft.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfir.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.gen 
+Execute     import_lib /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/zynquplus/zynquplus 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.hlp 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.hlp 
+Execute     source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/common/xilinx.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/plb46.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/axi4.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/util.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfft.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfir.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.gen 
+Execute     set_part xczu3eg-sbva484-1-i 
+INFO-FLOW: DBG:set_part: XILINX_VIVADO=/mnt/pollux/software/xilinx/2020.2/Vivado/2020.2
+INFO-FLOW: DBG:set_part: RDI_DATADIR=/mnt/pollux/software/xilinx/2020.2/Vivado/2020.2/data:/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/data
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data single -quiet 
+DBG:HLSDevice: Trying to load device library: /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lib/lnx64.o/librdi_hlsvwrap.so
+DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: /mnt/pollux/software/xilinx/2020.2/Vivado/2020.2/data/parts/arch.xml
+Command       ap_part_info done; 1.12 sec.
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info 
+Execute       add_library xilinx/zynquplus/zynquplus:xczu3eg:-sbva484:-1-i 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         ap_part_info -data single -name xczu3eg-sbva484-1-i 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data resources 
+Execute         config_chip_info -resource {SLICE 8820} {LUT 70560} {FF 141120} {DSP 360} {BRAM 432} {URAM 0} 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data info 
+Execute         config_chip_info -speed slow 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data info 
+Execute         config_library_info -library zynquplus_slow 
+Execute         config_library_info -family zynquplus 
+Execute         config_library_info -part xczu3eg:-sbva484:-1-i 
+Execute         import_lib /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/zynquplus/zynquplus 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute             source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.hlp 
+Execute             source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.hlp 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/zynquplus_dsp48e2.hlp 
+Command         import_lib done; 0.14 sec.
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.gen 
+Execute             source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/util.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfft.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfir.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.gen 
+Command       add_library done; 0.25 sec.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-i'
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info 
+Execute       config_compile -quiet -complex-mul-dsp=0 
+Command     set_part done; 1.4 sec.
+Execute     ap_part_info -data single -name xczu3eg-sbva484-1-i 
+Execute     ap_part_info -name xczu3eg-sbva484-1-i -data resources 
+Execute     config_chip_info -resource {SLICE 8820} {LUT 70560} {FF 141120} {DSP 360} {BRAM 432} {URAM 0} 
+Execute     ap_part_info -name xczu3eg-sbva484-1-i -data info 
+Execute     config_chip_info -speed slow 
+Execute     send_msg_by_id INFO @200-1505@%s%s  vitis 
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Execute     get_config_interface -m_axi_latency 
+Execute     get_config_interface -m_axi_alignment_byte_size 
+Execute     get_config_interface -m_axi_max_widen_bitwidth 
+Execute     get_config_interface -default_interface 
+Execute     get_config_interface -m_axi_offset 
+Execute     get_config_rtl -register_reset_num 
+Execute     send_msg_by_id INFO @200-1464@%s config_interface -default_interface=kernel 
+INFO: [HLS 200-1464] Running solution command: config_interface -default_interface=kernel
+Execute     config_interface -default_interface=kernel 
+Execute     send_msg_by_id INFO @200-1464@%s config_interface -m_axi_alignment_byte_size=64 
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_alignment_byte_size=64
+Execute     config_interface -m_axi_alignment_byte_size=64 
+Execute     send_msg_by_id INFO @200-1464@%s config_interface -m_axi_latency=64 
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=64
+Execute     config_interface -m_axi_latency=64 
+Execute     send_msg_by_id INFO @200-1464@%s config_interface -m_axi_max_widen_bitwidth=512 
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_max_widen_bitwidth=512
+Execute     config_interface -m_axi_max_widen_bitwidth=512 
+Execute     send_msg_by_id INFO @200-1464@%s config_interface -m_axi_offset=slave 
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_offset=slave
+Execute     config_interface -m_axi_offset=slave 
+Execute     send_msg_by_id INFO @200-1464@%s config_rtl -register_reset_num=3 
+INFO: [HLS 200-1464] Running solution command: config_rtl -register_reset_num=3
+Execute     config_rtl -register_reset_num=3 
+Command   open_solution done; 1.73 sec.
+Execute   set_part xczu3eg-sbva484-1-i 
+INFO: [HLS 200-1510] Running: set_part xczu3eg-sbva484-1-i 
+INFO-FLOW: DBG:set_part: XILINX_VIVADO=/mnt/pollux/software/xilinx/2020.2/Vivado/2020.2
+INFO-FLOW: DBG:set_part: RDI_DATADIR=/mnt/pollux/software/xilinx/2020.2/Vivado/2020.2/data:/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/data
+Execute     ap_part_info -name xczu3eg-sbva484-1-i -data single -quiet 
+Execute     ap_part_info -name xczu3eg-sbva484-1-i -data info 
+Execute     add_library xilinx/zynquplus/zynquplus:xczu3eg:-sbva484:-1-i 
+Execute       get_default_platform 
+Execute       open_platform DefaultPlatform 
+Execute       ap_part_info -data single -name xczu3eg-sbva484-1-i 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data resources 
+Execute       config_chip_info -resource {SLICE 8820} {LUT 70560} {FF 141120} {DSP 360} {BRAM 432} {URAM 0} 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info 
+Execute       config_chip_info -speed slow 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info 
+Execute       config_library_info -library zynquplus_slow 
+Execute       config_library_info -family zynquplus 
+Execute       config_library_info -part xczu3eg:-sbva484:-1-i 
+Execute       import_lib /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/zynquplus/zynquplus 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.hlp 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.hlp 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/zynquplus_dsp48e2.hlp 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/common/xilinx.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/plb46.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/axi4.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/util.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfft.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfir.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.gen 
+Command     add_library done; 0.12 sec.
+Execute     ap_part_info -name xczu3eg-sbva484-1-i -data info 
+Execute     config_compile -quiet -complex-mul-dsp=0 
+Command   set_part done; 0.16 sec.
+Execute   create_clock -period 150MHz -name default 
+INFO: [HLS 200-1510] Running: create_clock -period 150MHz -name default 
+Execute   config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512 -m_axi_offset slave 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512 -m_axi_offset slave 
+Execute   config_rtl -register_reset_num 3 
+INFO: [HLS 200-1510] Running: config_rtl -register_reset_num 3 
+Execute   source ./final_project/solution1/directives.tcl 
+Execute     set_directive_top -name hardware_encoding hardware_encoding 
+INFO: [HLS 200-1510] Running: set_directive_top -name hardware_encoding hardware_encoding 
+INFO-FLOW: Setting directive 'TOP' name=hardware_encoding 
+Execute   csynth_design 
+INFO: [HLS 200-1510] Running: csynth_design 
+Execute     get_config_compile -effort 
+Execute     get_config_compile -enable_clang39 
+Execute     get_config_compile -g 
+Execute     get_config_compile -ng 
+Execute     get_config_compile -opt_fp 
+Execute     get_config_compile -skip_cdt 
+Execute     get_config_compile -skip_syncheck 
+Execute     get_config_compile -skip_transform 
+Execute     get_config_compile -keep_printf 
+Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 208.066 MB.
+INFO: [HLS 200-10] Analyzing design file 'Server/LZW_new.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute       get_config_compile -pragma_strict_mode 
+INFO-FLOW: Handling Server/LZW_new.cpp as C++
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info 
+INFO-FLOW: Running: GCC PP 39
+INFO-FLOW: Source preprocessing
+Execute       ap_eval exec -ignorestderr /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/clang Server/LZW_new.cpp -foptimization-record-file=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/clang.LZW_new.cpp.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info -gcc-toolchain /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0 -fhls -fno-exceptions -E -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -fno-threadsafe-statics -fno-use-cxa-atexit -std=gnu++14 -target fpga64-xilinx-linux-gnu -fno-threadsafe-statics -fno-use-cxa-atexit -I /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot/39 -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot -I /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.pp.0.cpp > /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/clang.LZW_new.cpp.out.log 2> /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/clang.LZW_new.cpp.err.log 
+Command       ap_eval done; 0.16 sec.
+INFO-FLOW: Done: GCC PP 39 time: 0.2 seconds per iteration
+Execute       set_directive_top hardware_encoding -name=hardware_encoding 
+INFO-FLOW: Setting directive 'TOP' name=hardware_encoding 
+INFO-FLOW: Setting directive 'TOP' name=hardware_encoding 
+INFO-FLOW: Setting directive 'TOP' name=hardware_encoding 
+INFO-FLOW: Setting directive 'TOP' name=hardware_encoding 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/tps/tcl/tcllib1.11.1/try/try.tcl 
+INFO-FLOW: Setting directive 'TOP' name=hardware_encoding 
+INFO-FLOW: Setting directive 'TOP' name=hardware_encoding 
+Execute       list_core -type functional_unit 
+Execute       clang_tidy xilinx-systemc-detector /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.pp.0.cpp std=gnu++14 -target fpga  -directive=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/.systemc_flag -fix-errors /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
+Command       clang_tidy done; 0.21 sec.
+INFO-FLOW: Running: clang-tidy CDT preprocess 39
+Execute       clang_tidy xilinx-directive2pragma /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.pp.0.cpp std=gnu++14 -target fpga  -directive=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/all.directive.json -fix-errors /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
+Command       clang_tidy done; 0.35 sec.
+Execute       clang_tidy xilinx-constantarray-param,xilinx-remove-assert /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.pp.0.cpp std=gnu++14 -target fpga  
+INFO-FLOW: exec /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-constantarray-param,xilinx-remove-assert -fix-errors /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
+Command       clang_tidy done; 0.25 sec.
+INFO-FLOW: Done: clang-tidy CDT preprocess 39 time: 0.6 seconds per iteration
+INFO-FLOW: Calling xilinx-label-all-loops ... 
+Execute       clang_tidy -errorcheck xilinx-label-all-loops,xilinx-top-parameters,xilinx-array-stream-check,xilinx-warn-mayneed-no-ctor-attribute /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.pp.0.cpp std=gnu++14 -target fpga  
+Execute         ap_eval exec -ignorestderr /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -export-fixes=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/clang-tidy.LZW_new.pp.0.cpp.diag.yml -header-filter=.* --checks=-*,xilinx-label-all-loops,xilinx-top-parameters,xilinx-array-stream-check,xilinx-warn-mayneed-no-ctor-attribute -fix-errors /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0 > /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/clang-tidy.LZW_new.pp.0.cpp.out.log 2> /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/clang-tidy.LZW_new.pp.0.cpp.err.log 
+Command         ap_eval done; 0.43 sec.
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/tps/tcl/tcllib1.11.1/yaml/yaml.tcl 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/tps/tcl/tcllib1.11.1/cmdline/cmdline.tcl 
+Command       clang_tidy done; 0.47 sec.
+Execute       get_config_dataflow -strict_mode 
+Execute       ap_eval exec -ignorestderr /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/xilinx-dataflow-lawyer.LZW_new.pp.0.cpp.diag.yml /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0 -fstrict-dataflow > /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/xilinx-dataflow-lawyer.LZW_new.pp.0.cpp.out.log 2> /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/xilinx-dataflow-lawyer.LZW_new.pp.0.cpp.err.log 
+Command       ap_eval done; 0.2 sec.
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info 
+INFO-FLOW: compiling source code to llvm bc
+Execute       ap_eval exec -ignorestderr /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/clang.LZW_new.pp.0.cpp.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info -fhls -flto -fno-exceptions -Wno-error=c++11-narrowing /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.pp.0.cpp -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -fno-threadsafe-statics -fno-use-cxa-atexit -std=gnu++14 -target fpga64-xilinx-linux-gnu -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot -I /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.bc > /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/clang.LZW_new.pp.0.cpp.out.log 2> /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/clang.LZW_new.pp.0.cpp.err.log 
+Command       ap_eval done; 0.27 sec.
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1.58 seconds. CPU system time: 0.13 seconds. Elapsed time: 2.01 seconds; current allocated memory: 209.318 MB.
+INFO-FLOW: Linking Debug ...
+INFO-FLOW: Linking dut bc code.
+Execute       run_link_or_opt -out /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.0.bc -args  "/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.g.bc"  
+Execute         ap_eval exec -ignorestderr /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/llvm-link /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/LZW_new.g.bc -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.0.bc > /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/llvm-link.a.g.ld.0.bc.out.log 2> /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/llvm-link.a.g.ld.0.bc.err.log 
+INFO-FLOW: 
+Execute       run_link_or_opt -opt -out /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.1.lower.bc -args /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics 
+Execute         ap_eval exec -ignorestderr /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/opt.a.g.ld.1.lower.bc.diag.yml /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.1.lower.bc > /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/opt.a.g.ld.1.lower.bc.out.log 2> /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/opt.a.g.ld.1.lower.bc.err.log 
+INFO-FLOW: 
+INFO-FLOW: Linking math bc lib
+Execute       run_link_or_opt -out /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.2.m1.bc -args /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.1.lower.bc -only-needed /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/lib/libhlsm_39.bc /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/lib/libhlsmc++_39.bc 
+Execute         ap_eval exec -ignorestderr /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/llvm-link /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.1.lower.bc -only-needed /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/lib/libhlsm_39.bc /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/lib/libhlsmc++_39.bc -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.2.m1.bc > /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/llvm-link.a.g.ld.2.m1.bc.out.log 2> /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/llvm-link.a.g.ld.2.m1.bc.err.log 
+Command         ap_eval done; 1.9 sec.
+INFO-FLOW: 
+Command       run_link_or_opt done; 1.9 sec.
+Execute       run_link_or_opt -opt -out /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.3.fpc.bc -args /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=hardware_encoding -reflow-float-conversion 
+Execute         ap_eval exec -ignorestderr /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/opt.a.g.ld.3.fpc.bc.diag.yml /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=hardware_encoding -reflow-float-conversion -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.3.fpc.bc > /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/opt.a.g.ld.3.fpc.bc.out.log 2> /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/opt.a.g.ld.3.fpc.bc.err.log 
+Command         ap_eval done; 0.64 sec.
+INFO-FLOW: 
+Command       run_link_or_opt done; 0.65 sec.
+Execute       run_link_or_opt -out /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.4.m2.bc -args /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.3.fpc.bc -only-needed /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/lib/libfloatconversion_39.bc 
+Execute         ap_eval exec -ignorestderr /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/llvm-link /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.3.fpc.bc -only-needed /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/lib/libfloatconversion_39.bc -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.4.m2.bc > /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/llvm-link.a.g.ld.4.m2.bc.out.log 2> /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/llvm-link.a.g.ld.4.m2.bc.err.log 
+INFO-FLOW: 
+Execute       run_link_or_opt -opt -out /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.5.gdce.bc -args /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=hardware_encoding 
+Execute         ap_eval exec -ignorestderr /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/opt.a.g.ld.5.gdce.bc.diag.yml /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=hardware_encoding -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.5.gdce.bc > /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/opt.a.g.ld.5.gdce.bc.out.log 2> /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/opt.a.g.ld.5.gdce.bc.err.log 
+INFO-FLOW: 
+Execute       get_solution -flow_target 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_interface -default_slave_interface 
+Execute       get_solution -flow_target 
+Execute       get_config_interface -m_axi_offset 
+Execute       get_config_interface -m_axi_latency 
+Execute       get_config_interface -m_axi_alignment_byte_size 
+Execute       get_config_interface -m_axi_min_bitwidth 
+Execute       get_config_interface -m_axi_max_bitwidth 
+Execute       get_config_interface -m_axi_max_widen_bitwidth 
+Execute       get_config_interface -m_axi_num_read_outstanding 
+Execute       get_config_interface -m_axi_num_write_outstanding 
+Execute       get_config_interface -m_axi_max_read_burst_length 
+Execute       get_config_interface -m_axi_max_write_burst_length 
+Execute       get_config_interface -m_axi_min_bitwidth 
+Execute       get_config_interface -m_axi_max_bitwidth 
+Execute       get_config_interface -m_axi_latency 
+Execute       get_config_interface -m_axi_min_bitwidth 
+Execute       get_config_interface -m_axi_max_bitwidth 
+Execute       get_config_interface -m_axi_max_widen_bitwidth 
+Execute       get_config_interface -m_axi_auto_max_ports 
+Execute       get_config_interface -m_axi_num_read_outstanding 
+Execute       get_config_interface -m_axi_num_write_outstanding 
+Execute       get_config_interface -m_axi_max_read_burst_length 
+Execute       get_config_interface -m_axi_max_write_burst_length 
+Execute       get_config_interface -s_axilite_data64 
+Execute       get_config_interface -m_axi_alignment_byte_size 
+Execute       get_config_compile -pragma_strict_mode 
+Execute       get_config_compile -pipeline_style 
+Execute       send_msg_by_id INFO @200-777@%s Vitis 
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+Execute       is_m_axi_addr64 
+INFO-FLOW: Doing LTO.
+Execute       ap_eval exec -ignorestderr /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/clang.a.g.ld.0.bc.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fhls -mllvm -hls-top-function-name=hardware_encoding -mllvm -hls-db-dir -mllvm /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db -emit-llvm -c -target fpga64-xilinx-none -mllvm -xcl-xmlinfo=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/../../../kernel.xml -mllvm -top-io-mapping-info=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/top-io-fe.xml -mllvm -hls-bitcode-version=3.1 -mllvm -reflow-enable-slave-interface-default-setting=true -mllvm -gen-kernel-xml=true -mllvm -default-maxi-offset=slave -mllvm -maxi-latency=64 -mllvm -hls-maxi-data-size-in-bits=8 -mllvm -hls-maxi-max-data-size-in-bits=1024 -mllvm -hls-max-widen-size-in-bits=512 -mllvm -xcl-kernel-max-mem-ports=0 -mllvm -maxi-read-trans=16 -mllvm -maxi-write-trans=16 -mllvm -maxi-read-burst-len=16 -mllvm -maxi-write-burst-len=16 -mllvm -reflow-enable-saxi-64bits=0 -mllvm -assume-maxi-align=64 -mllvm -no-unaligned-maxi-accesses=false -mllvm -reflow-pipeline-style-llvm-setting=0 -mllvm -disable-inlined-alloca-merging=true -mllvm -enable-reflow-vitis-flow-setting=true -x ir /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.ld.5.gdce.bc -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.lto.bc > /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/clang.a.g.ld.0.bc.out.log 2> /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/clang.a.g.ld.0.bc.err.log 
+Command       ap_eval done; 0.38 sec.
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_202_3' (Server/LZW_new.cpp:202:23) in function 'hardware_encoding' completely with a factor of 256 (Server/LZW_new.cpp:202:23)
+INFO: [HLS 214-178] Inlining function 'my_hash(unsigned long)' into 'hash_insert(unsigned long*, unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:62:0)
+INFO: [HLS 214-178] Inlining function 'hash_insert(unsigned long*, unsigned int, unsigned int, bool*)' into 'insert(unsigned long*, assoc_mem*, unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:159:0)
+INFO: [HLS 214-178] Inlining function 'assoc_insert(assoc_mem*, unsigned int, unsigned int, bool*) (.6)' into 'insert(unsigned long*, assoc_mem*, unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:159:0)
+INFO: [HLS 214-178] Inlining function 'my_hash(unsigned long)' into 'hash_lookup(unsigned long*, unsigned int, bool*, unsigned int*)' (Server/LZW_new.cpp:35:0)
+INFO: [HLS 214-178] Inlining function 'hash_lookup(unsigned long*, unsigned int, bool*, unsigned int*)' into 'lookup(unsigned long*, assoc_mem*, unsigned int, bool*, unsigned int*)' (Server/LZW_new.cpp:168:0)
+INFO: [HLS 214-178] Inlining function 'assoc_lookup(assoc_mem*, unsigned int, bool*, unsigned int*)' into 'lookup(unsigned long*, assoc_mem*, unsigned int, bool*, unsigned int*)' (Server/LZW_new.cpp:168:0)
+INFO: [HLS 214-178] Inlining function 'lookup(unsigned long*, assoc_mem*, unsigned int, bool*, unsigned int*)' into 'hardware_encoding(unsigned char*, unsigned char*, int&, int)' (Server/LZW_new.cpp:178:0)
+INFO-FLOW: DBG:CMD: copy_raw_kernel_xml ap_link_39: copying raw kernel.xml: /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/../../../kernel.xml -> /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/kernel.internal.xml
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.91 seconds. CPU system time: 0.16 seconds. Elapsed time: 3.48 seconds; current allocated memory: 211.597 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 211.598 MB.
+Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+Execute         cleanup_all_models 
+INFO: [HLS 200-10] Starting code transformations ...
+INFO-FLOW: Running Standard Transforms...
+Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top hardware_encoding -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.0.bc -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+Command         transform done; 1.8 sec.
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 1.77 seconds. CPU system time: 0.02 seconds. Elapsed time: 1.83 seconds; current allocated memory: 227.827 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO-FLOW: Checking Synthesizability 1/2..
+Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -array-seg-normalize -instcombine -dce -data-pack -instcombine -dce -inst-simplify -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.1.bc -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.2.prechk.bc -f 
+Command         transform done; 3.08 sec.
+INFO-FLOW: Checking Synthesizability 2/2..
+Execute         transform -syn-check /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.2.prechk.bc -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 3.09 seconds. CPU system time: 0 seconds. Elapsed time: 3.11 seconds; current allocated memory: 219.506 MB.
+INFO-FLOW: Compiler optimizing ...
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.g.1.bc to /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.o.1.bc
+INFO-FLOW: Presyn 1...
+Execute         transform -hls -tmp /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db -interface-port-rename -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -function-uniquify -directive-preproc -mem2reg -dse -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -accesses-merge -function-inline -complex-op-raise -inst-simplify -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin2 -bitwidthmin2 -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -hls-dead-arg-elim -deadargelim -directive-preproc -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.o.1.bc -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.o.1.tmp.bc -f 
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_189_1' (Server/LZW_new.cpp:189) in function 'hardware_encoding' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_194_2' (Server/LZW_new.cpp:194) in function 'hardware_encoding' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_223_5' (Server/LZW_new.cpp:183) in function 'hardware_encoding' automatically.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_217_4' (Server/LZW_new.cpp:209) in function 'hardware_encoding' for pipelining.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'insert' (Server/LZW_new.cpp:158).
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_21_1' (Server/LZW_new.cpp:21) in function 'hardware_encoding' completely with a factor of 20.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_135_1' (Server/LZW_new.cpp:134) in function 'hardware_encoding' completely with a factor of 64.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_248_6' (Server/LZW_new.cpp:183) in function 'hardware_encoding' completely with a factor of 12.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_21_1' (Server/LZW_new.cpp:21) in function 'insert' completely with a factor of 20.
+Command         transform done; 1.24 sec.
+INFO-FLOW: Presyn 2...
+Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin2 -bitwidthmin2 -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -barrier -norm-name /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.o.1.tmp.bc -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+Command         transform done; 0.27 sec.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 1.44 seconds. CPU system time: 0.01 seconds. Elapsed time: 1.52 seconds; current allocated memory: 246.976 MB.
+Execute         get_config_compile -enable_loop_extract 
+Execute         get_config_compile -disable_auto_rewind 
+Execute         get_config_compile -enable_auto_rewind 
+INFO-FLOW: Building ssdm...
+Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -aggr-aa -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin2 -bitwidthmin2 -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -float-op-raise -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -dyn-mem-reuse -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.o.2.bc -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table' (Server/LZW_new.cpp:77:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'mem_upper_key_mem' (Server/LZW_new.cpp:108:45)
+INFO: [HLS 200-472] Inferring partial write operation for 'mem_middle_key_mem' (Server/LZW_new.cpp:109:45)
+INFO: [HLS 200-472] Inferring partial write operation for 'mem_lower_key_mem' (Server/LZW_new.cpp:110:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'mem_value' (Server/LZW_new.cpp:111:31)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table' (Server/LZW_new.cpp:191:23)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.upper_key_mem' (Server/LZW_new.cpp:196:39)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.middle_key_mem' (Server/LZW_new.cpp:197:40)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.lower_key_mem' (Server/LZW_new.cpp:198:39)
+Command         transform done; 1.98 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 1.93 seconds. CPU system time: 0 seconds. Elapsed time: 1.99 seconds; current allocated memory: 274.938 MB.
+INFO-FLOW: Finish building internal data model.
+Command       opt_and_import_c done; 8.46 sec.
+Command     elaborate done; 13.97 sec.
+Execute     autosyn -from_csynth_design=1 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'hardware_encoding' ...
+Execute       ap_set_top_model hardware_encoding 
+Execute       get_model_list hardware_encoding -filter all-wo-channel -topdown 
+Execute       preproc_iomode -model hardware_encoding 
+Execute       preproc_iomode -model insert 
+Execute       get_model_list hardware_encoding -filter all-wo-channel 
+INFO-FLOW: Model list for configure: insert hardware_encoding
+INFO-FLOW: Configuring Module : insert ...
+Execute       set_default_model insert 
+Execute       apply_spec_resource_limit insert 
+INFO-FLOW: Configuring Module : hardware_encoding ...
+Execute       set_default_model hardware_encoding 
+Execute       apply_spec_resource_limit hardware_encoding 
+INFO-FLOW: Model list for preprocess: insert hardware_encoding
+INFO-FLOW: Preprocessing Module: insert ...
+Execute       set_default_model insert 
+Execute       cdfg_preprocess -model insert 
+Execute       rtl_gen_preprocess insert 
+INFO-FLOW: Preprocessing Module: hardware_encoding ...
+Execute       set_default_model hardware_encoding 
+Execute       cdfg_preprocess -model hardware_encoding 
+Execute       rtl_gen_preprocess hardware_encoding 
+WARNING: [SYN 201-107] Renaming port name 'hardware_encoding/output' to 'hardware_encoding/output_r' to avoid the conflict with HDL keywords or other object names.
+INFO-FLOW: Model list for synthesis: insert hardware_encoding
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'insert' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       set_default_model insert 
+Execute       schedule -model insert 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining function 'insert'.
+WARNING: [HLS 200-880] The II Violation in module 'insert' (function 'insert'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('hash_table_addr_write_ln77', Server/LZW_new.cpp:77) of variable 'or_ln1', Server/LZW_new.cpp:77 on array 'hash_table' and 'load' operation ('lookup', Server/LZW_new.cpp:67) on array 'hash_table'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 2, Depth = 13, function 'insert'
+INFO: [SCHED 204-11] Finished scheduling.
+Command       schedule done; 0.27 sec.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.27 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.33 seconds; current allocated memory: 277.662 MB.
+Execute       syn_report -verbosereport -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert.verbose.sched.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Execute       db_write -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert.sched.adb -f 
+INFO-FLOW: Finish scheduling insert.
+Execute       set_default_model insert 
+Execute       bind -model insert 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+Command       bind done; 0.15 sec.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.22 seconds. CPU system time: 0 seconds. Elapsed time: 0.27 seconds; current allocated memory: 279.218 MB.
+Execute       syn_report -verbosereport -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert.verbose.bind.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 0.38 sec.
+Execute       db_write -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert.bind.adb -f 
+INFO-FLOW: Finish binding insert.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'hardware_encoding' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       set_default_model hardware_encoding 
+Execute       schedule -model hardware_encoding 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_189_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'VITIS_LOOP_189_1'
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_194_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'VITIS_LOOP_194_2'
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_217_4'.
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('extractvalue' operation ('collision', Server/LZW_new.cpp:263)) in the first pipeline iteration (II = 2 cycles).
+WARNING: [HLS 200-875] II = 3 is infeasible due to multiple pipeline iteration latency = 13 and incompatible II = 2 of 'call' operation ('insert_ret256', Server/LZW_new.cpp:263) to 'insert'.
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('extractvalue' operation ('collision', Server/LZW_new.cpp:263)) in the first pipeline iteration (II = 4 cycles).
+WARNING: [HLS 200-875] II = 5 is infeasible due to multiple pipeline iteration latency = 13 and incompatible II = 2 of 'call' operation ('insert_ret256', Server/LZW_new.cpp:263) to 'insert'.
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('extractvalue' operation ('collision', Server/LZW_new.cpp:263)) in the first pipeline iteration (II = 6 cycles).
+WARNING: [HLS 200-875] II = 7 is infeasible due to multiple pipeline iteration latency = 13 and incompatible II = 2 of 'call' operation ('insert_ret256', Server/LZW_new.cpp:263) to 'insert'.
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('extractvalue' operation ('collision', Server/LZW_new.cpp:263)) in the first pipeline iteration (II = 8 cycles).
+WARNING: [HLS 200-875] II = 9 is infeasible due to multiple pipeline iteration latency = 13 and incompatible II = 2 of 'call' operation ('insert_ret256', Server/LZW_new.cpp:263) to 'insert'.
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('extractvalue' operation ('collision', Server/LZW_new.cpp:263)) in the first pipeline iteration (II = 71 cycles).
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('extractvalue' operation ('collision', Server/LZW_new.cpp:263)) in the first pipeline iteration (II = 78 cycles).
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('extractvalue' operation ('collision', Server/LZW_new.cpp:263)) in the first pipeline iteration (II = 82 cycles).
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('extractvalue' operation ('collision', Server/LZW_new.cpp:263)) in the first pipeline iteration (II = 84 cycles).
+WARNING: [HLS 200-878] Unable to schedule the loop exit test ('extractvalue' operation ('collision', Server/LZW_new.cpp:263)) in the first pipeline iteration (II = 85 cycles).
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 86, Depth = 154, loop 'VITIS_LOOP_217_4'
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_223_5'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 71, loop 'VITIS_LOOP_223_5'
+WARNING: [HLS 200-871] Estimated clock period (53.3299ns) exceeds the target (target clock period: 6.667ns, clock uncertainty: 1.80009ns, effective delay budget: 4.86691ns).
+WARNING: [HLS 200-1016] The critical path in module 'hardware_encoding' consists of the following:	bus read on port 'gmem' (Server/LZW_new.cpp:241) [624]  (4.87 ns)
+	'add' operation ('add_ln23', Server/LZW_new.cpp:23) [634]  (0.948 ns)
+	'add' operation ('add_ln24', Server/LZW_new.cpp:24) [637]  (1.09 ns)
+	'xor' operation ('xor_ln25', Server/LZW_new.cpp:25) [640]  (0 ns)
+	'add' operation ('add_ln23_19', Server/LZW_new.cpp:23) [644]  (1.09 ns)
+	'add' operation ('add_ln24_19', Server/LZW_new.cpp:24) [651]  (1.2 ns)
+	'xor' operation ('xor_ln25_19', Server/LZW_new.cpp:25) [658]  (0 ns)
+	'add' operation ('add_ln23_20', Server/LZW_new.cpp:23) [665]  (1.2 ns)
+	'add' operation ('add_ln24_20', Server/LZW_new.cpp:24) [672]  (1.2 ns)
+	'xor' operation ('xor_ln25_20', Server/LZW_new.cpp:25) [679]  (0 ns)
+	'add' operation ('add_ln23_21', Server/LZW_new.cpp:23) [686]  (1.2 ns)
+	'add' operation ('add_ln24_21', Server/LZW_new.cpp:24) [693]  (1.2 ns)
+	'xor' operation ('xor_ln25_21', Server/LZW_new.cpp:25) [700]  (0 ns)
+	'add' operation ('add_ln23_22', Server/LZW_new.cpp:23) [707]  (1.2 ns)
+	'add' operation ('add_ln24_22', Server/LZW_new.cpp:24) [714]  (1.2 ns)
+	'xor' operation ('xor_ln25_22', Server/LZW_new.cpp:25) [721]  (0 ns)
+	'add' operation ('add_ln23_23', Server/LZW_new.cpp:23) [728]  (1.2 ns)
+	'add' operation ('add_ln24_23', Server/LZW_new.cpp:24) [735]  (1.2 ns)
+	'xor' operation ('xor_ln25_23', Server/LZW_new.cpp:25) [742]  (0 ns)
+	'add' operation ('add_ln23_24', Server/LZW_new.cpp:23) [749]  (1.2 ns)
+	'add' operation ('add_ln24_24', Server/LZW_new.cpp:24) [756]  (1.2 ns)
+	'xor' operation ('xor_ln25_24', Server/LZW_new.cpp:25) [763]  (0 ns)
+	'add' operation ('add_ln23_25', Server/LZW_new.cpp:23) [769]  (1.2 ns)
+	'add' operation ('add_ln24_25', Server/LZW_new.cpp:24) [776]  (1.2 ns)
+	'xor' operation ('xor_ln25_25', Server/LZW_new.cpp:25) [783]  (0 ns)
+	'add' operation ('add_ln23_26', Server/LZW_new.cpp:23) [790]  (1.2 ns)
+	'add' operation ('add_ln24_26', Server/LZW_new.cpp:24) [797]  (1.2 ns)
+	'xor' operation ('xor_ln25_26', Server/LZW_new.cpp:25) [804]  (0 ns)
+	'add' operation ('add_ln23_27', Server/LZW_new.cpp:23) [811]  (1.2 ns)
+	'add' operation ('add_ln24_27', Server/LZW_new.cpp:24) [818]  (1.2 ns)
+	'xor' operation ('xor_ln25_27', Server/LZW_new.cpp:25) [825]  (0 ns)
+	'add' operation ('add_ln23_28', Server/LZW_new.cpp:23) [832]  (1.2 ns)
+	'add' operation ('add_ln24_28', Server/LZW_new.cpp:24) [839]  (1.2 ns)
+	'xor' operation ('xor_ln25_28', Server/LZW_new.cpp:25) [846]  (0 ns)
+	'add' operation ('add_ln23_29', Server/LZW_new.cpp:23) [853]  (1.2 ns)
+	'add' operation ('add_ln24_29', Server/LZW_new.cpp:24) [860]  (1.2 ns)
+	'xor' operation ('xor_ln25_29', Server/LZW_new.cpp:25) [867]  (0 ns)
+	'add' operation ('add_ln23_30', Server/LZW_new.cpp:23) [874]  (1.2 ns)
+	'add' operation ('add_ln24_30', Server/LZW_new.cpp:24) [881]  (1.2 ns)
+	'xor' operation ('xor_ln25_30', Server/LZW_new.cpp:25) [888]  (0 ns)
+	'add' operation ('add_ln23_31', Server/LZW_new.cpp:23) [895]  (1.2 ns)
+	'add' operation ('add_ln24_31', Server/LZW_new.cpp:24) [902]  (1.2 ns)
+	'xor' operation ('xor_ln25_31', Server/LZW_new.cpp:25) [909]  (0 ns)
+	'add' operation ('add_ln23_32', Server/LZW_new.cpp:23) [916]  (1.2 ns)
+	'add' operation ('add_ln24_32', Server/LZW_new.cpp:24) [923]  (1.2 ns)
+	'xor' operation ('xor_ln25_32', Server/LZW_new.cpp:25) [930]  (0 ns)
+	'add' operation ('add_ln23_33', Server/LZW_new.cpp:23) [937]  (1.2 ns)
+	'add' operation ('add_ln24_33', Server/LZW_new.cpp:24) [944]  (1.2 ns)
+	'xor' operation ('xor_ln25_33', Server/LZW_new.cpp:25) [951]  (0 ns)
+	'add' operation ('add_ln23_34', Server/LZW_new.cpp:23) [958]  (1.2 ns)
+	'add' operation ('add_ln24_34', Server/LZW_new.cpp:24) [965]  (1.2 ns)
+	'xor' operation ('xor_ln25_34', Server/LZW_new.cpp:25) [972]  (0 ns)
+	'add' operation ('add_ln23_35', Server/LZW_new.cpp:23) [979]  (1.2 ns)
+	'add' operation ('add_ln24_35', Server/LZW_new.cpp:24) [986]  (1.2 ns)
+	'xor' operation ('xor_ln25_35', Server/LZW_new.cpp:25) [993]  (0 ns)
+	'add' operation ('add_ln23_36', Server/LZW_new.cpp:23) [1000]  (1.2 ns)
+	'add' operation ('add_ln24_36', Server/LZW_new.cpp:24) [1007]  (1.2 ns)
+	'xor' operation ('xor_ln25_36', Server/LZW_new.cpp:25) [1015]  (0.332 ns)
+	'add' operation ('hashed', Server/LZW_new.cpp:27) [1020]  (1.13 ns)
+	'xor' operation ('hashed', Server/LZW_new.cpp:28) [1023]  (0.421 ns)
+	'getelementptr' operation ('hash_table_addr_1', Server/LZW_new.cpp:39) [1025]  (0 ns)
+	'load' operation ('lookup', Server/LZW_new.cpp:39) on array 'hash_table', Server/LZW_new.cpp:181 [1026]  (1.35 ns)
+
+INFO: [SCHED 204-11] Finished scheduling.
+Command       schedule done; 7.93 sec.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 8.18 seconds. CPU system time: 0.01 seconds. Elapsed time: 8.36 seconds; current allocated memory: 291.312 MB.
+Execute       syn_report -verbosereport -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.verbose.sched.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 5.37 sec.
+Execute       db_write -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.sched.adb -f 
+Command       db_write done; 0.19 sec.
+INFO-FLOW: Finish scheduling hardware_encoding.
+Execute       set_default_model hardware_encoding 
+Execute       bind -model hardware_encoding 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+Command       bind done; 26.02 sec.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 31.34 seconds. CPU system time: 0.04 seconds. Elapsed time: 31.58 seconds; current allocated memory: 328.494 MB.
+Execute       syn_report -verbosereport -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.verbose.bind.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 2.32 sec.
+Execute       db_write -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.bind.adb -f 
+Command       db_write done; 0.31 sec.
+INFO-FLOW: Finish binding hardware_encoding.
+Execute       get_model_list hardware_encoding -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute       rtl_gen_preprocess insert 
+Execute       rtl_gen_preprocess hardware_encoding 
+INFO-FLOW: Model list for RTL generation: insert hardware_encoding
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'insert' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       create_rtl_model insert -top_prefix hardware_encoding_ -sub_prefix hardware_encoding_ -mg_file /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'insert'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 2.38 seconds. CPU system time: 0.03 seconds. Elapsed time: 2.73 seconds; current allocated memory: 331.396 MB.
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.rtl_wrap.cfg.tcl 
+Execute       gen_rtl insert -style xilinx -f -lang vhdl -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/syn/vhdl/hardware_encoding_insert 
+Execute       gen_rtl insert -style xilinx -f -lang vlog -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/syn/verilog/hardware_encoding_insert 
+Execute       syn_report -csynth -model insert -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/syn/report/insert_csynth.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 0.24 sec.
+Execute       syn_report -rtlxml -model insert -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/syn/report/insert_csynth.xml 
+Execute         get_solution -flow_target
+Execute           get_solution -flow_target 
+Command       syn_report done; 0.12 sec.
+Execute       syn_report -verbosereport -model insert -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert.verbose.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 0.51 sec.
+Execute       db_write -model insert -f -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert.adb 
+Command       db_write done; 0.16 sec.
+Execute       gen_tb_info insert -p /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hardware_encoding' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       create_rtl_model hardware_encoding -top_prefix  -sub_prefix hardware_encoding_ -mg_file /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.compgen.tcl 
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hardware_encoding/gmem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hardware_encoding/s1' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hardware_encoding/output_r' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hardware_encoding/size' to 's_axilite & ap_none'.
+WARNING: [RTGEN 206-101] Port 'size' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hardware_encoding/len' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'hardware_encoding' to 's_axilite & ap_ctrl_chain'.
+INFO: [RTGEN 206-100] Bundling port 's1', 'output_r', 'size', 'len' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'hardware_encoding'.
+Command       create_rtl_model done; 41.32 sec.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 42.28 seconds. CPU system time: 0.03 seconds. Elapsed time: 42.5 seconds; current allocated memory: 417.637 MB.
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.rtl_wrap.cfg.tcl 
+Execute       gen_rtl hardware_encoding -istop -style xilinx -f -lang vhdl -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/syn/vhdl/hardware_encoding 
+Command       gen_rtl done; 1.66 sec.
+Execute       gen_rtl hardware_encoding -istop -style xilinx -f -lang vlog -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/syn/verilog/hardware_encoding 
+Command       gen_rtl done; 1.67 sec.
+Execute       syn_report -csynth -model hardware_encoding -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/syn/report/hardware_encoding_csynth.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 0.3 sec.
+Execute       syn_report -rtlxml -model hardware_encoding -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/syn/report/hardware_encoding_csynth.xml 
+Execute         get_solution -flow_target
+Execute           get_solution -flow_target 
+Command       syn_report done; 0.3 sec.
+Execute       syn_report -verbosereport -model hardware_encoding -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.verbose.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 2.9 sec.
+Execute       db_write -model hardware_encoding -f -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.adb 
+Command       db_write done; 0.61 sec.
+Execute       gen_tb_info hardware_encoding -p /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding 
+Execute       export_constraint_db -f -tool general -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.constraint.tcl 
+Execute       syn_report -designview -model hardware_encoding -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.design.xml 
+Command       syn_report done; 0.8 sec.
+Execute       syn_report -csynthDesign -model hardware_encoding -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/syn/report/csynth.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Execute       get_config_rtl -disable_wave_debug 
+Execute       syn_report -wcfg -model hardware_encoding -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding_dataflow_ana.wcfg 
+Execute       syn_report -protoinst -model hardware_encoding -o /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.protoinst 
+Execute       get_config_debug -directory 
+Execute       sc_get_clocks hardware_encoding 
+Execute       get_config_export -vivado_clock 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       sc_get_portdomain hardware_encoding 
+INFO-FLOW: Model list for RTL component generation: insert hardware_encoding
+INFO-FLOW: Handling components in module [insert] ... 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert.compgen.tcl 
+INFO-FLOW: Handling components in module [hardware_encoding] ... 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.compgen.tcl 
+INFO-FLOW: Found component hardware_encoding_hash_table.
+INFO-FLOW: Append model hardware_encoding_hash_table
+INFO-FLOW: Found component hardware_encoding_my_assoc_mem_upper_key_mem.
+INFO-FLOW: Append model hardware_encoding_my_assoc_mem_upper_key_mem
+INFO-FLOW: Found component hardware_encoding_my_assoc_mem_value.
+INFO-FLOW: Append model hardware_encoding_my_assoc_mem_value
+INFO-FLOW: Found component hardware_encoding_control_s_axi.
+INFO-FLOW: Append model hardware_encoding_control_s_axi
+INFO-FLOW: Found component hardware_encoding_gmem_m_axi.
+INFO-FLOW: Append model hardware_encoding_gmem_m_axi
+INFO-FLOW: Append model insert
+INFO-FLOW: Append model hardware_encoding
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: hardware_encoding_hash_table hardware_encoding_my_assoc_mem_upper_key_mem hardware_encoding_my_assoc_mem_value hardware_encoding_control_s_axi hardware_encoding_gmem_m_axi insert hardware_encoding
+INFO-FLOW: To file: write model hardware_encoding_hash_table
+INFO-FLOW: To file: write model hardware_encoding_my_assoc_mem_upper_key_mem
+INFO-FLOW: To file: write model hardware_encoding_my_assoc_mem_value
+INFO-FLOW: To file: write model hardware_encoding_control_s_axi
+INFO-FLOW: To file: write model hardware_encoding_gmem_m_axi
+INFO-FLOW: To file: write model insert
+INFO-FLOW: To file: write model hardware_encoding
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+Execute       get_top 
+Execute       get_config_export -ipname 
+Execute       get_config_export -xo 
+Execute       get_config_export -format 
+Execute       get_config_rtl -module_auto_prefix 
+INFO-FLOW: DBG:CMD:   auto_impl: set ipname to top (module_auto_prefix): hardware_encoding
+INFO-FLOW: DBG:CMD: auto_generate_csynth_design
+INFO-FLOW: DBG:CMD:     auto_generate --sim-model -phase csynth_design -d /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1
+Execute       get_solution -flow_target 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/generic/autopilot/common.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/generic/autopilot/op.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/generic/autopilot/interface.gen 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/common/xilinx.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/plb46.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/axi4.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/util.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfft.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfir.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/common/xilinx.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/plb46.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/axi4.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/util.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfft.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfir.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.gen 
+INFO-FLOW: DBG:CMD:   using AESL_AUTOCG::g_clock_period=6.667 (was NA)
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=1 export=0 expOnly=0 dstVlogDir=syn/verilog
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert.compgen.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.compgen.tcl 
+INFO: [RTMG 210-278] Implementing memory 'hardware_encoding_hash_table_ram (RAM)' using auto RAMs.
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+INFO: [RTMG 210-278] Implementing memory 'hardware_encoding_my_assoc_mem_upper_key_mem_ram (RAM)' using auto RAMs.
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+INFO: [RTMG 210-278] Implementing memory 'hardware_encoding_my_assoc_mem_value_ram (RAM)' using auto RAMs.
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Execute         source ./control.slave.tcl 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Command       ap_source done; 0.22 sec.
+Execute       get_solution -flow_target 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD:       kernel.xml check internal_kernel_xml(1)=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/kernel.internal.xml srclang=c top=hardware_encoding
+INFO-FLOW: DBG:CMD:       kernel.xml check proj_kernel_xml    (1)=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/../../../kernel.xml use_proj_kernel_xml=false
+INFO-FLOW: DBG:CMD:       copy internal kernel.xml to project: /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/../../../kernel.xml
+INFO-FLOW: DBG:CMD:       update_final_kernel_xml /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/../../../kernel.xml
+Execute       get_config_debug -enable 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+INFO-FLOW: DBG:CMD: Updating /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/../../../kernel.xml with values: interrupt true debug false compileOptions {} name hardware_encoding vlnv xilinx.com:hls:hardware_encoding:1.0
+INFO-FLOW: DBG:CMD:     auto_generate -export -impltomg_flag -rtl both -tool Vivado -pcore_version 1.00.a -phase csynth_design -d /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1
+Execute       get_solution -flow_target 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/generic/autopilot/common.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/generic/autopilot/op.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/generic/autopilot/interface.gen 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/common/xilinx.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/plb46.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/axi4.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/util.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfft.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfir.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.gen 
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/common/xilinx.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/plb46.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/axi4.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/saxilite.gen 
+Execute           source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/maxi.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/util.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfft.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/ip/xfir.gen 
+Execute         source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/xilinx/DSP48/dsp48.gen 
+INFO-FLOW: DBG:CMD:       initCTypeInfo top_module=hardware_encoding xml_exists=0
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.rtl_wrap.cfg.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.rtl_wrap.cfg.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.rtl_wrap.cfg.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.tbgen.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       export_impl_rtl
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.verilog
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert.compgen.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.compgen.tcl 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=1 expOnly=1 dstVlogDir=impl/.pcores/verilog
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert.compgen.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.compgen.tcl 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute         ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.pcores/verilog_sim
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert.compgen.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.compgen.tcl 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.constraint.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=0
+Execute       get_solution -flow_target 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD:       kernel.xml check internal_kernel_xml(1)=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/kernel.internal.xml srclang=c top=hardware_encoding
+INFO-FLOW: DBG:CMD:       kernel.xml check proj_kernel_xml    (1)=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/../../../kernel.xml use_proj_kernel_xml=false
+INFO-FLOW: DBG:CMD:       copy internal kernel.xml to project: /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/../../../kernel.xml
+INFO-FLOW: DBG:CMD:       update_final_kernel_xml /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/../../../kernel.xml
+Execute       get_config_debug -enable 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+INFO-FLOW: DBG:CMD: Updating /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/../../../kernel.xml with values: interrupt true debug false compileOptions {} name hardware_encoding vlnv xilinx.com:hls:hardware_encoding:1.0
+INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=5
+INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=0 #modelList=7 #gSsdmPorts=0
+Execute       source /mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/tps/tcl/tcllib1.11.1/fileutil/fileutil.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/top-io-be.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.tbgen.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.compgen.dataonly.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.compgen.dataonly.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.tbgen.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.rtl_wrap.cfg.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.compgen.dataonly.tcl 
+Execute       get_config_export -format 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/insert.tbgen.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.tbgen.tcl 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data names -quiet 
+Execute       ap_part_info -name xczu3eg-sbva484-1-i -data info -quiet 
+Execute       get_solution -flow_target 
+Execute       get_config_rtl -kernel_profile 
+Execute       get_config_rtl -kernel_profile 
+Execute       get_config_rtl -stall_sig_gen 
+Execute       get_config_rtl -profile 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.constraint.tcl 
+Execute       sc_get_clocks hardware_encoding 
+Execute       source /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/global.setting.tcl 
+Execute       get_config_debug -directory 
+INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 9.27 seconds. CPU system time: 0.18 seconds. Elapsed time: 13.08 seconds; current allocated memory: 463.817 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for hardware_encoding.
+INFO: [VLOG 209-307] Generating Verilog RTL for hardware_encoding.
+INFO-FLOW: DBG:CMD:       update_csynth_xml_report append design.xml content design_xml=/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.design.xml
+INFO-FLOW: DBG:CMD:       update_csynth_xml_report json2reportxml
+INFO-FLOW: DBG:CMD:       update_csynth_xml_report done
+Execute       syn_report -model hardware_encoding -printsummary 
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were NOT satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 18.75 MHz
+Command     autosyn done; 99.03 sec.
+Command   csynth_design done; 113.01 sec.
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 106.8 seconds. CPU system time: 0.62 seconds. Elapsed time: 113.01 seconds; current allocated memory: 464.407 MB.
+Command ap_source done; 114.96 sec.
+Execute cleanup_all 

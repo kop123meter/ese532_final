@@ -1,0 +1,15 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+    <sourceFile name="">
+        <directive functionName="hardware_encoding" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="hardware_encoding"/>
+            </pragma>
+        </directive>
+        <directive functionName="hardware_encoding" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="hardware_encoding"/>
+            </pragma>
+        </directive>
+    </sourceFile>
+</AutoPilot:ProjectResources>
+
