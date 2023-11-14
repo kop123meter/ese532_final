@@ -26,6 +26,7 @@
 #include "sha256.h"
 #include "LZW_new.h"
 #include "server.h"
+#include "Utilities.h"
 
 #define NUM_PACKETS 8
 #define pipe_depth 4
@@ -331,7 +332,7 @@ int main(int argc, char *argv[])
 //Step 4
     q.finish();
     delete[] fileBuf;
-    
+
     timer2.add("Writing output to output_fpga.bin");
     FILE *outfd = fopen(argv[2], "wb");
 	int bytes_written = fwrite(&file[0], 1, offset, outfd);
