@@ -107,7 +107,7 @@ clean-cpu:
 # 	-$(RM) $(HOST_EXE) $(HOST_OBJECTS) 
 
 clean-accelerators:
- 	-$(RM) $(XCLBIN) $(XO) $(ALL_MESSAGE_FILES)
+	-$(RM) $(XCLBIN) $(XO) $(ALL_MESSAGE_FILES)
  	-$(RM) *.xclbin.sh *.xclbin.info *.xclbin.link_summary* *.compile_summary
  	-$(RMDIR) .Xil fpga/hls/proj_mmult
 
