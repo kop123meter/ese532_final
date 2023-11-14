@@ -108,16 +108,16 @@ clean-cpu:
 
 clean-accelerators:
 	-$(RM) $(XCLBIN) $(XO) $(ALL_MESSAGE_FILES)
- 	-$(RM) *.xclbin.sh *.xclbin.info *.xclbin.link_summary* *.compile_summary
- 	-$(RMDIR) .Xil fpga/hls/proj_mmult
+	-$(RM) *.xclbin.sh *.xclbin.info *.xclbin.link_summary* *.compile_summary
+	-$(RMDIR) .Xil fpga/hls/proj_mmult
 
 clean-package:
- 	-${RMDIR} package
- 	-${RMDIR} package.build
+	-${RMDIR} package
+	-${RMDIR} package.build
 
 clean: clean-cpu clean-accelerators clean-package
- 	-$(RM) *.log *.package_summary
- 	-${RMDIR} _x .ipcache
+	-$(RM) *.log *.package_summary
+	-${RMDIR} _x .ipcache
 
 #
 # binary container: kernel.xclbin
