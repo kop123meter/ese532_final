@@ -200,7 +200,7 @@ int main(int argc, char *argv[])
 
     in = (unsigned char *)q.enqueueMapBuffer(in_buf, CL_TRUE, CL_MAP_WRITE, 0, CHUNK_SIZE_MAX);
     //Output = (unsigned char *)q.enqueueMapBuffer(out_buf, CL_TRUE, CL_MAP_READ, 0, CHUNK_SIZE_MAX * 2);
-    size = (int *)q.enqueueMapBuffer(size_buf,CL_TRUE,CL_MAP_WRITE,0,CHUNK_SIZE_MAX);
+    size = (int *)q.enqueueMapBuffer(size_buf,CL_TRUE,CL_MAP_WRITE,0,sizeof(int) * 1);
 
     // ------------------------------------------------------------------------------------
     // Step 3: Run the kernel

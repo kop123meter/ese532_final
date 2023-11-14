@@ -194,66 +194,8 @@ int main(int argc, char* argv[]) {
 
 	writer = pipe_depth;
 	
-	server.get_packet(input[writer]);
-
-	// get packet
-	unsigned char* buffer = input[writer];
-
-	// decode
-	done = buffer[1] & DONE_BIT_L;
-	length = buffer[0] | (buffer[1] << 8);
-	length &= ~DONE_BIT_H;
-    
-	encode_timer.start();
-	chunk_number = 0; // initialize chunk number
-	cdc(&buffer[HEADER], length);
-
-	SHA256_New(&buffer[HEADER],hash_table);
-
-	memcpy(&input_packet_buffer[0],&buffer[HEADER],length);
-
-	std::cout << "*************** Packet 1 DATA Length ***************" << std::endl;
-	std::cout << "length: " << length << std::endl;
-	std::cout << "****************************************************" << std::endl;
-	
-
-
-
-	// Deduplicate
-
-	int flag = 0;
-	int chunk_index = 0;
-	int start = 0;
-	int end = chunk_boundary[0];
-	for(int i = 0 ; i < chunk_number ;i++){
-		hashing_deduplication(hash_table,i,flag,chunk_index);
-		int input_size = end - start;
-		if(flag == 1){
-			getlzwheader(&lzw_header[0],chunk_index,1);
-			memcpy(&file[offset], &lzw_header[0], 4);
-			offset += 4;
-			flag = 0;
-		}
-		else{
-			// unique chunk
-			int lzw_size = 0;
-			hardware_encoding(&input_packet_buffer[start],&output_temp[0],lzw_size,input_size);
-			getlzwheader(&lzw_header[0],lzw_size,0);
-			memcpy(&file[offset], &lzw_header[0], 4);
-			offset += 4;
-			memcpy(&file[offset], &output_temp[0], lzw_size);
-			offset += lzw_size;
-		}
-		start = end;
-		end = chunk_boundary[i+1];
-	}
-	total_chunk_number += chunk_number;
-
-	writer++;
-	packet_index++;
-	encode_timer.stop();
-	
-	
+	int * lzw_size = (int *)malloc(sizeof(int)*1);
+	int * input_size = (int *)malloc(sizeof(int)*1);	
 	while (!done) {
 		// reset ring buffer
 		if (writer == NUM_PACKETS) {
@@ -303,10 +245,10 @@ int main(int argc, char* argv[]) {
 		}
 		else{
 			// unique chunk
-			int lzw_size = 0;
-			int input_size = end - start;
-			hardware_encoding(&input_packet_buffer[start],&output_temp[0],lzw_size,input_size);
-			getlzwheader(&lzw_header[0],lzw_size,0);
+			lzw_size[0] = 0;
+			input_size[0] = end - start;
+			hardware_encoding(&input_packet_buffer[start],&output_temp[0], lzw_size, input_size);
+			getlzwheader(&lzw_header[0],lzw_size[0],0);
 			memcpy(&file[offset], &lzw_header[0], 4);
 			offset += 4;
 			memcpy(&file[offset], &output_temp[0], lzw_size);
@@ -339,6 +281,8 @@ int main(int argc, char* argv[]) {
 	free(lzw_header);
 	free(output_temp);
 	free(input_packet_buffer);
+	free(lzw_size);
+	free(input_size);
 	std::cout << "--------------- Key Throughputs ---------------" << std::endl;
 	float ethernet_latency = ethernet_timer.latency() / 1000.0;
 	float encoder_latency = encode_timer.latency() / 1000.0;

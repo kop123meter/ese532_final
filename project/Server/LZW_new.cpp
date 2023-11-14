@@ -174,14 +174,14 @@ void lookup(unsigned long* hash_table, assoc_mem* mem, unsigned int key, bool* h
     }
 }
 //****************************************************************************************************************
-void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int len)
+void hardware_encoding(unsigned char * s1,unsigned char * output,int * lzw_size,int * input_size)
 {
 	int hit_second = 2;
     // create hash table and assoc mem
     unsigned long hash_table[CAPACITY];
     assoc_mem my_assoc_mem;
     int output_pos = 0;
-    size = 0;
+    int size = 0;
     output_char = 0;
     output_bit = 0;
 
@@ -213,7 +213,7 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
     unsigned int code = 0;
     unsigned char next_char = 0;
 
-
+    int len = input_size[0];
     for(int i = 0;i<len;)
 //#pragma HLS pipeline II=1
     {
@@ -257,8 +257,6 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
             // end
             
 
-
-
             bool collision = 0;
             insert(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, next_code, &collision);
             // std::cout << "prefix_code:" << prefix_code << "\tnext_code:" << next_code << "\tnext char"<<(int)next_char<< std::endl;std::cout << "prefix_code:" << prefix_code << "\tnext_code:" << next_code << "\tnext char"<<(int)next_char<< std::endl;
@@ -279,6 +277,7 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int l
         }
         i += 1;
     }
+   lzw_size[0] = size;
    // std::cout << std::endl << "assoc mem entry count: " << my_assoc_mem.fill << std::endl;
 }
 //****************************************************************************************************************
