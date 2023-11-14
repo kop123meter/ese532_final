@@ -196,6 +196,10 @@ int main(int argc, char* argv[]) {
 	
 	int * lzw_size = (int *)malloc(sizeof(int)*1);
 	int * input_size = (int *)malloc(sizeof(int)*1);	
+	int flag = 0;
+	int chunk_index = 0;
+	int start = 0;
+	int end = 0;
 	while (!done) {
 		// reset ring buffer
 		if (writer == NUM_PACKETS) {
