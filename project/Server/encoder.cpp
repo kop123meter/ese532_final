@@ -170,7 +170,7 @@ int main(int argc, char* argv[]) {
 
 	ESE532_Server server;
 
-	// default is 2k
+	
 	int blocksize = BLOCKSIZE;
 
 	// set blocksize if decalred through command line
