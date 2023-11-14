@@ -188,15 +188,19 @@ int main(int argc, char *argv[])
 
     cl::Buffer in_buf;
     cl::Buffer out_buf;
+    cl::Buffer size_buf;
 
     in_buf = cl::Buffer(context, CL_MEM_READ_ONLY, CHUNK_SIZE_MAX, NULL, &err);
-    out_buf = cl::Buffer(context, CL_MEM_READ_ONLY, CHUNK_SIZE_MAX * 2, NULL, &err);
+    out_buf = cl::Buffer(context, CL_MEM_WRITE_ONLY, CHUNK_SIZE_MAX * 2, NULL, &err);
+    size_buf = cl::Buffer(context, CL_MEM_WRITE_ONLY, sizeof(int)*1,NULL,&err);
 
     unsigned char *in;
+    int *size;
     //unsigned char *Output;
 
     in = (unsigned char *)q.enqueueMapBuffer(in_buf, CL_TRUE, CL_MAP_WRITE, 0, CHUNK_SIZE_MAX);
     //Output = (unsigned char *)q.enqueueMapBuffer(out_buf, CL_TRUE, CL_MAP_READ, 0, CHUNK_SIZE_MAX * 2);
+    size = (int *)q.enqueueMapBuffer(size_buf,CL_TRUE,CL_MAP_WRITE,0,CHUNK_SIZE_MAX);
 
     // ------------------------------------------------------------------------------------
     // Step 3: Run the kernel
@@ -300,7 +304,7 @@ int main(int argc, char *argv[])
                 // hardwadre_encoding(&in[0], &Output[0], lzw_size, input_size);
                 krnl_hardware.setArg(0, in_buf);
                 krnl_hardware.setArg(1, out_buf);
-                krnl_hardware.setArg(2, lzw_size);
+                krnl_hardware.setArg(2, size_buf);
                 krnl_hardware.setArg(3, input_size);
 
                 if(LZW_count == 0){
@@ -312,12 +316,13 @@ int main(int argc, char *argv[])
                 write_events.push_back(write_ev);
                 q.enqueueTask(krnl_hardware,&write_events,&exec_ev);
                 exec_events.push_back(exec_ev);
-                q.enqueueMigrateMemObjects({out_buf},CL_MIGRATE_MEM_OBJECT_HOST,&exec_events,&read_ev);
+                q.enqueueMigrateMemObjects({out_buf,size_buf},CL_MIGRATE_MEM_OBJECT_HOST,&exec_events,&read_ev);
                 read_events.push_back(read_ev);
 
                 unsigned char *Output = (unsigned char *)q.enqueueMapBuffer(out_buf,CL_TRUE,CL_MAP_READ,0, CHUNK_SIZE_MAX * 2);
-
-                getlzwheader(&lzw_header[0], lzw_size, 0);
+                
+                std::cout << "lzw size:\t" << size <<std::endl;
+                getlzwheader(&lzw_header[0], size, 0);
                 memcpy(&file[offset], &lzw_header[0], 4);
                 offset += 4;
                 memcpy(&file[offset], &Output[0], lzw_size);
