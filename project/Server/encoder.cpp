@@ -251,8 +251,8 @@ int main(int argc, char* argv[]) {
 			getlzwheader(&lzw_header[0],lzw_size[0],0);
 			memcpy(&file[offset], &lzw_header[0], 4);
 			offset += 4;
-			memcpy(&file[offset], &output_temp[0], lzw_size);
-			offset += lzw_size;
+			memcpy(&file[offset], &output_temp[0], lzw_size[0]);
+			offset += lzw_size[0];
 		}
 		start = end;
 		end = chunk_boundary[i+1];
