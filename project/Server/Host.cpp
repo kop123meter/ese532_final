@@ -188,19 +188,24 @@ int main(int argc, char *argv[])
 
     cl::Buffer in_buf;
     cl::Buffer out_buf;
-    cl::Buffer size_buf;
+    cl::Buffer lzwsize_buf;
+    cl::Buffer inputsize_buf;
 
     in_buf = cl::Buffer(context, CL_MEM_READ_ONLY, CHUNK_SIZE_MAX, NULL, &err);
     out_buf = cl::Buffer(context, CL_MEM_WRITE_ONLY, CHUNK_SIZE_MAX * 2, NULL, &err);
-    size_buf = cl::Buffer(context, CL_MEM_WRITE_ONLY, sizeof(int)*1,NULL,&err);
+    lzwsize_buf = cl::Buffer(context, CL_MEM_WRITE_ONLY, sizeof(int)*1,NULL,&err);
+    inputsize_buf = cl::Buffer(context, CL_MEM_READ_ONLY, sizeof(int)*1,NULL,&err);
 
     unsigned char *in;
-    int *size;
+    //int *lzwsize;
+    int *inputsize;
+
     //unsigned char *Output;
 
     in = (unsigned char *)q.enqueueMapBuffer(in_buf, CL_TRUE, CL_MAP_WRITE, 0, CHUNK_SIZE_MAX);
     //Output = (unsigned char *)q.enqueueMapBuffer(out_buf, CL_TRUE, CL_MAP_READ, 0, CHUNK_SIZE_MAX * 2);
-    size = (int *)q.enqueueMapBuffer(size_buf,CL_TRUE,CL_MAP_WRITE,0,sizeof(int) * 1);
+    //lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int) * 1);
+    inputsize = (int *)q.enqueueMapBuffer(inputsize_buf,CL_TRUE,CL_MAP_WRITE,0,sizeof(int) * 1);
 
     // ------------------------------------------------------------------------------------
     // Step 3: Run the kernel
@@ -245,8 +250,6 @@ int main(int argc, char *argv[])
     int chunk_index = 0;
     int start = 0;
     int end = 0;
-    int lzw_size = 0;
-    int input_size = 0;
 
     while (!done)
     {
@@ -298,35 +301,34 @@ int main(int argc, char *argv[])
             else
             {
                 // unique chunk
-                lzw_size = 0;
-                input_size = end - start;
+                inputsize[0] = end - start;
                 memcpy(&in[0],&buffer[HEADER+start],input_size);
                 // hardwadre_encoding(&in[0], &Output[0], lzw_size, input_size);
                 krnl_hardware.setArg(0, in_buf);
                 krnl_hardware.setArg(1, out_buf);
-                krnl_hardware.setArg(2, size_buf);
-                krnl_hardware.setArg(3, input_size);
+                krnl_hardware.setArg(2, lzwsize_buf);
+                krnl_hardware.setArg(3, inputsize_buf);
 
                 if(LZW_count == 0){
-                    q.enqueueMigrateMemObjects({in_buf},0,NULL,&write_ev);
+                    q.enqueueMigrateMemObjects({in_buf,inputsize_buf},0,NULL,&write_ev);
                 }else{
-                    q.enqueueMigrateMemObjects({in_buf},0,&read_events,&write_ev);
+                    q.enqueueMigrateMemObjects({in_buf,inputsize_buf},0,&read_events,&write_ev);
                 }
                 LZW_count++;
                 write_events.push_back(write_ev);
                 q.enqueueTask(krnl_hardware,&write_events,&exec_ev);
                 exec_events.push_back(exec_ev);
-                q.enqueueMigrateMemObjects({out_buf,size_buf},CL_MIGRATE_MEM_OBJECT_HOST,&exec_events,&read_ev);
+                q.enqueueMigrateMemObjects({out_buf,lzwsize_buf},CL_MIGRATE_MEM_OBJECT_HOST,&exec_events,&read_ev);
                 read_events.push_back(read_ev);
 
                 unsigned char *Output = (unsigned char *)q.enqueueMapBuffer(out_buf,CL_TRUE,CL_MAP_READ,0, CHUNK_SIZE_MAX * 2);
-                
-                std::cout << "lzw size:\t" << size <<std::endl;
-                getlzwheader(&lzw_header[0], size, 0);
+                int *lzwsize = (unsigned char *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*1);
+                std::cout << "lzw size:\t" << lzwsize[0] <<std::endl;
+                getlzwheader(&lzw_header[0], lzwsize[0], 0);
                 memcpy(&file[offset], &lzw_header[0], 4);
                 offset += 4;
-                memcpy(&file[offset], &Output[0], lzw_size);
-                offset += lzw_size;
+                memcpy(&file[offset], &Output[0], lzwsize[0]);
+                offset += lzw_size[0];
             }
             start = end;
             end = chunk_boundary[i + 1];
