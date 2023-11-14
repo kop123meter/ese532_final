@@ -302,7 +302,7 @@ int main(int argc, char *argv[])
             {
                 // unique chunk
                 inputsize[0] = end - start;
-                memcpy(&in[0],&buffer[HEADER+start],input_size);
+                memcpy(&in[0],&buffer[HEADER+start],inputsize[0]);
                 // hardwadre_encoding(&in[0], &Output[0], lzw_size, input_size);
                 krnl_hardware.setArg(0, in_buf);
                 krnl_hardware.setArg(1, out_buf);
@@ -322,13 +322,13 @@ int main(int argc, char *argv[])
                 read_events.push_back(read_ev);
 
                 unsigned char *Output = (unsigned char *)q.enqueueMapBuffer(out_buf,CL_TRUE,CL_MAP_READ,0, CHUNK_SIZE_MAX * 2);
-                int *lzwsize = (unsigned int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*1);
+                int *lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*1);
                 std::cout << "lzw size:\t" << lzwsize[0] <<std::endl;
                 getlzwheader(&lzw_header[0], lzwsize[0], 0);
                 memcpy(&file[offset], &lzw_header[0], 4);
                 offset += 4;
                 memcpy(&file[offset], &Output[0], lzwsize[0]);
-                offset += lzw_size[0];
+                offset += lzwsize[0];
             }
             start = end;
             end = chunk_boundary[i + 1];
