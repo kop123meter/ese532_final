@@ -241,6 +241,8 @@ int main(int argc, char *argv[])
     int chunk_index = 0;
     int start = 0;
     int end = 0;
+    int lzw_size = 0;
+    int input_size = 0;
 
     while (!done)
     {
@@ -292,8 +294,8 @@ int main(int argc, char *argv[])
             else
             {
                 // unique chunk
-                int lzw_size = 0;
-                int input_size = end - start;
+                lzw_size = 0;
+                input_size = end - start;
                 memcpy(&in[0],&buffer[HEADER+start],input_size);
                 // hardwadre_encoding(&in[0], &Output[0], lzw_size, input_size);
                 krnl_hardware.setArg(0, in_buf);
