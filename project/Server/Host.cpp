@@ -304,6 +304,7 @@ int main(int argc, char *argv[])
             {
                 // unique chunk
                 inputsize[0] = end - start;
+                std::cout << "inputsize:\t" << inputsize[0] << std::endl;
                 memcpy(&in[0],&buffer[HEADER+start],inputsize[0]);
                 // hardwadre_encoding(&in[0], &Output[0], lzw_size, input_size);
                 krnl_hardware.setArg(0, in_buf);
