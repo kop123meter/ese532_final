@@ -273,6 +273,7 @@ int main(int argc, char *argv[])
         chunk_number = 0; // initialize chunk number
         encode_timer.start();
         cdc(&buffer[HEADER], length);
+        std::cout << "chunk number:\t"<<chunk_number << std::endl;
 
         //Compute SHA
         SHA(&buffer[HEADER], hash_table);
@@ -296,7 +297,8 @@ int main(int argc, char *argv[])
             hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
             if(i==(chunk_number-1)){
                 std::cout <<"i:\t"<<i<<"\tnext chunk:\t"<<chunk_boundary[i+1] << std::endl;
-                std::cout << "count\t" << debug_flag++<<std::endl;
+                std::cout << "count\t" << debug_flag<<std::endl;
+                debug_flag++;
             }
             //std::cout << "Chunk number:\t"<<i <<"\tTotal chunk number:\t"<<chunk_number<<std::endl;
             if (flag == 1)
