@@ -296,7 +296,7 @@ int main(int argc, char *argv[])
             cl::Event write_ev,read_ev,exec_ev;
             hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
             if(i==(chunk_number-1)){
-                std::cout <<"i:\t"<<i<<"\tnext chunk:\t"<<chunk_boundary[i+1] << std::endl;
+                std::cout <<"chunk:\t"<<chunk_boundary[i]<<"\ti:\t"<<i<<"\tnext chunk:\t"<<chunk_boundary[i+1] << std::endl;
                 std::cout << "count\t" << debug_flag<<std::endl;
                 debug_flag++;
             }
