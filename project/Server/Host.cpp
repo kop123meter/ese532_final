@@ -295,12 +295,6 @@ int main(int argc, char *argv[])
         {
             cl::Event write_ev,read_ev,exec_ev;
             hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
-            if(i==(chunk_number-1)){
-                std::cout <<"chunk:\t"<<chunk_boundary[i]<<"\ti:\t"<<i<<"\tnext chunk:\t"<<chunk_boundary[i+1] << std::endl;
-                std::cout << "count\t" << debug_flag<<std::endl;
-                debug_flag++;
-            }
-            //std::cout << "Chunk number:\t"<<i <<"\tTotal chunk number:\t"<<chunk_number<<std::endl;
             if (flag == 1)
             {
                 getlzwheader(&lzw_header[0], chunk_index, 1);
@@ -344,8 +338,6 @@ int main(int argc, char *argv[])
                 std::cout << "file write success!" <<std::endl;
                 offset += lzwsize[0];
             }
-            if(chunk_boundary[i]==length || chunk_boundary[i] == 8192)
-            break;
             start = end;
             end = chunk_boundary[i + 1];
         }
