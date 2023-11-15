@@ -156,7 +156,7 @@ int main(int argc, char *argv[])
         std::cout << "Usage:  " << argv[0] << "<xclbin filer><Compressed file>" << std::endl;
         return EXIT_SUCCESS;
     }
-    std::cout << "MOD:\t" << MODULUS << std::endl;
+    //std::cout << "MOD:\t" << MODULUS << std::endl;
     
     stopwatch ethernet_timer;
 	stopwatch encode_timer;
