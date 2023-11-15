@@ -27,7 +27,6 @@
 #include "LZW_new.h"
 #include "server.h"
 #include "Utilities.h"
-#include "stopwatch.h"
 
 #define NUM_PACKETS 8
 #define pipe_depth 4
@@ -156,9 +155,7 @@ int main(int argc, char *argv[])
         std::cout << "Usage:  " << argv[0] << "<xclbin filer><Compressed file>" << std::endl;
         return EXIT_SUCCESS;
     }
-    
-    stopwatch ethernet_timer;
-	stopwatch encode_timer;
+
     EventTimer timer1, timer2;
     timer1.add("Main program");
 
@@ -200,11 +197,14 @@ int main(int argc, char *argv[])
     inputsize_buf = cl::Buffer(context, CL_MEM_READ_ONLY, sizeof(int)*1,NULL,&err);
 
     unsigned char *in;
+    //int *lzwsize;
     int *inputsize;
 
     //unsigned char *Output;
 
     in = (unsigned char *)q.enqueueMapBuffer(in_buf, CL_TRUE, CL_MAP_WRITE, 0, CHUNK_SIZE_MAX);
+    //Output = (unsigned char *)q.enqueueMapBuffer(out_buf, CL_TRUE, CL_MAP_READ, 0, CHUNK_SIZE_MAX * 2);
+    //lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int) * 1);
     inputsize = (int *)q.enqueueMapBuffer(inputsize_buf,CL_TRUE,CL_MAP_WRITE,0,sizeof(int) * 1);
 
     // ------------------------------------------------------------------------------------
@@ -226,7 +226,7 @@ int main(int argc, char *argv[])
     // set blocksize if decalred through command line
     handle_input(argc, argv, &blocksize);
 
-    file = (unsigned char *)malloc(sizeof(unsigned char) * 700000000);
+    file = (unsigned char *)malloc(sizeof(unsigned char) * 70000000);
     if (file == NULL)
     {
         printf("help\n");
@@ -258,9 +258,8 @@ int main(int argc, char *argv[])
         {
             writer = 0;
         }
-        ethernet_timer.start();
+
         server.get_packet(input[writer]);
-        ethernet_timer.stop();
 
         // get packet
         unsigned char *buffer = input[writer];
@@ -271,9 +270,7 @@ int main(int argc, char *argv[])
 
 
         chunk_number = 0; // initialize chunk number
-        encode_timer.start();
         cdc(&buffer[HEADER], length);
-        std::cout << "chunk number:\t"<<chunk_number << std::endl;
 
         //Compute SHA
         SHA(&buffer[HEADER], hash_table);
@@ -290,12 +287,10 @@ int main(int argc, char *argv[])
         std::vector<cl::Event> exec_events;
         std::vector<cl::Event> write_events;
         int LZW_count = 0;
-        int debug_flag = 0;
         for (int i = 0; i < chunk_number; i++)
         {
             cl::Event write_ev,read_ev,exec_ev;
             hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
-            //std::cout << "Chunk number:\t"<<i <<"\tTotal chunk number:\t"<<chunk_number<<std::endl;
             if (flag == 1)
             {
                 getlzwheader(&lzw_header[0], chunk_index, 1);
@@ -328,6 +323,7 @@ int main(int argc, char *argv[])
 
                 unsigned char *Output = (unsigned char *)q.enqueueMapBuffer(out_buf,CL_TRUE,CL_MAP_READ,0, CHUNK_SIZE_MAX * 2);
                 int *lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*1);
+                std::cout << "lzw size:\t" << lzwsize[0] <<std::endl;
                 getlzwheader(&lzw_header[0], lzwsize[0], 0);
                 memcpy(&file[offset], &lzw_header[0], 4);
                 offset += 4;
@@ -337,14 +333,15 @@ int main(int argc, char *argv[])
             start = end;
             end = chunk_boundary[i + 1];
         }
-        encode_timer.stop();
+
+
         writer++;
         total_chunk_number += chunk_number;
     }
 //Step 4
     q.finish();
     delete[] fileBuf;
-    std::cout << "start wrtting" <<std::endl;
+
     timer2.add("Writing output to output_fpga.bin");
     FILE *outfd = fopen(argv[2], "wb");
 	int bytes_written = fwrite(&file[0], 1, offset, outfd);
@@ -368,18 +365,6 @@ int main(int argc, char *argv[])
     std::cout << "--------------- Total time ---------------"
               << std::endl;
     timer1.print();
-    std::cout << "--------------- Key Throughputs ---------------" << std::endl;
-	float ethernet_latency = ethernet_timer.latency() / 1000.0;
-	float encoder_latency = encode_timer.latency() / 1000.0;
-
-	float input_throughput = (bytes_written * 8 / 1000000.0) / ethernet_latency; // Mb/s
-	float encoder_throughput = (bytes_written * 8 / 1000000.0) / encoder_latency; // Mb/s
-
-	std::cout << "Input Throughput to Encoder: " << input_throughput << " Mb/s."
-			<< " (Latency: " << ethernet_latency << "s)." << std::endl;
-	std::cout << "Input Throughput to Encoder: " << encoder_throughput / 1000.0 << " Gb/s."
-			<< " (Latency: " << encoder_latency << "s)." << std::endl;
-
     free(lzw_header);
     free(file);
     return 0;
