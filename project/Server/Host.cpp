@@ -289,12 +289,14 @@ int main(int argc, char *argv[])
         std::vector<cl::Event> exec_events;
         std::vector<cl::Event> write_events;
         int LZW_count = 0;
+        int debug_flag = 0;
         for (int i = 0; i < chunk_number; i++)
         {
             cl::Event write_ev,read_ev,exec_ev;
             hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
             if(i==(chunk_number-1)){
                 std::cout <<"i:\t"<<i<<"\tnext chunk:\t"<<chunk_boundary[i+1] << std::endl;
+                std::cout << "count\t" << debug_flag++<<std::endl;
             }
             //std::cout << "Chunk number:\t"<<i <<"\tTotal chunk number:\t"<<chunk_number<<std::endl;
             if (flag == 1)
@@ -344,8 +346,6 @@ int main(int argc, char *argv[])
             end = chunk_boundary[i + 1];
         }
         encode_timer.stop();
-
-
         writer++;
         total_chunk_number += chunk_number;
     }
