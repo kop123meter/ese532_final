@@ -32,7 +32,7 @@
 #define NUM_PACKETS 8
 #define pipe_depth 4
 #define CHUNK_SIZE_MAX 8192
-#define CHUNK_NUMBER_MAX 7000000
+#define CHUNK_NUMBER_MAX 100000
 #define DONE_BIT_L (1 << 7)
 #define DONE_BIT_H (1 << 15)
 
@@ -295,6 +295,12 @@ int main(int argc, char *argv[])
         {
             cl::Event write_ev,read_ev,exec_ev;
             hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
+            if(i==(chunk_number-1)){
+                std::cout <<"chunk:\t"<<chunk_boundary[i]<<"\ti:\t"<<i<<"\tnext chunk:\t"<<chunk_boundary[i+1] << std::endl;
+                std::cout << "count\t" << debug_flag<<std::endl;
+                debug_flag++;
+            }
+            //std::cout << "Chunk number:\t"<<i <<"\tTotal chunk number:\t"<<chunk_number<<std::endl;
             if (flag == 1)
             {
                 getlzwheader(&lzw_header[0], chunk_index, 1);
