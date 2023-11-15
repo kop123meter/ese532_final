@@ -296,7 +296,7 @@ int main(int argc, char* argv[]) {
 
 	std::cout << "Input Throughput to Encoder: " << input_throughput << " Mb/s."
 			<< " (Latency: " << ethernet_latency << "s)." << std::endl;
-	std::cout << "Input Throughput to Encoder: " << encoder_throughput / 1000.0 << " Gb/s."
+	std::cout << "Throughput to Bin File: " << encoder_throughput / 1000.0 << " Gb/s."
 			<< " (Latency: " << encoder_latency << "s)." << std::endl;
 
 
