@@ -7,7 +7,7 @@
 #define WIN_SIZE 16
 #define PRIME 3
 #define TARGET 0
-#define MODULUS 4096
+#define MODULUS 256
 
 
 
