@@ -344,6 +344,8 @@ int main(int argc, char *argv[])
                 std::cout << "file write success!" <<std::endl;
                 offset += lzwsize[0];
             }
+            if(chunk_boundary[i]==length || chunk_boundary[i] == 8192)
+            break;
             start = end;
             end = chunk_boundary[i + 1];
         }
