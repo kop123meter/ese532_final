@@ -328,10 +328,12 @@ int main(int argc, char *argv[])
                 int *lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*1);
                 std::cout << "lzw size:\t" << lzwsize[0] <<std::endl;
                 getlzwheader(&lzw_header[0], lzwsize[0], 0);
-                std::cout << "Header success!" <<std::endl;
+                std::cout << "Header compute success!" <<std::endl;
                 memcpy(&file[offset], &lzw_header[0], 4);
+                std::cout << "Header write success!" <<std::endl;
                 offset += 4;
                 memcpy(&file[offset], &Output[0], lzwsize[0]);
+                std::cout << "file write success!" <<std::endl;
                 offset += lzwsize[0];
             }
             start = end;
