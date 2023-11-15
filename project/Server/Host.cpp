@@ -294,7 +294,7 @@ int main(int argc, char *argv[])
             cl::Event write_ev,read_ev,exec_ev;
             std::cout << "Hash ded" << std::endl;
             hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
-            std:cout << "flag:\t"<<flag << std::endl;
+            std::cout << "flag:\t"<<flag << std::endl;
             if (flag == 1)
             {
                 getlzwheader(&lzw_header[0], chunk_index, 1);
