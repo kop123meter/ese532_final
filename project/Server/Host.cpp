@@ -293,7 +293,7 @@ int main(int argc, char *argv[])
         {
             cl::Event write_ev,read_ev,exec_ev;
             hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
-            std::cout << "Chunk number:\t"<<i <<"\tTotal chunk number:\t"<<chunk_number<<std::endl;
+            //std::cout << "Chunk number:\t"<<i <<"\tTotal chunk number:\t"<<chunk_number<<std::endl;
             if (flag == 1)
             {
                 getlzwheader(&lzw_header[0], chunk_index, 1);
@@ -349,7 +349,7 @@ int main(int argc, char *argv[])
 //Step 4
     q.finish();
     delete[] fileBuf;
-
+    std::cout << "start wrtting" <<std::endl;
     timer2.add("Writing output to output_fpga.bin");
     FILE *outfd = fopen(argv[2], "wb");
 	int bytes_written = fwrite(&file[0], 1, offset, outfd);
