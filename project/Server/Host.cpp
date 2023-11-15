@@ -27,6 +27,7 @@
 #include "LZW_new.h"
 #include "server.h"
 #include "Utilities.h"
+#include "stopwatch.h"
 
 #define NUM_PACKETS 8
 #define pipe_depth 4
@@ -155,7 +156,9 @@ int main(int argc, char *argv[])
         std::cout << "Usage:  " << argv[0] << "<xclbin filer><Compressed file>" << std::endl;
         return EXIT_SUCCESS;
     }
-
+    
+    stopwatch ethernet_timer;
+	stopwatch encode_timer;
     EventTimer timer1, timer2;
     timer1.add("Main program");
 
@@ -197,14 +200,11 @@ int main(int argc, char *argv[])
     inputsize_buf = cl::Buffer(context, CL_MEM_READ_ONLY, sizeof(int)*1,NULL,&err);
 
     unsigned char *in;
-    //int *lzwsize;
     int *inputsize;
 
     //unsigned char *Output;
 
     in = (unsigned char *)q.enqueueMapBuffer(in_buf, CL_TRUE, CL_MAP_WRITE, 0, CHUNK_SIZE_MAX);
-    //Output = (unsigned char *)q.enqueueMapBuffer(out_buf, CL_TRUE, CL_MAP_READ, 0, CHUNK_SIZE_MAX * 2);
-    //lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int) * 1);
     inputsize = (int *)q.enqueueMapBuffer(inputsize_buf,CL_TRUE,CL_MAP_WRITE,0,sizeof(int) * 1);
 
     // ------------------------------------------------------------------------------------
@@ -258,8 +258,9 @@ int main(int argc, char *argv[])
         {
             writer = 0;
         }
-
+        ethernet_timer.start();
         server.get_packet(input[writer]);
+        ethernet_timer.stop();
 
         // get packet
         unsigned char *buffer = input[writer];
@@ -270,6 +271,7 @@ int main(int argc, char *argv[])
 
 
         chunk_number = 0; // initialize chunk number
+        encode_timer.start();
         cdc(&buffer[HEADER], length);
 
         //Compute SHA
@@ -333,6 +335,7 @@ int main(int argc, char *argv[])
             start = end;
             end = chunk_boundary[i + 1];
         }
+        encode_timer.stop();
 
 
         writer++;
@@ -365,6 +368,18 @@ int main(int argc, char *argv[])
     std::cout << "--------------- Total time ---------------"
               << std::endl;
     timer1.print();
+    std::cout << "--------------- Key Throughputs ---------------" << std::endl;
+	float ethernet_latency = ethernet_timer.latency() / 1000.0;
+	float encoder_latency = encode_timer.latency() / 1000.0;
+
+	float input_throughput = (bytes_written * 8 / 1000000.0) / ethernet_latency; // Mb/s
+	float encoder_throughput = (bytes_written * 8 / 1000000.0) / encoder_latency; // Mb/s
+
+	std::cout << "Input Throughput to Encoder: " << input_throughput << " Mb/s."
+			<< " (Latency: " << ethernet_latency << "s)." << std::endl;
+	std::cout << "Input Throughput to Encoder: " << encoder_throughput / 1000.0 << " Gb/s."
+			<< " (Latency: " << encoder_latency << "s)." << std::endl;
+
     free(lzw_header);
     free(file);
     return 0;
