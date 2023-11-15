@@ -295,11 +295,6 @@ int main(int argc, char *argv[])
         {
             cl::Event write_ev,read_ev,exec_ev;
             hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
-            if(i==(chunk_number-1)){
-                std::cout <<"chunk:\t"<<chunk_boundary[i]<<"\ti:\t"<<i<<"\tnext chunk:\t"<<chunk_boundary[i+1] << std::endl;
-                std::cout << "count\t" << debug_flag<<std::endl;
-                debug_flag++;
-            }
             //std::cout << "Chunk number:\t"<<i <<"\tTotal chunk number:\t"<<chunk_number<<std::endl;
             if (flag == 1)
             {
@@ -312,7 +307,6 @@ int main(int argc, char *argv[])
             {
                 // unique chunk
                 inputsize[0] = end - start;
-                std::cout << "inputsize:\t" << inputsize[0] << std::endl;
                 memcpy(&in[0],&buffer[HEADER+start],inputsize[0]);
                 // hardwadre_encoding(&in[0], &Output[0], lzw_size, input_size);
                 krnl_hardware.setArg(0, in_buf);
@@ -334,14 +328,10 @@ int main(int argc, char *argv[])
 
                 unsigned char *Output = (unsigned char *)q.enqueueMapBuffer(out_buf,CL_TRUE,CL_MAP_READ,0, CHUNK_SIZE_MAX * 2);
                 int *lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*1);
-                std::cout << "lzw size:\t" << lzwsize[0] <<std::endl;
                 getlzwheader(&lzw_header[0], lzwsize[0], 0);
-                std::cout << "Header compute success!" <<std::endl;
                 memcpy(&file[offset], &lzw_header[0], 4);
-                std::cout << "Header write success!" <<std::endl;
                 offset += 4;
                 memcpy(&file[offset], &Output[0], lzwsize[0]);
-                std::cout << "file write success!" <<std::endl;
                 offset += lzwsize[0];
             }
             start = end;
