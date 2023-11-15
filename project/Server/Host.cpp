@@ -90,7 +90,7 @@ void cdc(unsigned char *buff, unsigned int buff_size)
             chunk_number++;
         }
     }
-    if (chunk_boundary[chunk_number - 1] != (buff_size))
+    if (chunk_boundary[chunk_number - 1] != (buff_size) && chunk_boundary[i-1]!=8192)
     {
         chunk_boundary[chunk_number] = buff_size;
         chunk_number++;
