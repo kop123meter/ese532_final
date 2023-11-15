@@ -292,7 +292,7 @@ int main(int argc, char *argv[])
         for (int i = 0; i < chunk_number; i++)
         {
             cl::Event write_ev,read_ev,exec_ev;
-            std:cout << "Hash ded" << std::endl;
+            std::cout << "Hash ded" << std::endl;
             hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
             std:cout << "flag:\t"<<flag << std::endl;
             if (flag == 1)
