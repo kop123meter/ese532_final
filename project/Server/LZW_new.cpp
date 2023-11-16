@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "LZW_new.h"
 //****************************************************************************************************************
-#define CAPACITY 65536 // hash output is 15 bits, and we have 1 entry per bucket, so capacity is 2^15
+#define CAPACITY 32768 // hash output is 15 bits, and we have 1 entry per bucket, so capacity is 2^15
 //#define CAPACITY 4096
 // try  uncommenting the line above and commenting line 6 to make the hash table smaller 
 // and see what happens to the number of entries in the assoc mem 
