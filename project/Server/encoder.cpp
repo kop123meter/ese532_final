@@ -232,12 +232,13 @@ int main(int argc, char* argv[]) {
 		// uint64_t hash_table[chunk_number];
 		std::cout << "Chunk Number:\t" << chunk_number << std::endl;
 		SHA256_New(&buffer[HEADER],hash_table);
-		std::cout << "SHA!!!"<<std::endl;
+		
 
 
 
 		//Copy DATA to buffer
 		memcpy(&input_packet_buffer[0],&buffer[HEADER],length);
+		std::cout << "Copy OK!!!"<<std::endl;
 
 		//deduplication
 		flag = 0;
@@ -246,6 +247,7 @@ int main(int argc, char* argv[]) {
 		end = chunk_boundary[0];
 	for(int i = 0 ; i < chunk_number ;i++){
 		hashing_deduplication(hash_table, total_chunk_number + i,flag,chunk_index);
+		std::cout << "hash ded OK!!!"<<std::endl;
 		if(flag == 1){
 			getlzwheader(&lzw_header[0],chunk_index,1);
 			memcpy(&file[offset], &lzw_header[0], 4);
@@ -266,6 +268,7 @@ int main(int argc, char* argv[]) {
 		start = end;
 		end = chunk_boundary[i+1];
 	}
+	std::cout << "Encoder OK!!!"<<std::endl;
 
 
 		//memcpy(&file[offset], &buffer[HEADER], length);
