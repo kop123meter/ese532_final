@@ -220,6 +220,8 @@ int main(int argc, char* argv[]) {
 		std::cout << "*************** Packet "<< packet_index + 1<<" DATA Length ***************" << std::endl;
 	    std::cout << "length: " << length << std::endl;
 	    std::cout << "****************************************************" << std::endl;
+		packet_index++;
+
 	
 
 
@@ -227,6 +229,7 @@ int main(int argc, char* argv[]) {
 		chunk_number = 0; // initialize chunk number
 		cdc(&buffer[HEADER], length);
 		// uint64_t hash_table[chunk_number];
+		std::cout << "Chunk Number:\t" << chunk_number << std::endl;
 		SHA256_New(&buffer[HEADER],hash_table);
 
 
@@ -295,9 +298,9 @@ int main(int argc, char* argv[]) {
 	float encoder_throughput = (bytes_written * 8 / 1000000.0) / encoder_latency; // Mb/s
 
 	std::cout << "Input Throughput to Encoder: " << input_throughput << " Mb/s."
-			<< " (Latency: " << ethernet_latency << "s)." << std::endl;
 	std::cout << "Throughput to Bin File: " << encoder_throughput / 1000.0 << " Gb/s."
-			<< " (Latency: " << encoder_latency << "s)." << std::endl;
+			<< " (Latency: " << encoder_latenc			<< " (Latency: " << ethernet_latency << "s)." << std::endl;
+y << "s)." << std::endl;
 
 
 	return 0;
