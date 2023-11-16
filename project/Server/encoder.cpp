@@ -18,7 +18,7 @@
 
 #define NUM_PACKETS 8
 #define pipe_depth 4
-#define CHUNK_NUMBER_MAX 100000
+#define CHUNK_NUMBER_MAX 1000000
 #define DONE_BIT_L (1 << 7)
 #define DONE_BIT_H (1 << 15)
 
@@ -165,8 +165,9 @@ int main(int argc, char* argv[]) {
 	int length = 0;
 	int packet_index = 0;
 	unsigned char* lzw_header = (unsigned char*)malloc(4 * sizeof(unsigned char));
-	unsigned char* output_temp = (unsigned char*)malloc(70000000 * sizeof(unsigned char));
-	unsigned char* input_packet_buffer = (unsigned char*)malloc(70000000 * sizeof(unsigned char));
+	unsigned char* output_temp = (unsigned char*)malloc(700000000 * sizeof(unsigned char));
+	unsigned char* input_packet_buffer = (unsigned char*)malloc(700000000 * sizeof(unsigned char)); //293 585 920
+
 
 	ESE532_Server server;
 
@@ -176,7 +177,7 @@ int main(int argc, char* argv[]) {
 	// set blocksize if decalred through command line
 	handle_input(argc, argv, &blocksize);
 
-	file = (unsigned char*) malloc(sizeof(unsigned char) *  70000000);
+	file = (unsigned char*) malloc(sizeof(unsigned char) *  700000000);
 	if (file == NULL) {
 		printf("help\n");
 	}
