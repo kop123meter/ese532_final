@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "LZW_new.h"
 //****************************************************************************************************************
-#define CAPACITY 65536 // hash output is 15 bits, and we have 1 entry per bucket, so capacity is 2^15
+#define CAPACITY 32768 // hash output is 15 bits, and we have 1 entry per bucket, so capacity is 2^15
 //#define CAPACITY 4096
 // try  uncommenting the line above and commenting line 6 to make the hash table smaller 
 // and see what happens to the number of entries in the assoc mem 
@@ -31,24 +31,34 @@ unsigned int my_hash(unsigned long key)
     //return hashed & 0xFFF;   
 }
 
-void hash_lookup(unsigned long* hash_table, unsigned int key, bool* hit, unsigned int* result)
+void hash_lookup(unsigned long hash_table[2][CAPACITY], unsigned int key, bool* hit, unsigned int* result)
 {
     //std::cout << "hash_lookup():" << std::endl;
     key &= 0xFFFFF; // make sure key is only 20 bits 
 
-    unsigned long lookup = hash_table[my_hash(key)];
+    unsigned long lookup_0 = hash_table[0][my_hash(key)];
+    unsigned long lookup_1 = hash_table[1][my_hash(key)];
 
     // [valid][value][key]
-    unsigned int stored_key = lookup&0xFFFFF;       // stored key is 20 bits
-    unsigned int value = (lookup >> 20)&0xFFF;      // value is 12 bits
-    unsigned int valid = (lookup >> (20 + 12))&0x1; // valid is 1 bit
+    unsigned int stored_key_0 = lookup_0&0xFFFFF;       // stored key is 20 bits
+    unsigned int value_0 = (lookup_0 >> 20)&0xFFF;      // value is 12 bits
+    unsigned int valid_0 = (lookup_0 >> (20 + 12))&0x1; // valid is 1 bit
+
+    unsigned int stored_key_1 = lookup_1&0xFFFFF;       // stored key is 20 bits
+    unsigned int value_1 = (lookup_1 >> 20)&0xFFF;      // value is 12 bits
+    unsigned int valid_1 = (lookup_1 >> (20 + 12))&0x1; // valid is 1 bit
     
-    if(valid && (key == stored_key))
+    if(valid_0 && (key == stored_key_0))
     {
         *hit = 1;
-        *result = value;
+        *result = value_0;
         //std::cout << "\thit the hash" << std::endl;
         //std::cout << "\t(k,v,h) = " << key << " " << value << " " << my_hash(key) << std::endl;
+    }
+    else if(valid_1 && (key == stored_key_1))
+    {
+        *hit = 1;
+        *result = value_1;
     }
     else
     {
@@ -58,26 +68,32 @@ void hash_lookup(unsigned long* hash_table, unsigned int key, bool* hit, unsigne
     }
 }
 
-void hash_insert(unsigned long* hash_table, unsigned int key, unsigned int value, bool* collision)
+void hash_insert(unsigned long hash_table[2][CAPACITY], unsigned int key, unsigned int value, bool* collision)
 {
     //std::cout << "hash_insert():" << std::endl;
     key &= 0xFFFFF;   // make sure key is only 20 bits
     value &= 0xFFF;   // value is only 12 bits
 
-    unsigned long lookup = hash_table[my_hash(key)];
-    unsigned int valid = (lookup >> (20 + 12))&0x1;
+    unsigned long lookup_0 = hash_table[0][my_hash(key)];
+    unsigned int valid_0 = (lookup_0 >> (20 + 12))&0x1;
+    unsigned long lookup_1 = hash_table[1][my_hash(key)];
+    unsigned int valid_1 = (lookup_1 >> (20 + 12))&0x1;
 
-    if(valid)
+    if(valid_0 && valid_1)
     {
         *collision = 1;
         //std::cout << "\tcollision in the hash" << std::endl;
     }
-    else
+    else if(!valid_0 && !valid_1)
     {
-        hash_table[my_hash(key)] = (1UL << (20 + 12)) | (value << 20) | key;
+        hash_table[0][my_hash(key)] = (1UL << (20 + 12)) | (value << 20) | key;
         *collision = 0;
         //std::cout << "\tinserted into the hash table" << std::endl;
         //std::cout << "\t(k,v,h) = " << key << " " << value << " " << my_hash(key) << std::endl;
+    }
+    else
+    {
+        hash_table[1][my_hash(key)] = (1UL << (20 + 12)) | (value << 20) | key;
     }
 }
 //****************************************************************************************************************
@@ -155,7 +171,7 @@ void assoc_lookup(assoc_mem* mem, unsigned int key, bool* hit, unsigned int* res
     }
 }
 //****************************************************************************************************************
-void insert(unsigned long* hash_table, assoc_mem* mem, unsigned int key, unsigned int value, bool* collision)
+void insert(unsigned long hash_table[2][CAPACITY], assoc_mem* mem, unsigned int key, unsigned int value, bool* collision)
 {
     hash_insert(hash_table, key, value, collision);
     if(*collision)
@@ -164,7 +180,7 @@ void insert(unsigned long* hash_table, assoc_mem* mem, unsigned int key, unsigne
     }
 }
 
-void lookup(unsigned long* hash_table, assoc_mem* mem, unsigned int key, bool* hit, unsigned int* result)
+void lookup(unsigned long hash_table[2][CAPACITY], assoc_mem* mem, unsigned int key, bool* hit, unsigned int* result)
 {
     hash_lookup(hash_table, key, hit, result);
 
@@ -178,7 +194,7 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * lzw_size,
 {
 	int hit_second = 2;
     // create hash table and assoc mem
-    unsigned long hash_table[CAPACITY];
+    unsigned long hash_table[2][CAPACITY];
     assoc_mem my_assoc_mem;
     int output_pos = 0;
     int size = 0;
@@ -186,9 +202,11 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * lzw_size,
     output_bit = 0;
 
     // make sure the memories are clear
-    for(int i = 0; i < CAPACITY; i++)
-    {
-        hash_table[i] = 0;
+    for(int j = 0; j < 2; j++){
+        for(int i = 0; i < CAPACITY; i++)
+        {
+            hash_table[j][i] = 0;
+        }
     }
     my_assoc_mem.fill = 0;
     for(int i = 0; i < 512; i++)
