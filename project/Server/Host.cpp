@@ -148,6 +148,8 @@ int main(int argc, char *argv[])
         std::cout << "Usage:  " << argv[0] << "<xclbin filer><Compressed file>" << std::endl;
         return EXIT_SUCCESS;
     }
+    int bytes_read = 0;
+    
     
     stopwatch ethernet_timer;
 	stopwatch encode_timer;
@@ -260,6 +262,8 @@ int main(int argc, char *argv[])
         done = buffer[1] & DONE_BIT_L;
         length = buffer[0] | (buffer[1] << 8);
         length &= ~DONE_BIT_H;
+        bytes_read = bytes_read + length;
+        std::cout << "Read\t" << bytes_read << "\tBytes" << std::endl;
 
 
         chunk_number = 0; // initialize chunk number
@@ -364,7 +368,7 @@ int main(int argc, char *argv[])
 	float ethernet_latency = ethernet_timer.latency() / 1000.0;
 	float encoder_latency = encode_timer.latency() / 1000.0;
 
-	float input_throughput = (bytes_written * 8 / 1000000.0) / ethernet_latency; // Mb/s
+	float input_throughput = (bytes_read * 8 / 1000000.0) / ethernet_latency; // Mb/s
 	float encoder_throughput = (bytes_written * 8 / 1000000.0) / encoder_latency; // Mb/s
 
 	std::cout << "Input Throughput to Encoder: " << input_throughput << " Mb/s."
