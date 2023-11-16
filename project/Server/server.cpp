@@ -60,7 +60,7 @@ int ESE532_Server::setup_server(int avg_blocksize) {
 int ESE532_Server::get_packet(unsigned char* buffer) {
 	int bytes_read = recvfrom(sockfd, (void *) buffer, blocksize + HEADER, 0,
 			(struct sockaddr *) &servaddr, &server_len);
-	std::cout << "bytes_read" << std::endl;
+	printf("Read complete!\n");
 	packets_read++;
 	// crash
 	if (bytes_read < 0) {
