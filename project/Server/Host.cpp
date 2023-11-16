@@ -105,13 +105,6 @@ void SHA(unsigned char *buffer, std::string *hash_table)
     for (int chunk = 0; chunk < chunk_number; chunk++)
     {
         int length = end_point - start_point;
-        uint64_t hash = 0;
-        uint64_t temp = 0;
-        for (int i = 0; i < length; i++)
-        {
-            temp = (uint64_t)buffer[start_point + i];
-            hash = hash + temp;
-        }
         hash_table[total_chunk_number + chunk] = sha256(&buffer[start_point], length);
         start_point = end_point;
         end_point = chunk_boundary[chunk + 1];
