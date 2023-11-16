@@ -297,10 +297,9 @@ int main(int argc, char* argv[]) {
 	float input_throughput = (bytes_written * 8 / 1000000.0) / ethernet_latency; // Mb/s
 	float encoder_throughput = (bytes_written * 8 / 1000000.0) / encoder_latency; // Mb/s
 
-	std::cout << "Input Throughput to Encoder: " << input_throughput << " Mb/s."
+	std::cout << "Input Throughput to Encoder: " << input_throughput << " Mb/s." << " (Latency: " << ethernet_latency << "s)." << std::endl;
 	std::cout << "Throughput to Bin File: " << encoder_throughput / 1000.0 << " Gb/s."
-			<< " (Latency: " << encoder_latenc			<< " (Latency: " << ethernet_latency << "s)." << std::endl;
-y << "s)." << std::endl;
+			<< " (Latency: " << encoder_latency << "s)." << std::endl;
 
 
 	return 0;
