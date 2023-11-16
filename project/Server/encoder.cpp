@@ -232,6 +232,7 @@ int main(int argc, char* argv[]) {
 		// uint64_t hash_table[chunk_number];
 		std::cout << "Chunk Number:\t" << chunk_number << std::endl;
 		SHA256_New(&buffer[HEADER],hash_table);
+		std::cout << "SHA!!!"<<std::endl;
 
 
 
