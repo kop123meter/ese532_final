@@ -206,10 +206,11 @@ int main(int argc, char* argv[]) {
 		if (writer == NUM_PACKETS) {
 			writer = 0;
 		}
-
+   
 		ethernet_timer.start();
 		server.get_packet(input[writer]);
 		ethernet_timer.stop();
+		std::cout << "get packer ok"<<std::endl;
 
 
 		// get packet
