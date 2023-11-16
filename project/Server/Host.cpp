@@ -82,7 +82,6 @@ void cdc(unsigned char *buff, unsigned int buff_size)
 {
     for (u_int i = WIN_SIZE; i < (buff_size - WIN_SIZE); i++)
     {
-        // change buff to buff+HEADER
         if ((hash_func(buff, i) % MODULUS) == TARGET)
         {
             // create chunk here
