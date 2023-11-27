@@ -143,11 +143,12 @@ void hashing_deduplication(std::string *hash_table, int i, int &flag, int &chunk
 }
 int main(int argc, char *argv[])
 {
-    if (argc < 3)
+    if (argc < 2)
     {
-        std::cout << "Usage:  " << argv[0] << "<xclbin filer><Compressed file>" << std::endl;
+        std::cout << "Usage:  " << argv[0] << "<Compressed file>" << std::endl;
         return EXIT_SUCCESS;
     }
+
     int bytes_read = 0;
     
     
@@ -162,7 +163,7 @@ int main(int argc, char *argv[])
     timer2.add("OpenCL Initialization");
     cl_int err;
 
-    std::string binaryFile = argv[1];
+    std::string binaryFile = "hardware_encoding.xclbin";
     unsigned fileBufSize;
 
     std::vector<cl::Device> devices = get_xilinx_devices();
@@ -342,7 +343,7 @@ int main(int argc, char *argv[])
     delete[] fileBuf;
 
     timer2.add("Writing output to output_fpga.bin");
-    FILE *outfd = fopen(argv[2], "wb");
+    FILE *outfd = fopen(argv[1], "wb");
 	int bytes_written = fwrite(&file[0], 1, offset, outfd);
 	printf("write file with %d\n", bytes_written);
 	fclose(outfd);
