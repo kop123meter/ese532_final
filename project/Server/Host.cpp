@@ -63,38 +63,6 @@ void handle_input(int argc, char *argv[], int *blocksize)
     }
 }
 
-// placeholder hash function for cdc
-uint64_t hash_func(unsigned char *input, unsigned int pos)
-{
-    uint64_t hash = 0;
-    uint64_t temp = 0;
-    // Change 0 to Header / WIN_SIZE
-    for (int i = 0; i < WIN_SIZE; i++)
-    {
-        temp = (uint64_t)(input[pos + WIN_SIZE - 1 - i]);
-        temp = temp * pow(PRIME, i + 1);
-        hash = hash + temp;
-    }
-    return hash;
-}
-
-void cdc(unsigned char *buff, unsigned int buff_size)
-{
-    for (u_int i = WIN_SIZE; i < (buff_size - WIN_SIZE); i++)
-    {
-        if ((hash_func(buff, i) % MODULUS) == TARGET)
-        {
-            // create chunk here
-            chunk_boundary[chunk_number] = i;
-            chunk_number++;
-        }
-    }
-    if (chunk_boundary[chunk_number - 1] != (buff_size))
-    {
-        chunk_boundary[chunk_number] = buff_size;
-        chunk_number++;
-    }
-}
 
 void SHA(unsigned char *buffer, std::string *hash_table)
 {
@@ -154,6 +122,11 @@ int main(int argc, char *argv[])
     
     stopwatch ethernet_timer;
 	stopwatch encode_timer;
+    stopwatch cdc_timer;
+    stopwatch sha_timer;
+    stopwatch ded_timer;
+    stopwatch lzw_timer;
+
     EventTimer timer1, timer2;
     timer1.add("Main program");
 
@@ -245,7 +218,7 @@ int main(int argc, char *argv[])
     int chunk_index = 0;
     int start = 0;
     int end = 0;
-
+    timer2.add("Encode");
     while (!done)
     {
         // reset ring buffer
@@ -269,10 +242,14 @@ int main(int argc, char *argv[])
 
         chunk_number = 0; // initialize chunk number
         encode_timer.start();
-        cdc(&buffer[HEADER], length);
+        cdc_timer.start();
+        cdc(&buffer[HEADER], length,chunk_number,chunk_boundary);
+        cdc_timer.stop();
 
         //Compute SHA
+        sha_timer.start();
         SHA(&buffer[HEADER], hash_table);
+        sha_timer.stop();
 
         // Copy DATA to buffer
         //memcpy(&in[0], &buffer[HEADER], length);
@@ -289,7 +266,9 @@ int main(int argc, char *argv[])
         for (int i = 0; i < chunk_number; i++)
         {
             cl::Event write_ev,read_ev,exec_ev;
+            ded_timer.start();
             hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
+            ded_timer.stop();
             if (flag == 1)
             {
                 getlzwheader(&lzw_header[0], chunk_index, 1);
@@ -299,6 +278,7 @@ int main(int argc, char *argv[])
             }
             else
             {
+                lzw_timer.start();
                 // unique chunk
                 inputsize[0] = end - start;
                 memcpy(&in[0],&buffer[HEADER+start],inputsize[0]);
@@ -328,6 +308,7 @@ int main(int argc, char *argv[])
                 offset += 4;
                 memcpy(&file[offset], &Output[0], lzwsize[0]);
                 offset += lzwsize[0];
+                lzw_timer.stop();
             }
             start = end;
             end = chunk_boundary[i + 1];
@@ -365,6 +346,19 @@ int main(int argc, char *argv[])
     std::cout << "--------------- Total time ---------------"
               << std::endl;
     timer1.print();
+
+    std::cout<<"------------------CDC time------------------"<<std::endl;
+    std::cout << cdc_timer.latency()  << "ms" << std::endl;
+
+    std::cout<<"------------------SHA256 time------------------"<<std::endl;
+    std::cout << sha_timer.latency()  << "ms" << std::endl;
+
+    std::cout<<"------------------Deduplicate time------------------"<<std::endl;
+    std::cout << ded_timer.latency() << "ms" << std::endl;
+    
+    std::cout<<"------------------LZW time------------------"<<std::endl;
+    std::cout << lzw_timer.latency() << "ms" << std::endl;
+
     std::cout << "--------------- Key Throughputs ---------------" << std::endl;
 	float ethernet_latency = ethernet_timer.latency() / 1000.0;
 	float encoder_latency = encode_timer.latency() / 1000.0;

@@ -10,5 +10,7 @@
 #define MODULUS 4096
 
 
+void cdc(unsigned char *buff, unsigned int buff_size,int& chunk_number, int * chunk_boundary);
+uint64_t hash_func(unsigned char *input, unsigned int pos);
 
 #endif

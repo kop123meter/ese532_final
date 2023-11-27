@@ -54,7 +54,7 @@ ALL_MESSAGE_FILES = $(subst .xo,.mdb,$(XO)) $(subst .xclbin,.mdb,$(XCLBIN))
 CLIENT_SOURCES = Client/client.cpp
 CLIENT_EXE = client
 
-SERVER_SOURCES = Server/server.cpp Server/LZW_new.cpp Server/sha256.cpp Server/Host.cpp Server/EventTimer.cpp Server/Utilities.cpp
+SERVER_SOURCES = Server/server.cpp Server/LZW_new.cpp Server/sha256.cpp Server/Host.cpp Server/EventTimer.cpp Server/Utilities.cpp Server/cdc.cpp
 SERVER_OBJECTS =$(SERVER_SOURCES:.cpp=.o)
 SERVER_EXE = host
 
