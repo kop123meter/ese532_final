@@ -244,6 +244,7 @@ int main(int argc, char *argv[])
         encode_timer.start();
         cdc_timer.start();
         cdc(&buffer[HEADER], length,chunk_number,chunk_boundary);
+        std::cout << "Chunk number:\t" << chunk_number << std::endl;
         cdc_timer.stop();
 
         //Compute SHA

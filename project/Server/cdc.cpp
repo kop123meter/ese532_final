@@ -33,9 +33,9 @@ uint64_t hash_func_revised(unsigned char *input, unsigned int pos)
         }
     }
     
-    if(pos > WIN_SIZE)
+    else if(pos > WIN_SIZE)
     {
-        global_hash = global_hash - input[pos - 1] * pow(PRIME, WIN_SIZE);
+        global_hash = global_hash - input[pos - 1] * const_pow;
         global_hash = (global_hash + input[pos + WIN_SIZE - 1]) * PRIME;
     }
     
