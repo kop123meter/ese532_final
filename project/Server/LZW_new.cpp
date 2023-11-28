@@ -202,12 +202,15 @@ void hardware_encoding(unsigned char * s1,unsigned char * output,int * lzw_size,
     output_bit = 0;
 
     // make sure the memories are clear
-    for(int j = 0; j < 2; j++){
-        for(int i = 0; i < CAPACITY; i++)
-        {
-            hash_table[j][i] = 0;
+
+// #pragma HLS array_partition variable=hash_table block factor=4 dim=2
+       for(int i = 0; i < CAPACITY; i++)
+       {
+#pragma HLS unroll factor=2
+           hash_table[0][i] = 0;
+           hash_table[1][i] = 0;
         }
-    }
+
     my_assoc_mem.fill = 0;
     for(int i = 0; i < 512; i++)
     {

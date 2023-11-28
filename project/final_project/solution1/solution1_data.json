@@ -73,31 +73,63 @@
         }
       ]
     },
-    "size": {
+    "lzw_size": {
       "index": "2",
       "direction": "inout",
-      "srcType": "int&",
+      "srcType": "int*",
       "srcSize": "32",
-      "hwRefs": [{
-          "type": "register",
-          "interface": "s_axi_control",
-          "name": "size",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "m_axi_gmem",
+          "name": "",
           "usage": "data",
           "direction": "out"
-        }]
-    },
-    "len": {
-      "index": "3",
-      "direction": "in",
-      "srcType": "int",
-      "srcSize": "32",
-      "hwRefs": [{
+        },
+        {
           "type": "register",
           "interface": "s_axi_control",
-          "name": "len",
-          "usage": "data",
+          "name": "lzw_size_1",
+          "usage": "address",
           "direction": "in"
-        }]
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "lzw_size_2",
+          "usage": "address",
+          "direction": "in"
+        }
+      ]
+    },
+    "input_size": {
+      "index": "3",
+      "direction": "inout",
+      "srcType": "int*",
+      "srcSize": "32",
+      "hwRefs": [
+        {
+          "type": "interface",
+          "interface": "m_axi_gmem",
+          "name": "",
+          "usage": "data",
+          "direction": "out"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "input_size_1",
+          "usage": "address",
+          "direction": "in"
+        },
+        {
+          "type": "register",
+          "interface": "s_axi_control",
+          "name": "input_size_2",
+          "usage": "address",
+          "direction": "in"
+        }
+      ]
     }
   },
   "HlsSolution": {
@@ -144,7 +176,7 @@
     "Vhdl": [
       "impl\/vhdl\/hardware_encoding_control_s_axi.vhd",
       "impl\/vhdl\/hardware_encoding_gmem_m_axi.vhd",
-      "impl\/vhdl\/hardware_encoding_hash_table.vhd",
+      "impl\/vhdl\/hardware_encoding_hash_table_0.vhd",
       "impl\/vhdl\/hardware_encoding_insert.vhd",
       "impl\/vhdl\/hardware_encoding_my_assoc_mem_upper_key_mem.vhd",
       "impl\/vhdl\/hardware_encoding_my_assoc_mem_value.vhd",
@@ -153,7 +185,7 @@
     "Verilog": [
       "impl\/verilog\/hardware_encoding_control_s_axi.v",
       "impl\/verilog\/hardware_encoding_gmem_m_axi.v",
-      "impl\/verilog\/hardware_encoding_hash_table.v",
+      "impl\/verilog\/hardware_encoding_hash_table_0.v",
       "impl\/verilog\/hardware_encoding_insert.v",
       "impl\/verilog\/hardware_encoding_my_assoc_mem_upper_key_mem.v",
       "impl\/verilog\/hardware_encoding_my_assoc_mem_value.v",
@@ -293,7 +325,7 @@
         {
           "constraint_type": "bitwidth",
           "orig_bitwidth": "8",
-          "final_bitwidth": "8",
+          "final_bitwidth": "32",
           "argName": "s1"
         }
       ]
@@ -561,34 +593,66 @@
         },
         {
           "offset": "0x28",
-          "name": "size",
-          "access": "R",
+          "name": "lzw_size_1",
+          "access": "W",
           "resetValue": "0x0",
-          "description": "Data signal of size",
+          "description": "Data signal of lzw_size",
           "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "size",
-              "access": "R",
+              "name": "lzw_size",
+              "access": "W",
               "resetValue": "0",
-              "description": "Bit 31 to 0 of size"
+              "description": "Bit 31 to 0 of lzw_size"
+            }]
+        },
+        {
+          "offset": "0x2c",
+          "name": "lzw_size_2",
+          "access": "W",
+          "resetValue": "0x0",
+          "description": "Data signal of lzw_size",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "lzw_size",
+              "access": "W",
+              "resetValue": "0",
+              "description": "Bit 63 to 32 of lzw_size"
+            }]
+        },
+        {
+          "offset": "0x34",
+          "name": "input_size_1",
+          "access": "W",
+          "resetValue": "0x0",
+          "description": "Data signal of input_size",
+          "range": "32",
+          "fields": [{
+              "offset": "0",
+              "width": "32",
+              "name": "input_size",
+              "access": "W",
+              "resetValue": "0",
+              "description": "Bit 31 to 0 of input_size"
             }]
         },
         {
           "offset": "0x38",
-          "name": "len",
+          "name": "input_size_2",
           "access": "W",
           "resetValue": "0x0",
-          "description": "Data signal of len",
+          "description": "Data signal of input_size",
           "range": "32",
           "fields": [{
               "offset": "0",
               "width": "32",
-              "name": "len",
+              "name": "input_size",
               "access": "W",
               "resetValue": "0",
-              "description": "Bit 31 to 0 of len"
+              "description": "Bit 63 to 32 of input_size"
             }]
         }
       ],
@@ -878,7 +942,7 @@
       "ModuleName": "hardware_encoding",
       "Instances": [{
           "ModuleName": "insert",
-          "InstanceName": "grp_insert_fu_2380"
+          "InstanceName": "grp_insert_fu_2468"
         }]
     },
     "Info": {
@@ -913,12 +977,12 @@
           "Estimate": "4.812"
         },
         "Area": {
-          "FF": "2380",
+          "FF": "2395",
           "AVAIL_FF": "141120",
           "UTIL_FF": "1",
-          "LUT": "4938",
+          "LUT": "4956",
           "AVAIL_LUT": "70560",
-          "UTIL_LUT": "6",
+          "UTIL_LUT": "7",
           "BRAM_18K": "0",
           "AVAIL_BRAM": "432",
           "UTIL_BRAM": "0",
@@ -942,32 +1006,32 @@
         "Timing": {
           "Target": "6.67",
           "Uncertainty": "1.80",
-          "Estimate": "53.330"
+          "Estimate": "5.427"
         },
         "Loops": [
           {
-            "Name": "VITIS_LOOP_189_1",
-            "TripCount": "32768",
-            "Latency": "32768",
+            "Name": "VITIS_LOOP_207_1",
+            "TripCount": "16384",
+            "Latency": "16384",
             "PipelineII": "1",
             "PipelineDepth": "1"
           },
           {
-            "Name": "VITIS_LOOP_194_2",
+            "Name": "VITIS_LOOP_215_2",
             "TripCount": "512",
             "Latency": "512",
             "PipelineII": "1",
             "PipelineDepth": "1"
           },
           {
-            "Name": "VITIS_LOOP_217_4",
+            "Name": "VITIS_LOOP_238_4",
             "TripCount": "",
             "Latency": "",
-            "PipelineII": "86",
-            "PipelineDepth": "154"
+            "PipelineII": "98",
+            "PipelineDepth": "177"
           },
           {
-            "Name": "VITIS_LOOP_223_5",
+            "Name": "VITIS_LOOP_244_5",
             "TripCount": "12",
             "Latency": "81",
             "PipelineII": "1",
@@ -975,15 +1039,15 @@
           }
         ],
         "Area": {
-          "BRAM_18K": "68",
+          "BRAM_18K": "128",
           "AVAIL_BRAM": "432",
-          "UTIL_BRAM": "15",
-          "FF": "9846",
+          "UTIL_BRAM": "29",
+          "FF": "12107",
           "AVAIL_FF": "141120",
-          "UTIL_FF": "6",
-          "LUT": "20736",
+          "UTIL_FF": "8",
+          "LUT": "22792",
           "AVAIL_LUT": "70560",
-          "UTIL_LUT": "29",
+          "UTIL_LUT": "32",
           "DSP": "0",
           "AVAIL_DSP": "360",
           "UTIL_DSP": "0",
@@ -997,7 +1061,7 @@
   "GenerateBdFiles": "0",
   "GenData": {
     "DataVersion": "0.2",
-    "Time": "2023-11-12 20:23:42 EST",
+    "Time": "2023-11-28 17:05:42 EST",
     "ToolName": "vivado_hls",
     "ToolVersion": "2020.2"
   }

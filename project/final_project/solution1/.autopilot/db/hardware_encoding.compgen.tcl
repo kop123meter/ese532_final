@@ -1,11 +1,11 @@
 # This script segment is generated automatically by AutoPilot
 
 # Memory (RAM/ROM)  definition:
-set ID 10
+set ID 11
 set hasByteEnable 0
-set MemName hardware_encoding_hash_table
+set MemName hardware_encoding_hash_table_0
 set CoreName ap_simcore_mem
-set PortList { 2 3 }
+set PortList { 2 0 }
 set DataWd 33
 set AddrRange 32768
 set AddrWd 15
@@ -86,7 +86,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 11
+set ID 12
 set hasByteEnable 0
 set MemName hardware_encoding_my_assoc_mem_upper_key_mem
 set CoreName ap_simcore_mem
@@ -171,7 +171,7 @@ if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RA
 
 
 # Memory (RAM/ROM)  definition:
-set ID 12
+set ID 13
 set hasByteEnable 0
 set MemName hardware_encoding_my_assoc_mem_value
 set CoreName ap_simcore_mem
@@ -280,20 +280,20 @@ output_r {
 	offset 28
 	offset_end 39
 }
-size { 
-	dir O
-	width 32
+lzw_size { 
+	dir I
+	width 64
 	depth 1
 	mode ap_none
 	offset 40
-	offset_end 47
+	offset_end 51
 }
-len { 
+input_size { 
 	dir I
-	width 32
+	width 64
 	depth 1
 	mode ap_none
-	offset 56
+	offset 52
 	offset_end 63
 }
 ap_start { }
@@ -309,7 +309,7 @@ dict set axilite_register_dict control $port_control
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 13 \
+			id 14 \
 			corename hardware_encoding_control_axilite \
 			name hardware_encoding_control_s_axi \
 			ports {$port_control} \
@@ -330,7 +330,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::m_axi_gen] == "::AESL_LIB_XILADAPTER::m_axi_gen"} {
 eval "::AESL_LIB_XILADAPTER::m_axi_gen { \
-    id 14 \
+    id 15 \
     corename {m_axi} \
     op interface \
     max_latency -1 \ 

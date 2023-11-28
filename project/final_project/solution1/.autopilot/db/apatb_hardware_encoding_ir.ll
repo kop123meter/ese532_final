@@ -4,23 +4,25 @@ target datalayout = "e-m:e-i64:64-i128:128-i256:256-i512:512-i1024:1024-i2048:20
 target triple = "fpga64-xilinx-none"
 
 ; Function Attrs: noinline
-define void @apatb_hardware_encoding_ir(i8* %s1, i8* %output, i32* %size, i32 %len) local_unnamed_addr #0 {
+define void @apatb_hardware_encoding_ir(i8* %s1, i8* %output, i32* %lzw_size, i32* %input_size) local_unnamed_addr #0 {
 entry:
   %s1_copy = alloca i8, align 512
   %output_copy = alloca i8, align 512
-  %size_copy = alloca i32, align 512
-  call fastcc void @copy_in(i8* %s1, i8* nonnull align 512 %s1_copy, i8* %output, i8* nonnull align 512 %output_copy, i32* %size, i32* nonnull align 512 %size_copy)
-  call void @apatb_hardware_encoding_hw(i8* %s1_copy, i8* %output_copy, i32* %size_copy, i32 %len)
-  call fastcc void @copy_out(i8* %s1, i8* nonnull align 512 %s1_copy, i8* %output, i8* nonnull align 512 %output_copy, i32* %size, i32* nonnull align 512 %size_copy)
+  %lzw_size_copy = alloca i32, align 512
+  %input_size_copy = alloca i32, align 512
+  call fastcc void @copy_in(i8* %s1, i8* nonnull align 512 %s1_copy, i8* %output, i8* nonnull align 512 %output_copy, i32* %lzw_size, i32* nonnull align 512 %lzw_size_copy, i32* %input_size, i32* nonnull align 512 %input_size_copy)
+  call void @apatb_hardware_encoding_hw(i8* %s1_copy, i8* %output_copy, i32* %lzw_size_copy, i32* %input_size_copy)
+  call fastcc void @copy_out(i8* %s1, i8* nonnull align 512 %s1_copy, i8* %output, i8* nonnull align 512 %output_copy, i32* %lzw_size, i32* nonnull align 512 %lzw_size_copy, i32* %input_size, i32* nonnull align 512 %input_size_copy)
   ret void
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @copy_in(i8* readonly, i8* noalias align 512, i8* readonly, i8* noalias align 512, i32* readonly, i32* noalias align 512) unnamed_addr #1 {
+define internal fastcc void @copy_in(i8* readonly, i8* noalias align 512, i8* readonly, i8* noalias align 512, i32* readonly, i32* noalias align 512, i32* readonly, i32* noalias align 512) unnamed_addr #1 {
 entry:
   call fastcc void @onebyonecpy_hls.p0i8(i8* align 512 %1, i8* %0)
   call fastcc void @onebyonecpy_hls.p0i8(i8* align 512 %3, i8* %2)
   call fastcc void @onebyonecpy_hls.p0i32(i32* align 512 %5, i32* %4)
+  call fastcc void @onebyonecpy_hls.p0i32(i32* align 512 %7, i32* %6)
   ret void
 }
 
@@ -62,25 +64,26 @@ ret:                                              ; preds = %copy, %entry
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @copy_out(i8*, i8* noalias readonly align 512, i8*, i8* noalias readonly align 512, i32*, i32* noalias readonly align 512) unnamed_addr #4 {
+define internal fastcc void @copy_out(i8*, i8* noalias readonly align 512, i8*, i8* noalias readonly align 512, i32*, i32* noalias readonly align 512, i32*, i32* noalias readonly align 512) unnamed_addr #4 {
 entry:
   call fastcc void @onebyonecpy_hls.p0i8(i8* %0, i8* align 512 %1)
   call fastcc void @onebyonecpy_hls.p0i8(i8* %2, i8* align 512 %3)
   call fastcc void @onebyonecpy_hls.p0i32(i32* %4, i32* align 512 %5)
+  call fastcc void @onebyonecpy_hls.p0i32(i32* %6, i32* align 512 %7)
   ret void
 }
 
-declare void @apatb_hardware_encoding_hw(i8*, i8*, i32*, i32)
+declare void @apatb_hardware_encoding_hw(i8*, i8*, i32*, i32*)
 
-define void @hardware_encoding_hw_stub_wrapper(i8*, i8*, i32*, i32) #5 {
+define void @hardware_encoding_hw_stub_wrapper(i8*, i8*, i32*, i32*) #5 {
 entry:
-  call void @copy_out(i8* null, i8* %0, i8* null, i8* %1, i32* null, i32* %2)
-  call void @hardware_encoding_hw_stub(i8* %0, i8* %1, i32* %2, i32 %3)
-  call void @copy_in(i8* null, i8* %0, i8* null, i8* %1, i32* null, i32* %2)
+  call void @copy_out(i8* null, i8* %0, i8* null, i8* %1, i32* null, i32* %2, i32* null, i32* %3)
+  call void @hardware_encoding_hw_stub(i8* %0, i8* %1, i32* %2, i32* %3)
+  call void @copy_in(i8* null, i8* %0, i8* null, i8* %1, i32* null, i32* %2, i32* null, i32* %3)
   ret void
 }
 
-declare void @hardware_encoding_hw_stub(i8*, i8*, i32*, i32)
+declare void @hardware_encoding_hw_stub(i8*, i8*, i32*, i32*)
 
 attributes #0 = { noinline "fpga.wrapper.func"="wrapper" }
 attributes #1 = { argmemonly noinline "fpga.wrapper.func"="copyin" }

@@ -62,18 +62,23 @@ int main(){
 	matrix_type *Input = Create_string();
 	matrix_type *Output_HW = Create_string_output();
 	matrix_type *Output_SW = Create_string_output();
-	int size_HW = 0;
 	int size_SW = 0;
 	Randomize_string(Input);
-	hardware_encoding(Input, Output_HW, size_HW, STRING_LENGTH);
+	int* hw_length = (int*)malloc(sizeof(int) * 1);
+	int* size_HW = (int*)malloc(sizeof(int));
+	size_HW[0] = 0;
+	hw_length[0] = STRING_LENGTH;
+
+	hardware_encoding(Input, Output_HW, size_HW, hw_length);
+	hardware_encoding(Input, Output_HW, size_HW, hw_length);
 	encoding(Input, Output_SW, size_SW, STRING_LENGTH);
-	if(size_HW != size_SW){
-		cout << "size HW = " << size_HW << "\tsize SW = " << size_SW << endl;
+	if(size_HW[0] != size_SW){
+		cout << "size HW = " << size_HW[0] << "\tsize SW = " << size_SW << endl;
 		// return 0;
 	}
 
 
-	bool Equal = Compare_strings(Output_SW, Output_HW, size_HW);
+	bool Equal = Compare_strings(Output_SW, Output_HW, size_HW[0]);
 
 	Destroy_string(Input);
 	Destroy_string(Output_HW);

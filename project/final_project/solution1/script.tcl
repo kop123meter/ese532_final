@@ -5,9 +5,9 @@
 ############################################################
 open_project final_project
 set_top hardware_encoding
-add_files Server/LZW_new.cpp
 add_files Server/LZW_new.h
-add_files -tb Server/Testbench.cpp -cflags "-Wno-unknown-pragmas"
+add_files Server/LZW_new.cpp
+add_files -tb Server/Testbench.cpp -cflags "-Wno-unknown-pragmas" -csimflags "-Wno-unknown-pragmas"
 open_solution "solution1" -flow_target vitis
 set_part {xczu3eg-sbva484-1-i}
 create_clock -period 150MHz -name default

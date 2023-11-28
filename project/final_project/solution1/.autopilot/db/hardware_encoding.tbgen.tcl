@@ -12,18 +12,18 @@ set isEnableWaveformDebug 1
 set C_modelName {hardware_encoding}
 set C_modelType { void 0 }
 set C_modelArgList {
-	{ gmem int 8 regular {axi_master 2}  }
+	{ gmem int 32 regular {axi_master 2}  }
 	{ s1 int 64 regular {axi_slave 0}  }
 	{ output_r int 64 regular {axi_slave 0}  }
-	{ size int 32 regular {axi_slave 1}  }
-	{ len int 32 regular {axi_slave 0}  }
+	{ lzw_size int 64 regular {axi_slave 0}  }
+	{ input_size int 64 regular {axi_slave 0}  }
 }
 set C_modelArgMapList {[ 
-	{ "Name" : "gmem", "interface" : "axi_master", "bitwidth" : 8, "direction" : "READWRITE", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "s1","cData": "char","bit_use": { "low": 0,"up": 0},"offset": { "type": "dynamic","port_name": "s1","bundle": "control"},"direction": "READONLY","cArray": [{"low" : 0,"up" : 0,"step" : 0}]},{"cName": "output","cData": "char","bit_use": { "low": 0,"up": 0},"offset": { "type": "dynamic","port_name": "output_r","bundle": "control"},"direction": "WRITEONLY","cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}]} , 
+	{ "Name" : "gmem", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READWRITE", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "s1","cData": "int","bit_use": { "low": 0,"up": 0},"offset": { "type": "dynamic","port_name": "s1","bundle": "control"},"direction": "READONLY","cArray": [{"low" : 0,"up" : 0,"step" : 0}]},{"cName": "output","cData": "int","bit_use": { "low": 0,"up": 0},"offset": { "type": "dynamic","port_name": "output_r","bundle": "control"},"direction": "WRITEONLY","cArray": [{"low" : 0,"up" : 0,"step" : 0}]},{"cName": "lzw_size","cData": "int","bit_use": { "low": 0,"up": 0},"offset": { "type": "dynamic","port_name": "lzw_size","bundle": "control"},"direction": "WRITEONLY","cArray": [{"low" : 0,"up" : 0,"step" : 0}]},{"cName": "input_size","cData": "int","bit_use": { "low": 0,"up": 0},"offset": { "type": "dynamic","port_name": "input_size","bundle": "control"},"direction": "READONLY","cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}]} , 
  	{ "Name" : "s1", "interface" : "axi_slave", "bundle":"control","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":16}, "offset_end" : {"in":27}} , 
  	{ "Name" : "output_r", "interface" : "axi_slave", "bundle":"control","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":28}, "offset_end" : {"in":39}} , 
- 	{ "Name" : "size", "interface" : "axi_slave", "bundle":"control","type":"ap_none","bitwidth" : 32, "direction" : "WRITEONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "size","cData": "int","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"out":40}, "offset_end" : {"out":47}} , 
- 	{ "Name" : "len", "interface" : "axi_slave", "bundle":"control","type":"ap_none","bitwidth" : 32, "direction" : "READONLY", "bitSlice":[{"low":0,"up":0,"cElement": [{"cName": "len","cData": "int","bit_use": { "low": 0,"up": 0},"cArray": [{"low" : 0,"up" : 0,"step" : 0}]}]}], "offset" : {"in":56}, "offset_end" : {"in":63}} ]}
+ 	{ "Name" : "lzw_size", "interface" : "axi_slave", "bundle":"control","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":40}, "offset_end" : {"in":51}} , 
+ 	{ "Name" : "input_size", "interface" : "axi_slave", "bundle":"control","type":"ap_none","bitwidth" : 64, "direction" : "READONLY", "offset" : {"in":52}, "offset_end" : {"in":63}} ]}
 # RTL Port declarations: 
 set portNum 65
 set portList { 
@@ -94,14 +94,14 @@ set portList {
 	{ interrupt sc_out sc_logic 1 signal -1 } 
 }
 set NewPortList {[ 
-	{ "name": "s_axi_control_AWADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "control", "role": "AWADDR" },"address":[{"name":"hardware_encoding","role":"start","value":"0","valid_bit":"0"},{"name":"hardware_encoding","role":"continue","value":"0","valid_bit":"4"},{"name":"hardware_encoding","role":"auto_start","value":"0","valid_bit":"7"},{"name":"s1","role":"data","value":"16"},{"name":"output_r","role":"data","value":"28"},{"name":"len","role":"data","value":"56"}] },
+	{ "name": "s_axi_control_AWADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "control", "role": "AWADDR" },"address":[{"name":"hardware_encoding","role":"start","value":"0","valid_bit":"0"},{"name":"hardware_encoding","role":"continue","value":"0","valid_bit":"4"},{"name":"hardware_encoding","role":"auto_start","value":"0","valid_bit":"7"},{"name":"s1","role":"data","value":"16"},{"name":"output_r","role":"data","value":"28"},{"name":"lzw_size","role":"data","value":"40"},{"name":"input_size","role":"data","value":"52"}] },
 	{ "name": "s_axi_control_AWVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "control", "role": "AWVALID" } },
 	{ "name": "s_axi_control_AWREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "control", "role": "AWREADY" } },
 	{ "name": "s_axi_control_WVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "control", "role": "WVALID" } },
 	{ "name": "s_axi_control_WREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "control", "role": "WREADY" } },
 	{ "name": "s_axi_control_WDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "control", "role": "WDATA" } },
 	{ "name": "s_axi_control_WSTRB", "direction": "in", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "control", "role": "WSTRB" } },
-	{ "name": "s_axi_control_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "control", "role": "ARADDR" },"address":[{"name":"hardware_encoding","role":"start","value":"0","valid_bit":"0"},{"name":"hardware_encoding","role":"done","value":"0","valid_bit":"1"},{"name":"hardware_encoding","role":"idle","value":"0","valid_bit":"2"},{"name":"hardware_encoding","role":"ready","value":"0","valid_bit":"3"},{"name":"hardware_encoding","role":"auto_start","value":"0","valid_bit":"7"},{"name":"size","role":"data","value":"40"}] },
+	{ "name": "s_axi_control_ARADDR", "direction": "in", "datatype": "sc_lv", "bitwidth":6, "type": "signal", "bundle":{"name": "control", "role": "ARADDR" },"address":[{"name":"hardware_encoding","role":"start","value":"0","valid_bit":"0"},{"name":"hardware_encoding","role":"done","value":"0","valid_bit":"1"},{"name":"hardware_encoding","role":"idle","value":"0","valid_bit":"2"},{"name":"hardware_encoding","role":"ready","value":"0","valid_bit":"3"},{"name":"hardware_encoding","role":"auto_start","value":"0","valid_bit":"7"}] },
 	{ "name": "s_axi_control_ARVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "control", "role": "ARVALID" } },
 	{ "name": "s_axi_control_ARREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "control", "role": "ARREADY" } },
 	{ "name": "s_axi_control_RVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "control", "role": "RVALID" } },
@@ -161,7 +161,7 @@ set NewPortList {[
  	{ "name": "m_axi_gmem_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem", "role": "BUSER" }}  ]}
 
 set RtlHierarchyInfo {[
-	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8"],
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
 		"CDFG" : "hardware_encoding",
 		"Protocol" : "ap_ctrl_chain",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
@@ -184,16 +184,17 @@ set RtlHierarchyInfo {[
 					{"Name" : "gmem_blk_n_B", "Type" : "RtlSignal"}]},
 			{"Name" : "s1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "output_r", "Type" : "None", "Direction" : "I"},
-			{"Name" : "size", "Type" : "None", "Direction" : "O"},
-			{"Name" : "len", "Type" : "None", "Direction" : "I"}]},
+			{"Name" : "lzw_size", "Type" : "None", "Direction" : "I"},
+			{"Name" : "input_size", "Type" : "None", "Direction" : "I"}]},
 	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.control_s_axi_U", "Parent" : "0"},
 	{"ID" : "2", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.gmem_m_axi_U", "Parent" : "0"},
-	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.hash_table_U", "Parent" : "0"},
-	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.my_assoc_mem_upper_key_mem_U", "Parent" : "0"},
-	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.my_assoc_mem_middle_key_mem_U", "Parent" : "0"},
-	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.my_assoc_mem_lower_key_mem_U", "Parent" : "0"},
-	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.my_assoc_mem_value_U", "Parent" : "0"},
-	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_insert_fu_2380", "Parent" : "0",
+	{"ID" : "3", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.hash_table_0_U", "Parent" : "0"},
+	{"ID" : "4", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.hash_table_1_U", "Parent" : "0"},
+	{"ID" : "5", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.my_assoc_mem_upper_key_mem_U", "Parent" : "0"},
+	{"ID" : "6", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.my_assoc_mem_middle_key_mem_U", "Parent" : "0"},
+	{"ID" : "7", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.my_assoc_mem_lower_key_mem_U", "Parent" : "0"},
+	{"ID" : "8", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.my_assoc_mem_value_U", "Parent" : "0"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.grp_insert_fu_2468", "Parent" : "0",
 		"CDFG" : "insert",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
@@ -207,7 +208,8 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"Port" : [
-			{"Name" : "hash_table", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "hash_table_0", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "hash_table_1", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "mem_upper_key_mem", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "mem_middle_key_mem", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "mem_lower_key_mem", "Type" : "Memory", "Direction" : "IO"},
@@ -220,13 +222,14 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	hardware_encoding {
-		gmem {Type IO LastRead 3677 FirstWrite 3661}
+		gmem {Type IO LastRead 3697 FirstWrite 3625}
 		s1 {Type I LastRead 0 FirstWrite -1}
 		output_r {Type I LastRead 0 FirstWrite -1}
-		size {Type O LastRead -1 FirstWrite 0}
-		len {Type I LastRead 0 FirstWrite -1}}
+		lzw_size {Type I LastRead 0 FirstWrite -1}
+		input_size {Type I LastRead 0 FirstWrite -1}}
 	insert {
-		hash_table {Type IO LastRead 10 FirstWrite 11}
+		hash_table_0 {Type IO LastRead 10 FirstWrite 11}
+		hash_table_1 {Type IO LastRead 10 FirstWrite 11}
 		mem_upper_key_mem {Type IO LastRead 11 FirstWrite 12}
 		mem_middle_key_mem {Type IO LastRead 11 FirstWrite 12}
 		mem_lower_key_mem {Type IO LastRead 11 FirstWrite 12}

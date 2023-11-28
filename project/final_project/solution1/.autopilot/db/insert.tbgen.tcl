@@ -12,7 +12,8 @@ set isEnableWaveformDebug 1
 set C_modelName {insert}
 set C_modelType { int 33 }
 set C_modelArgList {
-	{ hash_table int 33 regular {array 32768 { 2 3 } 1 1 }  }
+	{ hash_table_0 int 33 regular {array 32768 { 2 3 } 1 1 }  }
+	{ hash_table_1 int 33 regular {array 32768 { 2 3 } 1 1 }  }
 	{ mem_upper_key_mem int 64 regular {array 512 { 2 3 } 1 1 }  }
 	{ mem_middle_key_mem int 64 regular {array 512 { 2 3 } 1 1 }  }
 	{ mem_lower_key_mem int 64 regular {array 512 { 2 3 } 1 1 }  }
@@ -23,7 +24,8 @@ set C_modelArgList {
 	{ value_r int 12 regular  }
 }
 set C_modelArgMapList {[ 
-	{ "Name" : "hash_table", "interface" : "memory", "bitwidth" : 33, "direction" : "READWRITE"} , 
+	{ "Name" : "hash_table_0", "interface" : "memory", "bitwidth" : 33, "direction" : "READWRITE"} , 
+ 	{ "Name" : "hash_table_1", "interface" : "memory", "bitwidth" : 33, "direction" : "READWRITE"} , 
  	{ "Name" : "mem_upper_key_mem", "interface" : "memory", "bitwidth" : 64, "direction" : "READWRITE"} , 
  	{ "Name" : "mem_middle_key_mem", "interface" : "memory", "bitwidth" : 64, "direction" : "READWRITE"} , 
  	{ "Name" : "mem_lower_key_mem", "interface" : "memory", "bitwidth" : 64, "direction" : "READWRITE"} , 
@@ -34,7 +36,7 @@ set C_modelArgMapList {[
  	{ "Name" : "value_r", "interface" : "wire", "bitwidth" : 12, "direction" : "READONLY"} , 
  	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 33} ]}
 # RTL Port declarations: 
-set portNum 37
+set portNum 42
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -43,36 +45,41 @@ set portList {
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
 	{ ap_ce sc_in sc_logic 1 ce -1 } 
-	{ hash_table_address0 sc_out sc_lv 15 signal 0 } 
-	{ hash_table_ce0 sc_out sc_logic 1 signal 0 } 
-	{ hash_table_we0 sc_out sc_logic 1 signal 0 } 
-	{ hash_table_d0 sc_out sc_lv 33 signal 0 } 
-	{ hash_table_q0 sc_in sc_lv 33 signal 0 } 
-	{ mem_upper_key_mem_address0 sc_out sc_lv 9 signal 1 } 
-	{ mem_upper_key_mem_ce0 sc_out sc_logic 1 signal 1 } 
-	{ mem_upper_key_mem_we0 sc_out sc_logic 1 signal 1 } 
-	{ mem_upper_key_mem_d0 sc_out sc_lv 64 signal 1 } 
-	{ mem_upper_key_mem_q0 sc_in sc_lv 64 signal 1 } 
-	{ mem_middle_key_mem_address0 sc_out sc_lv 9 signal 2 } 
-	{ mem_middle_key_mem_ce0 sc_out sc_logic 1 signal 2 } 
-	{ mem_middle_key_mem_we0 sc_out sc_logic 1 signal 2 } 
-	{ mem_middle_key_mem_d0 sc_out sc_lv 64 signal 2 } 
-	{ mem_middle_key_mem_q0 sc_in sc_lv 64 signal 2 } 
-	{ mem_lower_key_mem_address0 sc_out sc_lv 9 signal 3 } 
-	{ mem_lower_key_mem_ce0 sc_out sc_logic 1 signal 3 } 
-	{ mem_lower_key_mem_we0 sc_out sc_logic 1 signal 3 } 
-	{ mem_lower_key_mem_d0 sc_out sc_lv 64 signal 3 } 
-	{ mem_lower_key_mem_q0 sc_in sc_lv 64 signal 3 } 
-	{ mem_value_address0 sc_out sc_lv 6 signal 4 } 
-	{ mem_value_ce0 sc_out sc_logic 1 signal 4 } 
-	{ mem_value_we0 sc_out sc_logic 1 signal 4 } 
-	{ mem_value_d0 sc_out sc_lv 12 signal 4 } 
-	{ mem_fill_read_5 sc_in sc_lv 32 signal 5 } 
-	{ mem_fill_read sc_in sc_lv 32 signal 6 } 
-	{ key sc_in sc_lv 20 signal 7 } 
-	{ value_r sc_in sc_lv 12 signal 8 } 
-	{ ap_return_0 sc_out sc_lv 1 signal -1 } 
-	{ ap_return_1 sc_out sc_lv 32 signal -1 } 
+	{ hash_table_0_address0 sc_out sc_lv 15 signal 0 } 
+	{ hash_table_0_ce0 sc_out sc_logic 1 signal 0 } 
+	{ hash_table_0_we0 sc_out sc_logic 1 signal 0 } 
+	{ hash_table_0_d0 sc_out sc_lv 33 signal 0 } 
+	{ hash_table_0_q0 sc_in sc_lv 33 signal 0 } 
+	{ hash_table_1_address0 sc_out sc_lv 15 signal 1 } 
+	{ hash_table_1_ce0 sc_out sc_logic 1 signal 1 } 
+	{ hash_table_1_we0 sc_out sc_logic 1 signal 1 } 
+	{ hash_table_1_d0 sc_out sc_lv 33 signal 1 } 
+	{ hash_table_1_q0 sc_in sc_lv 33 signal 1 } 
+	{ mem_upper_key_mem_address0 sc_out sc_lv 9 signal 2 } 
+	{ mem_upper_key_mem_ce0 sc_out sc_logic 1 signal 2 } 
+	{ mem_upper_key_mem_we0 sc_out sc_logic 1 signal 2 } 
+	{ mem_upper_key_mem_d0 sc_out sc_lv 64 signal 2 } 
+	{ mem_upper_key_mem_q0 sc_in sc_lv 64 signal 2 } 
+	{ mem_middle_key_mem_address0 sc_out sc_lv 9 signal 3 } 
+	{ mem_middle_key_mem_ce0 sc_out sc_logic 1 signal 3 } 
+	{ mem_middle_key_mem_we0 sc_out sc_logic 1 signal 3 } 
+	{ mem_middle_key_mem_d0 sc_out sc_lv 64 signal 3 } 
+	{ mem_middle_key_mem_q0 sc_in sc_lv 64 signal 3 } 
+	{ mem_lower_key_mem_address0 sc_out sc_lv 9 signal 4 } 
+	{ mem_lower_key_mem_ce0 sc_out sc_logic 1 signal 4 } 
+	{ mem_lower_key_mem_we0 sc_out sc_logic 1 signal 4 } 
+	{ mem_lower_key_mem_d0 sc_out sc_lv 64 signal 4 } 
+	{ mem_lower_key_mem_q0 sc_in sc_lv 64 signal 4 } 
+	{ mem_value_address0 sc_out sc_lv 6 signal 5 } 
+	{ mem_value_ce0 sc_out sc_logic 1 signal 5 } 
+	{ mem_value_we0 sc_out sc_logic 1 signal 5 } 
+	{ mem_value_d0 sc_out sc_lv 12 signal 5 } 
+	{ mem_fill_read_5 sc_in sc_lv 32 signal 6 } 
+	{ mem_fill_read sc_in sc_lv 32 signal 7 } 
+	{ key sc_in sc_lv 20 signal 8 } 
+	{ value_r sc_in sc_lv 12 signal 9 } 
+	{ ap_return_0 sc_out sc_lv 32 signal -1 } 
+	{ ap_return_1 sc_out sc_lv 1 signal -1 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -82,11 +89,16 @@ set NewPortList {[
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
  	{ "name": "ap_ce", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "ce", "bundle":{"name": "ap_ce", "role": "default" }} , 
- 	{ "name": "hash_table_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":15, "type": "signal", "bundle":{"name": "hash_table", "role": "address0" }} , 
- 	{ "name": "hash_table_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "hash_table", "role": "ce0" }} , 
- 	{ "name": "hash_table_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "hash_table", "role": "we0" }} , 
- 	{ "name": "hash_table_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":33, "type": "signal", "bundle":{"name": "hash_table", "role": "d0" }} , 
- 	{ "name": "hash_table_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":33, "type": "signal", "bundle":{"name": "hash_table", "role": "q0" }} , 
+ 	{ "name": "hash_table_0_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":15, "type": "signal", "bundle":{"name": "hash_table_0", "role": "address0" }} , 
+ 	{ "name": "hash_table_0_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "hash_table_0", "role": "ce0" }} , 
+ 	{ "name": "hash_table_0_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "hash_table_0", "role": "we0" }} , 
+ 	{ "name": "hash_table_0_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":33, "type": "signal", "bundle":{"name": "hash_table_0", "role": "d0" }} , 
+ 	{ "name": "hash_table_0_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":33, "type": "signal", "bundle":{"name": "hash_table_0", "role": "q0" }} , 
+ 	{ "name": "hash_table_1_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":15, "type": "signal", "bundle":{"name": "hash_table_1", "role": "address0" }} , 
+ 	{ "name": "hash_table_1_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "hash_table_1", "role": "ce0" }} , 
+ 	{ "name": "hash_table_1_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "hash_table_1", "role": "we0" }} , 
+ 	{ "name": "hash_table_1_d0", "direction": "out", "datatype": "sc_lv", "bitwidth":33, "type": "signal", "bundle":{"name": "hash_table_1", "role": "d0" }} , 
+ 	{ "name": "hash_table_1_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":33, "type": "signal", "bundle":{"name": "hash_table_1", "role": "q0" }} , 
  	{ "name": "mem_upper_key_mem_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "mem_upper_key_mem", "role": "address0" }} , 
  	{ "name": "mem_upper_key_mem_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mem_upper_key_mem", "role": "ce0" }} , 
  	{ "name": "mem_upper_key_mem_we0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mem_upper_key_mem", "role": "we0" }} , 
@@ -110,8 +122,8 @@ set NewPortList {[
  	{ "name": "mem_fill_read", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "mem_fill_read", "role": "default" }} , 
  	{ "name": "key", "direction": "in", "datatype": "sc_lv", "bitwidth":20, "type": "signal", "bundle":{"name": "key", "role": "default" }} , 
  	{ "name": "value_r", "direction": "in", "datatype": "sc_lv", "bitwidth":12, "type": "signal", "bundle":{"name": "value_r", "role": "default" }} , 
- 	{ "name": "ap_return_0", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "ap_return_0", "role": "default" }} , 
- 	{ "name": "ap_return_1", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "ap_return_1", "role": "default" }}  ]}
+ 	{ "name": "ap_return_0", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "ap_return_0", "role": "default" }} , 
+ 	{ "name": "ap_return_1", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "ap_return_1", "role": "default" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
@@ -128,7 +140,8 @@ set RtlHierarchyInfo {[
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
 		"Port" : [
-			{"Name" : "hash_table", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "hash_table_0", "Type" : "Memory", "Direction" : "IO"},
+			{"Name" : "hash_table_1", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "mem_upper_key_mem", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "mem_middle_key_mem", "Type" : "Memory", "Direction" : "IO"},
 			{"Name" : "mem_lower_key_mem", "Type" : "Memory", "Direction" : "IO"},
@@ -141,7 +154,8 @@ set RtlHierarchyInfo {[
 
 set ArgLastReadFirstWriteLatency {
 	insert {
-		hash_table {Type IO LastRead 10 FirstWrite 11}
+		hash_table_0 {Type IO LastRead 10 FirstWrite 11}
+		hash_table_1 {Type IO LastRead 10 FirstWrite 11}
 		mem_upper_key_mem {Type IO LastRead 11 FirstWrite 12}
 		mem_middle_key_mem {Type IO LastRead 11 FirstWrite 12}
 		mem_lower_key_mem {Type IO LastRead 11 FirstWrite 12}
@@ -163,7 +177,8 @@ set PipelineEnableSignalInfo {[
 ]}
 
 set Spec2ImplPortList { 
-	hash_table { ap_memory {  { hash_table_address0 mem_address 1 15 }  { hash_table_ce0 mem_ce 1 1 }  { hash_table_we0 mem_we 1 1 }  { hash_table_d0 mem_din 1 33 }  { hash_table_q0 mem_dout 0 33 } } }
+	hash_table_0 { ap_memory {  { hash_table_0_address0 mem_address 1 15 }  { hash_table_0_ce0 mem_ce 1 1 }  { hash_table_0_we0 mem_we 1 1 }  { hash_table_0_d0 mem_din 1 33 }  { hash_table_0_q0 mem_dout 0 33 } } }
+	hash_table_1 { ap_memory {  { hash_table_1_address0 mem_address 1 15 }  { hash_table_1_ce0 mem_ce 1 1 }  { hash_table_1_we0 mem_we 1 1 }  { hash_table_1_d0 mem_din 1 33 }  { hash_table_1_q0 mem_dout 0 33 } } }
 	mem_upper_key_mem { ap_memory {  { mem_upper_key_mem_address0 mem_address 1 9 }  { mem_upper_key_mem_ce0 mem_ce 1 1 }  { mem_upper_key_mem_we0 mem_we 1 1 }  { mem_upper_key_mem_d0 mem_din 1 64 }  { mem_upper_key_mem_q0 mem_dout 0 64 } } }
 	mem_middle_key_mem { ap_memory {  { mem_middle_key_mem_address0 mem_address 1 9 }  { mem_middle_key_mem_ce0 mem_ce 1 1 }  { mem_middle_key_mem_we0 mem_we 1 1 }  { mem_middle_key_mem_d0 mem_din 1 64 }  { mem_middle_key_mem_q0 mem_dout 0 64 } } }
 	mem_lower_key_mem { ap_memory {  { mem_lower_key_mem_address0 mem_address 1 9 }  { mem_lower_key_mem_ce0 mem_ce 1 1 }  { mem_lower_key_mem_we0 mem_we 1 1 }  { mem_lower_key_mem_d0 mem_din 1 64 }  { mem_lower_key_mem_q0 mem_dout 0 64 } } }

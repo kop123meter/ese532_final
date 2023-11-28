@@ -18,20 +18,20 @@ output_r {
 	offset 28
 	offset_end 39
 }
-size { 
-	dir O
-	width 32
+lzw_size { 
+	dir I
+	width 64
 	depth 1
 	mode ap_none
 	offset 40
-	offset_end 47
+	offset_end 51
 }
-len { 
+input_size { 
 	dir I
-	width 32
+	width 64
 	depth 1
 	mode ap_none
-	offset 56
+	offset 52
 	offset_end 63
 }
 ap_start { }

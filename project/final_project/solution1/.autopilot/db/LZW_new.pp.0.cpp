@@ -37962,7 +37962,7 @@ class stream : public stream<__STREAM_T__, 0> {
 
 # 1 "/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/tps/lnx64/gcc-6.2.0/lib/gcc/x86_64-pc-linux-gnu/6.2.0/../../../../include/c++/6.2.0/stdlib.h" 1 3
 # 10 "Server/LZW_new.h" 2
-__attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int len);
+__attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsigned char * s1,unsigned char * output,int *lzw_size,int *len);
 void encoding(unsigned char * s1,unsigned char * output,int &size,int len);
 # 6 "Server/LZW_new.cpp" 2
 
@@ -37993,24 +37993,34 @@ unsigned int my_hash(unsigned long key)
 
 }
 
-void hash_lookup(unsigned long* hash_table, unsigned int key, bool* hit, unsigned int* result)
+void hash_lookup(unsigned long hash_table[2][32768], unsigned int key, bool* hit, unsigned int* result)
 {
 
     key &= 0xFFFFF;
 
-    unsigned long lookup = hash_table[my_hash(key)];
+    unsigned long lookup_0 = hash_table[0][my_hash(key)];
+    unsigned long lookup_1 = hash_table[1][my_hash(key)];
 
 
-    unsigned int stored_key = lookup&0xFFFFF;
-    unsigned int value = (lookup >> 20)&0xFFF;
-    unsigned int valid = (lookup >> (20 + 12))&0x1;
+    unsigned int stored_key_0 = lookup_0&0xFFFFF;
+    unsigned int value_0 = (lookup_0 >> 20)&0xFFF;
+    unsigned int valid_0 = (lookup_0 >> (20 + 12))&0x1;
 
-    if(valid && (key == stored_key))
+    unsigned int stored_key_1 = lookup_1&0xFFFFF;
+    unsigned int value_1 = (lookup_1 >> 20)&0xFFF;
+    unsigned int valid_1 = (lookup_1 >> (20 + 12))&0x1;
+
+    if(valid_0 && (key == stored_key_0))
     {
         *hit = 1;
-        *result = value;
+        *result = value_0;
 
 
+    }
+    else if(valid_1 && (key == stored_key_1))
+    {
+        *hit = 1;
+        *result = value_1;
     }
     else
     {
@@ -38020,26 +38030,32 @@ void hash_lookup(unsigned long* hash_table, unsigned int key, bool* hit, unsigne
     }
 }
 
-void hash_insert(unsigned long* hash_table, unsigned int key, unsigned int value, bool* collision)
+void hash_insert(unsigned long hash_table[2][32768], unsigned int key, unsigned int value, bool* collision)
 {
 
     key &= 0xFFFFF;
     value &= 0xFFF;
 
-    unsigned long lookup = hash_table[my_hash(key)];
-    unsigned int valid = (lookup >> (20 + 12))&0x1;
+    unsigned long lookup_0 = hash_table[0][my_hash(key)];
+    unsigned int valid_0 = (lookup_0 >> (20 + 12))&0x1;
+    unsigned long lookup_1 = hash_table[1][my_hash(key)];
+    unsigned int valid_1 = (lookup_1 >> (20 + 12))&0x1;
 
-    if(valid)
+    if(valid_0 && valid_1)
     {
         *collision = 1;
 
     }
-    else
+    else if(!valid_0 && !valid_1)
     {
-        hash_table[my_hash(key)] = (1UL << (20 + 12)) | (value << 20) | key;
+        hash_table[0][my_hash(key)] = (1UL << (20 + 12)) | (value << 20) | key;
         *collision = 0;
 
 
+    }
+    else
+    {
+        hash_table[1][my_hash(key)] = (1UL << (20 + 12)) | (value << 20) | key;
     }
 }
 
@@ -38094,7 +38110,7 @@ void assoc_lookup(assoc_mem* mem, unsigned int key, bool* hit, unsigned int* res
     unsigned int match = match_high & match_middle & match_low;
 
     unsigned int address = 0;
-    VITIS_LOOP_135_1: for(; address < 64; address++)
+    VITIS_LOOP_151_1: for(; address < 64; address++)
     {
         if((match >> address) & 0x1)
         {
@@ -38117,7 +38133,7 @@ void assoc_lookup(assoc_mem* mem, unsigned int key, bool* hit, unsigned int* res
     }
 }
 
-void insert(unsigned long* hash_table, assoc_mem* mem, unsigned int key, unsigned int value, bool* collision)
+void insert(unsigned long hash_table[2][32768], assoc_mem* mem, unsigned int key, unsigned int value, bool* collision)
 {
     hash_insert(hash_table, key, value, collision);
     if(*collision)
@@ -38126,7 +38142,7 @@ void insert(unsigned long* hash_table, assoc_mem* mem, unsigned int key, unsigne
     }
 }
 
-void lookup(unsigned long* hash_table, assoc_mem* mem, unsigned int key, bool* hit, unsigned int* result)
+void lookup(unsigned long hash_table[2][32768], assoc_mem* mem, unsigned int key, bool* hit, unsigned int* result)
 {
     hash_lookup(hash_table, key, hit, result);
 
@@ -38136,27 +38152,32 @@ void lookup(unsigned long* hash_table, assoc_mem* mem, unsigned int key, bool* h
     }
 }
 
-__attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsigned char * s1,unsigned char * output,int &size,int len)
+__attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsigned char * s1,unsigned char * output,int * lzw_size,int * input_size)
 {
 #pragma HLS TOP name=hardware_encoding
-# 178 "Server/LZW_new.cpp"
+# 194 "Server/LZW_new.cpp"
 
  int hit_second = 2;
 
-    unsigned long hash_table[32768];
+    unsigned long hash_table[2][32768];
     assoc_mem my_assoc_mem;
     int output_pos = 0;
-    size = 0;
+    int size = 0;
     output_char = 0;
     output_bit = 0;
 
 
-    VITIS_LOOP_189_1: for(int i = 0; i < 32768; i++)
-    {
-        hash_table[i] = 0;
-    }
+
+
+       VITIS_LOOP_207_1: for(int i = 0; i < 32768; i++)
+       {
+#pragma HLS unroll factor=2
+ hash_table[0][i] = 0;
+           hash_table[1][i] = 0;
+        }
+
     my_assoc_mem.fill = 0;
-    VITIS_LOOP_194_2: for(int i = 0; i < 512; i++)
+    VITIS_LOOP_215_2: for(int i = 0; i < 512; i++)
     {
         my_assoc_mem.upper_key_mem[i] = 0;
         my_assoc_mem.middle_key_mem[i] = 0;
@@ -38164,7 +38185,7 @@ __attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsig
     }
 
 
-    VITIS_LOOP_202_3: for(unsigned long i = 0; i < 256; i++)
+    VITIS_LOOP_223_3: for(unsigned long i = 0; i < 256; i++)
     {
 #pragma HLS unroll
  bool collision = 0;
@@ -38178,14 +38199,14 @@ __attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsig
     unsigned int code = 0;
     unsigned char next_char = 0;
 
+    int len = input_size[0];
+    VITIS_LOOP_238_4: for(int i = 0;i<len;)
 
-    VITIS_LOOP_217_4: for(int i = 0;i<len;)
-#pragma HLS pipeline II=1
- {
+    {
         if(i + 1 == len)
         {
 
-            VITIS_LOOP_223_5: for(int x = 11; x >= 0; x--){
+            VITIS_LOOP_244_5: for(int x = 11; x >= 0; x--){
                 output_char = (output_char << 1) | (prefix_code >> (x) & 0x1);
                 output_bit++;
                 if(output_bit % 8 == 0){
@@ -38210,7 +38231,7 @@ __attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsig
         if(!hit)
         {
 
-            VITIS_LOOP_248_6: for(int x = 11; x >= 0; x--){
+            VITIS_LOOP_269_6: for(int x = 11; x >= 0; x--){
                 output_char = (output_char << 1) | (prefix_code >> (x) & 0x1);
                 output_bit++;
                 if(output_bit % 8 == 0){
@@ -38219,8 +38240,6 @@ __attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsig
                     size++;
                 }
             }
-
-
 
 
 
@@ -38244,6 +38263,7 @@ __attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsig
         }
         i += 1;
     }
+   lzw_size[0] = size;
 
 }
 
@@ -38254,7 +38274,7 @@ void encoding(unsigned char * s1,unsigned char * output,int &size,int len)
  int output_pos = 0;
 
     std::unordered_map<std::string, int> table;
-    VITIS_LOOP_292_1: for (int i = 0; i <= 255; i++) {
+    VITIS_LOOP_312_1: for (int i = 0; i <= 255; i++) {
         std::string ch = "";
         ch += char(i);
         table[ch] = i;
@@ -38264,7 +38284,7 @@ void encoding(unsigned char * s1,unsigned char * output,int &size,int len)
     p += s1[0];
     int code = 256;
     std::vector<int> output_code;
-    VITIS_LOOP_302_2: for (int i = 0; i < len; i++) {
+    VITIS_LOOP_322_2: for (int i = 0; i < len; i++) {
         if (i != len - 1)
             c += s1[i + 1];
         if (table.find(p + c) != table.end()) {
@@ -38309,7 +38329,7 @@ void decoding(std::vector<int> op)
 {
     std::cout << "\nDecoding\n";
     std::unordered_map<int, std::string> table;
-    VITIS_LOOP_347_1: for (int i = 0; i <= 255; i++) {
+    VITIS_LOOP_367_1: for (int i = 0; i <= 255; i++) {
         std::string ch = "";
         ch += char(i);
         table[i] = ch;
@@ -38320,7 +38340,7 @@ void decoding(std::vector<int> op)
     c += s[0];
     std::cout << s;
     int count = 256;
-    VITIS_LOOP_358_2: for (int i = 0; i < op.size() - 1; i++) {
+    VITIS_LOOP_378_2: for (int i = 0; i < op.size() - 1; i++) {
         n = op[i + 1];
         if (table.find(n) == table.end()) {
             s = table[old];
