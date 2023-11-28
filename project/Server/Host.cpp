@@ -168,7 +168,7 @@ int main(int argc, char *argv[])
     unsigned char *input[NUM_PACKETS];
     int writer = 0;
     int done = 0;
-    int length = 0;
+    unsigned int length = 0;
     int packet_index = 0;
     unsigned char *lzw_header = (unsigned char *)malloc(4 * sizeof(unsigned char));
 
@@ -223,13 +223,14 @@ int main(int argc, char *argv[])
         length &= ~DONE_BIT_H;
         bytes_read = bytes_read + length;
         std::cout << "Read\t" << bytes_read << "\tBytes" << std::endl;
-
+     
 
         chunk_number = 0; // initialize chunk number
         encode_timer.start();
         cdc_timer.start();
         cdc(&buffer[HEADER], length,chunk_number,chunk_boundary);
         std::cout << "Chunk number:\t" << chunk_number << std::endl;
+       
         cdc_timer.stop();
 
         //Compute SHA
@@ -335,12 +336,21 @@ int main(int argc, char *argv[])
 
     std::cout<<"------------------CDC time------------------"<<std::endl;
     std::cout << cdc_timer.latency()  << "ms" << std::endl;
+    float cdc_latency = cdc_timer.latency() / 1000;
+    float cdc_throughput = (bytes_written * 8 / 1000000.0) / cdc_latency; //Mb/s
+    std::cout << "CDC Throughput:\t" << cdc_throughput <<"\tMb/s"<< std::endl;
 
     std::cout<<"------------------SHA256 time------------------"<<std::endl;
     std::cout << sha_timer.latency()  << "ms" << std::endl;
+    float sha_latency = sha_timer.latency() / 1000;
+    float sha_throughput = (bytes_written * 8 / 1000000.0) / sha_latency; //Mb/s
+    std::cout << "SHA Throughput:\t" << sha_throughput <<"\tMb/s"<< std::endl;
 
     std::cout<<"------------------Deduplicate time------------------"<<std::endl;
     std::cout << ded_timer.latency() << "ms" << std::endl;
+    float ded_latency = ded_timer.latency() / 1000;
+    float ded_throughput = (bytes_written * 8 / 1000000.0) / ded_latency; //Mb/s
+    std::cout << "Deduplicate Throughput:\t" << ded_throughput <<"\tMb/s"<< std::endl;
     
     std::cout<<"------------------LZW time------------------"<<std::endl;
     std::cout << lzw_timer.latency() << "ms" << std::endl;
