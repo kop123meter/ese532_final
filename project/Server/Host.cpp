@@ -23,7 +23,6 @@
 #include <math.h>
 #include <bitset>
 #include "encoder.h"
-#include "sha256.h"
 #include "LZW_new.h"
 #include "server.h"
 #include "Utilities.h"
@@ -64,20 +63,6 @@ void handle_input(int argc, char *argv[], int *blocksize)
 }
 
 
-void SHA(unsigned char *buffer, std::string *hash_table)
-{
-    // hash now contains the SHA-256 hash of buffer
-    SHA256 sha256;
-    int start_point = 0;
-    int end_point = chunk_boundary[0];
-    for (int chunk = 0; chunk < chunk_number; chunk++)
-    {
-        int length = end_point - start_point;
-        hash_table[total_chunk_number + chunk] = sha256(&buffer[start_point], length);
-        start_point = end_point;
-        end_point = chunk_boundary[chunk + 1];
-    }
-}
 void getlzwheader(unsigned char *lzw_header, int size, int flag)
 {
     if (flag == 0)
@@ -249,7 +234,7 @@ int main(int argc, char *argv[])
 
         //Compute SHA
         sha_timer.start();
-        SHA(&buffer[HEADER], hash_table);
+        SHA(&buffer[HEADER], hash_table,chunk_boundary,chunk_number,total_chunk_number);
         sha_timer.stop();
 
         // Copy DATA to buffer
