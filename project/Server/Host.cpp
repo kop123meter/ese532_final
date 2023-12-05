@@ -143,27 +143,37 @@ int main(int argc, char *argv[])
     timer2.add("Allocate contiguous OpenCL buffers");
 
     cl::Buffer in_buf;
-    cl::Buffer out_buf;
-    cl::Buffer lzwsize_buf;
+    cl::Buffer out_buf[2];
+    cl::Buffer lzwsize_buf[2];
     cl::Buffer inputsize_buf;
 
     in_buf = cl::Buffer(context, CL_MEM_READ_ONLY, CHUNK_SIZE_MAX, NULL, &err);
-    out_buf = cl::Buffer(context, CL_MEM_WRITE_ONLY, CHUNK_SIZE_MAX * 2, NULL, &err);
-    lzwsize_buf = cl::Buffer(context, CL_MEM_WRITE_ONLY, sizeof(int)*1,NULL,&err);
     inputsize_buf = cl::Buffer(context, CL_MEM_READ_ONLY, sizeof(int)*1,NULL,&err);
+    for(int i = 0; i < 2 ;i++){
+    out_buf[i] = cl::Buffer(context, CL_MEM_WRITE_ONLY, CHUNK_SIZE_MAX, NULL, &err);
+    lzwsize_buf[i] = cl::Buffer(context, CL_MEM_WRITE_ONLY, sizeof(int)*1,NULL,&err);
+    }
+    
 
     unsigned char *in;
     int *inputsize;
 
-    //unsigned char *Output;
+    unsigned char *Output[2];
+    int *lzwsize[2];
 
     in = (unsigned char *)q.enqueueMapBuffer(in_buf, CL_TRUE, CL_MAP_WRITE, 0, CHUNK_SIZE_MAX);
     inputsize = (int *)q.enqueueMapBuffer(inputsize_buf,CL_TRUE,CL_MAP_WRITE,0,sizeof(int) * 1);
+    for(int i = 0; i < 2;i++){
+    Output[i] = (unsigned char *)q.enqueueMapBuffer(out_buf[i],CL_TRUE,CL_MAP_READ,0, CHUNK_SIZE_MAX);
+    lzwsize[i] = (int *)q.enqueueMapBuffer(lzwsize_buf[i],CL_TRUE,CL_MAP_READ,0,sizeof(int)*1);
+    }
+
 
     // ------------------------------------------------------------------------------------
     // Step 3: Run the kernel
     // ------------------------------------------------------------------------------------
     timer2.add("Running kernel");
+    int write_index = 0;
 
     unsigned char *input[NUM_PACKETS];
     int writer = 0;
@@ -271,8 +281,8 @@ int main(int argc, char *argv[])
                 memcpy(&in[0],&buffer[HEADER+start],inputsize[0]);
                 // hardwadre_encoding(&in[0], &Output[0], lzw_size, input_size);
                 krnl_hardware.setArg(0, in_buf);
-                krnl_hardware.setArg(1, out_buf);
-                krnl_hardware.setArg(2, lzwsize_buf);
+                krnl_hardware.setArg(1, out_buf[write_index]);
+                krnl_hardware.setArg(2, lzwsize_buf[write_index]);
                 krnl_hardware.setArg(3, inputsize_buf);
 
                 if(LZW_count == 0){
@@ -284,17 +294,19 @@ int main(int argc, char *argv[])
                 write_events.push_back(write_ev);
                 q.enqueueTask(krnl_hardware,&write_events,&exec_ev);
                 exec_events.push_back(exec_ev);
-                q.enqueueMigrateMemObjects({out_buf,lzwsize_buf},CL_MIGRATE_MEM_OBJECT_HOST,&exec_events,&read_ev);
+                q.enqueueMigrateMemObjects({out_buf[write_index],lzwsize_buf[write_index]},CL_MIGRATE_MEM_OBJECT_HOST,&exec_events,&read_ev);
                 read_events.push_back(read_ev);
+                write_index++;
+   
+                /*
 
-                unsigned char *Output = (unsigned char *)q.enqueueMapBuffer(out_buf,CL_TRUE,CL_MAP_READ,0, CHUNK_SIZE_MAX * 2);
-                int *lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*1);
                 std::cout << "lzw size:\t" << lzwsize[0] <<std::endl;
                 getlzwheader(&lzw_header[0], lzwsize[0], 0);
                 memcpy(&file[offset], &lzw_header[0], 4);
                 offset += 4;
                 memcpy(&file[offset], &Output[0], lzwsize[0]);
                 offset += lzwsize[0];
+                */
                 lzw_timer.stop();
             }
             start = end;
@@ -308,6 +320,13 @@ int main(int argc, char *argv[])
     }
 //Step 4
     q.finish();
+    for(int i = 0; i < 2 ;i++){
+    	 getlzwheader(&lzw_header[0], lzwsize[i][0], 0);
+         memcpy(&file[offset], &lzw_header[0], 4);
+         offset += 4;
+         memcpy(&file[offset], &Output[i][0], lzwsize[i][0]);
+         offset += lzwsize[i][0];
+    }
     delete[] fileBuf;
 
     timer2.add("Writing output to output_fpga.bin");
@@ -337,34 +356,37 @@ int main(int argc, char *argv[])
     std::cout<<"------------------CDC time------------------"<<std::endl;
     std::cout << cdc_timer.latency()  << "ms" << std::endl;
     float cdc_latency = cdc_timer.latency() / 1000;
-    float cdc_throughput = (bytes_written * 8 / 1000000.0) / cdc_latency; //Mb/s
+    float cdc_throughput = (bytes_read * 8 / 1000000.0) / cdc_latency; //Mb/s
     std::cout << "CDC Throughput:\t" << cdc_throughput <<"\tMb/s"<< std::endl;
 
     std::cout<<"------------------SHA256 time------------------"<<std::endl;
     std::cout << sha_timer.latency()  << "ms" << std::endl;
     float sha_latency = sha_timer.latency() / 1000;
-    float sha_throughput = (bytes_written * 8 / 1000000.0) / sha_latency; //Mb/s
+    float sha_throughput = (bytes_read * 8 / 1000000.0) / sha_latency; //Mb/s
     std::cout << "SHA Throughput:\t" << sha_throughput <<"\tMb/s"<< std::endl;
 
     std::cout<<"------------------Deduplicate time------------------"<<std::endl;
     std::cout << ded_timer.latency() << "ms" << std::endl;
     float ded_latency = ded_timer.latency() / 1000;
-    float ded_throughput = (bytes_written * 8 / 1000000.0) / ded_latency; //Mb/s
+    float ded_throughput = (bytes_read * 8 / 1000000.0) / ded_latency; //Mb/s
     std::cout << "Deduplicate Throughput:\t" << ded_throughput <<"\tMb/s"<< std::endl;
     
     std::cout<<"------------------LZW time------------------"<<std::endl;
     std::cout << lzw_timer.latency() << "ms" << std::endl;
+    float lzw_latency = lzw_timer.latency() / 1000;
+    float lzw_throughput = (bytes_read * 8 / 1000000.0) / lzw_latency; //Mb/s
+    std::cout << "LZW Throughput:\t" << lzw_throughput <<"\tMb/s"<< std::endl;
 
     std::cout << "--------------- Key Throughputs ---------------" << std::endl;
 	float ethernet_latency = ethernet_timer.latency() / 1000.0;
 	float encoder_latency = encode_timer.latency() / 1000.0;
 
 	float input_throughput = (bytes_read * 8 / 1000000.0) / ethernet_latency; // Mb/s
-	float encoder_throughput = (bytes_written * 8 / 1000000.0) / encoder_latency; // Mb/s
+	float encoder_throughput = (bytes_read * 8 / 1000000.0) / encoder_latency; // Mb/s
 
 	std::cout << "Input Throughput to Encoder: " << input_throughput << " Mb/s."
 			<< " (Latency: " << ethernet_latency << "s)." << std::endl;
-	std::cout << "Throughput to Bin File: " << encoder_throughput / 1000.0 << " Gb/s."
+	std::cout << "Throughput to Bin File: " << encoder_throughput  << " Mb/s."
 			<< " (Latency: " << encoder_latency << "s)." << std::endl;
 
     free(lzw_header);

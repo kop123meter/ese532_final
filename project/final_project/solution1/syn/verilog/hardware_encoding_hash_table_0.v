@@ -3,7 +3,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // ==============================================================
 `timescale 1 ns / 1 ps
-module hardware_encoding_hash_table_0_ram (addr0, ce0, d0, we0, q0, addr1, ce1, d1, we1,  clk);
+module hardware_encoding_hash_table_0_ram (addr0, ce0, d0, we0, q0, addr1, ce1, d1, we1, q1,  clk);
 
 parameter DWIDTH = 33;
 parameter AWIDTH = 15;
@@ -18,6 +18,7 @@ input[AWIDTH-1:0] addr1;
 input ce1;
 input[DWIDTH-1:0] d1;
 input we1;
+output reg[DWIDTH-1:0] q1;
 input clk;
 
 reg [DWIDTH-1:0] ram[0:MEM_SIZE-1];
@@ -40,6 +41,7 @@ begin
     if (ce1) begin
         if (we1) 
             ram[addr1] <= d1; 
+        q1 <= ram[addr1];
     end
 end
 
@@ -58,7 +60,8 @@ module hardware_encoding_hash_table_0(
     address1,
     ce1,
     we1,
-    d1);
+    d1,
+    q1);
 
 parameter DataWidth = 32'd33;
 parameter AddressRange = 32'd32768;
@@ -74,6 +77,7 @@ input[AddressWidth - 1:0] address1;
 input ce1;
 input we1;
 input[DataWidth - 1:0] d1;
+output[DataWidth - 1:0] q1;
 
 
 
@@ -87,7 +91,8 @@ hardware_encoding_hash_table_0_ram hardware_encoding_hash_table_0_ram_U(
     .addr1( address1 ),
     .ce1( ce1 ),
     .we1( we1 ),
-    .d1( d1 ));
+    .d1( d1 ),
+    .q1( q1 ));
 
 endmodule
 

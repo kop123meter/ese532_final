@@ -44,7 +44,7 @@ set SCTraceOption all
 set TargetInfo xczu3eg:-sbva484:-1-i
 set SourceFiles {sc {} c ../../Server/LZW_new.cpp}
 set SourceFlags {sc {} c {{}}}
-set DirectiveFile /mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/solution1.directive
+set DirectiveFile /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/solution1.directive
 set TBFiles {verilog ../../Server/Testbench.cpp bc ../../Server/Testbench.cpp vhdl ../../Server/Testbench.cpp sc ../../Server/Testbench.cpp cas ../../Server/Testbench.cpp c {}}
 set SpecLanguage C
 set TVInFiles {bc {} c {} sc {} cas {} vhdl {} verilog {}}

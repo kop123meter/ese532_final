@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="LZW_new.h" path="/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/Server/LZW_new.h"/>
-    <originFiles name="LZW_new.cpp" path="/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/Server/LZW_new.cpp"/>
+    <originFiles name="stopwatch.h" path="/mnt/castor/seas_home/l/lize1/ese532_final/project/Server/stopwatch.h"/>
+    <originFiles name="LZW_new.h" path="/mnt/castor/seas_home/l/lize1/ese532_final/project/Server/LZW_new.h"/>
+    <originFiles name="LZW_new.cpp" path="/mnt/castor/seas_home/l/lize1/ese532_final/project/Server/LZW_new.cpp"/>
   </source>
   <testbench>
-    <originFiles name="Testbench.cpp" path="/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/Server/Testbench.cpp"/>
+    <originFiles name="Testbench.cpp" path="/mnt/castor/seas_home/l/lize1/ese532_final/project/Server/Testbench.cpp"/>
   </testbench>
 </autopilotfilemapping:AutoPilotFileMapping>

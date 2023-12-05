@@ -3,7 +3,7 @@
 #include <chrono>
 #include "LZW_new.h"
 
-#define STRING_LENGTH 1000
+#define STRING_LENGTH 2500
 using namespace std;
 typedef unsigned char matrix_type;
 
@@ -51,7 +51,7 @@ bool Compare_strings(const matrix_type *Matrix_1,
 	for(int i = 0 ;i < size ;i++){
 		if(Matrix_1[i] != Matrix_2[i])
 		      {
-		        std::cout << Matrix_1[i] << "!=" << Matrix_2[i] << std::endl;
+		        std::cout <<"Number\t"<<i<<":\t"<<(int)Matrix_1[i] << "!=" << (int)Matrix_2[i] << std::endl;
 		        Equal = false;
 		      }
 	}
@@ -70,10 +70,10 @@ int main(){
 	hw_length[0] = STRING_LENGTH;
 
 	hardware_encoding(Input, Output_HW, size_HW, hw_length);
-	hardware_encoding(Input, Output_HW, size_HW, hw_length);
+	//hardware_encoding(Input, Output_HW, size_HW, hw_length);
 	encoding(Input, Output_SW, size_SW, STRING_LENGTH);
 	if(size_HW[0] != size_SW){
-		cout << "size HW = " << size_HW[0] << "\tsize SW = " << size_SW << endl;
+		cout << "size HW = " << (int)size_HW[0] << "\tsize SW = " <<(int) size_SW << endl;
 		// return 0;
 	}
 

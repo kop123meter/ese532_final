@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Dec  4 15:56:47 2023
+# Process ID: 16962
+# Current directory: /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/impl/ip
+# Command line: vivado -notrace -mode batch -source run_ippack.tcl
+# Log file: /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/impl/ip/vivado.log
+# Journal file: /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/impl/ip/vivado.jou
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/mnt/pollux/software/xilinx/2020.2/Vivado/2020.2/data/ip'.
+Running package_xo -xo_path /mnt/castor/seas_home/l/lize1/ese532_final/project/hardware_encoding.xo -kernel_name hardware_encoding -kernel_xml /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/impl/ip/../kernel/kernel.xml -kernel_files /mnt/castor/seas_home/l/lize1/ese532_final/project/Server/LZW_new.cpp -ip_directory /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/impl/ip/ip_unzip_dir -design_xml /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/.autopilot/db/hardware_encoding.design.xml -debug_directory /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/.debug -hls_directory /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/impl/ip/hls_files
+INFO: [Common 17-206] Exiting Vivado at Mon Dec  4 15:57:13 2023...

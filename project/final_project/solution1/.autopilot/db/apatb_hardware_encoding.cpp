@@ -18,8 +18,11 @@ using namespace sc_core;
 using namespace sc_dt;
 
 // wrapc file define:
-#define AUTOTB_TVIN_gmem "../tv/cdatafile/c.hardware_encoding.autotvin_gmem.dat"
-#define AUTOTB_TVOUT_gmem "../tv/cdatafile/c.hardware_encoding.autotvout_gmem.dat"
+#define AUTOTB_TVIN_HP1 "../tv/cdatafile/c.hardware_encoding.autotvin_HP1.dat"
+#define AUTOTB_TVOUT_HP1 "../tv/cdatafile/c.hardware_encoding.autotvout_HP1.dat"
+// wrapc file define:
+#define AUTOTB_TVIN_HP3 "../tv/cdatafile/c.hardware_encoding.autotvin_HP3.dat"
+#define AUTOTB_TVOUT_HP3 "../tv/cdatafile/c.hardware_encoding.autotvout_HP3.dat"
 // wrapc file define:
 #define AUTOTB_TVIN_s1 "../tv/cdatafile/c.hardware_encoding.autotvin_s1.dat"
 #define AUTOTB_TVOUT_s1 "../tv/cdatafile/c.hardware_encoding.autotvout_s1.dat"
@@ -36,7 +39,9 @@ using namespace sc_dt;
 #define INTER_TCL "../tv/cdatafile/ref.tcl"
 
 // tvout file define:
-#define AUTOTB_TVOUT_PC_gmem "../tv/rtldatafile/rtl.hardware_encoding.autotvout_gmem.dat"
+#define AUTOTB_TVOUT_PC_HP1 "../tv/rtldatafile/rtl.hardware_encoding.autotvout_HP1.dat"
+// tvout file define:
+#define AUTOTB_TVOUT_PC_HP3 "../tv/rtldatafile/rtl.hardware_encoding.autotvout_HP3.dat"
 // tvout file define:
 #define AUTOTB_TVOUT_PC_s1 "../tv/rtldatafile/rtl.hardware_encoding.autotvout_s1.dat"
 // tvout file define:
@@ -50,7 +55,8 @@ class INTER_TCL_FILE {
   public:
 INTER_TCL_FILE(const char* name) {
   mName = name; 
-  gmem_depth = 0;
+  HP1_depth = 0;
+  HP3_depth = 0;
   s1_depth = 0;
   output_depth = 0;
   lzw_size_depth = 0;
@@ -72,7 +78,8 @@ INTER_TCL_FILE(const char* name) {
 }
 string get_depth_list () {
   stringstream total_list;
-  total_list << "{gmem " << gmem_depth << "}\n";
+  total_list << "{HP1 " << HP1_depth << "}\n";
+  total_list << "{HP3 " << HP3_depth << "}\n";
   total_list << "{s1 " << s1_depth << "}\n";
   total_list << "{output_r " << output_depth << "}\n";
   total_list << "{lzw_size " << lzw_size_depth << "}\n";
@@ -86,7 +93,8 @@ void set_string(std::string list, std::string* class_list) {
   (*class_list) = list;
 }
   public:
-    int gmem_depth;
+    int HP1_depth;
+    int HP3_depth;
     int s1_depth;
     int output_depth;
     int lzw_size_depth;
@@ -148,7 +156,7 @@ extern "C" void apatb_hardware_encoding_hw(volatile void * __xlx_apatb_param_s1,
     string AESL_num;{
       static ifstream rtl_tv_out_file;
       if (!rtl_tv_out_file.is_open()) {
-        rtl_tv_out_file.open(AUTOTB_TVOUT_PC_gmem);
+        rtl_tv_out_file.open(AUTOTB_TVOUT_PC_HP3);
         if (rtl_tv_out_file.good()) {
           rtl_tv_out_file >> AESL_token;
           if (AESL_token != "[[[runtime]]]")
@@ -164,17 +172,17 @@ extern "C" void apatb_hardware_encoding_hw(volatile void * __xlx_apatb_param_s1,
           exit(1);
         }
         if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          std::vector<sc_bv<32> > gmem_pc_buffer(4);
+          std::vector<sc_bv<32> > HP3_pc_buffer(2);
           int i = 0;
 
           rtl_tv_out_file >> AESL_token; //data
           while (AESL_token != "[[/transaction]]"){
 
-            RTLOutputCheckAndReplacement(AESL_token, "gmem");
+            RTLOutputCheckAndReplacement(AESL_token, "HP3");
   
             // push token into output port buffer
             if (AESL_token != "") {
-              gmem_pc_buffer[i] = AESL_token.c_str();;
+              HP3_pc_buffer[i] = AESL_token.c_str();;
               i++;
             }
   
@@ -185,16 +193,10 @@ extern "C" void apatb_hardware_encoding_hw(volatile void * __xlx_apatb_param_s1,
           if (i > 0) {{
             int i = 0;
             for (int j = 0, e = 1; j < e; j += 1, ++i) {
-            ((int*)__xlx_apatb_param_s1)[j] = gmem_pc_buffer[i].to_int64();
+            ((int*)__xlx_apatb_param_output)[j] = HP3_pc_buffer[i].to_int64();
           }
             for (int j = 0, e = 1; j < e; j += 1, ++i) {
-            ((int*)__xlx_apatb_param_output)[j] = gmem_pc_buffer[i].to_int64();
-          }
-            for (int j = 0, e = 1; j < e; j += 1, ++i) {
-            ((int*)__xlx_apatb_param_lzw_size)[j] = gmem_pc_buffer[i].to_int64();
-          }
-            for (int j = 0, e = 1; j < e; j += 1, ++i) {
-            ((int*)__xlx_apatb_param_input_size)[j] = gmem_pc_buffer[i].to_int64();
+            ((int*)__xlx_apatb_param_lzw_size)[j] = HP3_pc_buffer[i].to_int64();
           }}}
         } // end transaction
       } // end file is good
@@ -208,9 +210,12 @@ static AESL_FILE_HANDLER aesl_fh;
 static INTER_TCL_FILE tcl_file(INTER_TCL);
 std::vector<char> __xlx_sprintf_buffer(1024);
 CodeState = ENTER_WRAPC;
-//gmem
-aesl_fh.touch(AUTOTB_TVIN_gmem);
-aesl_fh.touch(AUTOTB_TVOUT_gmem);
+//HP1
+aesl_fh.touch(AUTOTB_TVIN_HP1);
+aesl_fh.touch(AUTOTB_TVOUT_HP1);
+//HP3
+aesl_fh.touch(AUTOTB_TVIN_HP3);
+aesl_fh.touch(AUTOTB_TVOUT_HP3);
 //s1
 aesl_fh.touch(AUTOTB_TVIN_s1);
 aesl_fh.touch(AUTOTB_TVOUT_s1);
@@ -225,53 +230,62 @@ aesl_fh.touch(AUTOTB_TVIN_input_size);
 aesl_fh.touch(AUTOTB_TVOUT_input_size);
 CodeState = DUMP_INPUTS;
 unsigned __xlx_offset_byte_param_s1 = 0;
-unsigned __xlx_offset_byte_param_output = 0;
-unsigned __xlx_offset_byte_param_lzw_size = 0;
 unsigned __xlx_offset_byte_param_input_size = 0;
-// print gmem Transactions
+// print HP1 Transactions
 {
   sprintf(__xlx_sprintf_buffer.data(), "[[transaction]] %d\n", AESL_transaction);
-  aesl_fh.write(AUTOTB_TVIN_gmem, __xlx_sprintf_buffer.data());
+  aesl_fh.write(AUTOTB_TVIN_HP1, __xlx_sprintf_buffer.data());
   {  __xlx_offset_byte_param_s1 = 0*4;
   if (__xlx_apatb_param_s1) {
     for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
 sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_s1)[j];
 
     sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
-    aesl_fh.write(AUTOTB_TVIN_gmem, __xlx_sprintf_buffer.data()); 
+    aesl_fh.write(AUTOTB_TVIN_HP1, __xlx_sprintf_buffer.data()); 
       }
   }
-  __xlx_offset_byte_param_output = 1*4;
-  if (__xlx_apatb_param_output) {
-    for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
-sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_output)[j];
-
-    sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
-    aesl_fh.write(AUTOTB_TVIN_gmem, __xlx_sprintf_buffer.data()); 
-      }
-  }
-  __xlx_offset_byte_param_lzw_size = 2*4;
-  if (__xlx_apatb_param_lzw_size) {
-    for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
-sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_lzw_size)[j];
-
-    sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
-    aesl_fh.write(AUTOTB_TVIN_gmem, __xlx_sprintf_buffer.data()); 
-      }
-  }
-  __xlx_offset_byte_param_input_size = 3*4;
+  __xlx_offset_byte_param_input_size = 1*4;
   if (__xlx_apatb_param_input_size) {
     for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
 sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_input_size)[j];
 
     sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
-    aesl_fh.write(AUTOTB_TVIN_gmem, __xlx_sprintf_buffer.data()); 
+    aesl_fh.write(AUTOTB_TVIN_HP1, __xlx_sprintf_buffer.data()); 
       }
   }
 }
-  tcl_file.set_num(4, &tcl_file.gmem_depth);
+  tcl_file.set_num(2, &tcl_file.HP1_depth);
   sprintf(__xlx_sprintf_buffer.data(), "[[/transaction]] \n");
-  aesl_fh.write(AUTOTB_TVIN_gmem, __xlx_sprintf_buffer.data());
+  aesl_fh.write(AUTOTB_TVIN_HP1, __xlx_sprintf_buffer.data());
+}
+unsigned __xlx_offset_byte_param_output = 0;
+unsigned __xlx_offset_byte_param_lzw_size = 0;
+// print HP3 Transactions
+{
+  sprintf(__xlx_sprintf_buffer.data(), "[[transaction]] %d\n", AESL_transaction);
+  aesl_fh.write(AUTOTB_TVIN_HP3, __xlx_sprintf_buffer.data());
+  {  __xlx_offset_byte_param_output = 0*4;
+  if (__xlx_apatb_param_output) {
+    for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
+sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_output)[j];
+
+    sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
+    aesl_fh.write(AUTOTB_TVIN_HP3, __xlx_sprintf_buffer.data()); 
+      }
+  }
+  __xlx_offset_byte_param_lzw_size = 1*4;
+  if (__xlx_apatb_param_lzw_size) {
+    for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
+sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_lzw_size)[j];
+
+    sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
+    aesl_fh.write(AUTOTB_TVIN_HP3, __xlx_sprintf_buffer.data()); 
+      }
+  }
+}
+  tcl_file.set_num(2, &tcl_file.HP3_depth);
+  sprintf(__xlx_sprintf_buffer.data(), "[[/transaction]] \n");
+  aesl_fh.write(AUTOTB_TVIN_HP3, __xlx_sprintf_buffer.data());
 }
 // print s1 Transactions
 {
@@ -332,50 +346,32 @@ sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_input_size)[j];
 CodeState = CALL_C_DUT;
 hardware_encoding_hw_stub_wrapper(__xlx_apatb_param_s1, __xlx_apatb_param_output, __xlx_apatb_param_lzw_size, __xlx_apatb_param_input_size);
 CodeState = DUMP_OUTPUTS;
-// print gmem Transactions
+// print HP3 Transactions
 {
   sprintf(__xlx_sprintf_buffer.data(), "[[transaction]] %d\n", AESL_transaction);
-  aesl_fh.write(AUTOTB_TVOUT_gmem, __xlx_sprintf_buffer.data());
-  {  __xlx_offset_byte_param_s1 = 0*4;
-  if (__xlx_apatb_param_s1) {
-    for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
-sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_s1)[j];
-
-    sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
-    aesl_fh.write(AUTOTB_TVOUT_gmem, __xlx_sprintf_buffer.data()); 
-      }
-  }
-  __xlx_offset_byte_param_output = 1*4;
+  aesl_fh.write(AUTOTB_TVOUT_HP3, __xlx_sprintf_buffer.data());
+  {  __xlx_offset_byte_param_output = 0*4;
   if (__xlx_apatb_param_output) {
     for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
 sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_output)[j];
 
     sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
-    aesl_fh.write(AUTOTB_TVOUT_gmem, __xlx_sprintf_buffer.data()); 
+    aesl_fh.write(AUTOTB_TVOUT_HP3, __xlx_sprintf_buffer.data()); 
       }
   }
-  __xlx_offset_byte_param_lzw_size = 2*4;
+  __xlx_offset_byte_param_lzw_size = 1*4;
   if (__xlx_apatb_param_lzw_size) {
     for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
 sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_lzw_size)[j];
 
     sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
-    aesl_fh.write(AUTOTB_TVOUT_gmem, __xlx_sprintf_buffer.data()); 
-      }
-  }
-  __xlx_offset_byte_param_input_size = 3*4;
-  if (__xlx_apatb_param_input_size) {
-    for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
-sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_input_size)[j];
-
-    sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
-    aesl_fh.write(AUTOTB_TVOUT_gmem, __xlx_sprintf_buffer.data()); 
+    aesl_fh.write(AUTOTB_TVOUT_HP3, __xlx_sprintf_buffer.data()); 
       }
   }
 }
-  tcl_file.set_num(4, &tcl_file.gmem_depth);
+  tcl_file.set_num(2, &tcl_file.HP3_depth);
   sprintf(__xlx_sprintf_buffer.data(), "[[/transaction]] \n");
-  aesl_fh.write(AUTOTB_TVOUT_gmem, __xlx_sprintf_buffer.data());
+  aesl_fh.write(AUTOTB_TVOUT_HP3, __xlx_sprintf_buffer.data());
 }
 CodeState = DELETE_CHAR_BUFFERS;
 AESL_transaction++;

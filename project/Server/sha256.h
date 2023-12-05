@@ -8,6 +8,7 @@
 
 //#include "hash.h"
 #include <string>
+#include <arm_neon.h>
 
 // define fixed size integer types
 #ifdef _MSC_VER

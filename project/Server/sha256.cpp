@@ -117,6 +117,7 @@ void SHA256::processBlock(const void* data)
 #else
     words[i] = swap(input[i]);
 #endif
+  
 
   uint32_t x,y; // temporaries
 

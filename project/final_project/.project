@@ -29,47 +29,52 @@
 		<link>
 			<name>source</name>
 			<type>2</type>
-			<location>/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/.apc/.src</location>
+			<location>/mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/.apc/.src</location>
 		</link>
 		<link>
 			<name>testbench</name>
 			<type>2</type>
-			<location>/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/.apc/.tb</location>
+			<location>/mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/.apc/.tb</location>
 		</link>
 		<link>
 			<name>solution1/constraints</name>
 			<type>2</type>
-			<location>/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/.tcls</location>
+			<location>/mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/.tcls</location>
 		</link>
 		<link>
 			<name>source/LZW_new.cpp</name>
 			<type>1</type>
-			<location>/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/Server/LZW_new.cpp</location>
+			<location>/mnt/castor/seas_home/l/lize1/ese532_final/project/Server/LZW_new.cpp</location>
 		</link>
 		<link>
 			<name>source/LZW_new.h</name>
 			<type>1</type>
-			<location>/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/Server/LZW_new.h</location>
+			<location>/mnt/castor/seas_home/l/lize1/ese532_final/project/Server/LZW_new.h</location>
+		</link>
+		<link>
+			<name>source/stopwatch.h</name>
+			<type>1</type>
+			<location>/mnt/castor/seas_home/l/lize1/ese532_final/project/Server/stopwatch.h</location>
 		</link>
 		<link>
 			<name>testbench/Testbench.cpp</name>
 			<type>1</type>
-			<location>/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/Server/Testbench.cpp</location>
+			<location>/mnt/castor/seas_home/l/lize1/ese532_final/project/Server/Testbench.cpp</location>
 		</link>
 		<link>
 			<name>solution1/constraints/.xml.directive</name>
 			<type>1</type>
-			<location>/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/solution1.directive</location>
+			<location>/mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/solution1.directive</location>
 		</link>
 		<link>
 			<name>solution1/constraints/directives.tcl</name>
 			<type>1</type>
-			<location>/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/directives.tcl</location>
+			<location>/mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/directives.tcl</location>
 		</link>
 		<link>
 			<name>solution1/constraints/script.tcl</name>
 			<type>1</type>
-			<location>/mnt/castor/seas_home/c/chiyuan9/ese532_final/project/final_project/solution1/script.tcl</location>
+			<location>/mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/script.tcl</location>
 		</link>
 	</linkedResources>
 </projectDescription>

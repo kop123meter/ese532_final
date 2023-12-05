@@ -19,6 +19,7 @@ unsigned int my_hash(unsigned long key)
     unsigned int hashed = 0;
 
     for(int i = 0; i < 20; i++)
+#pragma HLS pipeline II=1
     {
         hashed += (key >> i)&0x01;
         hashed += hashed << 10;
@@ -70,32 +71,27 @@ void hash_lookup(unsigned long hash_table[2][CAPACITY], unsigned int key, bool* 
 
 void hash_insert(unsigned long hash_table[2][CAPACITY], unsigned int key, unsigned int value, bool* collision)
 {
-    //std::cout << "hash_insert():" << std::endl;
-    key &= 0xFFFFF;   // make sure key is only 20 bits
-    value &= 0xFFF;   // value is only 12 bits
-
-    unsigned long lookup_0 = hash_table[0][my_hash(key)];
-    unsigned int valid_0 = (lookup_0 >> (20 + 12))&0x1;
-    unsigned long lookup_1 = hash_table[1][my_hash(key)];
-    unsigned int valid_1 = (lookup_1 >> (20 + 12))&0x1;
-
-    if(valid_0 && valid_1)
-    {
-        *collision = 1;
-        //std::cout << "\tcollision in the hash" << std::endl;
-    }
-    else if(!valid_0 && !valid_1)
-    {
-        hash_table[0][my_hash(key)] = (1UL << (20 + 12)) | (value << 20) | key;
-        *collision = 0;
-        //std::cout << "\tinserted into the hash table" << std::endl;
-        //std::cout << "\t(k,v,h) = " << key << " " << value << " " << my_hash(key) << std::endl;
-    }
-    else
-    {
-        hash_table[1][my_hash(key)] = (1UL << (20 + 12)) | (value << 20) | key;
-    }
+   //std::cout << "hash_insert():" << std::endl;
+   key &= 0xFFFFF;   // make sure key is only 20 bits
+   value &= 0xFFF;   // value is only 12 bits
+   unsigned int hash_result = my_hash(key);
+   unsigned long lookup_0 = hash_table[0][hash_result];
+   unsigned int valid_0 = (lookup_0 >> (20 + 12))&0x1;
+   if(!valid_0){
+       hash_table[0][hash_result] = (1UL << (20 + 12)) | (value << 20) | key;
+       *collision = 0;
+       return;
+   }
+   unsigned long lookup_1 = hash_table[1][hash_result];
+   unsigned int valid_1 = (lookup_1 >> (20 + 12))&0x1;
+   if(!valid_1){
+       hash_table[1][hash_result] = (1UL << (20 + 12)) | (value << 20) | key;
+       *collision = 0;
+       return;
+   }
+   *collision = 1;
 }
+
 //****************************************************************************************************************
 typedef struct
 {   
@@ -149,6 +145,7 @@ void assoc_lookup(assoc_mem* mem, unsigned int key, bool* hit, unsigned int* res
 
     unsigned int address = 0;
     for(; address < 64; address++)
+#pragma HLS unroll
     {
         if((match >> address) & 0x1)
         {   
@@ -192,115 +189,143 @@ void lookup(unsigned long hash_table[2][CAPACITY], assoc_mem* mem, unsigned int 
 //****************************************************************************************************************
 void hardware_encoding(unsigned char * s1,unsigned char * output,int * lzw_size,int * input_size)
 {
-	int hit_second = 2;
-    // create hash table and assoc mem
-    unsigned long hash_table[2][CAPACITY];
-    assoc_mem my_assoc_mem;
-    int output_pos = 0;
-    int size = 0;
-    output_char = 0;
-    output_bit = 0;
+#pragma HLS INTERFACE m_axi port=s1 bundle=HP1
+#pragma HLS INTERFACE m_axi port=output bundle=HP3
+#pragma HLS INTERFACE m_axi port=input_size bundle=HP1
+#pragma HLS INTERFACE m_axi port=lzw_size bundle=HP3
 
-    // make sure the memories are clear
+unsigned char temp_output[CHUNK_SIZE];
+   bool send_two = false;
+   unsigned char high_four;
 
-// #pragma HLS array_partition variable=hash_table block factor=4 dim=2
-       for(int i = 0; i < CAPACITY; i++)
-       {
+
+   int hit_second = 2;
+   // create hash table and assoc mem
+   unsigned long hash_table[2][CAPACITY];
+   assoc_mem my_assoc_mem;
+   int output_pos = 0;
+   int size = 0;
+   output_char = 0;
+   output_bit = 0;
+
+
+   // make sure the memories are clear
+
+
+ //#pragma HLS array_partition variable=hash_table block factor=4 dim=2
+      for(int i = 0; i < CAPACITY; i++)
+      {
 #pragma HLS unroll factor=2
-           hash_table[0][i] = 0;
-           hash_table[1][i] = 0;
-        }
+          hash_table[0][i] = 0;
+          hash_table[1][i] = 0;
+       }
 
-    my_assoc_mem.fill = 0;
-    for(int i = 0; i < 512; i++)
-    {
-        my_assoc_mem.upper_key_mem[i] = 0;
-        my_assoc_mem.middle_key_mem[i] = 0;
-        my_assoc_mem.lower_key_mem[i] = 0;
-    }
+   my_assoc_mem.fill = 0;
+   for(int i = 0; i < 512; i++)
+   {
+       my_assoc_mem.upper_key_mem[i] = 0;
+       my_assoc_mem.middle_key_mem[i] = 0;
+       my_assoc_mem.lower_key_mem[i] = 0;
+   }
 
-    // init the memories with the first 256 codes
-    for(unsigned long i = 0; i < 256; i++)
-    {
+
+   // init the memories with the first 256 codes
+//   for(unsigned long i = 0; i < 256; i++)
+//   {
+//#pragma HLS unroll
+//       bool collision = 0;
+//       unsigned int key = (i << 8) + 0UL; // lower 8 bits are the next char, the upper bits are the prefix code
+//       insert(hash_table, &my_assoc_mem, key, i, &collision);
+//   }
+   int next_code = 256;
+
+
+
+
+   int prefix_code = s1[0];
+   unsigned int code = 0;
+   unsigned char next_char = 0;
+
+
+   int len = input_size[0];
+
+   for(int i = 0;i<len;)
+   {
+       if(i + 1 == len)
+       {
+           // transfer
+           if(!send_two){
+               temp_output[output_pos++] = (unsigned char)(prefix_code >> 4);
+               send_two = true;
+               high_four = (unsigned char)(prefix_code << 4) & 0xf0;
+           } else{
+               temp_output[output_pos++] = high_four | ((unsigned char)(prefix_code >> 8) & 0x0f);
+               temp_output[output_pos++] = (unsigned char)(prefix_code) & 0xff;
+               send_two = false;
+           }
+           // end
+           break;
+       }
+       next_char = s1[i + 1];
+
+
+       bool hit = 0;
+       lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
+       if(!hit)
+       {
+           // transfer
+           if(!send_two){
+               temp_output[output_pos++] = (unsigned char)(prefix_code >> 4);
+               send_two = true;
+               high_four = (unsigned char)(prefix_code << 4) & 0xf0;
+           } else{
+               temp_output[output_pos++] = high_four | ((unsigned char)(prefix_code >> 8) & 0x0f);
+               temp_output[output_pos++] = (unsigned char)(prefix_code) & 0xff;
+               send_two = false;
+           }
+           // end
+
+
+
+           bool collision = 0;
+           insert(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, next_code, &collision);
+//           if(output_pos == 7062){
+//           std::cout << send_two <<std::endl;
+//           std::cout << "prefix_code:" << prefix_code << "\tnext_code:" << next_code << "\tnext char"<<(int)next_char<< std::endl;
+//           }
+           if(collision)
+           {
+               std::cout << "ERROR: FAILED TO INSERT! NO MORE ROOM IN ASSOC MEM!" << std::endl;
+               return;
+           }
+           next_code += 1;
+
+
+           prefix_code = next_char;
+
+
+       }
+       else
+       {
+           prefix_code = code;
+       }
+       i += 1;
+   }
+
+   if(send_two){
+       temp_output[output_pos++] = high_four;
+   }
+
+   // Copy Temp output to output array
+   for(int i = 0; i < output_pos; i++){
 #pragma HLS unroll
-        bool collision = 0;
-        unsigned int key = (i << 8) + 0UL; // lower 8 bits are the next char, the upper bits are the prefix code
-        insert(hash_table, &my_assoc_mem, key, i, &collision);
-    }
-    int next_code = 256;
-
-
-    int prefix_code = s1[0];
-    unsigned int code = 0;
-    unsigned char next_char = 0;
-
-    int len = input_size[0];
-    for(int i = 0;i<len;)
-//#pragma HLS pipeline II=1
-    {
-        if(i + 1 == len)
-        {
-            // transfer
-            for(int x = 11; x >= 0; x--){
-                output_char = (output_char << 1) | (prefix_code >> (x) & 0x1);
-                output_bit++;
-                if(output_bit % 8 == 0){
-                    output[output_pos++] = output_char;
-                    output_char = 0;
-                    size++;
-                }
-            }
-            if(output_bit % 8 != 0){
-                output_char = output_char << (8 - (output_bit % 8));
-                output[output_pos++] = output_char;
-                output_char = 0;
-                size++;
-            }
-            // end
-            break;
-        }
-        next_char = s1[i + 1];
-
-        bool hit = 0;
-        lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
-        if(!hit)
-        {
-            // transfer
-            for(int x = 11; x >= 0; x--){
-                output_char = (output_char << 1) | (prefix_code >> (x) & 0x1);
-                output_bit++;
-                if(output_bit % 8 == 0){
-                    output[output_pos++] = output_char;
-                    output_char = 0;
-                    size++;
-                }
-            }
-            // end
-            
-
-            bool collision = 0;
-            insert(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, next_code, &collision);
-            // std::cout << "prefix_code:" << prefix_code << "\tnext_code:" << next_code << "\tnext char"<<(int)next_char<< std::endl;std::cout << "prefix_code:" << prefix_code << "\tnext_code:" << next_code << "\tnext char"<<(int)next_char<< std::endl;
-
-            if(collision)
-            {
-                std::cout << "ERROR: FAILED TO INSERT! NO MORE ROOM IN ASSOC MEM!" << std::endl;
-                return;
-            }
-            next_code += 1;
-
-            prefix_code = next_char;
-
-        }
-        else
-        {
-            prefix_code = code;
-        }
-        i += 1;
-    }
-   lzw_size[0] = size;
-   // std::cout << std::endl << "assoc mem entry count: " << my_assoc_mem.fill << std::endl;
+	   output[i] = temp_output[i];
+   }
+   //size = output_pos;
+  lzw_size[0] = output_pos;
+  // std::cout << std::endl << "assoc mem entry count: " << my_assoc_mem.fill << std::endl;
 }
+
 //****************************************************************************************************************
 void encoding(unsigned char * s1,unsigned char * output,int &size,int len)
 {
