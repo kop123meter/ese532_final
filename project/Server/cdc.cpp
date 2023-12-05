@@ -43,5 +43,13 @@ void cdc(unsigned char *buff, unsigned int buff_size, int& chunk_number,int * ch
     {
         chunk_boundary[chunk_number] = buff_size;
         chunk_number++;
+        return;
     }
+    else if(chunk_number >= (MAX_UNIQUE_CHUNK)){
+        chunk_boundary[chunk_number] = buff_size;
+        chunk_number++;
+        return;
+    }
+
+
 }

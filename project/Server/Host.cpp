@@ -142,38 +142,48 @@ int main(int argc, char *argv[])
     // ------------------------------------------------------------------------------------
     timer2.add("Allocate contiguous OpenCL buffers");
 
-    cl::Buffer in_buf;
-    cl::Buffer out_buf[2];
-    cl::Buffer lzwsize_buf[2];
-    cl::Buffer inputsize_buf;
+    cl::Buffer in_buf[MAX_UNIQUE_CHUNK];
+    cl::Buffer out_buf[MAX_UNIQUE_CHUNK];
+    cl::Buffer lzwsize_buf[MAX_UNIQUE_CHUNK];
+    cl::Buffer inputsize_buf[MAX_UNIQUE_CHUNK];
 
-    in_buf = cl::Buffer(context, CL_MEM_READ_ONLY, CHUNK_SIZE_MAX, NULL, &err);
-    inputsize_buf = cl::Buffer(context, CL_MEM_READ_ONLY, sizeof(int)*1,NULL,&err);
-    for(int i = 0; i < 2 ;i++){
-    out_buf[i] = cl::Buffer(context, CL_MEM_WRITE_ONLY, CHUNK_SIZE_MAX, NULL, &err);
-    lzwsize_buf[i] = cl::Buffer(context, CL_MEM_WRITE_ONLY, sizeof(int)*1,NULL,&err);
+    
+    for(int i = 0; i < MAX_UNIQUE_CHUNK ;i++){
+        in_buf[i] = cl::Buffer(context, CL_MEM_READ_ONLY, CHUNK_SIZE_MAX, NULL, &err);
+        inputsize_buf[i] = cl::Buffer(context, CL_MEM_READ_ONLY, sizeof(int)*1,NULL,&err);
+        out_buf[i] = cl::Buffer(context, CL_MEM_WRITE_ONLY, CHUNK_SIZE_MAX, NULL, &err);
+        lzwsize_buf[i] = cl::Buffer(context, CL_MEM_WRITE_ONLY, sizeof(int)*1,NULL,&err);
     }
     
 
-    unsigned char *in;
-    int *inputsize;
+    unsigned char *in[MAX_UNIQUE_CHUNK];
+    int *inputsize[MAX_UNIQUE_CHUNK];
 
-    unsigned char *Output[2];
-    int *lzwsize[2];
+    unsigned char *Output[MAX_UNIQUE_CHUNK];
+    int *lzwsize[MAX_UNIQUE_CHUNK];
 
-    in = (unsigned char *)q.enqueueMapBuffer(in_buf, CL_TRUE, CL_MAP_WRITE, 0, CHUNK_SIZE_MAX);
-    inputsize = (int *)q.enqueueMapBuffer(inputsize_buf,CL_TRUE,CL_MAP_WRITE,0,sizeof(int) * 1);
-    for(int i = 0; i < 2;i++){
-    Output[i] = (unsigned char *)q.enqueueMapBuffer(out_buf[i],CL_TRUE,CL_MAP_READ,0, CHUNK_SIZE_MAX);
-    lzwsize[i] = (int *)q.enqueueMapBuffer(lzwsize_buf[i],CL_TRUE,CL_MAP_READ,0,sizeof(int)*1);
+    
+    for(int i = 0; i < MAX_UNIQUE_CHUNK;i++){
+        in[i] = (unsigned char *)q.enqueueMapBuffer(in_buf[i], CL_TRUE, CL_MAP_WRITE, 0, CHUNK_SIZE_MAX);
+        inputsize[i] = (int *)q.enqueueMapBuffer(inputsize_buf[i],CL_TRUE,CL_MAP_WRITE,0,sizeof(int) * 1);
+        Output[i] = (unsigned char *)q.enqueueMapBuffer(out_buf[i],CL_TRUE,CL_MAP_READ,0, CHUNK_SIZE_MAX);
+        lzwsize[i] = (int *)q.enqueueMapBuffer(lzwsize_buf[i],CL_TRUE,CL_MAP_READ,0,sizeof(int)*1);
     }
+
+    //init buffer for repet chunk
+    int repeat_chunk_buffer[CHUNK_NUMBER_MAX];
+
 
 
     // ------------------------------------------------------------------------------------
     // Step 3: Run the kernel
     // ------------------------------------------------------------------------------------
     timer2.add("Running kernel");
-    int write_index = 0;
+    
+
+    //init index for writting
+    int unqiue_index = 0;
+    int repeat_index = 0;
 
     unsigned char *input[NUM_PACKETS];
     int writer = 0;
@@ -268,35 +278,37 @@ int main(int argc, char *argv[])
             ded_timer.stop();
             if (flag == 1)
             {
-                getlzwheader(&lzw_header[0], chunk_index, 1);
-                memcpy(&file[offset], &lzw_header[0], 4);
-                offset += 4;
+                repeat_chunk_buffer[repeat_index]=chunk_index;
+                repeat_index++;
+                // getlzwheader(&lzw_header[0], chunk_index, 1);
+                // memcpy(&file[offset], &lzw_header[0], 4);
+                // offset += 4;
                 flag = 0;
             }
             else
             {
                 lzw_timer.start();
                 // unique chunk
-                inputsize[0] = end - start;
-                memcpy(&in[0],&buffer[HEADER+start],inputsize[0]);
+                inputsize[unqiue_index][0] = end - start;
+                memcpy(&in[unqiue_index][0],&buffer[HEADER+start],inputsize[unqiue_index][0]);
                 // hardwadre_encoding(&in[0], &Output[0], lzw_size, input_size);
-                krnl_hardware.setArg(0, in_buf);
-                krnl_hardware.setArg(1, out_buf[write_index]);
-                krnl_hardware.setArg(2, lzwsize_buf[write_index]);
-                krnl_hardware.setArg(3, inputsize_buf);
+                krnl_hardware.setArg(0, in_buf[unqiue_index]);
+                krnl_hardware.setArg(1, out_buf[unqiue_index]);
+                krnl_hardware.setArg(2, lzwsize_buf[unqiue_index]);
+                krnl_hardware.setArg(3, inputsize_buf[unqiue_index]);
 
                 if(LZW_count == 0){
-                    q.enqueueMigrateMemObjects({in_buf,inputsize_buf},0,NULL,&write_ev);
+                    q.enqueueMigrateMemObjects({in_buf[unqiue_index],inputsize_buf[unqiue_index]},0,NULL,&write_ev);
                 }else{
-                    q.enqueueMigrateMemObjects({in_buf,inputsize_buf},0,&read_events,&write_ev);
+                    q.enqueueMigrateMemObjects({in_buf[unqiue_index],inputsize_buf[unqiue_index]},0,&read_events,&write_ev);
                 }
                 LZW_count++;
                 write_events.push_back(write_ev);
                 q.enqueueTask(krnl_hardware,&write_events,&exec_ev);
                 exec_events.push_back(exec_ev);
-                q.enqueueMigrateMemObjects({out_buf[write_index],lzwsize_buf[write_index]},CL_MIGRATE_MEM_OBJECT_HOST,&exec_events,&read_ev);
+                q.enqueueMigrateMemObjects({out_buf[unqiue_index],lzwsize_buf[unqiue_index]},CL_MIGRATE_MEM_OBJECT_HOST,&exec_events,&read_ev);
                 read_events.push_back(read_ev);
-                write_index++;
+                unqiue_index++;
    
                 /*
 
@@ -320,12 +332,22 @@ int main(int argc, char *argv[])
     }
 //Step 4
     q.finish();
-    for(int i = 0; i < 2 ;i++){
+
+    // Write Unqiue chunk first
+    for(int i = 0; i < unqiue_index ;i++){
     	 getlzwheader(&lzw_header[0], lzwsize[i][0], 0);
+         std::cout << "lzw size:\t" << lzwsize[i][0] << std::endl;
          memcpy(&file[offset], &lzw_header[0], 4);
          offset += 4;
          memcpy(&file[offset], &Output[i][0], lzwsize[i][0]);
          offset += lzwsize[i][0];
+    }
+
+    // Write repeat chunk
+    for(int i = 0; i < repeat_index;i++){
+        getlzwheader(&lzw_header[0], repeat_chunk_buffer[i], 1);
+        memcpy(&file[offset], &lzw_header[0], 4);
+        offset += 4;
     }
     delete[] fileBuf;
 

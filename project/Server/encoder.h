@@ -10,6 +10,7 @@
 #define PRIME 3
 #define TARGET 0
 #define MODULUS 4096
+#define MAX_UNIQUE_CHUNK 500
 
 
 void cdc(unsigned char *buff, unsigned int buff_size,int& chunk_number, int * chunk_boundary);
