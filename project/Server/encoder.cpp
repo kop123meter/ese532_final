@@ -157,6 +157,10 @@ int main(int argc, char* argv[]) {
 	}
 	stopwatch ethernet_timer;
 	stopwatch encode_timer;
+	stopwatch cdc_timer;
+	stopwatch ded_timer;
+	stopwatch sha_timer;
+	stopwatch lzw_timer;
 	
 
 	unsigned char* input[NUM_PACKETS];
@@ -164,6 +168,7 @@ int main(int argc, char* argv[]) {
 	int done = 0;
 	int length = 0;
 	int packet_index = 0;
+	int bytes_read = 0;
 	unsigned char* lzw_header = (unsigned char*)malloc(4 * sizeof(unsigned char));
 	unsigned char* output_temp = (unsigned char*)malloc(700000000 * sizeof(unsigned char));
 	unsigned char* input_packet_buffer = (unsigned char*)malloc(700000000 * sizeof(unsigned char)); //293 585 920
@@ -222,6 +227,8 @@ int main(int argc, char* argv[]) {
 		std::cout << "*************** Packet "<< packet_index + 1<<" DATA Length ***************" << std::endl;
 	    std::cout << "length: " << length << std::endl;
 	    std::cout << "****************************************************" << std::endl;
+		bytes_read = bytes_read + length;
+		std::cout << "Read\t" << bytes_read << "\tBytes" << std::endl;
 		packet_index++;
 
 	
@@ -229,10 +236,14 @@ int main(int argc, char* argv[]) {
 
 		encode_timer.start();
 		chunk_number = 0; // initialize chunk number
+		cdc_timer.start();
 		cdc(&buffer[HEADER], length);
+		cdc_timer.stop();
 		// uint64_t hash_table[chunk_number];
 		std::cout << "Chunk Number:\t" << chunk_number << std::endl;
+		sha_timer.start();
 		SHA256_New(&buffer[HEADER],hash_table);
+		sha_timer.stop();
 		
 
 
@@ -247,7 +258,9 @@ int main(int argc, char* argv[]) {
 		start = 0;
 		end = chunk_boundary[0];
 	for(int i = 0 ; i < chunk_number ;i++){
+		ded_timer.start();
 		hashing_deduplication(hash_table, total_chunk_number + i,flag,chunk_index);
+		ded_timer.stop();
 		//std::cout << "hash ded OK!!!"<<std::endl;
 		if(flag == 1){
 			getlzwheader(&lzw_header[0],chunk_index,1);
@@ -259,7 +272,9 @@ int main(int argc, char* argv[]) {
 			// unique chunk
 			lzw_size[0] = 0;
 			input_size[0] = end - start;
+			lzw_timer.start();
 			hardware_encoding(&input_packet_buffer[start],&output_temp[0], lzw_size, input_size);
+			lzw_timer.stop();
 			getlzwheader(&lzw_header[0],lzw_size[0],0);
 			memcpy(&file[offset], &lzw_header[0], 4);
 			offset += 4;
@@ -279,7 +294,7 @@ int main(int argc, char* argv[]) {
 		encode_timer.stop();
 	}
 	
-	std::cout << "Without Deduplication" << std::endl;
+	//std::cout << "Without Deduplication" << std::endl;
 	// write file to root and you can use diff tool on board
 	FILE *outfd = fopen(argv[1], "wb");
 	int bytes_written = fwrite(&file[0], 1, offset, outfd);
@@ -296,13 +311,39 @@ int main(int argc, char* argv[]) {
 	free(input_packet_buffer);
 	free(lzw_size);
 	free(input_size);
+
+	std::cout<<"------------------CDC time------------------"<<std::endl;
+    std::cout << cdc_timer.latency()  << "ms" << std::endl;
+    float cdc_latency = cdc_timer.latency() / 1000;
+    float cdc_throughput = (bytes_read * 8 / 1000000.0) / cdc_latency; //Mb/s
+    std::cout << "CDC Throughput:\t" << cdc_throughput <<"\tMb/s"<< std::endl;
+
+    std::cout<<"------------------SHA256 time------------------"<<std::endl;
+    std::cout << sha_timer.latency()  << "ms" << std::endl;
+    float sha_latency = sha_timer.latency() / 1000;
+    float sha_throughput = (bytes_read * 8 / 1000000.0) / sha_latency; //Mb/s
+    std::cout << "SHA Throughput:\t" << sha_throughput <<"\tMb/s"<< std::endl;
+
+    std::cout<<"------------------Deduplicate time------------------"<<std::endl;
+    std::cout << ded_timer.latency() << "ms" << std::endl;
+    float ded_latency = ded_timer.latency() / 1000;
+    float ded_throughput = (bytes_read * 8 / 1000000.0) / ded_latency; //Mb/s
+    std::cout << "Deduplicate Throughput:\t" << ded_throughput <<"\tMb/s"<< std::endl;
+    
+    std::cout<<"------------------LZW time------------------"<<std::endl;
+    std::cout << lzw_timer.latency() << "ms" << std::endl;
+    float lzw_latency = lzw_timer.latency() / 1000;
+    float lzw_throughput = (bytes_read * 8 / 1000000.0) / lzw_latency; //Mb/s
+    std::cout << "LZW Throughput:\t" << lzw_throughput <<"\tMb/s"<< std::endl;
+	
 	std::cout << "--------------- Key Throughputs ---------------" << std::endl;
 	float ethernet_latency = ethernet_timer.latency() / 1000.0;
 	float encoder_latency = encode_timer.latency() / 1000.0;
 
 	float input_throughput = (bytes_written * 8 / 1000000.0) / ethernet_latency; // Mb/s
-	float encoder_throughput = (bytes_written * 8 / 1000000.0) / encoder_latency; // Mb/s
-
+	float encoder_throughput = (bytes_read * 8 / 1000000.0) / encoder_latency; // Mb/s
+    
+	std::cout << "Read:\t" << bytes_read << std::endl;
 	std::cout << "Input Throughput to Encoder: " << input_throughput << " Mb/s." << " (Latency: " << ethernet_latency << "s)." << std::endl;
 	std::cout << "Throughput to Bin File: " << encoder_throughput / 1000.0 << " Gb/s."
 			<< " (Latency: " << encoder_latency << "s)." << std::endl;

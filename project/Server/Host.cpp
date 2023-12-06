@@ -28,19 +28,17 @@
 #include "Utilities.h"
 #include "stopwatch.h"
 
-#define NUM_PACKETS 8
-#define pipe_depth 4
-#define CHUNK_SIZE_MAX 8192
-#define CHUNK_NUMBER_MAX 100000
-#define DONE_BIT_L (1 << 7)
-#define DONE_BIT_H (1 << 15)
+
 
 int offset = 0;
 int chunk_number = 0;
 int total_chunk_number = 0;
 int chunk_boundary[CHUNK_NUMBER_MAX];
+int total_chunk_record[CHUNK_NUMBER_MAX][2];
 std::string hash_table[CHUNK_NUMBER_MAX];
+uint32_t new_hash_table[CHUNK_NUMBER_MAX][12];
 unsigned char *file;
+
 
 void handle_input(int argc, char *argv[], int *blocksize)
 {
@@ -94,6 +92,30 @@ void hashing_deduplication(std::string *hash_table, int i, int &flag, int &chunk
         }
     }
 }
+
+void hashing_deduplication_neon(uint32_t hash_table[][12], int i, int &flag, int &chunk_index)
+{
+    // unsigned char *lzw_header = (unsigned char*)malloc(4 * sizeof(unsigned char));
+    for (int j = 0; j < i; j++)
+    {
+        int compare_flag = 1;
+        for(int k = 0; k < 12;k++){
+            if (hash_table[i][k] != hash_table[j][k])
+            {
+                compare_flag = 0; // current value is not same
+                break;
+            }
+        }
+        if(compare_flag == 1){
+            flag = 1;
+            chunk_index = j;
+            break;
+        }
+    }
+
+}
+
+
 int main(int argc, char *argv[])
 {
     if (argc < 2)
@@ -255,7 +277,8 @@ int main(int argc, char *argv[])
 
         //Compute SHA
         sha_timer.start();
-        SHA(&buffer[HEADER], hash_table,chunk_boundary,chunk_number,total_chunk_number);
+        //SHA(&buffer[HEADER], hash_table,chunk_boundary,chunk_number,total_chunk_number);
+        sha_neon(&buffer[HEADER],new_hash_table,chunk_boundary,chunk_number,total_chunk_number);
         sha_timer.stop();
 
         // Copy DATA to buffer
@@ -274,11 +297,15 @@ int main(int argc, char *argv[])
         {
             cl::Event write_ev,read_ev,exec_ev;
             ded_timer.start();
-            hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
+            //hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
+            hashing_deduplication_neon(new_hash_table,total_chunk_number+i,flag,chunk_index);
             ded_timer.stop();
             if (flag == 1)
             {
+                total_chunk_record[total_chunk_number+i][0] = 1; //repeat
+                total_chunk_record[total_chunk_number+i][1] = chunk_index;
                 repeat_chunk_buffer[repeat_index]=chunk_index;
+                std::cout << "repeat chunk length:\t"<<end - start << std::endl;
                 repeat_index++;
                 // getlzwheader(&lzw_header[0], chunk_index, 1);
                 // memcpy(&file[offset], &lzw_header[0], 4);
@@ -289,6 +316,8 @@ int main(int argc, char *argv[])
             {
                 lzw_timer.start();
                 // unique chunk
+                total_chunk_record[total_chunk_number+i][0] = 0; //unique
+                total_chunk_record[total_chunk_number+i][1] = unqiue_index;
                 inputsize[unqiue_index][0] = end - start;
                 memcpy(&in[unqiue_index][0],&buffer[HEADER+start],inputsize[unqiue_index][0]);
                 // hardwadre_encoding(&in[0], &Output[0], lzw_size, input_size);
@@ -332,23 +361,27 @@ int main(int argc, char *argv[])
     }
 //Step 4
     q.finish();
+    
+    //send
+    for(int i = 0; i < total_chunk_number;i++){
+        int send_index = total_chunk_record[i][1];
+        std::cout << "send index:\t" << send_index <<std::endl;
+       if(total_chunk_record[i][0]==1){
+            getlzwheader(&lzw_header[0], send_index, 1);
+            memcpy(&file[offset], &lzw_header[0], 4);
+            offset += 4;
+       }
+       else if(total_chunk_record[i][0]==0){
+            getlzwheader(&lzw_header[0], lzwsize[send_index][0], 0);
+            std::cout << "lzw size:\t" << lzwsize[send_index][0] << std::endl;
+            memcpy(&file[offset], &lzw_header[0], 4);
+            offset += 4;
+            memcpy(&file[offset], &Output[send_index][0], lzwsize[send_index][0]);
+            offset += lzwsize[send_index][0];
+       }
 
-    // Write Unqiue chunk first
-    for(int i = 0; i < unqiue_index ;i++){
-    	 getlzwheader(&lzw_header[0], lzwsize[i][0], 0);
-         std::cout << "lzw size:\t" << lzwsize[i][0] << std::endl;
-         memcpy(&file[offset], &lzw_header[0], 4);
-         offset += 4;
-         memcpy(&file[offset], &Output[i][0], lzwsize[i][0]);
-         offset += lzwsize[i][0];
     }
 
-    // Write repeat chunk
-    for(int i = 0; i < repeat_index;i++){
-        getlzwheader(&lzw_header[0], repeat_chunk_buffer[i], 1);
-        memcpy(&file[offset], &lzw_header[0], 4);
-        offset += 4;
-    }
     delete[] fileBuf;
 
     timer2.add("Writing output to output_fpga.bin");
