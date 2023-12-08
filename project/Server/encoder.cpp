@@ -293,7 +293,7 @@ int main(int argc, char* argv[]) {
 		encode_timer.stop();
 		lzw_timer.stop();
 		int total_size = 0;
-		for(int s = 0; s < 4;s++){
+		for(int s = 0; s < chunk_handle_number; s++){
 			std::cout << "lzw size:\t"<<lzw_size[s] << std::endl;
 			total_size = total_size + lzw_size[s];
 		}
