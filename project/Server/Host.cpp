@@ -353,14 +353,16 @@ int main(int argc, char *argv[])
             start = end;
             end = chunk_boundary[i + 1];
         }
-        encode_timer.stop();
+        
 
 
         writer++;
         total_chunk_number += chunk_number;
+         encode_timer.stop();
     }
 //Step 4
     q.finish();
+   
     
     //send
     for(int i = 0; i < total_chunk_number;i++){

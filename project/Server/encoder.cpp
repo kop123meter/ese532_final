@@ -16,11 +16,6 @@
 #include "encoder.h"
 #include "sha256.h"
 
-#define NUM_PACKETS 8
-#define pipe_depth 4
-#define CHUNK_NUMBER_MAX 1000000
-#define DONE_BIT_L (1 << 7)
-#define DONE_BIT_H (1 << 15)
 
 int offset = 0;
 int chunk_number = 0;
@@ -45,36 +40,6 @@ void handle_input(int argc, char* argv[], int* blocksize) {
 		}
 	}
 }
-// placeholder hash function for cdc
-uint64_t hash_func(unsigned char *input, unsigned int pos)
-{
-        uint64_t hash = 0;
-        uint64_t temp = 0;
-		// Change 0 to Header / WIN_SIZE 
-        for(int i = 0;i < WIN_SIZE ; i++){
-                temp =  (uint64_t)(input[pos+WIN_SIZE-1-i]);
-                temp = temp * pow(PRIME,i+1);
-                hash = hash + temp;
-        }
-        return hash;
-}
-
-void cdc(unsigned char *buff, unsigned int buff_size)
-{
-    for(u_int i = WIN_SIZE; i < (buff_size - WIN_SIZE);i++){
-		//change buff to buff+HEADER
-        if((hash_func(buff,i) % MODULUS) == TARGET){
-            //create chunk here
-			chunk_boundary[chunk_number] = i;
-			chunk_number++;
-		}
-    }
-	if(chunk_boundary[chunk_number-1] != (buff_size)){
-		chunk_boundary[chunk_number] = buff_size;
-		chunk_number++;
-	}
-}
-
 // placeholder SHA function
 // la ji
 void SHA256_old(unsigned char *buffer, uint64_t * hash_table)
@@ -120,20 +85,20 @@ void SHA256_New(unsigned char *buffer, std::string * hash_table)
 }
 
 
-void getlzwheader(unsigned char *lzw_header,int size,int flag){
-	if(flag == 0){
-		lzw_header[0] = size << 1;
-		lzw_header[1] = size >> 7;
-		lzw_header[2] = size >> 15;
-		lzw_header[3] = size >> 23;
-	}
-	else if(flag == 1){
-		lzw_header[0] = size << 1 | 1;
-		lzw_header[1] = size >> 7;
-		lzw_header[2] = size >> 15;
-		lzw_header[3] = size >> 23;
-	}
-}
+// void getlzwheader(unsigned char *lzw_header,int size,int flag){
+// 	if(flag == 0){
+// 		lzw_header[0] = size << 1;
+// 		lzw_header[1] = size >> 7;
+// 		lzw_header[2] = size >> 15;
+// 		lzw_header[3] = size >> 23;
+// 	}
+// 	else if(flag == 1){
+// 		lzw_header[0] = size << 1 | 1;
+// 		lzw_header[1] = size >> 7;
+// 		lzw_header[2] = size >> 15;
+// 		lzw_header[3] = size >> 23;
+// 	}
+// }
 
 
 void hashing_deduplication(std::string * hash_table,int i,int &flag,int &chunk_index){
@@ -170,8 +135,10 @@ int main(int argc, char* argv[]) {
 	int packet_index = 0;
 	int bytes_read = 0;
 	unsigned char* lzw_header = (unsigned char*)malloc(4 * sizeof(unsigned char));
-	unsigned char* output_temp = (unsigned char*)malloc(700000000 * sizeof(unsigned char));
-	unsigned char* input_packet_buffer = (unsigned char*)malloc(700000000 * sizeof(unsigned char)); //293 585 920
+	unsigned char* output_temp = (unsigned char*)malloc(4*CHUNK_SIZE* sizeof(unsigned char));
+	unsigned char* input_packet_buffer = (unsigned char*)malloc(4*8192* sizeof(unsigned char)); //293 585 920
+	unsigned char chunk_lzw_number[1];
+	
 
 
 	ESE532_Server server;
@@ -200,12 +167,13 @@ int main(int argc, char* argv[]) {
 
 	writer = pipe_depth;
 	
-	int * lzw_size = (int *)malloc(sizeof(int)*1);
-	int * input_size = (int *)malloc(sizeof(int)*1);	
+	int lzw_size[4];
+	int input_size[4];	
 	int flag = 0;
 	int chunk_index = 0;
 	int start = 0;
 	int end = 0;
+	int chunk_handle_number = 0;
 	while (!done) {
 		// reset ring buffer
 		if (writer == NUM_PACKETS) {
@@ -237,7 +205,7 @@ int main(int argc, char* argv[]) {
 		encode_timer.start();
 		chunk_number = 0; // initialize chunk number
 		cdc_timer.start();
-		cdc(&buffer[HEADER], length);
+		cdc(&buffer[HEADER], length,chunk_number,chunk_boundary);
 		cdc_timer.stop();
 		// uint64_t hash_table[chunk_number];
 		std::cout << "Chunk Number:\t" << chunk_number << std::endl;
@@ -249,7 +217,7 @@ int main(int argc, char* argv[]) {
 
 
 		//Copy DATA to buffer
-		memcpy(&input_packet_buffer[0],&buffer[HEADER],length);
+		//memcpy(&input_packet_buffer[chunk_handle_number*CHUNK_SIZE],&buffer[HEADER],length);
 		//std::cout << "Copy OK!!!"<<std::endl;
 
 		//deduplication
@@ -257,41 +225,81 @@ int main(int argc, char* argv[]) {
 		chunk_index = 0;
 		start = 0;
 		end = chunk_boundary[0];
+		
 	for(int i = 0 ; i < chunk_number ;i++){
 		ded_timer.start();
 		hashing_deduplication(hash_table, total_chunk_number + i,flag,chunk_index);
 		ded_timer.stop();
 		//std::cout << "hash ded OK!!!"<<std::endl;
 		if(flag == 1){
-			getlzwheader(&lzw_header[0],chunk_index,1);
-			memcpy(&file[offset], &lzw_header[0], 4);
-			offset += 4;
+			// getlzwheader(&lzw_header[0],chunk_index,1);
+			// memcpy(&file[offset], &lzw_header[0], 4);
+			// offset += 4;
+		    lzw_size[chunk_handle_number] = 4;
+			input_size[chunk_handle_number] = chunk_index;
 			flag = 0;
 		}
 		else{
 			// unique chunk
-			lzw_size[0] = 0;
-			input_size[0] = end - start;
+			lzw_size[chunk_handle_number] = 0;
+            input_size[chunk_handle_number] = end - start;
+			memcpy(&input_packet_buffer[chunk_handle_number*8192],&buffer[HEADER+start],input_size[chunk_handle_number]);
+			// lzw_timer.start();
+			// hardware_encoding(&input_packet_buffer[start],&output_temp[0], lzw_size, input_size);
+			// lzw_timer.stop();
+			// getlzwheader(&lzw_header[0],lzw_size[0],0);
+			// memcpy(&file[offset], &lzw_header[0], 4);
+			// offset += 4;
+			// memcpy(&file[offset], &output_temp[0], lzw_size[0]);
+			// offset += lzw_size[0];
+		}
+		chunk_handle_number++;
+
+		// encode
+
+		if(chunk_handle_number == 4){
+			int number_buffer[1];
+			number_buffer[0] = chunk_handle_number;
 			lzw_timer.start();
-			hardware_encoding(&input_packet_buffer[start],&output_temp[0], lzw_size, input_size);
+			hardware_encoding(input_packet_buffer,output_temp,lzw_size,input_size,number_buffer);
 			lzw_timer.stop();
-			getlzwheader(&lzw_header[0],lzw_size[0],0);
-			memcpy(&file[offset], &lzw_header[0], 4);
-			offset += 4;
-			memcpy(&file[offset], &output_temp[0], lzw_size[0]);
-			offset += lzw_size[0];
+			int total_size = 0;
+			for(int s = 0; s < 4;s++){
+				std::cout << "lzw size:\t"<<lzw_size[s] << std::endl;
+				total_size = total_size + lzw_size[s];
+			}
+			memcpy(&file[offset],&output_temp[0],total_size);
+			offset += total_size;
+			chunk_handle_number = 0;
 		}
 		start = end;
 		end = chunk_boundary[i+1];
 	}
 	//std::cout << "Encoder OK!!!"<<std::endl;
 
-
 		//memcpy(&file[offset], &buffer[HEADER], length);
 
 		writer++;
 		total_chunk_number += chunk_number;
 		encode_timer.stop();
+	}
+	if(chunk_handle_number!=0){
+		int number_buffer[1];
+		number_buffer[0] = chunk_handle_number;
+		std::cout<< "input size:\t" << input_size[1]<<std::endl;
+		lzw_timer.start();
+		encode_timer.start();
+		hardware_encoding(input_packet_buffer,output_temp,lzw_size,input_size,number_buffer);
+		encode_timer.stop();
+		lzw_timer.stop();
+		int total_size = 0;
+		for(int s = 0; s < 4;s++){
+			std::cout << "lzw size:\t"<<lzw_size[s] << std::endl;
+			total_size = total_size + lzw_size[s];
+		}
+		memcpy(&file[offset],&output_temp[0],total_size);
+		offset += total_size;
+		chunk_handle_number = 0;
 	}
 	
 	//std::cout << "Without Deduplication" << std::endl;
@@ -300,17 +308,19 @@ int main(int argc, char* argv[]) {
 	int bytes_written = fwrite(&file[0], 1, offset, outfd);
 	printf("write file with %d\n", bytes_written);
 	fclose(outfd);
+	
 
 	for (int i = 0; i < NUM_PACKETS; i++) {
 		free(input[i]);
 	}
-
+	
 	free(file);
+	std::cout << "ok!" << std::endl;
 	free(lzw_header);
 	free(output_temp);
 	free(input_packet_buffer);
-	free(lzw_size);
-	free(input_size);
+	//free(lzw_size);
+	//free(input_size);
 
 	std::cout<<"------------------CDC time------------------"<<std::endl;
     std::cout << cdc_timer.latency()  << "ms" << std::endl;

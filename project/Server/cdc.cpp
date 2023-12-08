@@ -45,6 +45,4 @@ void cdc(unsigned char *buff, unsigned int buff_size, int& chunk_number,int * ch
         chunk_number++;
         return;
     }
-
-
 }
