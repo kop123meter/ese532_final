@@ -34,8 +34,6 @@ int offset = 0;
 int chunk_number = 0;
 int total_chunk_number = 0;
 int chunk_boundary[CHUNK_NUMBER_MAX];
-int total_chunk_record[CHUNK_NUMBER_MAX][2];
-std::string hash_table[CHUNK_NUMBER_MAX];
 uint32_t new_hash_table[CHUNK_NUMBER_MAX][12];
 unsigned char *file;
 
@@ -60,38 +58,6 @@ void handle_input(int argc, char *argv[], int *blocksize)
     }
 }
 
-
-void getlzwheader(unsigned char *lzw_header, int size, int flag)
-{
-    if (flag == 0)
-    {
-        lzw_header[0] = size << 1;
-        lzw_header[1] = size >> 7;
-        lzw_header[2] = size >> 15;
-        lzw_header[3] = size >> 23;
-    }
-    else if (flag == 1)
-    {
-        lzw_header[0] = size << 1 | 1;
-        lzw_header[1] = size >> 7;
-        lzw_header[2] = size >> 15;
-        lzw_header[3] = size >> 23;
-    }
-}
-
-void hashing_deduplication(std::string *hash_table, int i, int &flag, int &chunk_index)
-{
-    // unsigned char *lzw_header = (unsigned char*)malloc(4 * sizeof(unsigned char));
-    for (int j = 0; j < i; j++)
-    {
-        if ((hash_table[i] == hash_table[j]) && (i != j))
-        {
-            flag = 1;
-            chunk_index = j;
-            break;
-        }
-    }
-}
 
 void hashing_deduplication_neon(uint32_t hash_table[][12], int i, int &flag, int &chunk_index)
 {
@@ -164,37 +130,33 @@ int main(int argc, char *argv[])
     // ------------------------------------------------------------------------------------
     timer2.add("Allocate contiguous OpenCL buffers");
 
-    cl::Buffer in_buf[MAX_UNIQUE_CHUNK];
-    cl::Buffer out_buf[MAX_UNIQUE_CHUNK];
-    cl::Buffer lzwsize_buf[MAX_UNIQUE_CHUNK];
-    cl::Buffer inputsize_buf[MAX_UNIQUE_CHUNK];
+    cl::Buffer in_buf;
+    cl::Buffer out_buf;
+    cl::Buffer lzwsize_buf;
+    cl::Buffer inputsize_buf;
+    cl::Buffer lzw_handle_chunk_num_buf;
 
     
-    for(int i = 0; i < MAX_UNIQUE_CHUNK ;i++){
-        in_buf[i] = cl::Buffer(context, CL_MEM_READ_ONLY, CHUNK_SIZE_MAX, NULL, &err);
-        inputsize_buf[i] = cl::Buffer(context, CL_MEM_READ_ONLY, sizeof(int)*1,NULL,&err);
-        out_buf[i] = cl::Buffer(context, CL_MEM_WRITE_ONLY, CHUNK_SIZE_MAX, NULL, &err);
-        lzwsize_buf[i] = cl::Buffer(context, CL_MEM_WRITE_ONLY, sizeof(int)*1,NULL,&err);
-    }
+    in_buf = cl::Buffer(context, CL_MEM_READ_ONLY, LZW_CHUNK*8192*sizeof(unsigned char), NULL, &err);
+    inputsize_buf  = cl::Buffer(context, CL_MEM_READ_ONLY, sizeof(int)*LZW_CHUNK,NULL,&err);
+    out_buf = cl::Buffer(context, CL_MEM_WRITE_ONLY, LZW_CHUNK*8196*sizeof(unsigned char), NULL, &err);
+    lzwsize_buf = cl::Buffer(context, CL_MEM_WRITE_ONLY, sizeof(int)*LZW_CHUNK,NULL, &err);
+    lzw_handle_chunk_num_buf = cl::Buffer(context, CL_MEM_READ_ONLY, sizeof(int)*1,NULL, &err);
+    
     
 
-    unsigned char *in[MAX_UNIQUE_CHUNK];
-    int *inputsize[MAX_UNIQUE_CHUNK];
+    unsigned char *in;
+    int *inputsize;
 
-    unsigned char *Output[MAX_UNIQUE_CHUNK];
-    int *lzwsize[MAX_UNIQUE_CHUNK];
+    unsigned char *Output;
+    int *lzwsize;
+    int *lzw_handle_chunk_num;
 
     
-    for(int i = 0; i < MAX_UNIQUE_CHUNK;i++){
-        in[i] = (unsigned char *)q.enqueueMapBuffer(in_buf[i], CL_TRUE, CL_MAP_WRITE, 0, CHUNK_SIZE_MAX);
-        inputsize[i] = (int *)q.enqueueMapBuffer(inputsize_buf[i],CL_TRUE,CL_MAP_WRITE,0,sizeof(int) * 1);
-        Output[i] = (unsigned char *)q.enqueueMapBuffer(out_buf[i],CL_TRUE,CL_MAP_READ,0, CHUNK_SIZE_MAX);
-        lzwsize[i] = (int *)q.enqueueMapBuffer(lzwsize_buf[i],CL_TRUE,CL_MAP_READ,0,sizeof(int)*1);
-    }
 
-    //init buffer for repet chunk
-    int repeat_chunk_buffer[CHUNK_NUMBER_MAX];
-
+    in = (unsigned char *)q.enqueueMapBuffer(in_buf, CL_TRUE, CL_MAP_WRITE, 0, LZW_CHUNK*8192*sizeof(unsigned char));
+    inputsize = (int *)q.enqueueMapBuffer(inputsize_buf,CL_TRUE,CL_MAP_WRITE,0,sizeof(int)*LZW_CHUNK);
+    lzw_handle_chunk_num = (int *)q.enqueueMapBuffer(lzw_handle_chunk_num_buf,CL_TRUE,CL_MAP_WRITE,0,sizeof(int)*1);
 
 
     // ------------------------------------------------------------------------------------
@@ -245,6 +207,8 @@ int main(int argc, char *argv[])
     int chunk_index = 0;
     int start = 0;
     int end = 0;
+    int lzw_chunk_counter = 0;
+    
     timer2.add("Encode");
     while (!done)
     {
@@ -302,87 +266,94 @@ int main(int argc, char *argv[])
             ded_timer.stop();
             if (flag == 1)
             {
-                total_chunk_record[total_chunk_number+i][0] = 1; //repeat
-                total_chunk_record[total_chunk_number+i][1] = chunk_index;
-                repeat_chunk_buffer[repeat_index]=chunk_index;
-                std::cout << "repeat chunk length:\t"<<end - start << std::endl;
-                repeat_index++;
-                // getlzwheader(&lzw_header[0], chunk_index, 1);
-                // memcpy(&file[offset], &lzw_header[0], 4);
-                // offset += 4;
+                lzwsize[lzw_chunk_counter] = 4;
+                inputsize[lzw_chunk_counter] = chunk_index;
                 flag = 0;
             }
             else
             {
-                lzw_timer.start();
                 // unique chunk
-                total_chunk_record[total_chunk_number+i][0] = 0; //unique
-                total_chunk_record[total_chunk_number+i][1] = unqiue_index;
-                inputsize[unqiue_index][0] = end - start;
-                memcpy(&in[unqiue_index][0],&buffer[HEADER+start],inputsize[unqiue_index][0]);
-                // hardwadre_encoding(&in[0], &Output[0], lzw_size, input_size);
-                krnl_hardware.setArg(0, in_buf[unqiue_index]);
-                krnl_hardware.setArg(1, out_buf[unqiue_index]);
-                krnl_hardware.setArg(2, lzwsize_buf[unqiue_index]);
-                krnl_hardware.setArg(3, inputsize_buf[unqiue_index]);
+                lzwsize[lzw_chunk_counter] = 0;
+                inputsize[lzw_chunk_counter] = end - start;
+                memcpy(&in[lzw_chunk_counter*8192],&buffer[HEADER+start],inputsize[lzw_chunk_counter]);
+               
+            }
+            lzw_chunk_counter++;
+            lzw_timer.start();
+            if(lzw_chunk_counter == 4){
+                lzw_handle_chunk_num[0] = lzw_chunk_counter;
+                krnl_hardware.setArg(0,in_buf);
+                krnl_hardware.setArg(1,out_buf);
+                krnl_hardware.setArg(2,lzwsize_buf);
+                krnl_hardware.setArg(3,inputsize_buf);
+                krnl_hardware.setArg(4,lzw_handle_chunk_num_buf);
 
                 if(LZW_count == 0){
-                    q.enqueueMigrateMemObjects({in_buf[unqiue_index],inputsize_buf[unqiue_index]},0,NULL,&write_ev);
-                }else{
-                    q.enqueueMigrateMemObjects({in_buf[unqiue_index],inputsize_buf[unqiue_index]},0,&read_events,&write_ev);
+                    q.enqueueMigrateMemObjects({in_buf, inputsize_buf}, 0, NULL, &write_ev);
+                } else{
+                    q.enqueueMigrateMemObjects({in_buf, inputsize_buf}, 0, &read_events, &write_ev);
                 }
                 LZW_count++;
                 write_events.push_back(write_ev);
-                q.enqueueTask(krnl_hardware,&write_events,&exec_ev);
+                q.enqueueTask(krnl_hardware, &write_events,&exec_ev);
                 exec_events.push_back(exec_ev);
-                q.enqueueMigrateMemObjects({out_buf[unqiue_index],lzwsize_buf[unqiue_index]},CL_MIGRATE_MEM_OBJECT_HOST,&exec_events,&read_ev);
+                q.enqueueMigrateMemObjects({out_buf,lzwsize_buf}, CL_MIGRATE_MEM_OBJECT_HOST, &exec_events, &read_ev);
                 read_events.push_back(read_ev);
-                unqiue_index++;
-   
-                /*
-
-                std::cout << "lzw size:\t" << lzwsize[0] <<std::endl;
-                getlzwheader(&lzw_header[0], lzwsize[0], 0);
-                memcpy(&file[offset], &lzw_header[0], 4);
-                offset += 4;
-                memcpy(&file[offset], &Output[0], lzwsize[0]);
-                offset += lzwsize[0];
-                */
-                lzw_timer.stop();
+                Output = (unsigned char *)q.enqueueMapBuffer(out_buf,CL_TRUE,CL_MAP_READ,0, LZW_CHUNK*8196*sizeof(unsigned char));
+                lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*LZW_CHUNK);
+                int total_size = 0;
+                std::cout << "1 lzw size:\t" << lzwsize[0] << std::endl;
+                std::cout << "2 lzw size:\t" << lzwsize[1] << std::endl;
+                int t0 = lzwsize[0] + lzwsize[1];
+                std::cout << "3 lzw size:\t" << lzwsize[2] << std::endl;
+                std::cout << "4 lzw size:\t" << lzwsize[3] << std::endl;
+                int t1 = lzwsize[2] + lzwsize[3];
+                total_size = t0 + t1;
+                memcpy(&file[offset], &Output[0],total_size);
+                offset +=total_size;
+                lzw_chunk_counter = 0;
             }
+            lzw_timer.stop();
             start = end;
             end = chunk_boundary[i + 1];
         }
-        
-
-
         writer++;
         total_chunk_number += chunk_number;
-         encode_timer.stop();
     }
-//Step 4
-    q.finish();
-   
-    
-    //send
-    for(int i = 0; i < total_chunk_number;i++){
-        int send_index = total_chunk_record[i][1];
-        std::cout << "send index:\t" << send_index <<std::endl;
-       if(total_chunk_record[i][0]==1){
-            getlzwheader(&lzw_header[0], send_index, 1);
-            memcpy(&file[offset], &lzw_header[0], 4);
-            offset += 4;
-       }
-       else if(total_chunk_record[i][0]==0){
-            getlzwheader(&lzw_header[0], lzwsize[send_index][0], 0);
-            std::cout << "lzw size:\t" << lzwsize[send_index][0] << std::endl;
-            memcpy(&file[offset], &lzw_header[0], 4);
-            offset += 4;
-            memcpy(&file[offset], &Output[send_index][0], lzwsize[send_index][0]);
-            offset += lzwsize[send_index][0];
-       }
+    if(lzw_chunk_counter != 0){
+        lzw_handle_chunk_num[0] = lzw_chunk_counter;
+        krnl_hardware.setArg(0,in_buf);
+        krnl_hardware.setArg(1,out_buf);
+        krnl_hardware.setArg(2,lzwsize_buf);
+        krnl_hardware.setArg(3,inputsize_buf);
+        krnl_hardware.setArg(4,lzw_handle_chunk_num_buf);
+        q.enqueueMigrateMemObjects({in_buf, inputsize_buf}, 0, &read_events, &write_ev);
+        write_events.push_back(write_ev);
+        q.enqueueTask(krnl_hardware, &write_events,&exec_ev);
+        exec_events.push_back(exec_ev);
+        q.enqueueMigrateMemObjects({out_buf,lzwsize_buf}, CL_MIGRATE_MEM_OBJECT_HOST, &exec_events, &read_ev);
+        read_events.push_back(read_ev);
+        Output = (unsigned char *)q.enqueueMapBuffer(out_buf,CL_TRUE,CL_MAP_READ,0, LZW_CHUNK*8196*sizeof(unsigned char));
+        lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*LZW_CHUNK);
+        int total_size = 0;
+        std::cout << "1 lzw size:\t" << lzwsize[0] << std::endl;
+        std::cout << "2 lzw size:\t" << lzwsize[1] << std::endl;
+        int t0 = lzwsize[0] + lzwsize[1];
+        std::cout << "3 lzw size:\t" << lzwsize[2] << std::endl;
+        std::cout << "4 lzw size:\t" << lzwsize[3] << std::endl;
+        int t1 = lzwsize[2] + lzwsize[3];
+        total_size = t0 + t1;
+        memcpy(&file[offset], &Output[0],total_size);
+        offset +=total_size;
+        lzw_chunk_counter = 0;
+    }
 
-    }
+    q.finish();
+    encode_timer.stop();
+
+
+//Step 4
+   
 
     delete[] fileBuf;
 

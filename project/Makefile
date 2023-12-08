@@ -35,7 +35,7 @@ VITIS_PLATFORM_DIR = ${PLATFORM_REPO_PATHS}
 VITIS_PLATFORM_PATH = $(VITIS_PLATFORM_DIR)/u96v2_sbc_base.xpfm
 
 # host compiler global settings
-CXXFLAGS += -march=armv8-a+simd -mtune=cortex-a53 -std=c++11 -DVITIS_PLATFORM=$(VITIS_PLATFORM) -D__USE_XOPEN2K8 -I$(XILINX_VIVADO)/include/ -I$(VITIS_PLATFORM_DIR)/sw/u96v2_sbc_base/PetaLinux/sysroot/aarch64-xilinx-linux/usr/include/xrt/ -O3 -g -Wall -c -fmessage-length=0 --sysroot=$(VITIS_PLATFORM_DIR)/sw/u96v2_sbc_base/PetaLinux/sysroot/aarch64-xilinx-linux
+CXXFLAGS += -march=armv8-a+simd -mtune=cortex-a53 -std=c++11 -DVITIS_PLATFORM=$(VITIS_PLATFORM) -D__USE_XOPEN2K8 -I$(XILINX_VIVADO)/include/ -I$(VITIS_PLATFORM_DIR)/sw/u96v2_sbc_base/PetaLinux/sysroot/aarch64-xilinx-linux/usr/include/xrt/ -O3 -g -Wall -c -fmessage-length=0 --sysroot=$(VITIS_PLATFORM_DIR)/sw/u96v2_sbc_base/PetaLinux/sysroot/aarch64-xilinx-linux -march=armv8-a+crc+crypto
 LDFLAGS += -lxilinxopencl -lpthread -lrt -ldl -lcrypt -lstdc++ -L$(VITIS_PLATFORM_DIR)/sw/u96v2_sbc_base/PetaLinux/sysroot/aarch64-xilinx-linux/usr/lib/ --sysroot=$(VITIS_PLATFORM_DIR)/sw/u96v2_sbc_base/PetaLinux/sysroot/aarch64-xilinx-linux
 
 # hardware compiler shared settings
@@ -44,9 +44,9 @@ VPP_OPTS = --target hw
 #
 # OpenCL kernel files
 #
-# XO := kernel.xo
-# XCLBIN := kernel.xclbin
-# ALL_MESSAGE_FILES = $(subst .xo,.mdb,$(XO)) $(subst .xclbin,.mdb,$(XCLBIN))
+XO := hardware_encoding.xo
+XCLBIN := hardware_encoding.xclbin
+ALL_MESSAGE_FILES = $(subst .xo,.mdb,$(XO)) $(subst .xclbin,.mdb,$(XCLBIN))
 
 #
 # host files
@@ -54,9 +54,9 @@ VPP_OPTS = --target hw
 CLIENT_SOURCES = Client/client.cpp
 CLIENT_EXE = client
 
-SERVER_SOURCES = Server/encoder.cpp Server/server.cpp Server/LZW_new.cpp Server/sha256.cpp Server/cdc.cpp
+SERVER_SOURCES = Server/server.cpp Server/LZW_new.cpp Server/sha256.cpp Server/Host.cpp Server/EventTimer.cpp Server/Utilities.cpp Server/cdc.cpp Server/sha.cpp Server/sha256neon.cpp
 SERVER_OBJECTS =$(SERVER_SOURCES:.cpp=.o)
-SERVER_EXE = encoder
+SERVER_EXE = host
 
 DECODER_SOURCES = Decoder/Decoder.cpp
 DECODER_OBJECTS =$(DECODER_SOURCES:.cpp=.o)
@@ -72,6 +72,7 @@ DECODER_EXE = decoder
 # $(CPU_EXE): $(CPU_OBJECTS)
 # 	$(HOST_CXX) -I./fpga/hls/ -o "$@" $(+) $(LDFLAGS)
 all: $(CLIENT_EXE) $(SERVER_EXE) $(DECODER_EXE)
+
 
 $(CLIENT_EXE):
 	g++ -O3 $(CLIENT_SOURCES) -o "$@"
@@ -91,12 +92,12 @@ $(DECODER_EXE): $(DECODER_OBJECTS)
 # primary build targets
 #
 
-# .PHONY: fpga clean
-# fpga: $(XCLBIN)
+.PHONY: fpga clean
+fpga: package/sd_card.img
 
 .NOTPARALLEL: clean
 
-clean:
+clean-cpu:
 	-$(RM) $(SERVER_EXE) $(SERVER_OBJECTS) $(DECODER_EXE) $(DECODER_OBJECTS) $(CLIENT_EXE) 
 
 # clean-cpu:
@@ -105,25 +106,35 @@ clean:
 # clean-host:
 # 	-$(RM) $(HOST_EXE) $(HOST_OBJECTS) 
 
-# clean-accelerators:
-# 	-$(RM) $(XCLBIN) $(XO) $(ALL_MESSAGE_FILES)
-# 	-$(RM) *.xclbin.sh *.xclbin.info *.xclbin.link_summary* *.compile_summary
-# 	-$(RMDIR) .Xil fpga/hls/proj_mmult
+clean-accelerators:
+	-$(RM) $(XCLBIN) $(XO) $(ALL_MESSAGE_FILES)
+	-$(RM) *.xclbin.sh *.xclbin.info *.xclbin.link_summary* *.compile_summary
+	-$(RMDIR) .Xil fpga/hls/proj_mmult
 
-# clean-package:
-# 	-${RMDIR} package
-# 	-${RMDIR} package.build
+clean-package:
+	-${RMDIR} package
+	-${RMDIR} package.build
 
-# clean: clean-cpu clean-host clean-accelerators clean-package
-# 	-$(RM) *.log *.package_summary
-# 	-${RMDIR} _x .ipcache
+clean: clean-cpu clean-accelerators clean-package
+	-$(RM) *.log *.package_summary
+	-${RMDIR} _x .ipcache
 
 #
 # binary container: kernel.xclbin
 #
 
-# $(XO): fpga/hls/MMult.cpp
-# 	-@$(RM) $@
-# 	$(VPP) $(VPP_OPTS) -k mmult_fpga --compile -I"$(<D)" --config fpga/design.cfg -o"$@" "$<"
-# $(XCLBIN): $(XO)
-# 	$(VPP) $(VPP_OPTS) --link --config fpga/design.cfg -o"$@" $(+)
+$(XO): Server/LZW_new.cpp
+	-@$(RM) $@
+	$(VPP) $(VPP_OPTS) -k hardware_encoding --compile -I"$(<D)" --config fpga/design.cfg -o"$@" "$<"
+
+$(XCLBIN): $(XO)
+	$(VPP) $(VPP_OPTS) --link --config fpga/design.cfg -o"$@" $(+)
+
+package/sd_card.img: $(SERVER_EXE) $(XCLBIN) ./fpga/xrt.ini
+	$(VPP) --package $(VPP_OPTS) --config fpga/package.cfg $(XCLBIN) \
+		--package.out_dir package \
+		--package.sd_file $(SERVER_EXE) \
+		--package.kernel_image $(PLATFORM_REPO_PATHS)/sw/$(VITIS_PLATFORM)/PetaLinux/image/image.ub \
+		--package.rootfs $(PLATFORM_REPO_PATHS)/sw/$(VITIS_PLATFORM)/PetaLinux/rootfs/rootfs.ext4 \
+		--package.sd_file $(XCLBIN) \
+		--package.sd_file ./fpga/xrt.ini
