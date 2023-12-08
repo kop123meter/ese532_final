@@ -414,9 +414,8 @@ if(lzw_size[current_chunk] == 4){
 #pragma HLS unroll
       output[total_size+i] = temp_output[i];
   }
-  read_size = read_size+len;
   total_size = total_size + output_pos;
-  lzw_size[current_chunk] = output_pos;
+  lzw_size[current_chunk] = output_pos + 4;
  // std::cout << std::endl << "assoc mem entry count: " << my_assoc_mem.fill << std::endl;
    }
   // END of LZW Computing
