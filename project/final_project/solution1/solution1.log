@@ -3035,3 +3035,312 @@ Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.667ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-i'
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+INFO: [HLS 200-1464] Running solution command: config_interface -default_interface=kernel
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_offset=slave
+INFO: [HLS 200-1464] Running solution command: config_rtl -register_reset_num=3
+INFO: [HLS 200-1464] Running solution command: config_export -format=xo
+INFO: [HLS 200-1464] Running solution command: config_export -output=/mnt/castor/seas_home/l/lize1/ese532_final/project/hardware_encoding.xo
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xczu3eg-sbva484-1-i 
+INFO: [HLS 200-1510] Running: create_clock -period 150MHz -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512 -m_axi_offset slave 
+INFO: [HLS 200-1510] Running: config_rtl -register_reset_num 3 
+INFO: [HLS 200-1510] Running: config_export -format xo -output /mnt/castor/seas_home/l/lize1/ese532_final/project/hardware_encoding.xo -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_top -name hardware_encoding hardware_encoding 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.03 seconds; current allocated memory: 208.118 MB.
+INFO: [HLS 200-10] Analyzing design file 'Server/LZW_new.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1.81 seconds. CPU system time: 0.18 seconds. Elapsed time: 4.61 seconds; current allocated memory: 209.462 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_165_1' (Server/LZW_new.cpp:165:22) in function 'assoc_lookup' completely with a factor of 64 (Server/LZW_new.cpp:165:22)
+INFO: [HLS 214-188] Unrolling loop 'VITIS_LOOP_295_2' (Server/LZW_new.cpp:295:24) in function 'hardware_encoding' partially with a factor of 2 (Server/LZW_new.cpp:295:24)
+INFO: [HLS 214-178] Inlining function 'my_hash(unsigned long)' into 'hash_lookup(unsigned long (*) [32768], unsigned int, bool*, unsigned int*)' (Server/LZW_new.cpp:40:0)
+INFO: [HLS 214-178] Inlining function 'hash_lookup(unsigned long (*) [32768], unsigned int, bool*, unsigned int*)' into 'lookup(unsigned long (*) [32768], assoc_mem*, unsigned int, bool*, unsigned int*)' (Server/LZW_new.cpp:200:0)
+INFO: [HLS 214-178] Inlining function 'my_hash(unsigned long)' into 'hash_insert(unsigned long (*) [32768], unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:81:0)
+INFO: [HLS 214-178] Inlining function 'hash_insert(unsigned long (*) [32768], unsigned int, unsigned int, bool*)' into 'insert(unsigned long (*) [32768], assoc_mem*, unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:190:0)
+INFO: [HLS 214-178] Inlining function 'assoc_insert(assoc_mem*, unsigned int, unsigned int, bool*)' into 'insert(unsigned long (*) [32768], assoc_mem*, unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:190:0)
+INFO: [HLS 214-178] Inlining function 'getlzwheader(unsigned char*, int, int)' into 'hardware_encoding(unsigned char*, unsigned char*, int*, int*, int*)' (Server/LZW_new.cpp:238:0)
+INFO: [HLS 214-178] Inlining function 'lookup(unsigned long (*) [32768], assoc_mem*, unsigned int, bool*, unsigned int*)' into 'hardware_encoding(unsigned char*, unsigned char*, int*, int*, int*)' (Server/LZW_new.cpp:238:0)
+INFO: [HLS 214-178] Inlining function 'insert(unsigned long (*) [32768], assoc_mem*, unsigned int, unsigned int, bool*)' into 'hardware_encoding(unsigned char*, unsigned char*, int*, int*, int*)' (Server/LZW_new.cpp:238:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.62 seconds. CPU system time: 0.21 seconds. Elapsed time: 4.37 seconds; current allocated memory: 211.849 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 211.851 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.27 seconds; current allocated memory: 216.306 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 218.237 MB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_295_2' (Server/LZW_new.cpp:295) in function 'hardware_encoding' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_304_3' (Server/LZW_new.cpp:304) in function 'hardware_encoding' automatically.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_414_5' (Server/LZW_new.cpp:414) in function 'hardware_encoding': cannot completely unroll a loop with a variable trip count.
+INFO: [XFORM 203-102] Partitioning array 'hash_table' (Server/LZW_new.cpp:285) in dimension 1 automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'hardware_encoding' (Server/LZW_new.cpp:237)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.4 seconds. CPU system time: 0 seconds. Elapsed time: 0.45 seconds; current allocated memory: 242.956 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_334_4' (Server/LZW_new.cpp:287:7) in function 'hardware_encoding' more than one sub loop.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_254_1' (Server/LZW_new.cpp:278:17) in function 'hardware_encoding' more than one sub loop.
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[0]' (Server/LZW_new.cpp:298:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[1]' (Server/LZW_new.cpp:299:27)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.upper_key_mem' (Server/LZW_new.cpp:306:37)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.middle_key_mem' (Server/LZW_new.cpp:307:38)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.lower_key_mem' (Server/LZW_new.cpp:308:37)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:340:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:344:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:345:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:362:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:366:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:367:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[0]' (Server/LZW_new.cpp:89:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[1]' (Server/LZW_new.cpp:96:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.upper_key_mem' (Server/LZW_new.cpp:133:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.middle_key_mem' (Server/LZW_new.cpp:134:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.lower_key_mem' (Server/LZW_new.cpp:135:43)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.value' (Server/LZW_new.cpp:136:30)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:400:33)
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.5 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.62 seconds; current allocated memory: 250.480 MB.
+INFO: [HLS 200-10]==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.667ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-i'
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+INFO: [HLS 200-1464] Running solution command: config_interface -default_interface=kernel
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_offset=slave
+INFO: [HLS 200-1464] Running solution command: config_rtl -register_reset_num=3
+INFO: [HLS 200-1464] Running solution command: config_export -format=xo
+INFO: [HLS 200-1464] Running solution command: config_export -output=/mnt/castor/seas_home/l/lize1/ese532_final/project/hardware_encoding.xo
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xczu3eg-sbva484-1-i 
+INFO: [HLS 200-1510] Running: create_clock -period 150MHz -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512 -m_axi_offset slave 
+INFO: [HLS 200-1510] Running: config_rtl -register_reset_num 3 
+INFO: [HLS 200-1510] Running: config_export -format xo -output /mnt/castor/seas_home/l/lize1/ese532_final/project/hardware_encoding.xo -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_top -name hardware_encoding hardware_encoding 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.01 seconds; current allocated memory: 208.118 MB.
+INFO: [HLS 200-10] Analyzing design file 'Server/LZW_new.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1.87 seconds. CPU system time: 0.2 seconds. Elapsed time: 2.39 seconds; current allocated memory: 209.462 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_165_1' (Server/LZW_new.cpp:165:22) in function 'assoc_lookup' completely with a factor of 64 (Server/LZW_new.cpp:165:22)
+INFO: [HLS 214-188] Unrolling loop 'VITIS_LOOP_296_2' (Server/LZW_new.cpp:296:24) in function 'hardware_encoding' partially with a factor of 2 (Server/LZW_new.cpp:296:24)
+INFO: [HLS 214-178] Inlining function 'my_hash(unsigned long)' into 'hash_lookup(unsigned long (*) [32768], unsigned int, bool*, unsigned int*)' (Server/LZW_new.cpp:40:0)
+INFO: [HLS 214-178] Inlining function 'hash_lookup(unsigned long (*) [32768], unsigned int, bool*, unsigned int*)' into 'lookup(unsigned long (*) [32768], assoc_mem*, unsigned int, bool*, unsigned int*)' (Server/LZW_new.cpp:200:0)
+INFO: [HLS 214-178] Inlining function 'my_hash(unsigned long)' into 'hash_insert(unsigned long (*) [32768], unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:81:0)
+INFO: [HLS 214-178] Inlining function 'hash_insert(unsigned long (*) [32768], unsigned int, unsigned int, bool*)' into 'insert(unsigned long (*) [32768], assoc_mem*, unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:190:0)
+INFO: [HLS 214-178] Inlining function 'assoc_insert(assoc_mem*, unsigned int, unsigned int, bool*)' into 'insert(unsigned long (*) [32768], assoc_mem*, unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:190:0)
+INFO: [HLS 214-178] Inlining function 'getlzwheader(unsigned char*, int, int)' into 'hardware_encoding(unsigned char*, unsigned char*, int*, int*, int*)' (Server/LZW_new.cpp:238:0)
+INFO: [HLS 214-178] Inlining function 'lookup(unsigned long (*) [32768], assoc_mem*, unsigned int, bool*, unsigned int*)' into 'hardware_encoding(unsigned char*, unsigned char*, int*, int*, int*)' (Server/LZW_new.cpp:238:0)
+INFO: [HLS 214-178] Inlining function 'insert(unsigned long (*) [32768], assoc_mem*, unsigned int, unsigned int, bool*)' into 'hardware_encoding(unsigned char*, unsigned char*, int*, int*, int*)' (Server/LZW_new.cpp:238:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.71 seconds. CPU system time: 0.16 seconds. Elapsed time: 3.25 seconds; current allocated memory: 211.850 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 211.851 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 216.310 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 218.242 MB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_296_2' (Server/LZW_new.cpp:296) in function 'hardware_encoding' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_305_3' (Server/LZW_new.cpp:305) in function 'hardware_encoding' automatically.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_415_5' (Server/LZW_new.cpp:415) in function 'hardware_encoding': cannot completely unroll a loop with a variable trip count.
+INFO: [XFORM 203-102] Partitioning array 'hash_table' (Server/LZW_new.cpp:286) in dimension 1 automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'hardware_encoding' (Server/LZW_new.cpp:237)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.38 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.46 seconds; current allocated memory: 242.995 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_335_4' (Server/LZW_new.cpp:288:7) in function 'hardware_encoding' more than one sub loop.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_254_1' (Server/LZW_new.cpp:279:17) in function 'hardware_encoding' more than one sub loop.
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[0]' (Server/LZW_new.cpp:299:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[1]' (Server/LZW_new.cpp:300:27)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.upper_key_mem' (Server/LZW_new.cpp:307:37)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.middle_key_mem' (Server/LZW_new.cpp:308:38)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.lower_key_mem' (Server/LZW_new.cpp:309:37)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:341:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:345:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:346:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:363:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:367:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:368:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[0]' (Server/LZW_new.cpp:89:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[1]' (Server/LZW_new.cpp:96:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.upper_key_mem' (Server/LZW_new.cpp:133:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.middle_key_mem' (Server/LZW_new.cpp:134:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.lower_key_mem' (Server/LZW_new.cpp:135:43)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.value' (Server/LZW_new.cpp:136:30)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:401:33)
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.52 seconds. CPU system time: 0 seconds. Elapsed time: 0.62 seconds; current allocated memory: 250.508 MB.
+INFO: [HLS 200-10]==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.667ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-i'
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+INFO: [HLS 200-1464] Running solution command: config_interface -default_interface=kernel
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_offset=slave
+INFO: [HLS 200-1464] Running solution command: config_rtl -register_reset_num=3
+INFO: [HLS 200-1464] Running solution command: config_export -format=xo
+INFO: [HLS 200-1464] Running solution command: config_export -output=/mnt/castor/seas_home/l/lize1/ese532_final/project/hardware_encoding.xo
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xczu3eg-sbva484-1-i 
+INFO: [HLS 200-1510] Running: create_clock -period 150MHz -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512 -m_axi_offset slave 
+INFO: [HLS 200-1510] Running: config_rtl -register_reset_num 3 
+INFO: [HLS 200-1510] Running: config_export -format xo -output /mnt/castor/seas_home/l/lize1/ese532_final/project/hardware_encoding.xo -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_top -name hardware_encoding hardware_encoding 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 208.117 MB.
+INFO: [HLS 200-10] Analyzing design file 'Server/LZW_new.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1.88 seconds. CPU system time: 0.16 seconds. Elapsed time: 4.04 seconds; current allocated memory: 209.478 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_165_1' (Server/LZW_new.cpp:165:22) in function 'assoc_lookup' completely with a factor of 64 (Server/LZW_new.cpp:165:22)
+INFO: [HLS 214-188] Unrolling loop 'VITIS_LOOP_298_3' (Server/LZW_new.cpp:298:24) in function 'hardware_encoding' partially with a factor of 2 (Server/LZW_new.cpp:298:24)
+INFO: [HLS 214-178] Inlining function 'my_hash(unsigned long)' into 'hash_lookup(unsigned long (*) [32768], unsigned int, bool*, unsigned int*)' (Server/LZW_new.cpp:40:0)
+INFO: [HLS 214-178] Inlining function 'hash_lookup(unsigned long (*) [32768], unsigned int, bool*, unsigned int*)' into 'lookup(unsigned long (*) [32768], assoc_mem*, unsigned int, bool*, unsigned int*)' (Server/LZW_new.cpp:200:0)
+INFO: [HLS 214-178] Inlining function 'my_hash(unsigned long)' into 'hash_insert(unsigned long (*) [32768], unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:81:0)
+INFO: [HLS 214-178] Inlining function 'hash_insert(unsigned long (*) [32768], unsigned int, unsigned int, bool*)' into 'insert(unsigned long (*) [32768], assoc_mem*, unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:190:0)
+INFO: [HLS 214-178] Inlining function 'assoc_insert(assoc_mem*, unsigned int, unsigned int, bool*)' into 'insert(unsigned long (*) [32768], assoc_mem*, unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:190:0)
+INFO: [HLS 214-178] Inlining function 'getlzwheader(unsigned char*, int, int)' into 'hardware_encoding(unsigned char*, unsigned char*, int*, int*, int*)' (Server/LZW_new.cpp:238:0)
+INFO: [HLS 214-178] Inlining function 'lookup(unsigned long (*) [32768], assoc_mem*, unsigned int, bool*, unsigned int*)' into 'hardware_encoding(unsigned char*, unsigned char*, int*, int*, int*)' (Server/LZW_new.cpp:238:0)
+INFO: [HLS 214-178] Inlining function 'insert(unsigned long (*) [32768], assoc_mem*, unsigned int, unsigned int, bool*)' into 'hardware_encoding(unsigned char*, unsigned char*, int*, int*, int*)' (Server/LZW_new.cpp:238:0)
+INFO: [HLS 214-115] Multiple burst writes of length 5 and bit width 64 has been inferred on port 'HP3' (Server/LZW_new.cpp:245:19)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.72 seconds. CPU system time: 0.2 seconds. Elapsed time: 4.72 seconds; current allocated memory: 211.936 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 211.938 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.28 seconds; current allocated memory: 216.507 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.12 seconds; current allocated memory: 218.388 MB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_245_1' (Server/LZW_new.cpp:245) in function 'hardware_encoding' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_298_3' (Server/LZW_new.cpp:298) in function 'hardware_encoding' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_307_4' (Server/LZW_new.cpp:307) in function 'hardware_encoding' automatically.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_417_6' (Server/LZW_new.cpp:417) in function 'hardware_encoding': cannot completely unroll a loop with a variable trip count.
+INFO: [XFORM 203-102] Partitioning array 'hash_table' (Server/LZW_new.cpp:288) in dimension 1 automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'hardware_encoding' (Server/LZW_new.cpp:237)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.41 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.49 seconds; current allocated memory: 243.351 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_337_5' (Server/LZW_new.cpp:290:7) in function 'hardware_encoding' more than one sub loop.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_256_2' (Server/LZW_new.cpp:281:17) in function 'hardware_encoding' more than one sub loop.
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[0]' (Server/LZW_new.cpp:301:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[1]' (Server/LZW_new.cpp:302:27)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.upper_key_mem' (Server/LZW_new.cpp:309:37)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.middle_key_mem' (Server/LZW_new.cpp:310:38)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.lower_key_mem' (Server/LZW_new.cpp:311:37)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:343:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:347:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:348:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:365:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:369:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:370:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[0]' (Server/LZW_new.cpp:89:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[1]' (Server/LZW_new.cpp:96:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.upper_key_mem' (Server/LZW_new.cpp:133:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.middle_key_mem' (Server/LZW_new.cpp:134:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.lower_key_mem' (Server/LZW_new.cpp:135:43)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.value' (Server/LZW_new.cpp:136:30)
+INFO: [HLS 200-472] ==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2020.2 (64-bit)
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 6.667ns.
+INFO: [HLS 200-10] Setting target device to 'xczu3eg-sbva484-1-i'
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+INFO: [HLS 200-1464] Running solution command: config_interface -default_interface=kernel
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=64
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_offset=slave
+INFO: [HLS 200-1464] Running solution command: config_rtl -register_reset_num=3
+INFO: [HLS 200-1464] Running solution command: config_export -format=xo
+INFO: [HLS 200-1464] Running solution command: config_export -output=/mnt/castor/seas_home/l/lize1/ese532_final/project/hardware_encoding.xo
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+INFO: [HLS 200-1510] Running: set_part xczu3eg-sbva484-1-i 
+INFO: [HLS 200-1510] Running: create_clock -period 150MHz -name default 
+INFO: [HLS 200-1510] Running: config_interface -m_axi_alignment_byte_size 64 -m_axi_latency 64 -m_axi_max_widen_bitwidth 512 -m_axi_offset slave 
+INFO: [HLS 200-1510] Running: config_rtl -register_reset_num 3 
+INFO: [HLS 200-1510] Running: config_export -format xo -output /mnt/castor/seas_home/l/lize1/ese532_final/project/hardware_encoding.xo -rtl verilog 
+INFO: [HLS 200-1510] Running: set_directive_top -name hardware_encoding hardware_encoding 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 208.117 MB.
+INFO: [HLS 200-10] Analyzing design file 'Server/LZW_new.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 1.78 seconds. CPU system time: 0.2 seconds. Elapsed time: 4.65 seconds; current allocated memory: 209.477 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vitis' flow target.
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_165_1' (Server/LZW_new.cpp:165:22) in function 'assoc_lookup' completely with a factor of 64 (Server/LZW_new.cpp:165:22)
+INFO: [HLS 214-188] Unrolling loop 'VITIS_LOOP_298_3' (Server/LZW_new.cpp:298:24) in function 'hardware_encoding' partially with a factor of 2 (Server/LZW_new.cpp:298:24)
+INFO: [HLS 214-178] Inlining function 'my_hash(unsigned long)' into 'hash_lookup(unsigned long (*) [32768], unsigned int, bool*, unsigned int*)' (Server/LZW_new.cpp:40:0)
+INFO: [HLS 214-178] Inlining function 'hash_lookup(unsigned long (*) [32768], unsigned int, bool*, unsigned int*)' into 'lookup(unsigned long (*) [32768], assoc_mem*, unsigned int, bool*, unsigned int*)' (Server/LZW_new.cpp:200:0)
+INFO: [HLS 214-178] Inlining function 'my_hash(unsigned long)' into 'hash_insert(unsigned long (*) [32768], unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:81:0)
+INFO: [HLS 214-178] Inlining function 'hash_insert(unsigned long (*) [32768], unsigned int, unsigned int, bool*)' into 'insert(unsigned long (*) [32768], assoc_mem*, unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:190:0)
+INFO: [HLS 214-178] Inlining function 'assoc_insert(assoc_mem*, unsigned int, unsigned int, bool*)' into 'insert(unsigned long (*) [32768], assoc_mem*, unsigned int, unsigned int, bool*)' (Server/LZW_new.cpp:190:0)
+INFO: [HLS 214-178] Inlining function 'getlzwheader(unsigned char*, int, int)' into 'hardware_encoding(unsigned char*, unsigned char*, int*, int*, int*)' (Server/LZW_new.cpp:238:0)
+INFO: [HLS 214-178] Inlining function 'lookup(unsigned long (*) [32768], assoc_mem*, unsigned int, bool*, unsigned int*)' into 'hardware_encoding(unsigned char*, unsigned char*, int*, int*, int*)' (Server/LZW_new.cpp:238:0)
+INFO: [HLS 214-178] Inlining function 'insert(unsigned long (*) [32768], assoc_mem*, unsigned int, unsigned int, bool*)' into 'hardware_encoding(unsigned char*, unsigned char*, int*, int*, int*)' (Server/LZW_new.cpp:238:0)
+INFO: [HLS 214-115] Multiple burst writes of length 5 and bit width 64 has been inferred on port 'HP3' (Server/LZW_new.cpp:245:19)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 2.8 seconds. CPU system time: 0.19 seconds. Elapsed time: 4.9 seconds; current allocated memory: 211.937 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 211.938 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.31 seconds; current allocated memory: 216.507 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 218.384 MB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_245_1' (Server/LZW_new.cpp:245) in function 'hardware_encoding' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_298_3' (Server/LZW_new.cpp:298) in function 'hardware_encoding' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_307_4' (Server/LZW_new.cpp:307) in function 'hardware_encoding' automatically.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_417_6' (Server/LZW_new.cpp:417) in function 'hardware_encoding': cannot completely unroll a loop with a variable trip count.
+INFO: [XFORM 203-102] Partitioning array 'hash_table' (Server/LZW_new.cpp:288) in dimension 1 automatically.
+INFO: [XFORM 203-11] Balancing expressions in function 'hardware_encoding' (Server/LZW_new.cpp:237)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.44 seconds. CPU system time: 0 seconds. Elapsed time: 0.56 seconds; current allocated memory: 243.349 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_337_5' (Server/LZW_new.cpp:290:7) in function 'hardware_encoding' more than one sub loop.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_256_2' (Server/LZW_new.cpp:281:17) in function 'hardware_encoding' more than one sub loop.
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[0]' (Server/LZW_new.cpp:301:19)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[1]' (Server/LZW_new.cpp:302:27)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.upper_key_mem' (Server/LZW_new.cpp:309:37)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.middle_key_mem' (Server/LZW_new.cpp:310:38)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.lower_key_mem' (Server/LZW_new.cpp:311:37)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:343:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:347:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:348:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:365:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:369:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:370:41)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[0]' (Server/LZW_new.cpp:89:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'hash_table[1]' (Server/LZW_new.cpp:96:34)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.upper_key_mem' (Server/LZW_new.cpp:133:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.middle_key_mem' (Server/LZW_new.cpp:134:44)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.lower_key_mem' (Server/LZW_new.cpp:135:43)
+INFO: [HLS 200-472] Inferring partial write operation for 'my_assoc_mem.value' (Server/LZW_new.cpp:136:30)
+INFO: [HLS 200-472] Inferring partial write operation for 'temp_output' (Server/LZW_new.cpp:403:33)

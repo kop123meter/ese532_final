@@ -14,7 +14,7 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_assoc_lookup_fu_696/grp_assoc_lookup_fu_696_activity": {
+				"grp_assoc_lookup_fu_1124/grp_assoc_lookup_fu_1124_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},

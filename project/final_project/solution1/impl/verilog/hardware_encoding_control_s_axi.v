@@ -5,7 +5,7 @@
 `timescale 1ns/1ps
 module hardware_encoding_control_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 6,
+    C_S_AXI_ADDR_WIDTH = 7,
     C_S_AXI_DATA_WIDTH = 32
 )(
     input  wire                          ACLK,
@@ -33,6 +33,7 @@ module hardware_encoding_control_s_axi
     output wire [63:0]                   output_r,
     output wire [63:0]                   lzw_size,
     output wire [63:0]                   input_size,
+    output wire [63:0]                   chunk_number,
     output wire                          ap_start,
     input  wire                          ap_done,
     input  wire                          ap_ready,
@@ -79,34 +80,42 @@ module hardware_encoding_control_s_axi
 // 0x38 : Data signal of input_size
 //        bit 31~0 - input_size[63:32] (Read/Write)
 // 0x3c : reserved
+// 0x40 : Data signal of chunk_number
+//        bit 31~0 - chunk_number[31:0] (Read/Write)
+// 0x44 : Data signal of chunk_number
+//        bit 31~0 - chunk_number[63:32] (Read/Write)
+// 0x48 : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_AP_CTRL           = 6'h00,
-    ADDR_GIE               = 6'h04,
-    ADDR_IER               = 6'h08,
-    ADDR_ISR               = 6'h0c,
-    ADDR_S1_DATA_0         = 6'h10,
-    ADDR_S1_DATA_1         = 6'h14,
-    ADDR_S1_CTRL           = 6'h18,
-    ADDR_OUTPUT_R_DATA_0   = 6'h1c,
-    ADDR_OUTPUT_R_DATA_1   = 6'h20,
-    ADDR_OUTPUT_R_CTRL     = 6'h24,
-    ADDR_LZW_SIZE_DATA_0   = 6'h28,
-    ADDR_LZW_SIZE_DATA_1   = 6'h2c,
-    ADDR_LZW_SIZE_CTRL     = 6'h30,
-    ADDR_INPUT_SIZE_DATA_0 = 6'h34,
-    ADDR_INPUT_SIZE_DATA_1 = 6'h38,
-    ADDR_INPUT_SIZE_CTRL   = 6'h3c,
-    WRIDLE                 = 2'd0,
-    WRDATA                 = 2'd1,
-    WRRESP                 = 2'd2,
-    WRRESET                = 2'd3,
-    RDIDLE                 = 2'd0,
-    RDDATA                 = 2'd1,
-    RDRESET                = 2'd2,
-    ADDR_BITS                = 6;
+    ADDR_AP_CTRL             = 7'h00,
+    ADDR_GIE                 = 7'h04,
+    ADDR_IER                 = 7'h08,
+    ADDR_ISR                 = 7'h0c,
+    ADDR_S1_DATA_0           = 7'h10,
+    ADDR_S1_DATA_1           = 7'h14,
+    ADDR_S1_CTRL             = 7'h18,
+    ADDR_OUTPUT_R_DATA_0     = 7'h1c,
+    ADDR_OUTPUT_R_DATA_1     = 7'h20,
+    ADDR_OUTPUT_R_CTRL       = 7'h24,
+    ADDR_LZW_SIZE_DATA_0     = 7'h28,
+    ADDR_LZW_SIZE_DATA_1     = 7'h2c,
+    ADDR_LZW_SIZE_CTRL       = 7'h30,
+    ADDR_INPUT_SIZE_DATA_0   = 7'h34,
+    ADDR_INPUT_SIZE_DATA_1   = 7'h38,
+    ADDR_INPUT_SIZE_CTRL     = 7'h3c,
+    ADDR_CHUNK_NUMBER_DATA_0 = 7'h40,
+    ADDR_CHUNK_NUMBER_DATA_1 = 7'h44,
+    ADDR_CHUNK_NUMBER_CTRL   = 7'h48,
+    WRIDLE                   = 2'd0,
+    WRDATA                   = 2'd1,
+    WRRESP                   = 2'd2,
+    WRRESET                  = 2'd3,
+    RDIDLE                   = 2'd0,
+    RDDATA                   = 2'd1,
+    RDRESET                  = 2'd2,
+    ADDR_BITS                = 7;
 
 //------------------------Local signal-------------------
     reg  [1:0]                    wstate = WRRESET;
@@ -134,6 +143,7 @@ localparam
     reg  [63:0]                   int_output_r = 'b0;
     reg  [63:0]                   int_lzw_size = 'b0;
     reg  [63:0]                   int_input_size = 'b0;
+    reg  [63:0]                   int_chunk_number = 'b0;
 
 //------------------------Instantiation------------------
 
@@ -267,6 +277,12 @@ always @(posedge ACLK) begin
                 ADDR_INPUT_SIZE_DATA_1: begin
                     rdata <= int_input_size[63:32];
                 end
+                ADDR_CHUNK_NUMBER_DATA_0: begin
+                    rdata <= int_chunk_number[31:0];
+                end
+                ADDR_CHUNK_NUMBER_DATA_1: begin
+                    rdata <= int_chunk_number[63:32];
+                end
             endcase
         end
     end
@@ -274,14 +290,15 @@ end
 
 
 //------------------------Register logic-----------------
-assign interrupt   = int_gie & (|int_isr);
-assign ap_start    = int_ap_start;
-assign int_ap_done = ap_done;
-assign ap_continue = int_ap_continue;
-assign s1          = int_s1;
-assign output_r    = int_output_r;
-assign lzw_size    = int_lzw_size;
-assign input_size  = int_input_size;
+assign interrupt    = int_gie & (|int_isr);
+assign ap_start     = int_ap_start;
+assign int_ap_done  = ap_done;
+assign ap_continue  = int_ap_continue;
+assign s1           = int_s1;
+assign output_r     = int_output_r;
+assign lzw_size     = int_lzw_size;
+assign input_size   = int_input_size;
+assign chunk_number = int_chunk_number;
 // int_ap_start
 always @(posedge ACLK) begin
     if (ARESET)
@@ -457,6 +474,26 @@ always @(posedge ACLK) begin
     else if (ACLK_EN) begin
         if (w_hs && waddr == ADDR_INPUT_SIZE_DATA_1)
             int_input_size[63:32] <= (WDATA[31:0] & wmask) | (int_input_size[63:32] & ~wmask);
+    end
+end
+
+// int_chunk_number[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_chunk_number[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CHUNK_NUMBER_DATA_0)
+            int_chunk_number[31:0] <= (WDATA[31:0] & wmask) | (int_chunk_number[31:0] & ~wmask);
+    end
+end
+
+// int_chunk_number[63:32]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_chunk_number[63:32] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_CHUNK_NUMBER_DATA_1)
+            int_chunk_number[63:32] <= (WDATA[31:0] & wmask) | (int_chunk_number[63:32] & ~wmask);
     end
 end
 

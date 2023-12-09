@@ -10,8 +10,8 @@ use ieee.std_logic_unsigned.all;
 entity hardware_encoding_temp_output_ram is 
     generic(
             DWIDTH     : integer := 8; 
-            AWIDTH     : integer := 13; 
-            MEM_SIZE    : integer := 8192
+            AWIDTH     : integer := 14; 
+            MEM_SIZE    : integer := 8196
     ); 
     port (
           addr0     : in std_logic_vector(AWIDTH-1 downto 0); 
@@ -83,8 +83,8 @@ use IEEE.std_logic_1164.all;
 entity hardware_encoding_temp_output is
     generic (
         DataWidth : INTEGER := 8;
-        AddressRange : INTEGER := 8192;
-        AddressWidth : INTEGER := 13);
+        AddressRange : INTEGER := 8196;
+        AddressWidth : INTEGER := 14);
     port (
         reset : IN STD_LOGIC;
         clk : IN STD_LOGIC;

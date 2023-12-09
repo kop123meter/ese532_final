@@ -8,7 +8,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity hardware_encoding_control_s_axi is
 generic (
-    C_S_AXI_ADDR_WIDTH    : INTEGER := 6;
+    C_S_AXI_ADDR_WIDTH    : INTEGER := 7;
     C_S_AXI_DATA_WIDTH    : INTEGER := 32);
 port (
     ACLK                  :in   STD_LOGIC;
@@ -36,6 +36,7 @@ port (
     output_r              :out  STD_LOGIC_VECTOR(63 downto 0);
     lzw_size              :out  STD_LOGIC_VECTOR(63 downto 0);
     input_size            :out  STD_LOGIC_VECTOR(63 downto 0);
+    chunk_number          :out  STD_LOGIC_VECTOR(63 downto 0);
     ap_start              :out  STD_LOGIC;
     ap_done               :in   STD_LOGIC;
     ap_ready              :in   STD_LOGIC;
@@ -84,6 +85,11 @@ end entity hardware_encoding_control_s_axi;
 -- 0x38 : Data signal of input_size
 --        bit 31~0 - input_size[63:32] (Read/Write)
 -- 0x3c : reserved
+-- 0x40 : Data signal of chunk_number
+--        bit 31~0 - chunk_number[31:0] (Read/Write)
+-- 0x44 : Data signal of chunk_number
+--        bit 31~0 - chunk_number[63:32] (Read/Write)
+-- 0x48 : reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of hardware_encoding_control_s_axi is
@@ -91,23 +97,26 @@ architecture behave of hardware_encoding_control_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_AP_CTRL           : INTEGER := 16#00#;
-    constant ADDR_GIE               : INTEGER := 16#04#;
-    constant ADDR_IER               : INTEGER := 16#08#;
-    constant ADDR_ISR               : INTEGER := 16#0c#;
-    constant ADDR_S1_DATA_0         : INTEGER := 16#10#;
-    constant ADDR_S1_DATA_1         : INTEGER := 16#14#;
-    constant ADDR_S1_CTRL           : INTEGER := 16#18#;
-    constant ADDR_OUTPUT_R_DATA_0   : INTEGER := 16#1c#;
-    constant ADDR_OUTPUT_R_DATA_1   : INTEGER := 16#20#;
-    constant ADDR_OUTPUT_R_CTRL     : INTEGER := 16#24#;
-    constant ADDR_LZW_SIZE_DATA_0   : INTEGER := 16#28#;
-    constant ADDR_LZW_SIZE_DATA_1   : INTEGER := 16#2c#;
-    constant ADDR_LZW_SIZE_CTRL     : INTEGER := 16#30#;
-    constant ADDR_INPUT_SIZE_DATA_0 : INTEGER := 16#34#;
-    constant ADDR_INPUT_SIZE_DATA_1 : INTEGER := 16#38#;
-    constant ADDR_INPUT_SIZE_CTRL   : INTEGER := 16#3c#;
-    constant ADDR_BITS         : INTEGER := 6;
+    constant ADDR_AP_CTRL             : INTEGER := 16#00#;
+    constant ADDR_GIE                 : INTEGER := 16#04#;
+    constant ADDR_IER                 : INTEGER := 16#08#;
+    constant ADDR_ISR                 : INTEGER := 16#0c#;
+    constant ADDR_S1_DATA_0           : INTEGER := 16#10#;
+    constant ADDR_S1_DATA_1           : INTEGER := 16#14#;
+    constant ADDR_S1_CTRL             : INTEGER := 16#18#;
+    constant ADDR_OUTPUT_R_DATA_0     : INTEGER := 16#1c#;
+    constant ADDR_OUTPUT_R_DATA_1     : INTEGER := 16#20#;
+    constant ADDR_OUTPUT_R_CTRL       : INTEGER := 16#24#;
+    constant ADDR_LZW_SIZE_DATA_0     : INTEGER := 16#28#;
+    constant ADDR_LZW_SIZE_DATA_1     : INTEGER := 16#2c#;
+    constant ADDR_LZW_SIZE_CTRL       : INTEGER := 16#30#;
+    constant ADDR_INPUT_SIZE_DATA_0   : INTEGER := 16#34#;
+    constant ADDR_INPUT_SIZE_DATA_1   : INTEGER := 16#38#;
+    constant ADDR_INPUT_SIZE_CTRL     : INTEGER := 16#3c#;
+    constant ADDR_CHUNK_NUMBER_DATA_0 : INTEGER := 16#40#;
+    constant ADDR_CHUNK_NUMBER_DATA_1 : INTEGER := 16#44#;
+    constant ADDR_CHUNK_NUMBER_CTRL   : INTEGER := 16#48#;
+    constant ADDR_BITS         : INTEGER := 7;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
     signal wmask               : UNSIGNED(C_S_AXI_DATA_WIDTH-1 downto 0);
@@ -134,6 +143,7 @@ architecture behave of hardware_encoding_control_s_axi is
     signal int_output_r        : UNSIGNED(63 downto 0) := (others => '0');
     signal int_lzw_size        : UNSIGNED(63 downto 0) := (others => '0');
     signal int_input_size      : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_chunk_number    : UNSIGNED(63 downto 0) := (others => '0');
 
 
 begin
@@ -278,6 +288,10 @@ begin
                         rdata_data <= RESIZE(int_input_size(31 downto 0), 32);
                     when ADDR_INPUT_SIZE_DATA_1 =>
                         rdata_data <= RESIZE(int_input_size(63 downto 32), 32);
+                    when ADDR_CHUNK_NUMBER_DATA_0 =>
+                        rdata_data <= RESIZE(int_chunk_number(31 downto 0), 32);
+                    when ADDR_CHUNK_NUMBER_DATA_1 =>
+                        rdata_data <= RESIZE(int_chunk_number(63 downto 32), 32);
                     when others =>
                         NULL;
                     end case;
@@ -295,6 +309,7 @@ begin
     output_r             <= STD_LOGIC_VECTOR(int_output_r);
     lzw_size             <= STD_LOGIC_VECTOR(int_lzw_size);
     input_size           <= STD_LOGIC_VECTOR(int_input_size);
+    chunk_number         <= STD_LOGIC_VECTOR(int_chunk_number);
 
     process (ACLK)
     begin
@@ -506,6 +521,28 @@ begin
             if (ACLK_EN = '1') then
                 if (w_hs = '1' and waddr = ADDR_INPUT_SIZE_DATA_1) then
                     int_input_size(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_input_size(63 downto 32));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_CHUNK_NUMBER_DATA_0) then
+                    int_chunk_number(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_chunk_number(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_CHUNK_NUMBER_DATA_1) then
+                    int_chunk_number(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_chunk_number(63 downto 32));
                 end if;
             end if;
         end if;

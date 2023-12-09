@@ -41026,8 +41026,9 @@ public:
 # 11 "Server/LZW_new.h" 2
 
 
-__attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsigned char * s1,unsigned char * output,int *lzw_size,int *len);
+__attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsigned char s1[10*8192],unsigned char output[10*8196],int lzw_size[10],int input_size[10],int chunk_flag[10 +1]);
 void encoding(unsigned char * s1,unsigned char * output,int &size,int len);
+void getlzwheader(unsigned char lzw_header[4], int size, int flag);
 # 6 "Server/LZW_new.cpp" 2
 
 
@@ -41038,85 +41039,94 @@ void encoding(unsigned char * s1,unsigned char * output,int &size,int len);
 static unsigned char output_char = 0;
 static int output_bit = 0;
 
+
 unsigned int my_hash(unsigned long key)
 {
-    key &= 0xFFFFF;
+   key &= 0xFFFFF;
 
-    unsigned int hashed = 0;
 
-    VITIS_LOOP_21_1: for(int i = 0; i < 20; i++)
+   unsigned int hashed = 0;
+
+
+   VITIS_LOOP_24_1: for(int i = 0; i < 20; i++)
 #pragma HLS pipeline II=1
  {
-        hashed += (key >> i)&0x01;
-        hashed += hashed << 10;
-        hashed ^= hashed >> 6;
-    }
-    hashed += hashed << 3;
-    hashed ^= hashed >> 11;
-    hashed += hashed << 15;
-    return hashed & 0x7FFF;
+       hashed += (key >> i)&0x01;
+       hashed += hashed << 10;
+       hashed ^= hashed >> 6;
+   }
+   hashed += hashed << 3;
+   hashed ^= hashed >> 11;
+   hashed += hashed << 15;
+   return hashed & 0x7FFF;
 
 }
+
 
 void hash_lookup(unsigned long hash_table[2][32768], unsigned int key, bool* hit, unsigned int* result)
 {
 
-    key &= 0xFFFFF;
-
-    unsigned long lookup_0 = hash_table[0][my_hash(key)];
-    unsigned long lookup_1 = hash_table[1][my_hash(key)];
+   key &= 0xFFFFF;
 
 
-    unsigned int stored_key_0 = lookup_0&0xFFFFF;
-    unsigned int value_0 = (lookup_0 >> 20)&0xFFF;
-    unsigned int valid_0 = (lookup_0 >> (20 + 12))&0x1;
-
-    unsigned int stored_key_1 = lookup_1&0xFFFFF;
-    unsigned int value_1 = (lookup_1 >> 20)&0xFFF;
-    unsigned int valid_1 = (lookup_1 >> (20 + 12))&0x1;
-
-    if(valid_0 && (key == stored_key_0))
-    {
-        *hit = 1;
-        *result = value_0;
+   unsigned long lookup_0 = hash_table[0][my_hash(key)];
+   unsigned long lookup_1 = hash_table[1][my_hash(key)];
 
 
-    }
-    else if(valid_1 && (key == stored_key_1))
-    {
-        *hit = 1;
-        *result = value_1;
-    }
-    else
-    {
-        *hit = 0;
-        *result = 0;
 
-    }
+   unsigned int stored_key_0 = lookup_0&0xFFFFF;
+   unsigned int value_0 = (lookup_0 >> 20)&0xFFF;
+   unsigned int valid_0 = (lookup_0 >> (20 + 12))&0x1;
+
+
+   unsigned int stored_key_1 = lookup_1&0xFFFFF;
+   unsigned int value_1 = (lookup_1 >> 20)&0xFFF;
+   unsigned int valid_1 = (lookup_1 >> (20 + 12))&0x1;
+
+   if(valid_0 && (key == stored_key_0))
+   {
+       *hit = 1;
+       *result = value_0;
+
+
+   }
+   else if(valid_1 && (key == stored_key_1))
+   {
+       *hit = 1;
+       *result = value_1;
+   }
+   else
+   {
+       *hit = 0;
+       *result = 0;
+
+   }
 }
+
 
 void hash_insert(unsigned long hash_table[2][32768], unsigned int key, unsigned int value, bool* collision)
 {
 
-   key &= 0xFFFFF;
-   value &= 0xFFF;
-   unsigned int hash_result = my_hash(key);
-   unsigned long lookup_0 = hash_table[0][hash_result];
-   unsigned int valid_0 = (lookup_0 >> (20 + 12))&0x1;
-   if(!valid_0){
-       hash_table[0][hash_result] = (1UL << (20 + 12)) | (value << 20) | key;
-       *collision = 0;
-       return;
-   }
-   unsigned long lookup_1 = hash_table[1][hash_result];
-   unsigned int valid_1 = (lookup_1 >> (20 + 12))&0x1;
-   if(!valid_1){
-       hash_table[1][hash_result] = (1UL << (20 + 12)) | (value << 20) | key;
-       *collision = 0;
-       return;
-   }
-   *collision = 1;
+  key &= 0xFFFFF;
+  value &= 0xFFF;
+  unsigned int hash_result = my_hash(key);
+  unsigned long lookup_0 = hash_table[0][hash_result];
+  unsigned int valid_0 = (lookup_0 >> (20 + 12))&0x1;
+  if(!valid_0){
+      hash_table[0][hash_result] = (1UL << (20 + 12)) | (value << 20) | key;
+      *collision = 0;
+      return;
+  }
+  unsigned long lookup_1 = hash_table[1][hash_result];
+  unsigned int valid_1 = (lookup_1 >> (20 + 12))&0x1;
+  if(!valid_1){
+      hash_table[1][hash_result] = (1UL << (20 + 12)) | (value << 20) | key;
+      *collision = 0;
+      return;
+  }
+  *collision = 1;
 }
+
 
 
 typedef struct
@@ -41126,314 +41136,405 @@ typedef struct
 
 
 
-    unsigned long upper_key_mem[512];
-    unsigned long middle_key_mem[512];
-    unsigned long lower_key_mem[512];
-    unsigned int value[64];
-    unsigned int fill;
+
+   unsigned long upper_key_mem[512];
+   unsigned long middle_key_mem[512];
+   unsigned long lower_key_mem[512];
+   unsigned int value[64];
+   unsigned int fill;
 } assoc_mem;
+
+
 
 
 
 void assoc_insert(assoc_mem* mem, unsigned int key, unsigned int value, bool* collision)
 {
 
-    key &= 0xFFFFF;
-    value &= 0xFFF;
+   key &= 0xFFFFF;
+   value &= 0xFFF;
 
-    if(mem->fill < 64)
-    {
-        mem->upper_key_mem[(key >> 18)%512] |= (1 << mem->fill);
-        mem->middle_key_mem[(key >> 9)%512] |= (1 << mem->fill);
-        mem->lower_key_mem[(key >> 0)%512] |= (1 << mem->fill);
-        mem->value[mem->fill] = value;
 
-        mem->fill++;
-        *collision = 0;
-    }
-    else
-    {
-        *collision = 1;
+   if(mem->fill < 64)
+   {
+       mem->upper_key_mem[(key >> 18)%512] |= (1 << mem->fill);
+       mem->middle_key_mem[(key >> 9)%512] |= (1 << mem->fill);
+       mem->lower_key_mem[(key >> 0)%512] |= (1 << mem->fill);
+       mem->value[mem->fill] = value;
 
-    }
+
+       mem->fill++;
+       *collision = 0;
+   }
+   else
+   {
+       *collision = 1;
+
+   }
 }
+
 
 void assoc_lookup(assoc_mem* mem, unsigned int key, bool* hit, unsigned int* result)
 {
 
-    key &= 0xFFFFF;
+   key &= 0xFFFFF;
 
-    unsigned int match_high = mem->upper_key_mem[(key >> 18)%512];
-    unsigned int match_middle = mem->middle_key_mem[(key >> 9)%512];
-    unsigned int match_low = mem->lower_key_mem[(key >> 0)%512];
 
-    unsigned int match = match_high & match_middle & match_low;
+   unsigned int match_high = mem->upper_key_mem[(key >> 18)%512];
+   unsigned int match_middle = mem->middle_key_mem[(key >> 9)%512];
+   unsigned int match_low = mem->lower_key_mem[(key >> 0)%512];
 
-    unsigned int address = 0;
-    VITIS_LOOP_147_1: for(; address < 64; address++)
+
+   unsigned int match = match_high & match_middle & match_low;
+
+
+   unsigned int address = 0;
+   VITIS_LOOP_165_1: for(; address < 64; address++)
 #pragma HLS unroll
  {
-        if((match >> address) & 0x1)
-        {
-            break;
-        }
-    }
-    if(address != 64)
-    {
-        *result = mem->value[address];
-        *hit = 1;
+       if((match >> address) & 0x1)
+       {
+           break;
+       }
+   }
+   if(address != 64)
+   {
+       *result = mem->value[address];
+       *hit = 1;
 
 
 
 
-    }
-    else
-    {
-        *hit = 0;
+   }
+   else
+   {
+       *hit = 0;
 
-    }
+   }
 }
 
 void insert(unsigned long hash_table[2][32768], assoc_mem* mem, unsigned int key, unsigned int value, bool* collision)
 {
-    hash_insert(hash_table, key, value, collision);
-    if(*collision)
-    {
-        assoc_insert(mem, key, value, collision);
-    }
+   hash_insert(hash_table, key, value, collision);
+   if(*collision)
+   {
+       assoc_insert(mem, key, value, collision);
+   }
 }
+
 
 void lookup(unsigned long hash_table[2][32768], assoc_mem* mem, unsigned int key, bool* hit, unsigned int* result)
 {
-    hash_lookup(hash_table, key, hit, result);
+   hash_lookup(hash_table, key, hit, result);
 
-    if(!*hit)
-    {
-        assoc_lookup(mem, key, hit, result);
-    }
+
+   if(!*hit)
+   {
+       assoc_lookup(mem, key, hit, result);
+   }
 }
 
-__attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsigned char * s1,unsigned char * output,int * lzw_size,int * input_size)
+
+void getlzwheader(unsigned char lzw_header[4], int size, int flag)
 {
+
+
+   if (flag == 0)
+   {
+       lzw_header[0] = size << 1;
+       lzw_header[1] = size >> 7;
+       lzw_header[2] = size >> 15;
+       lzw_header[3] = size >> 23;
+   }
+   else if (flag == 1)
+   {
+       lzw_header[0] = size << 1 | 1;
+       lzw_header[1] = size >> 7;
+       lzw_header[2] = size >> 15;
+       lzw_header[3] = size >> 23;
+   }
+}
+
+
+
+
+
+
+
+__attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsigned char s1[10*8192],unsigned char output[10*8196],int lzw_size[10],int input_size[10],int chunk_number[10 +1])
+{_ssdm_SpecArrayDimSize(s1, 81920);_ssdm_SpecArrayDimSize(output, 81960);_ssdm_SpecArrayDimSize(lzw_size, 10);_ssdm_SpecArrayDimSize(input_size, 10);_ssdm_SpecArrayDimSize(chunk_number, 11);
 #pragma HLS TOP name=hardware_encoding
-# 191 "Server/LZW_new.cpp"
+# 238 "Server/LZW_new.cpp"
 
 #pragma HLS INTERFACE m_axi port=s1 bundle=HP1
 #pragma HLS INTERFACE m_axi port=output bundle=HP3
 #pragma HLS INTERFACE m_axi port=input_size bundle=HP1
 #pragma HLS INTERFACE m_axi port=lzw_size bundle=HP3
+#pragma HLS INTERFACE m_axi port=chunk_number bundle=HP1
 
-unsigned char temp_output[8192];
-   bool send_two = false;
-   unsigned char high_four;
+VITIS_LOOP_245_1: for(int i =0 ;i < 10;i++){
+    lzw_size[i] = 0;
+}
 
-
-   int hit_second = 2;
-
-   unsigned long hash_table[2][32768];
-   assoc_mem my_assoc_mem;
-   int output_pos = 0;
-   int size = 0;
-   output_char = 0;
-   output_bit = 0;
+unsigned char lzw_header[4];
+int total_size = 0;
 
 
 
 
 
+VITIS_LOOP_256_2: for(int current_chunk = 0; current_chunk < chunk_number[0];current_chunk++){
 
-      VITIS_LOOP_216_1: for(int i = 0; i < 32768; i++)
-      {
+
+
+
+
+
+
+if(chunk_number[1+current_chunk] == 4){
+   getlzwheader(lzw_header,input_size[current_chunk],1);
+   output[total_size+0] = lzw_header[0];
+   output[total_size+1] = lzw_header[1];
+   output[total_size+2] = lzw_header[2];
+   output[total_size+3] = lzw_header[3];
+   total_size = total_size + 4;
+
+   lzw_size[current_chunk] = 4;
+   continue;
+}
+
+
+
+
+  unsigned char temp_output[8196];
+  bool send_two = false;
+  unsigned char high_four;
+
+
+
+
+  int hit_second = 2;
+
+  unsigned long hash_table[2][32768];
+  assoc_mem my_assoc_mem;
+  int output_pos = 0;
+  output_char = 0;
+  output_bit = 0;
+
+
+
+
+
+     VITIS_LOOP_298_3: for(int i = 0; i < 32768; i++)
+     {
 #pragma HLS unroll factor=2
  hash_table[0][i] = 0;
-          hash_table[1][i] = 0;
-       }
-
-   my_assoc_mem.fill = 0;
-   VITIS_LOOP_224_2: for(int i = 0; i < 512; i++)
-   {
-       my_assoc_mem.upper_key_mem[i] = 0;
-       my_assoc_mem.middle_key_mem[i] = 0;
-       my_assoc_mem.lower_key_mem[i] = 0;
-   }
-# 240 "Server/LZW_new.cpp"
-   int next_code = 256;
+         hash_table[1][i] = 0;
+      }
 
 
+  my_assoc_mem.fill = 0;
+  VITIS_LOOP_307_4: for(int i = 0; i < 512; i++)
+  {
+      my_assoc_mem.upper_key_mem[i] = 0;
+      my_assoc_mem.middle_key_mem[i] = 0;
+      my_assoc_mem.lower_key_mem[i] = 0;
+  }
+# 325 "Server/LZW_new.cpp"
+  int next_code = 256;
 
 
-   int prefix_code = s1[0];
-   unsigned int code = 0;
-   unsigned char next_char = 0;
+  int prefix_code = s1[current_chunk*8192+0];
+  unsigned int code = 0;
+  unsigned char next_char = 0;
 
 
-   int len = input_size[0];
-
-   VITIS_LOOP_252_3: for(int i = 0;i<len;)
-   {
-       if(i + 1 == len)
-       {
-
-           if(!send_two){
-               temp_output[output_pos++] = (unsigned char)(prefix_code >> 4);
-               send_two = true;
-               high_four = (unsigned char)(prefix_code << 4) & 0xf0;
-           } else{
-               temp_output[output_pos++] = high_four | ((unsigned char)(prefix_code >> 8) & 0x0f);
-               temp_output[output_pos++] = (unsigned char)(prefix_code) & 0xff;
-               send_two = false;
-           }
-
-           break;
-       }
-       next_char = s1[i + 1];
 
 
-       bool hit = 0;
-       lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
+  int len = input_size[current_chunk];
+   std::cout << "len:\t" <<len<<std::endl;
+  VITIS_LOOP_337_5: for(int i = 0;i<len;)
+  {
+      if(i + 1 == len)
+      {
+
+          if(!send_two){
+              temp_output[output_pos++] = (unsigned char)(prefix_code >> 4);
+              send_two = true;
+              high_four = (unsigned char)(prefix_code << 4) & 0xf0;
+          } else{
+              temp_output[output_pos++] = high_four | ((unsigned char)(prefix_code >> 8) & 0x0f);
+              temp_output[output_pos++] = (unsigned char)(prefix_code) & 0xff;
+              send_two = false;
+          }
+
+          break;
+      }
+      next_char = s1[current_chunk*8192 + i + 1];
+
+
+
+
+      bool hit = 0;
+      lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
        if(!hit)
-       {
+      {
 
-           if(!send_two){
-               temp_output[output_pos++] = (unsigned char)(prefix_code >> 4);
-               send_two = true;
-               high_four = (unsigned char)(prefix_code << 4) & 0xf0;
-           } else{
-               temp_output[output_pos++] = high_four | ((unsigned char)(prefix_code >> 8) & 0x0f);
-               temp_output[output_pos++] = (unsigned char)(prefix_code) & 0xff;
-               send_two = false;
-           }
-
-
-
-
-           bool collision = 0;
-           insert(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, next_code, &collision);
+          if(!send_two){
+              temp_output[output_pos++] = (unsigned char)(prefix_code >> 4);
+              send_two = true;
+              high_four = (unsigned char)(prefix_code << 4) & 0xf0;
+          } else{
+              temp_output[output_pos++] = high_four | ((unsigned char)(prefix_code >> 8) & 0x0f);
+              temp_output[output_pos++] = (unsigned char)(prefix_code) & 0xff;
+              send_two = false;
+          }
 
 
 
 
-           if(collision)
-           {
-               std::cout << "ERROR: FAILED TO INSERT! NO MORE ROOM IN ASSOC MEM!" << std::endl;
-               return;
-           }
-           next_code += 1;
 
 
-           prefix_code = next_char;
+
+          bool collision = 0;
+          insert(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, next_code, &collision);
+          if(collision)
+          {
+              std::cout << "ERROR: FAILED TO INSERT! NO MORE ROOM IN ASSOC MEM!" << std::endl;
+              return;
+          }
+          next_code += 1;
 
 
-       }
-       else
-       {
-           prefix_code = code;
-       }
-       i += 1;
-   }
-
-   if(send_two){
-       temp_output[output_pos++] = high_four;
-   }
 
 
-   VITIS_LOOP_320_4: for(int i = 0; i < output_pos; i++){
+          prefix_code = next_char;
+      }
+      else
+      {
+          prefix_code = code;
+      }
+      i += 1;
+  }
+
+
+  if(send_two){
+      temp_output[output_pos++] = high_four;
+  }
+
+   getlzwheader(lzw_header,output_pos,0);
+   output[total_size+0] = lzw_header[0];
+   output[total_size+1] = lzw_header[1];
+   output[total_size+2] = lzw_header[2];
+   output[total_size+3] = lzw_header[3];
+   total_size = total_size + 4;
+
+
+
+   std::cout << "output len:\t" << output_pos << std::endl;
+
+  VITIS_LOOP_417_6: for(int i = 0; i < output_pos; i++){
 #pragma HLS unroll
- output[i] = temp_output[i];
-   }
+ output[total_size+i] = temp_output[i];
+  }
+  total_size = total_size + output_pos;
+  lzw_size[current_chunk] = output_pos + 4;
 
-  lzw_size[0] = output_pos;
+   }
 
 }
+
 
 
 void encoding(unsigned char * s1,unsigned char * output,int &size,int len)
 {
- bool send_two = false;
- unsigned char high_four;
- int output_pos = 0;
+   bool send_two = false;
+   unsigned char high_four;
+   int output_pos = 0;
 
-    std::unordered_map<std::string, int> table;
-    VITIS_LOOP_337_1: for (int i = 0; i <= 255; i++) {
-        std::string ch = "";
-        ch += char(i);
-        table[ch] = i;
-    }
 
-    std::string p = "", c = "";
-    p += s1[0];
-    int code = 256;
-    std::vector<int> output_code;
-    VITIS_LOOP_347_2: for (int i = 0; i < len; i++) {
-        if (i != len - 1)
-            c += s1[i + 1];
-        if (table.find(p + c) != table.end()) {
-            p = p + c;
-        }
-        else {
+   std::unordered_map<std::string, int> table;
+   VITIS_LOOP_438_1: for (int i = 0; i <= 255; i++) {
+       std::string ch = "";
+       ch += char(i);
+       table[ch] = i;
+   }
+   std::string p = "", c = "";
+   p += s1[0];
+   int code = 256;
+   std::vector<int> output_code;
+   VITIS_LOOP_447_2: for (int i = 0; i < len; i++) {
+       if (i != len - 1)
+           c += s1[i + 1];
+       if (table.find(p + c) != table.end()) {
+           p = p + c;
+       }
+       else {
 
-            if(!send_two){
-             output[output_pos++] = (unsigned char)(table[p] >> 4);
-             send_two = true;
-             high_four = (unsigned char)(table[p] << 4) & 0xf0;
-            } else{
-             output[output_pos++] = high_four | ((unsigned char)(table[p] >> 8) & 0x0f);
-             output[output_pos++] = (unsigned char)(table[p]) & 0xff;
-             send_two = false;
-            }
-            size += 1;
-            table[p + c] = code;
-            code++;
-            p = c;
-        }
-        c = "";
-    }
-    output_code.push_back(table[p]);
-    if(!send_two){
-     output[output_pos++] = (unsigned char)(table[p] >> 4);
-        send_two = true;
-        high_four = (unsigned char)(table[p] << 4) & 0xf0;
-    } else{
-     output[output_pos++] = high_four | ((unsigned char)((table[p] >> 8) & 0x0f));
-     output[output_pos++] = (unsigned char)(table[p]) & 0xff;
-        send_two = false;
-    }
+           if(!send_two){
+               output[output_pos++] = (unsigned char)(table[p] >> 4);
+               send_two = true;
+               high_four = (unsigned char)(table[p] << 4) & 0xf0;
+           } else{
+               output[output_pos++] = high_four | ((unsigned char)(table[p] >> 8) & 0x0f);
+               output[output_pos++] = (unsigned char)(table[p]) & 0xff;
+               send_two = false;
+           }
+           size += 1;
+           table[p + c] = code;
+           code++;
+           p = c;
+       }
+       c = "";
+   }
+   output_code.push_back(table[p]);
+   if(!send_two){
+       output[output_pos++] = (unsigned char)(table[p] >> 4);
+       send_two = true;
+       high_four = (unsigned char)(table[p] << 4) & 0xf0;
+   } else{
+       output[output_pos++] = high_four | ((unsigned char)((table[p] >> 8) & 0x0f));
+       output[output_pos++] = (unsigned char)(table[p]) & 0xff;
+       send_two = false;
+   }
 
-    if(send_two){
-     output[output_pos++] = high_four;
-    }
-    size = output_pos;
+
+   if(send_two){
+       output[output_pos++] = high_four;
+   }
+   size = output_pos;
 }
+
 
 void decoding(std::vector<int> op)
 {
-    std::cout << "\nDecoding\n";
-    std::unordered_map<int, std::string> table;
-    VITIS_LOOP_392_1: for (int i = 0; i <= 255; i++) {
-        std::string ch = "";
-        ch += char(i);
-        table[i] = ch;
-    }
-    int old = op[0], n;
-    std::string s = table[old];
-    std::string c = "";
-    c += s[0];
-    std::cout << s;
-    int count = 256;
-    VITIS_LOOP_403_2: for (int i = 0; i < op.size() - 1; i++) {
-        n = op[i + 1];
-        if (table.find(n) == table.end()) {
-            s = table[old];
-            s = s + c;
-        }
-        else {
-            s = table[n];
-        }
-        std::cout << s;
-        c = "";
-        c += s[0];
-        table[count] = table[old] + c;
-        count++;
-        old = n;
-    }
+   std::cout << "\nDecoding\n";
+   std::unordered_map<int, std::string> table;
+   VITIS_LOOP_494_1: for (int i = 0; i <= 255; i++) {
+       std::string ch = "";
+       ch += char(i);
+       table[i] = ch;
+   }
+   int old = op[0], n;
+   std::string s = table[old];
+   std::string c = "";
+   c += s[0];
+   std::cout << s;
+   int count = 256;
+   VITIS_LOOP_505_2: for (int i = 0; i < op.size() - 1; i++) {
+       n = op[i + 1];
+       if (table.find(n) == table.end()) {
+           s = table[old];
+           s = s + c;
+       }
+       else {
+           s = table[n];
+       }
+       std::cout << s;
+       c = "";
+       c += s[0];
+       table[count] = table[old] + c;
+       count++;
+       old = n;
+   }
 }

@@ -234,14 +234,17 @@ void getlzwheader(unsigned char lzw_header[4], int size, int flag)
 
 
 
-void hardware_encoding(unsigned char s1[CHUNKS*8192],unsigned char output[CHUNKS*CHUNK_SIZE],int lzw_size[CHUNKS],int input_size[CHUNKS],int chunk_number[1])
+void hardware_encoding(unsigned char s1[CHUNKS*8192],unsigned char output[CHUNKS*CHUNK_SIZE],int lzw_size[CHUNKS],int input_size[CHUNKS],int chunk_number[CHUNKS+1])
 {
 #pragma HLS INTERFACE m_axi port=s1 bundle=HP1
 #pragma HLS INTERFACE m_axi port=output bundle=HP3
 #pragma HLS INTERFACE m_axi port=input_size bundle=HP1
 #pragma HLS INTERFACE m_axi port=lzw_size bundle=HP3
+#pragma HLS INTERFACE m_axi port=chunk_number bundle=HP1
 
-
+for(int i =0 ;i < CHUNKS;i++){
+    lzw_size[i] = 0;
+}
 //init header buffer
 unsigned char lzw_header[4];
 int total_size = 0; // record previous chunk lzw size; Compute current output pos
@@ -258,7 +261,7 @@ for(int current_chunk = 0; current_chunk <  chunk_number[0];current_chunk++){
 // lzw_size[i] = 4 which means current chunk is repeat chunk
 // we can save the repeat index in input_size[i]
 // So, we just send header
-if(lzw_size[current_chunk] == 4){
+if(chunk_number[1+current_chunk] == 4){
    getlzwheader(lzw_header,input_size[current_chunk],1);
    output[total_size+0] = lzw_header[0];
    output[total_size+1] = lzw_header[1];
@@ -266,6 +269,7 @@ if(lzw_size[current_chunk] == 4){
    output[total_size+3] = lzw_header[3];
    total_size = total_size + 4;
    //move to next chunk
+   lzw_size[current_chunk] = 4;
    continue;
 }
 

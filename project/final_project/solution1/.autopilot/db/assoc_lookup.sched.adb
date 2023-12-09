@@ -31,7 +31,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>49</coreId>
 					</Obj>
 					<bitwidth>64</bitwidth>
 				</Value>
@@ -64,7 +64,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4221562816</coreId>
+						<coreId>81</coreId>
 					</Obj>
 					<bitwidth>64</bitwidth>
 				</Value>
@@ -97,7 +97,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222056720</coreId>
+						<coreId>2009564064</coreId>
 					</Obj>
 					<bitwidth>64</bitwidth>
 				</Value>
@@ -130,7 +130,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222265392</coreId>
+						<coreId>3229815407</coreId>
 					</Obj>
 					<bitwidth>12</bitwidth>
 				</Value>
@@ -163,7 +163,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222265728</coreId>
+						<coreId>3126736192</coreId>
 					</Obj>
 					<bitwidth>20</bitwidth>
 				</Value>
@@ -187,7 +187,7 @@
 						<name>key_read</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>140</lineNumber>
+						<lineNumber>156</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -203,7 +203,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>140</second>
+										<second>156</second>
 									</item>
 								</second>
 							</item>
@@ -238,10 +238,10 @@
 					<Obj>
 						<type>0</type>
 						<id>7</id>
-						<name>trunc_ln140</name>
+						<name>trunc_ln156</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>140</lineNumber>
+						<lineNumber>156</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -257,7 +257,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>140</second>
+										<second>156</second>
 									</item>
 								</second>
 							</item>
@@ -291,10 +291,10 @@
 					<Obj>
 						<type>0</type>
 						<id>8</id>
-						<name>trunc_ln140_2</name>
+						<name>trunc_ln156_2</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>140</lineNumber>
+						<lineNumber>156</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -310,7 +310,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>140</second>
+										<second>156</second>
 									</item>
 								</second>
 							</item>
@@ -347,10 +347,10 @@
 					<Obj>
 						<type>0</type>
 						<id>9</id>
-						<name>zext_ln140</name>
+						<name>zext_ln156</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>140</lineNumber>
+						<lineNumber>156</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -366,7 +366,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>140</second>
+										<second>156</second>
 									</item>
 								</second>
 							</item>
@@ -377,7 +377,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4193807168</coreId>
+						<coreId>1590587209</coreId>
 					</Obj>
 					<bitwidth>64</bitwidth>
 				</Value>
@@ -403,7 +403,7 @@
 						<name>mem_upper_key_mem_addr</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>140</lineNumber>
+						<lineNumber>156</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -419,7 +419,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>140</second>
+										<second>156</second>
 									</item>
 								</second>
 							</item>
@@ -430,7 +430,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4191488192</coreId>
+						<coreId>3521790640</coreId>
 					</Obj>
 					<bitwidth>9</bitwidth>
 				</Value>
@@ -458,7 +458,7 @@
 						<name>mem_upper_key_mem_load</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>140</lineNumber>
+						<lineNumber>156</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -474,7 +474,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>140</second>
+										<second>156</second>
 									</item>
 								</second>
 							</item>
@@ -485,7 +485,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4191488192</coreId>
+						<coreId>3521790640</coreId>
 					</Obj>
 					<bitwidth>64</bitwidth>
 				</Value>
@@ -511,7 +511,7 @@
 						<name>trunc_ln</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>141</lineNumber>
+						<lineNumber>157</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -527,7 +527,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>141</second>
+										<second>157</second>
 									</item>
 								</second>
 							</item>
@@ -538,7 +538,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4192097696</coreId>
+						<coreId>1976628624</coreId>
 					</Obj>
 					<bitwidth>9</bitwidth>
 				</Value>
@@ -564,10 +564,10 @@
 					<Obj>
 						<type>0</type>
 						<id>13</id>
-						<name>zext_ln141</name>
+						<name>zext_ln157</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>141</lineNumber>
+						<lineNumber>157</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -583,7 +583,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>141</second>
+										<second>157</second>
 									</item>
 								</second>
 							</item>
@@ -594,7 +594,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4221379664</coreId>
+						<coreId>2009414016</coreId>
 					</Obj>
 					<bitwidth>64</bitwidth>
 				</Value>
@@ -620,7 +620,7 @@
 						<name>mem_middle_key_mem_addr</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>141</lineNumber>
+						<lineNumber>157</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -636,7 +636,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>141</second>
+										<second>157</second>
 									</item>
 								</second>
 							</item>
@@ -647,7 +647,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4221437568</coreId>
+						<coreId>2009466192</coreId>
 					</Obj>
 					<bitwidth>9</bitwidth>
 				</Value>
@@ -675,7 +675,7 @@
 						<name>mem_middle_key_mem_load</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>141</lineNumber>
+						<lineNumber>157</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -691,7 +691,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>141</second>
+										<second>157</second>
 									</item>
 								</second>
 							</item>
@@ -702,7 +702,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4221819584</coreId>
+						<coreId>2009400368</coreId>
 					</Obj>
 					<bitwidth>64</bitwidth>
 				</Value>
@@ -725,10 +725,10 @@
 					<Obj>
 						<type>0</type>
 						<id>16</id>
-						<name>zext_ln142</name>
+						<name>zext_ln158</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>142</lineNumber>
+						<lineNumber>158</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -744,7 +744,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>142</second>
+										<second>158</second>
 									</item>
 								</second>
 							</item>
@@ -755,7 +755,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222163840</coreId>
+						<coreId>2009456240</coreId>
 					</Obj>
 					<bitwidth>64</bitwidth>
 				</Value>
@@ -781,7 +781,7 @@
 						<name>mem_lower_key_mem_addr</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>142</lineNumber>
+						<lineNumber>158</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -797,7 +797,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>142</second>
+										<second>158</second>
 									</item>
 								</second>
 							</item>
@@ -808,7 +808,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>2405181686</coreId>
+						<coreId>2009756464</coreId>
 					</Obj>
 					<bitwidth>9</bitwidth>
 				</Value>
@@ -836,7 +836,7 @@
 						<name>mem_lower_key_mem_load</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>142</lineNumber>
+						<lineNumber>158</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -852,7 +852,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>142</second>
+										<second>158</second>
 									</item>
 								</second>
 							</item>
@@ -863,7 +863,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222077888</coreId>
+						<coreId>2008322848</coreId>
 					</Obj>
 					<bitwidth>64</bitwidth>
 				</Value>
@@ -886,10 +886,10 @@
 					<Obj>
 						<type>0</type>
 						<id>19</id>
-						<name>trunc_ln144</name>
+						<name>trunc_ln161</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -905,7 +905,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -916,7 +916,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>3298534884</coreId>
 					</Obj>
 					<bitwidth>32</bitwidth>
 				</Value>
@@ -939,10 +939,10 @@
 					<Obj>
 						<type>0</type>
 						<id>20</id>
-						<name>trunc_ln144_1</name>
+						<name>trunc_ln161_1</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -958,7 +958,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -969,7 +969,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>321</coreId>
+						<coreId>2010194448</coreId>
 					</Obj>
 					<bitwidth>32</bitwidth>
 				</Value>
@@ -992,10 +992,10 @@
 					<Obj>
 						<type>0</type>
 						<id>21</id>
-						<name>trunc_ln144_2</name>
+						<name>trunc_ln161_2</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1011,7 +1011,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1022,7 +1022,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4221547088</coreId>
+						<coreId>100</coreId>
 					</Obj>
 					<bitwidth>32</bitwidth>
 				</Value>
@@ -1045,10 +1045,10 @@
 					<Obj>
 						<type>0</type>
 						<id>22</id>
-						<name>trunc_ln144_3</name>
+						<name>trunc_ln161_3</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1064,7 +1064,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1075,7 +1075,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4221571120</coreId>
+						<coreId>68</coreId>
 					</Obj>
 					<bitwidth>31</bitwidth>
 				</Value>
@@ -1098,10 +1098,10 @@
 					<Obj>
 						<type>0</type>
 						<id>23</id>
-						<name>trunc_ln144_4</name>
+						<name>trunc_ln161_4</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1117,7 +1117,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1128,7 +1128,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4221493664</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>31</bitwidth>
 				</Value>
@@ -1151,10 +1151,10 @@
 					<Obj>
 						<type>0</type>
 						<id>24</id>
-						<name>trunc_ln144_5</name>
+						<name>trunc_ln161_5</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1170,7 +1170,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1181,7 +1181,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>193</coreId>
+						<coreId>2009487232</coreId>
 					</Obj>
 					<bitwidth>30</bitwidth>
 				</Value>
@@ -1204,10 +1204,10 @@
 					<Obj>
 						<type>0</type>
 						<id>25</id>
-						<name>trunc_ln144_6</name>
+						<name>trunc_ln161_6</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1223,7 +1223,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1234,7 +1234,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4221355520</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>30</bitwidth>
 				</Value>
@@ -1257,10 +1257,10 @@
 					<Obj>
 						<type>0</type>
 						<id>26</id>
-						<name>trunc_ln144_7</name>
+						<name>trunc_ln161_7</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1276,7 +1276,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1287,7 +1287,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>193</coreId>
+						<coreId>3229815407</coreId>
 					</Obj>
 					<bitwidth>29</bitwidth>
 				</Value>
@@ -1310,10 +1310,10 @@
 					<Obj>
 						<type>0</type>
 						<id>27</id>
-						<name>trunc_ln144_8</name>
+						<name>trunc_ln161_8</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1329,7 +1329,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1340,7 +1340,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>193</coreId>
 					</Obj>
 					<bitwidth>29</bitwidth>
 				</Value>
@@ -1363,10 +1363,10 @@
 					<Obj>
 						<type>0</type>
 						<id>28</id>
-						<name>trunc_ln144_9</name>
+						<name>trunc_ln161_9</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1382,7 +1382,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1393,7 +1393,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222267536</coreId>
+						<coreId>2010198576</coreId>
 					</Obj>
 					<bitwidth>28</bitwidth>
 				</Value>
@@ -1416,10 +1416,10 @@
 					<Obj>
 						<type>0</type>
 						<id>29</id>
-						<name>trunc_ln144_10</name>
+						<name>trunc_ln161_10</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1435,7 +1435,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1446,7 +1446,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>3229815407</coreId>
+						<coreId>2009978736</coreId>
 					</Obj>
 					<bitwidth>28</bitwidth>
 				</Value>
@@ -1469,10 +1469,10 @@
 					<Obj>
 						<type>0</type>
 						<id>30</id>
-						<name>trunc_ln144_11</name>
+						<name>trunc_ln161_11</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1488,7 +1488,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1499,7 +1499,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>65</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>27</bitwidth>
 				</Value>
@@ -1522,10 +1522,10 @@
 					<Obj>
 						<type>0</type>
 						<id>31</id>
-						<name>trunc_ln144_12</name>
+						<name>trunc_ln161_12</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1541,7 +1541,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1552,7 +1552,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>65</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>27</bitwidth>
 				</Value>
@@ -1575,10 +1575,10 @@
 					<Obj>
 						<type>0</type>
 						<id>32</id>
-						<name>trunc_ln144_13</name>
+						<name>trunc_ln161_13</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1594,7 +1594,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1605,7 +1605,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4221525392</coreId>
+						<coreId>2037201779</coreId>
 					</Obj>
 					<bitwidth>26</bitwidth>
 				</Value>
@@ -1628,10 +1628,10 @@
 					<Obj>
 						<type>0</type>
 						<id>33</id>
-						<name>trunc_ln144_14</name>
+						<name>trunc_ln161_14</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1647,7 +1647,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1658,7 +1658,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4221727600</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>26</bitwidth>
 				</Value>
@@ -1681,10 +1681,10 @@
 					<Obj>
 						<type>0</type>
 						<id>34</id>
-						<name>trunc_ln144_15</name>
+						<name>trunc_ln161_15</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1700,7 +1700,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1711,7 +1711,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010085296</coreId>
 					</Obj>
 					<bitwidth>25</bitwidth>
 				</Value>
@@ -1734,10 +1734,10 @@
 					<Obj>
 						<type>0</type>
 						<id>35</id>
-						<name>trunc_ln144_16</name>
+						<name>trunc_ln161_16</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1753,7 +1753,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1787,10 +1787,10 @@
 					<Obj>
 						<type>0</type>
 						<id>36</id>
-						<name>trunc_ln144_17</name>
+						<name>trunc_ln161_17</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1806,7 +1806,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1817,7 +1817,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>6865</coreId>
 					</Obj>
 					<bitwidth>24</bitwidth>
 				</Value>
@@ -1840,10 +1840,10 @@
 					<Obj>
 						<type>0</type>
 						<id>37</id>
-						<name>trunc_ln144_18</name>
+						<name>trunc_ln161_18</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1859,7 +1859,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1870,7 +1870,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010089952</coreId>
 					</Obj>
 					<bitwidth>24</bitwidth>
 				</Value>
@@ -1893,10 +1893,10 @@
 					<Obj>
 						<type>0</type>
 						<id>38</id>
-						<name>trunc_ln144_19</name>
+						<name>trunc_ln161_19</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1912,7 +1912,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1923,7 +1923,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>3229815407</coreId>
 					</Obj>
 					<bitwidth>23</bitwidth>
 				</Value>
@@ -1946,10 +1946,10 @@
 					<Obj>
 						<type>0</type>
 						<id>39</id>
-						<name>trunc_ln144_20</name>
+						<name>trunc_ln161_20</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -1965,7 +1965,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -1976,7 +1976,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>62</coreId>
 					</Obj>
 					<bitwidth>23</bitwidth>
 				</Value>
@@ -1999,10 +1999,10 @@
 					<Obj>
 						<type>0</type>
 						<id>40</id>
-						<name>trunc_ln144_21</name>
+						<name>trunc_ln161_21</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2018,7 +2018,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2029,7 +2029,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010092400</coreId>
 					</Obj>
 					<bitwidth>22</bitwidth>
 				</Value>
@@ -2052,10 +2052,10 @@
 					<Obj>
 						<type>0</type>
 						<id>41</id>
-						<name>trunc_ln144_22</name>
+						<name>trunc_ln161_22</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2071,7 +2071,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2082,7 +2082,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1476395136</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>22</bitwidth>
 				</Value>
@@ -2105,10 +2105,10 @@
 					<Obj>
 						<type>0</type>
 						<id>42</id>
-						<name>trunc_ln144_23</name>
+						<name>trunc_ln161_23</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2124,7 +2124,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2135,7 +2135,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>892416301</coreId>
 					</Obj>
 					<bitwidth>21</bitwidth>
 				</Value>
@@ -2158,10 +2158,10 @@
 					<Obj>
 						<type>0</type>
 						<id>43</id>
-						<name>trunc_ln144_24</name>
+						<name>trunc_ln161_24</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2177,7 +2177,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2188,7 +2188,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>3756664728</coreId>
 					</Obj>
 					<bitwidth>21</bitwidth>
 				</Value>
@@ -2211,10 +2211,10 @@
 					<Obj>
 						<type>0</type>
 						<id>44</id>
-						<name>trunc_ln144_25</name>
+						<name>trunc_ln161_25</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2230,7 +2230,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2241,7 +2241,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>1614907704</coreId>
 					</Obj>
 					<bitwidth>20</bitwidth>
 				</Value>
@@ -2264,10 +2264,10 @@
 					<Obj>
 						<type>0</type>
 						<id>45</id>
-						<name>trunc_ln144_26</name>
+						<name>trunc_ln161_26</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2283,7 +2283,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2294,7 +2294,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>132</coreId>
 					</Obj>
 					<bitwidth>20</bitwidth>
 				</Value>
@@ -2317,10 +2317,10 @@
 					<Obj>
 						<type>0</type>
 						<id>46</id>
-						<name>trunc_ln144_27</name>
+						<name>trunc_ln161_27</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2336,7 +2336,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2347,7 +2347,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1476395136</coreId>
+						<coreId>2010296480</coreId>
 					</Obj>
 					<bitwidth>19</bitwidth>
 				</Value>
@@ -2370,10 +2370,10 @@
 					<Obj>
 						<type>0</type>
 						<id>47</id>
-						<name>trunc_ln144_28</name>
+						<name>trunc_ln161_28</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2389,7 +2389,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2400,7 +2400,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>49</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>19</bitwidth>
 				</Value>
@@ -2423,10 +2423,10 @@
 					<Obj>
 						<type>0</type>
 						<id>48</id>
-						<name>trunc_ln144_29</name>
+						<name>trunc_ln161_29</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2442,7 +2442,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2453,7 +2453,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1869901417</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>18</bitwidth>
 				</Value>
@@ -2476,10 +2476,10 @@
 					<Obj>
 						<type>0</type>
 						<id>49</id>
-						<name>trunc_ln144_30</name>
+						<name>trunc_ln161_30</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2495,7 +2495,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2506,7 +2506,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>132</coreId>
+						<coreId>3758096512</coreId>
 					</Obj>
 					<bitwidth>18</bitwidth>
 				</Value>
@@ -2529,10 +2529,10 @@
 					<Obj>
 						<type>0</type>
 						<id>50</id>
-						<name>trunc_ln144_31</name>
+						<name>trunc_ln161_31</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2548,7 +2548,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2559,7 +2559,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222070320</coreId>
+						<coreId>13297</coreId>
 					</Obj>
 					<bitwidth>17</bitwidth>
 				</Value>
@@ -2582,10 +2582,10 @@
 					<Obj>
 						<type>0</type>
 						<id>51</id>
-						<name>trunc_ln144_32</name>
+						<name>trunc_ln161_32</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2601,7 +2601,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2612,7 +2612,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1868767266</coreId>
+						<coreId>2010176672</coreId>
 					</Obj>
 					<bitwidth>17</bitwidth>
 				</Value>
@@ -2635,10 +2635,10 @@
 					<Obj>
 						<type>0</type>
 						<id>52</id>
-						<name>trunc_ln144_33</name>
+						<name>trunc_ln161_33</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2654,7 +2654,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2688,10 +2688,10 @@
 					<Obj>
 						<type>0</type>
 						<id>53</id>
-						<name>trunc_ln144_34</name>
+						<name>trunc_ln161_34</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2707,7 +2707,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2718,7 +2718,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222072768</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>16</bitwidth>
 				</Value>
@@ -2741,10 +2741,10 @@
 					<Obj>
 						<type>0</type>
 						<id>54</id>
-						<name>trunc_ln144_35</name>
+						<name>trunc_ln161_35</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2760,7 +2760,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2771,7 +2771,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>3758096512</coreId>
 					</Obj>
 					<bitwidth>15</bitwidth>
 				</Value>
@@ -2794,10 +2794,10 @@
 					<Obj>
 						<type>0</type>
 						<id>55</id>
-						<name>trunc_ln144_36</name>
+						<name>trunc_ln161_36</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2813,7 +2813,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2824,7 +2824,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222193840</coreId>
+						<coreId>49</coreId>
 					</Obj>
 					<bitwidth>15</bitwidth>
 				</Value>
@@ -2847,10 +2847,10 @@
 					<Obj>
 						<type>0</type>
 						<id>56</id>
-						<name>trunc_ln144_37</name>
+						<name>trunc_ln161_37</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2866,7 +2866,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2877,7 +2877,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>542329928</coreId>
+						<coreId>1819112552</coreId>
 					</Obj>
 					<bitwidth>14</bitwidth>
 				</Value>
@@ -2900,10 +2900,10 @@
 					<Obj>
 						<type>0</type>
 						<id>57</id>
-						<name>trunc_ln144_38</name>
+						<name>trunc_ln161_38</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2919,7 +2919,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2930,7 +2930,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1702258035</coreId>
+						<coreId>33</coreId>
 					</Obj>
 					<bitwidth>14</bitwidth>
 				</Value>
@@ -2953,10 +2953,10 @@
 					<Obj>
 						<type>0</type>
 						<id>58</id>
-						<name>trunc_ln144_39</name>
+						<name>trunc_ln161_39</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -2972,7 +2972,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -2983,7 +2983,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>574451311</coreId>
+						<coreId>2010183584</coreId>
 					</Obj>
 					<bitwidth>13</bitwidth>
 				</Value>
@@ -3006,10 +3006,10 @@
 					<Obj>
 						<type>0</type>
 						<id>59</id>
-						<name>trunc_ln144_40</name>
+						<name>trunc_ln161_40</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3025,7 +3025,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3036,7 +3036,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1914708526</coreId>
+						<coreId>4294967295</coreId>
 					</Obj>
 					<bitwidth>13</bitwidth>
 				</Value>
@@ -3059,10 +3059,10 @@
 					<Obj>
 						<type>0</type>
 						<id>60</id>
-						<name>trunc_ln144_41</name>
+						<name>trunc_ln161_41</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3078,7 +3078,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3089,7 +3089,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>779314286</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>12</bitwidth>
 				</Value>
@@ -3112,10 +3112,10 @@
 					<Obj>
 						<type>0</type>
 						<id>61</id>
-						<name>trunc_ln144_42</name>
+						<name>trunc_ln161_42</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3131,7 +3131,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3142,7 +3142,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>691548986</coreId>
+						<coreId>2010186464</coreId>
 					</Obj>
 					<bitwidth>12</bitwidth>
 				</Value>
@@ -3165,10 +3165,10 @@
 					<Obj>
 						<type>0</type>
 						<id>62</id>
-						<name>trunc_ln144_43</name>
+						<name>trunc_ln161_43</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3184,7 +3184,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3195,7 +3195,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222172352</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>11</bitwidth>
 				</Value>
@@ -3218,10 +3218,10 @@
 					<Obj>
 						<type>0</type>
 						<id>63</id>
-						<name>trunc_ln144_44</name>
+						<name>trunc_ln161_44</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3237,7 +3237,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3248,7 +3248,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1953653104</coreId>
+						<coreId>997420912</coreId>
 					</Obj>
 					<bitwidth>11</bitwidth>
 				</Value>
@@ -3271,10 +3271,10 @@
 					<Obj>
 						<type>0</type>
 						<id>64</id>
-						<name>trunc_ln144_45</name>
+						<name>trunc_ln161_45</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3290,7 +3290,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3301,7 +3301,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1701344366</coreId>
+						<coreId>543516513</coreId>
 					</Obj>
 					<bitwidth>10</bitwidth>
 				</Value>
@@ -3324,10 +3324,10 @@
 					<Obj>
 						<type>0</type>
 						<id>65</id>
-						<name>trunc_ln144_46</name>
+						<name>trunc_ln161_46</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3343,7 +3343,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3354,7 +3354,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1986360064</coreId>
+						<coreId>1717924464</coreId>
 					</Obj>
 					<bitwidth>10</bitwidth>
 				</Value>
@@ -3377,10 +3377,10 @@
 					<Obj>
 						<type>0</type>
 						<id>66</id>
-						<name>trunc_ln144_47</name>
+						<name>trunc_ln161_47</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3396,7 +3396,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3407,7 +3407,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1476395360</coreId>
+						<coreId>1563439405</coreId>
 					</Obj>
 					<bitwidth>9</bitwidth>
 				</Value>
@@ -3430,10 +3430,10 @@
 					<Obj>
 						<type>0</type>
 						<id>67</id>
-						<name>trunc_ln144_48</name>
+						<name>trunc_ln161_48</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3449,7 +3449,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3460,7 +3460,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222177544</coreId>
+						<coreId>574454132</coreId>
 					</Obj>
 					<bitwidth>9</bitwidth>
 				</Value>
@@ -3483,10 +3483,10 @@
 					<Obj>
 						<type>0</type>
 						<id>68</id>
-						<name>trunc_ln144_49</name>
+						<name>trunc_ln161_49</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3502,7 +3502,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3513,7 +3513,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4294967295</coreId>
+						<coreId>2020173413</coreId>
 					</Obj>
 					<bitwidth>8</bitwidth>
 				</Value>
@@ -3536,10 +3536,10 @@
 					<Obj>
 						<type>0</type>
 						<id>69</id>
-						<name>trunc_ln144_50</name>
+						<name>trunc_ln161_50</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3555,7 +3555,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3566,7 +3566,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4294967295</coreId>
+						<coreId>1701999221</coreId>
 					</Obj>
 					<bitwidth>8</bitwidth>
 				</Value>
@@ -3589,10 +3589,10 @@
 					<Obj>
 						<type>0</type>
 						<id>70</id>
-						<name>trunc_ln144_51</name>
+						<name>trunc_ln161_51</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3608,7 +3608,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3619,7 +3619,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222180544</coreId>
+						<coreId>1634301042</coreId>
 					</Obj>
 					<bitwidth>7</bitwidth>
 				</Value>
@@ -3642,10 +3642,10 @@
 					<Obj>
 						<type>0</type>
 						<id>71</id>
-						<name>trunc_ln144_52</name>
+						<name>trunc_ln161_52</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3661,7 +3661,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3672,7 +3672,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1476395136</coreId>
+						<coreId>1835365415</coreId>
 					</Obj>
 					<bitwidth>7</bitwidth>
 				</Value>
@@ -3695,10 +3695,10 @@
 					<Obj>
 						<type>0</type>
 						<id>72</id>
-						<name>trunc_ln144_53</name>
+						<name>trunc_ln161_53</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3714,7 +3714,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3725,7 +3725,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>49</coreId>
+						<coreId>1734439795</coreId>
 					</Obj>
 					<bitwidth>6</bitwidth>
 				</Value>
@@ -3748,10 +3748,10 @@
 					<Obj>
 						<type>0</type>
 						<id>73</id>
-						<name>trunc_ln144_54</name>
+						<name>trunc_ln161_54</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3767,7 +3767,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3778,7 +3778,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4294967295</coreId>
+						<coreId>1919950848</coreId>
 					</Obj>
 					<bitwidth>6</bitwidth>
 				</Value>
@@ -3801,10 +3801,10 @@
 					<Obj>
 						<type>0</type>
 						<id>74</id>
-						<name>trunc_ln144_55</name>
+						<name>trunc_ln161_55</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3820,7 +3820,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3831,7 +3831,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>825045040</coreId>
 					</Obj>
 					<bitwidth>5</bitwidth>
 				</Value>
@@ -3854,10 +3854,10 @@
 					<Obj>
 						<type>0</type>
 						<id>75</id>
-						<name>trunc_ln144_56</name>
+						<name>trunc_ln161_56</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3873,7 +3873,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3884,7 +3884,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010215088</coreId>
 					</Obj>
 					<bitwidth>5</bitwidth>
 				</Value>
@@ -3907,10 +3907,10 @@
 					<Obj>
 						<type>0</type>
 						<id>76</id>
-						<name>trunc_ln144_57</name>
+						<name>trunc_ln161_57</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3926,7 +3926,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3937,7 +3937,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222186712</coreId>
+						<coreId>4294967295</coreId>
 					</Obj>
 					<bitwidth>4</bitwidth>
 				</Value>
@@ -3960,10 +3960,10 @@
 					<Obj>
 						<type>0</type>
 						<id>77</id>
-						<name>trunc_ln144_58</name>
+						<name>trunc_ln161_58</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -3979,7 +3979,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -3990,7 +3990,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222188057</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>4</bitwidth>
 				</Value>
@@ -4013,10 +4013,10 @@
 					<Obj>
 						<type>0</type>
 						<id>78</id>
-						<name>trunc_ln144_59</name>
+						<name>trunc_ln161_59</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4032,7 +4032,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4043,7 +4043,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1476395136</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>3</bitwidth>
 				</Value>
@@ -4066,10 +4066,10 @@
 					<Obj>
 						<type>0</type>
 						<id>79</id>
-						<name>trunc_ln144_60</name>
+						<name>trunc_ln161_60</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4085,7 +4085,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4096,7 +4096,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>132</coreId>
+						<coreId>4294967295</coreId>
 					</Obj>
 					<bitwidth>3</bitwidth>
 				</Value>
@@ -4119,10 +4119,10 @@
 					<Obj>
 						<type>0</type>
 						<id>80</id>
-						<name>trunc_ln144_61</name>
+						<name>trunc_ln161_61</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4138,7 +4138,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4149,7 +4149,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222191120</coreId>
+						<coreId>132</coreId>
 					</Obj>
 					<bitwidth>2</bitwidth>
 				</Value>
@@ -4172,10 +4172,10 @@
 					<Obj>
 						<type>0</type>
 						<id>81</id>
-						<name>trunc_ln144_62</name>
+						<name>trunc_ln161_62</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4191,7 +4191,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4202,7 +4202,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222072912</coreId>
+						<coreId>2010220976</coreId>
 					</Obj>
 					<bitwidth>2</bitwidth>
 				</Value>
@@ -4225,10 +4225,10 @@
 					<Obj>
 						<type>0</type>
 						<id>82</id>
-						<name>trunc_ln144_63</name>
+						<name>trunc_ln161_63</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4244,7 +4244,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4255,7 +4255,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>49</coreId>
+						<coreId>4294967295</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -4278,10 +4278,10 @@
 					<Obj>
 						<type>0</type>
 						<id>83</id>
-						<name>trunc_ln144_64</name>
+						<name>trunc_ln161_64</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4297,7 +4297,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4308,7 +4308,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222201072</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -4331,10 +4331,10 @@
 					<Obj>
 						<type>0</type>
 						<id>84</id>
-						<name>and_ln144</name>
+						<name>and_ln161</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4350,7 +4350,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4385,10 +4385,10 @@
 					<Obj>
 						<type>0</type>
 						<id>85</id>
-						<name>trunc_ln144_65</name>
+						<name>trunc_ln161_65</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4404,7 +4404,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4438,10 +4438,10 @@
 					<Obj>
 						<type>0</type>
 						<id>86</id>
-						<name>and_ln144_1</name>
+						<name>and_ln161_1</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4457,7 +4457,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4492,10 +4492,10 @@
 					<Obj>
 						<type>0</type>
 						<id>87</id>
-						<name>trunc_ln144_66</name>
+						<name>trunc_ln161_66</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4511,7 +4511,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4522,7 +4522,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4294967295</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>2</bitwidth>
 				</Value>
@@ -4545,10 +4545,10 @@
 					<Obj>
 						<type>0</type>
 						<id>88</id>
-						<name>and_ln144_2</name>
+						<name>and_ln161_2</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4564,7 +4564,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4575,7 +4575,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1476395136</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>2</bitwidth>
 				</Value>
@@ -4599,10 +4599,10 @@
 					<Obj>
 						<type>0</type>
 						<id>89</id>
-						<name>trunc_ln144_67</name>
+						<name>trunc_ln161_67</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4618,7 +4618,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4629,7 +4629,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010228600</coreId>
 					</Obj>
 					<bitwidth>3</bitwidth>
 				</Value>
@@ -4652,10 +4652,10 @@
 					<Obj>
 						<type>0</type>
 						<id>90</id>
-						<name>and_ln144_3</name>
+						<name>and_ln161_3</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4671,7 +4671,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4682,7 +4682,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>6</coreId>
 					</Obj>
 					<bitwidth>3</bitwidth>
 				</Value>
@@ -4706,10 +4706,10 @@
 					<Obj>
 						<type>0</type>
 						<id>91</id>
-						<name>trunc_ln144_68</name>
+						<name>trunc_ln161_68</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4725,7 +4725,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4736,7 +4736,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222208392</coreId>
+						<coreId>3137</coreId>
 					</Obj>
 					<bitwidth>4</bitwidth>
 				</Value>
@@ -4759,10 +4759,10 @@
 					<Obj>
 						<type>0</type>
 						<id>92</id>
-						<name>and_ln144_4</name>
+						<name>and_ln161_4</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4778,7 +4778,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4789,7 +4789,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>6</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>4</bitwidth>
 				</Value>
@@ -4813,10 +4813,10 @@
 					<Obj>
 						<type>0</type>
 						<id>93</id>
-						<name>trunc_ln144_69</name>
+						<name>trunc_ln161_69</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4832,7 +4832,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4843,7 +4843,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>49297</coreId>
+						<coreId>132</coreId>
 					</Obj>
 					<bitwidth>5</bitwidth>
 				</Value>
@@ -4866,10 +4866,10 @@
 					<Obj>
 						<type>0</type>
 						<id>94</id>
-						<name>and_ln144_5</name>
+						<name>and_ln161_5</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4885,7 +4885,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4896,7 +4896,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222209609</coreId>
+						<coreId>49</coreId>
 					</Obj>
 					<bitwidth>5</bitwidth>
 				</Value>
@@ -4920,10 +4920,10 @@
 					<Obj>
 						<type>0</type>
 						<id>95</id>
-						<name>trunc_ln144_70</name>
+						<name>trunc_ln161_70</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4939,7 +4939,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -4950,7 +4950,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010235992</coreId>
 					</Obj>
 					<bitwidth>6</bitwidth>
 				</Value>
@@ -4973,10 +4973,10 @@
 					<Obj>
 						<type>0</type>
 						<id>96</id>
-						<name>and_ln144_6</name>
+						<name>and_ln161_6</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -4992,7 +4992,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5003,7 +5003,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>46257</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>6</bitwidth>
 				</Value>
@@ -5027,10 +5027,10 @@
 					<Obj>
 						<type>0</type>
 						<id>97</id>
-						<name>trunc_ln144_71</name>
+						<name>trunc_ln161_71</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5046,7 +5046,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5057,7 +5057,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222212080</coreId>
+						<coreId>3758096512</coreId>
 					</Obj>
 					<bitwidth>7</bitwidth>
 				</Value>
@@ -5080,10 +5080,10 @@
 					<Obj>
 						<type>0</type>
 						<id>98</id>
-						<name>and_ln144_7</name>
+						<name>and_ln161_7</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5099,7 +5099,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5110,7 +5110,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010239032</coreId>
 					</Obj>
 					<bitwidth>7</bitwidth>
 				</Value>
@@ -5134,10 +5134,10 @@
 					<Obj>
 						<type>0</type>
 						<id>99</id>
-						<name>trunc_ln144_72</name>
+						<name>trunc_ln161_72</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5153,7 +5153,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5164,7 +5164,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010239968</coreId>
 					</Obj>
 					<bitwidth>8</bitwidth>
 				</Value>
@@ -5187,10 +5187,10 @@
 					<Obj>
 						<type>0</type>
 						<id>100</id>
-						<name>and_ln144_8</name>
+						<name>and_ln161_8</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5206,7 +5206,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5217,7 +5217,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222217856</coreId>
+						<coreId>3758096512</coreId>
 					</Obj>
 					<bitwidth>8</bitwidth>
 				</Value>
@@ -5241,10 +5241,10 @@
 					<Obj>
 						<type>0</type>
 						<id>101</id>
-						<name>trunc_ln144_73</name>
+						<name>trunc_ln161_73</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5260,7 +5260,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5271,7 +5271,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222219232</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>9</bitwidth>
 				</Value>
@@ -5294,10 +5294,10 @@
 					<Obj>
 						<type>0</type>
 						<id>102</id>
-						<name>and_ln144_9</name>
+						<name>and_ln161_9</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5313,7 +5313,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5324,7 +5324,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>842478637</coreId>
+						<coreId>2010243440</coreId>
 					</Obj>
 					<bitwidth>9</bitwidth>
 				</Value>
@@ -5348,10 +5348,10 @@
 					<Obj>
 						<type>0</type>
 						<id>103</id>
-						<name>trunc_ln144_74</name>
+						<name>trunc_ln161_74</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5367,7 +5367,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5401,10 +5401,10 @@
 					<Obj>
 						<type>0</type>
 						<id>104</id>
-						<name>and_ln144_10</name>
+						<name>and_ln161_10</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5420,7 +5420,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5431,7 +5431,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222222400</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>10</bitwidth>
 				</Value>
@@ -5455,10 +5455,10 @@
 					<Obj>
 						<type>0</type>
 						<id>105</id>
-						<name>trunc_ln144_75</name>
+						<name>trunc_ln161_75</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5474,7 +5474,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5485,7 +5485,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>49</coreId>
+						<coreId>132</coreId>
 					</Obj>
 					<bitwidth>11</bitwidth>
 				</Value>
@@ -5508,10 +5508,10 @@
 					<Obj>
 						<type>0</type>
 						<id>106</id>
-						<name>and_ln144_11</name>
+						<name>and_ln161_11</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5527,7 +5527,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5538,7 +5538,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010247368</coreId>
 					</Obj>
 					<bitwidth>11</bitwidth>
 				</Value>
@@ -5562,10 +5562,10 @@
 					<Obj>
 						<type>0</type>
 						<id>107</id>
-						<name>trunc_ln144_76</name>
+						<name>trunc_ln161_76</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5581,7 +5581,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5592,7 +5592,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>11</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>12</bitwidth>
 				</Value>
@@ -5615,10 +5615,10 @@
 					<Obj>
 						<type>0</type>
 						<id>108</id>
-						<name>and_ln144_12</name>
+						<name>and_ln161_12</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5634,7 +5634,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5645,7 +5645,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>49</coreId>
+						<coreId>132</coreId>
 					</Obj>
 					<bitwidth>12</bitwidth>
 				</Value>
@@ -5669,10 +5669,10 @@
 					<Obj>
 						<type>0</type>
 						<id>109</id>
-						<name>trunc_ln144_77</name>
+						<name>trunc_ln161_77</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5688,7 +5688,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5699,7 +5699,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222227416</coreId>
+						<coreId>3758096512</coreId>
 					</Obj>
 					<bitwidth>13</bitwidth>
 				</Value>
@@ -5722,10 +5722,10 @@
 					<Obj>
 						<type>0</type>
 						<id>110</id>
-						<name>and_ln144_13</name>
+						<name>and_ln161_13</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5741,7 +5741,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5752,7 +5752,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>79</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>13</bitwidth>
 				</Value>
@@ -5776,10 +5776,10 @@
 					<Obj>
 						<type>0</type>
 						<id>111</id>
-						<name>trunc_ln144_78</name>
+						<name>trunc_ln161_78</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5795,7 +5795,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5806,7 +5806,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1476395136</coreId>
+						<coreId>482</coreId>
 					</Obj>
 					<bitwidth>14</bitwidth>
 				</Value>
@@ -5829,10 +5829,10 @@
 					<Obj>
 						<type>0</type>
 						<id>112</id>
-						<name>and_ln144_14</name>
+						<name>and_ln161_14</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5848,7 +5848,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5859,7 +5859,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222230456</coreId>
+						<coreId>3758096512</coreId>
 					</Obj>
 					<bitwidth>14</bitwidth>
 				</Value>
@@ -5883,10 +5883,10 @@
 					<Obj>
 						<type>0</type>
 						<id>113</id>
-						<name>trunc_ln144_79</name>
+						<name>trunc_ln161_79</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5902,7 +5902,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5913,7 +5913,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222233952</coreId>
+						<coreId>1</coreId>
 					</Obj>
 					<bitwidth>15</bitwidth>
 				</Value>
@@ -5936,10 +5936,10 @@
 					<Obj>
 						<type>0</type>
 						<id>114</id>
-						<name>and_ln144_15</name>
+						<name>and_ln161_15</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -5955,7 +5955,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -5966,7 +5966,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1476395136</coreId>
+						<coreId>1050</coreId>
 					</Obj>
 					<bitwidth>15</bitwidth>
 				</Value>
@@ -5990,10 +5990,10 @@
 					<Obj>
 						<type>0</type>
 						<id>115</id>
-						<name>trunc_ln144_80</name>
+						<name>trunc_ln161_80</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6009,7 +6009,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6020,7 +6020,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010254968</coreId>
 					</Obj>
 					<bitwidth>16</bitwidth>
 				</Value>
@@ -6043,10 +6043,10 @@
 					<Obj>
 						<type>0</type>
 						<id>116</id>
-						<name>and_ln144_16</name>
+						<name>and_ln161_16</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6062,7 +6062,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6073,7 +6073,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222234864</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>16</bitwidth>
 				</Value>
@@ -6097,10 +6097,10 @@
 					<Obj>
 						<type>0</type>
 						<id>117</id>
-						<name>trunc_ln144_81</name>
+						<name>trunc_ln161_81</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6116,7 +6116,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6127,7 +6127,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>34401</coreId>
 					</Obj>
 					<bitwidth>17</bitwidth>
 				</Value>
@@ -6150,10 +6150,10 @@
 					<Obj>
 						<type>0</type>
 						<id>118</id>
-						<name>and_ln144_17</name>
+						<name>and_ln161_17</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6169,7 +6169,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6180,7 +6180,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>62</coreId>
+						<coreId>2010259401</coreId>
 					</Obj>
 					<bitwidth>17</bitwidth>
 				</Value>
@@ -6204,10 +6204,10 @@
 					<Obj>
 						<type>0</type>
 						<id>119</id>
-						<name>trunc_ln144_82</name>
+						<name>trunc_ln161_82</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6223,7 +6223,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6234,7 +6234,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>132</coreId>
+						<coreId>1019</coreId>
 					</Obj>
 					<bitwidth>18</bitwidth>
 				</Value>
@@ -6257,10 +6257,10 @@
 					<Obj>
 						<type>0</type>
 						<id>120</id>
-						<name>and_ln144_18</name>
+						<name>and_ln161_18</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6276,7 +6276,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6287,7 +6287,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>31361</coreId>
 					</Obj>
 					<bitwidth>18</bitwidth>
 				</Value>
@@ -6311,10 +6311,10 @@
 					<Obj>
 						<type>0</type>
 						<id>121</id>
-						<name>trunc_ln144_83</name>
+						<name>trunc_ln161_83</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6330,7 +6330,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6341,7 +6341,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222239400</coreId>
+						<coreId>2010262304</coreId>
 					</Obj>
 					<bitwidth>19</bitwidth>
 				</Value>
@@ -6364,10 +6364,10 @@
 					<Obj>
 						<type>0</type>
 						<id>122</id>
-						<name>and_ln144_19</name>
+						<name>and_ln161_19</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6383,7 +6383,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6394,7 +6394,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>132</coreId>
+						<coreId>59</coreId>
 					</Obj>
 					<bitwidth>19</bitwidth>
 				</Value>
@@ -6418,10 +6418,10 @@
 					<Obj>
 						<type>0</type>
 						<id>123</id>
-						<name>trunc_ln144_84</name>
+						<name>trunc_ln161_84</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6437,7 +6437,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6448,7 +6448,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>8</coreId>
+						<coreId>99</coreId>
 					</Obj>
 					<bitwidth>20</bitwidth>
 				</Value>
@@ -6471,10 +6471,10 @@
 					<Obj>
 						<type>0</type>
 						<id>124</id>
-						<name>and_ln144_20</name>
+						<name>and_ln161_20</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6490,7 +6490,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6501,7 +6501,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010265344</coreId>
 					</Obj>
 					<bitwidth>20</bitwidth>
 				</Value>
@@ -6525,10 +6525,10 @@
 					<Obj>
 						<type>0</type>
 						<id>125</id>
-						<name>trunc_ln144_85</name>
+						<name>trunc_ln161_85</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6544,7 +6544,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6555,7 +6555,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>962</coreId>
+						<coreId>2010266848</coreId>
 					</Obj>
 					<bitwidth>21</bitwidth>
 				</Value>
@@ -6578,10 +6578,10 @@
 					<Obj>
 						<type>0</type>
 						<id>126</id>
-						<name>and_ln144_21</name>
+						<name>and_ln161_21</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6597,7 +6597,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6608,7 +6608,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1476395136</coreId>
+						<coreId>3290932</coreId>
 					</Obj>
 					<bitwidth>21</bitwidth>
 				</Value>
@@ -6632,10 +6632,10 @@
 					<Obj>
 						<type>0</type>
 						<id>127</id>
-						<name>trunc_ln144_86</name>
+						<name>trunc_ln161_86</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6651,7 +6651,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6685,10 +6685,10 @@
 					<Obj>
 						<type>0</type>
 						<id>128</id>
-						<name>and_ln144_22</name>
+						<name>and_ln161_22</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6704,7 +6704,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6715,7 +6715,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>153</coreId>
+						<coreId>2010269760</coreId>
 					</Obj>
 					<bitwidth>22</bitwidth>
 				</Value>
@@ -6739,10 +6739,10 @@
 					<Obj>
 						<type>0</type>
 						<id>129</id>
-						<name>trunc_ln144_87</name>
+						<name>trunc_ln161_87</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6758,7 +6758,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6769,7 +6769,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222247304</coreId>
+						<coreId>49</coreId>
 					</Obj>
 					<bitwidth>23</bitwidth>
 				</Value>
@@ -6792,10 +6792,10 @@
 					<Obj>
 						<type>0</type>
 						<id>130</id>
-						<name>and_ln144_23</name>
+						<name>and_ln161_23</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6811,7 +6811,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6822,7 +6822,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>6</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>23</bitwidth>
 				</Value>
@@ -6846,10 +6846,10 @@
 					<Obj>
 						<type>0</type>
 						<id>131</id>
-						<name>trunc_ln144_88</name>
+						<name>trunc_ln161_88</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6865,7 +6865,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6876,7 +6876,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>10385</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>24</bitwidth>
 				</Value>
@@ -6899,10 +6899,10 @@
 					<Obj>
 						<type>0</type>
 						<id>132</id>
-						<name>and_ln144_24</name>
+						<name>and_ln161_24</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6918,7 +6918,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6929,7 +6929,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222248521</coreId>
+						<coreId>49</coreId>
 					</Obj>
 					<bitwidth>24</bitwidth>
 				</Value>
@@ -6953,10 +6953,10 @@
 					<Obj>
 						<type>0</type>
 						<id>133</id>
-						<name>trunc_ln144_89</name>
+						<name>trunc_ln161_89</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -6972,7 +6972,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -6983,7 +6983,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010274904</coreId>
 					</Obj>
 					<bitwidth>25</bitwidth>
 				</Value>
@@ -7006,10 +7006,10 @@
 					<Obj>
 						<type>0</type>
 						<id>134</id>
-						<name>and_ln144_25</name>
+						<name>and_ln161_25</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7025,7 +7025,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7036,7 +7036,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>7345</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>25</bitwidth>
 				</Value>
@@ -7060,10 +7060,10 @@
 					<Obj>
 						<type>0</type>
 						<id>135</id>
-						<name>trunc_ln144_90</name>
+						<name>trunc_ln161_90</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7079,7 +7079,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7113,10 +7113,10 @@
 					<Obj>
 						<type>0</type>
 						<id>136</id>
-						<name>and_ln144_26</name>
+						<name>and_ln161_26</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7132,7 +7132,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7143,7 +7143,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010279632</coreId>
 					</Obj>
 					<bitwidth>26</bitwidth>
 				</Value>
@@ -7167,10 +7167,10 @@
 					<Obj>
 						<type>0</type>
 						<id>137</id>
-						<name>trunc_ln144_91</name>
+						<name>trunc_ln161_91</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7186,7 +7186,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7197,7 +7197,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1476395136</coreId>
+						<coreId>2010281008</coreId>
 					</Obj>
 					<bitwidth>27</bitwidth>
 				</Value>
@@ -7220,10 +7220,10 @@
 					<Obj>
 						<type>0</type>
 						<id>138</id>
-						<name>and_ln144_27</name>
+						<name>and_ln161_27</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7239,7 +7239,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7250,7 +7250,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222259080</coreId>
+						<coreId>842478637</coreId>
 					</Obj>
 					<bitwidth>27</bitwidth>
 				</Value>
@@ -7274,10 +7274,10 @@
 					<Obj>
 						<type>0</type>
 						<id>139</id>
-						<name>trunc_ln144_92</name>
+						<name>trunc_ln161_92</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7293,7 +7293,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7304,7 +7304,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222260496</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>28</bitwidth>
 				</Value>
@@ -7327,10 +7327,10 @@
 					<Obj>
 						<type>0</type>
 						<id>140</id>
-						<name>and_ln144_28</name>
+						<name>and_ln161_28</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7346,7 +7346,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7357,7 +7357,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>49</coreId>
+						<coreId>2010284176</coreId>
 					</Obj>
 					<bitwidth>28</bitwidth>
 				</Value>
@@ -7381,10 +7381,10 @@
 					<Obj>
 						<type>0</type>
 						<id>141</id>
-						<name>trunc_ln144_93</name>
+						<name>trunc_ln161_93</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7400,7 +7400,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7411,7 +7411,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>49</coreId>
 					</Obj>
 					<bitwidth>29</bitwidth>
 				</Value>
@@ -7434,10 +7434,10 @@
 					<Obj>
 						<type>0</type>
 						<id>142</id>
-						<name>and_ln144_29</name>
+						<name>and_ln161_29</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7453,7 +7453,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7464,7 +7464,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222270192</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>29</bitwidth>
 				</Value>
@@ -7488,10 +7488,10 @@
 					<Obj>
 						<type>0</type>
 						<id>143</id>
-						<name>trunc_ln144_94</name>
+						<name>trunc_ln161_94</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7507,7 +7507,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7518,7 +7518,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>49</coreId>
+						<coreId>11</coreId>
 					</Obj>
 					<bitwidth>30</bitwidth>
 				</Value>
@@ -7541,10 +7541,10 @@
 					<Obj>
 						<type>0</type>
 						<id>144</id>
-						<name>and_ln144_30</name>
+						<name>and_ln161_30</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7560,7 +7560,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7571,7 +7571,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>49</coreId>
 					</Obj>
 					<bitwidth>30</bitwidth>
 				</Value>
@@ -7595,10 +7595,10 @@
 					<Obj>
 						<type>0</type>
 						<id>145</id>
-						<name>trunc_ln144_95</name>
+						<name>trunc_ln161_95</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7614,7 +7614,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7625,7 +7625,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010289192</coreId>
 					</Obj>
 					<bitwidth>31</bitwidth>
 				</Value>
@@ -7648,10 +7648,10 @@
 					<Obj>
 						<type>0</type>
 						<id>146</id>
-						<name>and_ln144_31</name>
+						<name>and_ln161_31</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7667,7 +7667,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7678,7 +7678,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>31</coreId>
 					</Obj>
 					<bitwidth>31</bitwidth>
 				</Value>
@@ -7705,7 +7705,7 @@
 						<name>match</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7721,7 +7721,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7732,7 +7732,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010293104</coreId>
 					</Obj>
 					<bitwidth>32</bitwidth>
 				</Value>
@@ -7756,10 +7756,10 @@
 					<Obj>
 						<type>0</type>
 						<id>148</id>
-						<name>and_ln144_33</name>
+						<name>and_ln161_33</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7775,7 +7775,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7786,7 +7786,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>671154691</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>31</bitwidth>
 				</Value>
@@ -7810,10 +7810,10 @@
 					<Obj>
 						<type>0</type>
 						<id>149</id>
-						<name>and_ln144_34</name>
+						<name>and_ln161_34</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7829,7 +7829,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7840,7 +7840,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>49</coreId>
 					</Obj>
 					<bitwidth>30</bitwidth>
 				</Value>
@@ -7864,10 +7864,10 @@
 					<Obj>
 						<type>0</type>
 						<id>150</id>
-						<name>and_ln144_35</name>
+						<name>and_ln161_35</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7883,7 +7883,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7918,10 +7918,10 @@
 					<Obj>
 						<type>0</type>
 						<id>151</id>
-						<name>and_ln144_36</name>
+						<name>and_ln161_36</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7937,7 +7937,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -7972,10 +7972,10 @@
 					<Obj>
 						<type>0</type>
 						<id>152</id>
-						<name>and_ln144_37</name>
+						<name>and_ln161_37</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -7991,7 +7991,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8026,10 +8026,10 @@
 					<Obj>
 						<type>0</type>
 						<id>153</id>
-						<name>and_ln144_38</name>
+						<name>and_ln161_38</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8045,7 +8045,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8056,7 +8056,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2010304888</coreId>
 					</Obj>
 					<bitwidth>26</bitwidth>
 				</Value>
@@ -8080,10 +8080,10 @@
 					<Obj>
 						<type>0</type>
 						<id>154</id>
-						<name>and_ln144_39</name>
+						<name>and_ln161_39</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8099,7 +8099,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8134,10 +8134,10 @@
 					<Obj>
 						<type>0</type>
 						<id>155</id>
-						<name>and_ln144_40</name>
+						<name>and_ln161_40</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8153,7 +8153,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8188,10 +8188,10 @@
 					<Obj>
 						<type>0</type>
 						<id>156</id>
-						<name>and_ln144_41</name>
+						<name>and_ln161_41</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8207,7 +8207,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8242,10 +8242,10 @@
 					<Obj>
 						<type>0</type>
 						<id>157</id>
-						<name>and_ln144_42</name>
+						<name>and_ln161_42</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8261,7 +8261,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8296,10 +8296,10 @@
 					<Obj>
 						<type>0</type>
 						<id>158</id>
-						<name>and_ln144_43</name>
+						<name>and_ln161_43</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8315,7 +8315,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8350,10 +8350,10 @@
 					<Obj>
 						<type>0</type>
 						<id>159</id>
-						<name>and_ln144_44</name>
+						<name>and_ln161_44</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8369,7 +8369,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8404,10 +8404,10 @@
 					<Obj>
 						<type>0</type>
 						<id>160</id>
-						<name>and_ln144_45</name>
+						<name>and_ln161_45</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8423,7 +8423,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8458,10 +8458,10 @@
 					<Obj>
 						<type>0</type>
 						<id>161</id>
-						<name>and_ln144_46</name>
+						<name>and_ln161_46</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8477,7 +8477,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8512,10 +8512,10 @@
 					<Obj>
 						<type>0</type>
 						<id>162</id>
-						<name>and_ln144_47</name>
+						<name>and_ln161_47</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8531,7 +8531,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8566,10 +8566,10 @@
 					<Obj>
 						<type>0</type>
 						<id>163</id>
-						<name>and_ln144_48</name>
+						<name>and_ln161_48</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8585,7 +8585,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8620,10 +8620,10 @@
 					<Obj>
 						<type>0</type>
 						<id>164</id>
-						<name>and_ln144_49</name>
+						<name>and_ln161_49</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8639,7 +8639,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8674,10 +8674,10 @@
 					<Obj>
 						<type>0</type>
 						<id>165</id>
-						<name>and_ln144_50</name>
+						<name>and_ln161_50</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8693,7 +8693,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8728,10 +8728,10 @@
 					<Obj>
 						<type>0</type>
 						<id>166</id>
-						<name>and_ln144_51</name>
+						<name>and_ln161_51</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8747,7 +8747,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8782,10 +8782,10 @@
 					<Obj>
 						<type>0</type>
 						<id>167</id>
-						<name>and_ln144_52</name>
+						<name>and_ln161_52</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8801,7 +8801,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8836,10 +8836,10 @@
 					<Obj>
 						<type>0</type>
 						<id>168</id>
-						<name>and_ln144_53</name>
+						<name>and_ln161_53</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8855,7 +8855,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8890,10 +8890,10 @@
 					<Obj>
 						<type>0</type>
 						<id>169</id>
-						<name>and_ln144_54</name>
+						<name>and_ln161_54</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8909,7 +8909,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8944,10 +8944,10 @@
 					<Obj>
 						<type>0</type>
 						<id>170</id>
-						<name>and_ln144_55</name>
+						<name>and_ln161_55</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -8963,7 +8963,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -8998,10 +8998,10 @@
 					<Obj>
 						<type>0</type>
 						<id>171</id>
-						<name>and_ln144_56</name>
+						<name>and_ln161_56</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9017,7 +9017,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -9052,10 +9052,10 @@
 					<Obj>
 						<type>0</type>
 						<id>172</id>
-						<name>and_ln144_57</name>
+						<name>and_ln161_57</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9071,7 +9071,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -9106,10 +9106,10 @@
 					<Obj>
 						<type>0</type>
 						<id>173</id>
-						<name>and_ln144_58</name>
+						<name>and_ln161_58</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9125,7 +9125,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -9160,10 +9160,10 @@
 					<Obj>
 						<type>0</type>
 						<id>174</id>
-						<name>and_ln144_59</name>
+						<name>and_ln161_59</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9179,7 +9179,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -9214,10 +9214,10 @@
 					<Obj>
 						<type>0</type>
 						<id>175</id>
-						<name>and_ln144_60</name>
+						<name>and_ln161_60</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9233,7 +9233,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -9268,10 +9268,10 @@
 					<Obj>
 						<type>0</type>
 						<id>176</id>
-						<name>and_ln144_61</name>
+						<name>and_ln161_61</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9287,7 +9287,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -9298,7 +9298,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>4228300630</coreId>
 					</Obj>
 					<bitwidth>3</bitwidth>
 				</Value>
@@ -9322,10 +9322,10 @@
 					<Obj>
 						<type>0</type>
 						<id>177</id>
-						<name>and_ln144_62</name>
+						<name>and_ln161_62</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9341,7 +9341,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -9352,7 +9352,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>4228300630</coreId>
 					</Obj>
 					<bitwidth>2</bitwidth>
 				</Value>
@@ -9376,10 +9376,10 @@
 					<Obj>
 						<type>0</type>
 						<id>178</id>
-						<name>and_ln144_63</name>
+						<name>and_ln161_63</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>144</lineNumber>
+						<lineNumber>161</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9395,7 +9395,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>144</second>
+										<second>161</second>
 									</item>
 								</second>
 							</item>
@@ -9430,10 +9430,10 @@
 					<Obj>
 						<type>0</type>
 						<id>179</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9449,7 +9449,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -9488,7 +9488,7 @@
 						<name>tmp</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9504,7 +9504,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -9515,7 +9515,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>355</coreId>
+						<coreId>4228300630</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -9540,10 +9540,10 @@
 					<Obj>
 						<type>0</type>
 						<id>182</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9559,7 +9559,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -9570,7 +9570,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>487</coreId>
+						<coreId>4228300630</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -9598,7 +9598,7 @@
 						<name>tmp_8</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9614,7 +9614,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -9650,10 +9650,10 @@
 					<Obj>
 						<type>0</type>
 						<id>185</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9669,7 +9669,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -9680,7 +9680,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4228300630</coreId>
+						<coreId>480</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -9708,7 +9708,7 @@
 						<name>tmp_9</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9724,7 +9724,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -9760,10 +9760,10 @@
 					<Obj>
 						<type>0</type>
 						<id>188</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9779,7 +9779,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -9790,7 +9790,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>556</coreId>
+						<coreId>4228300630</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -9818,7 +9818,7 @@
 						<name>tmp_10</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9834,7 +9834,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -9870,10 +9870,10 @@
 					<Obj>
 						<type>0</type>
 						<id>191</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9889,7 +9889,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -9928,7 +9928,7 @@
 						<name>tmp_11</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9944,7 +9944,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -9955,7 +9955,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4228300630</coreId>
+						<coreId>1304</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -9980,10 +9980,10 @@
 					<Obj>
 						<type>0</type>
 						<id>194</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -9999,7 +9999,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10038,7 +10038,7 @@
 						<name>tmp_12</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10054,7 +10054,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10065,7 +10065,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4228300630</coreId>
+						<coreId>591</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -10090,10 +10090,10 @@
 					<Obj>
 						<type>0</type>
 						<id>197</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10109,7 +10109,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10120,7 +10120,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4228300630</coreId>
+						<coreId>705</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -10148,7 +10148,7 @@
 						<name>tmp_13</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10164,7 +10164,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10175,7 +10175,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1561</coreId>
+						<coreId>750</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -10200,10 +10200,10 @@
 					<Obj>
 						<type>0</type>
 						<id>200</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10219,7 +10219,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10230,7 +10230,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1226</coreId>
+						<coreId>1014</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -10258,7 +10258,7 @@
 						<name>tmp_14</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10274,7 +10274,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10285,7 +10285,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>902</coreId>
+						<coreId>1386</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -10310,10 +10310,10 @@
 					<Obj>
 						<type>0</type>
 						<id>203</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10329,7 +10329,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10340,7 +10340,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1146</coreId>
+						<coreId>598</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -10368,7 +10368,7 @@
 						<name>tmp_15</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10384,7 +10384,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10395,7 +10395,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1518</coreId>
+						<coreId>1558</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -10420,10 +10420,10 @@
 					<Obj>
 						<type>0</type>
 						<id>206</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10439,7 +10439,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10450,7 +10450,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1074</coreId>
+						<coreId>698</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -10478,7 +10478,7 @@
 						<name>tmp_16</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10494,7 +10494,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10530,10 +10530,10 @@
 					<Obj>
 						<type>0</type>
 						<id>209</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10549,7 +10549,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10588,7 +10588,7 @@
 						<name>tmp_17</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10604,7 +10604,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10640,10 +10640,10 @@
 					<Obj>
 						<type>0</type>
 						<id>212</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10659,7 +10659,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10698,7 +10698,7 @@
 						<name>tmp_18</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10714,7 +10714,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10750,10 +10750,10 @@
 					<Obj>
 						<type>0</type>
 						<id>215</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10769,7 +10769,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10780,7 +10780,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -10808,7 +10808,7 @@
 						<name>tmp_19</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10824,7 +10824,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10860,10 +10860,10 @@
 					<Obj>
 						<type>0</type>
 						<id>218</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10879,7 +10879,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10890,7 +10890,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>2</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -10918,7 +10918,7 @@
 						<name>tmp_20</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10934,7 +10934,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -10970,10 +10970,10 @@
 					<Obj>
 						<type>0</type>
 						<id>221</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -10989,7 +10989,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11028,7 +11028,7 @@
 						<name>tmp_21</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11044,7 +11044,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11055,7 +11055,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>769</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -11080,10 +11080,10 @@
 					<Obj>
 						<type>0</type>
 						<id>224</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11099,7 +11099,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11138,7 +11138,7 @@
 						<name>tmp_22</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11154,7 +11154,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11190,10 +11190,10 @@
 					<Obj>
 						<type>0</type>
 						<id>227</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11209,7 +11209,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11220,7 +11220,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>16908804</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -11248,7 +11248,7 @@
 						<name>tmp_23</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11264,7 +11264,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11300,10 +11300,10 @@
 					<Obj>
 						<type>0</type>
 						<id>230</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11319,7 +11319,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11330,7 +11330,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>4294967295</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -11358,7 +11358,7 @@
 						<name>tmp_24</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11374,7 +11374,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11385,7 +11385,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>4294967295</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -11410,10 +11410,10 @@
 					<Obj>
 						<type>0</type>
 						<id>233</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11429,7 +11429,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11468,7 +11468,7 @@
 						<name>tmp_25</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11484,7 +11484,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11495,7 +11495,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4294967295</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -11520,10 +11520,10 @@
 					<Obj>
 						<type>0</type>
 						<id>236</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11539,7 +11539,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11550,7 +11550,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4294967295</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -11578,7 +11578,7 @@
 						<name>tmp_26</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11594,7 +11594,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11605,7 +11605,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4269168015</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -11630,10 +11630,10 @@
 					<Obj>
 						<type>0</type>
 						<id>239</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11649,7 +11649,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11660,7 +11660,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1476395136</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -11688,7 +11688,7 @@
 						<name>tmp_27</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11704,7 +11704,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11715,7 +11715,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>737</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -11740,10 +11740,10 @@
 					<Obj>
 						<type>0</type>
 						<id>242</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11759,7 +11759,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11770,7 +11770,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>67</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -11798,7 +11798,7 @@
 						<name>tmp_28</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11814,7 +11814,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11825,7 +11825,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1210</coreId>
+						<coreId>2010387456</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -11850,10 +11850,10 @@
 					<Obj>
 						<type>0</type>
 						<id>245</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11869,7 +11869,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11880,7 +11880,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>700</coreId>
+						<coreId>4228300630</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -11908,7 +11908,7 @@
 						<name>tmp_29</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11924,7 +11924,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11935,7 +11935,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4228300630</coreId>
+						<coreId>1824</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -11960,10 +11960,10 @@
 					<Obj>
 						<type>0</type>
 						<id>248</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -11979,7 +11979,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -11990,7 +11990,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1339</coreId>
+						<coreId>1705</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -12018,7 +12018,7 @@
 						<name>tmp_30</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12034,7 +12034,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12045,7 +12045,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1709</coreId>
+						<coreId>2077</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -12070,10 +12070,10 @@
 					<Obj>
 						<type>0</type>
 						<id>251</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12089,7 +12089,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12100,7 +12100,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>1973</coreId>
+						<coreId>2341</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -12128,7 +12128,7 @@
 						<name>tmp_31</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12144,7 +12144,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12155,7 +12155,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>2345</coreId>
+						<coreId>2279</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -12180,10 +12180,10 @@
 					<Obj>
 						<type>0</type>
 						<id>254</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12199,7 +12199,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12210,7 +12210,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>2327</coreId>
+						<coreId>2686</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -12238,7 +12238,7 @@
 						<name>tmp_32</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12254,7 +12254,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12265,7 +12265,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>2771</coreId>
+						<coreId>1733</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -12290,10 +12290,10 @@
 					<Obj>
 						<type>0</type>
 						<id>257</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12309,7 +12309,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12320,7 +12320,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>3244</coreId>
+						<coreId>3615</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -12348,7 +12348,7 @@
 						<name>tmp_33</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12364,7 +12364,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12375,7 +12375,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>3619</coreId>
+						<coreId>3987</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -12400,10 +12400,10 @@
 					<Obj>
 						<type>0</type>
 						<id>260</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12419,7 +12419,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12430,7 +12430,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>3883</coreId>
+						<coreId>4251</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -12458,7 +12458,7 @@
 						<name>tmp_34</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12474,7 +12474,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12485,7 +12485,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4255</coreId>
+						<coreId>4623</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -12510,10 +12510,10 @@
 					<Obj>
 						<type>0</type>
 						<id>263</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12529,7 +12529,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12540,7 +12540,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4519</coreId>
+						<coreId>4887</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -12568,7 +12568,7 @@
 						<name>tmp_35</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12584,7 +12584,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12595,7 +12595,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4891</coreId>
+						<coreId>5259</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -12620,10 +12620,10 @@
 					<Obj>
 						<type>0</type>
 						<id>266</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12639,7 +12639,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12650,7 +12650,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>5155</coreId>
+						<coreId>5523</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -12678,7 +12678,7 @@
 						<name>tmp_36</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12694,7 +12694,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12705,7 +12705,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>5527</coreId>
+						<coreId>5895</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -12730,10 +12730,10 @@
 					<Obj>
 						<type>0</type>
 						<id>269</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12749,7 +12749,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12760,7 +12760,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>5791</coreId>
+						<coreId>6159</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -12788,7 +12788,7 @@
 						<name>tmp_37</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12804,7 +12804,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12815,7 +12815,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>6163</coreId>
+						<coreId>6531</coreId>
 					</Obj>
 					<bitwidth>1</bitwidth>
 				</Value>
@@ -12840,10 +12840,10 @@
 					<Obj>
 						<type>0</type>
 						<id>272</id>
-						<name>br_ln150</name>
+						<name>br_ln168</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>150</lineNumber>
+						<lineNumber>168</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -12859,7 +12859,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>150</second>
+										<second>168</second>
 									</item>
 								</second>
 							</item>
@@ -12870,7 +12870,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>6427</coreId>
+						<coreId>6795</coreId>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
@@ -12911,7 +12911,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>6799</coreId>
+						<coreId>0</coreId>
 					</Obj>
 					<bitwidth>5</bitwidth>
 				</Value>
@@ -12997,10 +12997,10 @@
 					<Obj>
 						<type>0</type>
 						<id>275</id>
-						<name>zext_ln157</name>
+						<name>zext_ln175</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>157</lineNumber>
+						<lineNumber>175</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -13016,7 +13016,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>157</second>
+										<second>175</second>
 									</item>
 								</second>
 							</item>
@@ -13053,7 +13053,7 @@
 						<name>mem_value_addr</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>157</lineNumber>
+						<lineNumber>175</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -13069,7 +13069,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>157</second>
+										<second>175</second>
 									</item>
 								</second>
 							</item>
@@ -13108,7 +13108,7 @@
 						<name>mem_value_load</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>157</lineNumber>
+						<lineNumber>175</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -13124,7 +13124,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>157</second>
+										<second>175</second>
 									</item>
 								</second>
 							</item>
@@ -13158,10 +13158,10 @@
 					<Obj>
 						<type>0</type>
 						<id>278</id>
-						<name>br_ln163</name>
+						<name>br_ln181</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>163</lineNumber>
+						<lineNumber>181</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -13177,7 +13177,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>163</second>
+										<second>181</second>
 									</item>
 								</second>
 							</item>
@@ -13211,10 +13211,10 @@
 					<Obj>
 						<type>0</type>
 						<id>280</id>
-						<name>phi_ln169</name>
+						<name>phi_ln187</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>169</lineNumber>
+						<lineNumber>187</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -13230,7 +13230,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>169</second>
+										<second>187</second>
 									</item>
 								</second>
 							</item>
@@ -13309,10 +13309,10 @@
 					<Obj>
 						<type>0</type>
 						<id>282</id>
-						<name>zext_ln169</name>
+						<name>zext_ln187</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>169</lineNumber>
+						<lineNumber>187</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -13328,7 +13328,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>169</second>
+										<second>187</second>
 									</item>
 								</second>
 							</item>
@@ -13365,7 +13365,7 @@
 						<name>mrv</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>169</lineNumber>
+						<lineNumber>187</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -13381,7 +13381,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>169</second>
+										<second>187</second>
 									</item>
 								</second>
 							</item>
@@ -13419,7 +13419,7 @@
 						<name>mrv_1</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>169</lineNumber>
+						<lineNumber>187</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -13435,7 +13435,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>169</second>
+										<second>187</second>
 									</item>
 								</second>
 							</item>
@@ -13470,10 +13470,10 @@
 					<Obj>
 						<type>0</type>
 						<id>285</id>
-						<name>_ln169</name>
+						<name>_ln187</name>
 						<fileName>Server/LZW_new.cpp</fileName>
 						<fileDirectory>/home1/l/lize1/ese532_final/project</fileDirectory>
-						<lineNumber>169</lineNumber>
+						<lineNumber>187</lineNumber>
 						<contextFuncName>assoc_lookup</contextFuncName>
 						<contextNormFuncName>assoc_lookup</contextNormFuncName>
 						<inlineStackInfo>
@@ -13489,7 +13489,7 @@
 											<first>Server/LZW_new.cpp</first>
 											<second>assoc_lookup</second>
 										</first>
-										<second>169</second>
+										<second>187</second>
 									</item>
 								</second>
 							</item>
@@ -13543,7 +13543,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>2009671696</coreId>
 					</Obj>
 					<bitwidth>32</bitwidth>
 				</Value>
@@ -13739,7 +13739,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222404672</coreId>
+						<coreId>2010427136</coreId>
 					</Obj>
 					<bitwidth>5</bitwidth>
 				</Value>
@@ -13767,7 +13767,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4193209680</coreId>
+						<coreId>2010072624</coreId>
 					</Obj>
 					<bitwidth>5</bitwidth>
 				</Value>
@@ -13795,7 +13795,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>4222057536</coreId>
+						<coreId>2009240416</coreId>
 					</Obj>
 					<bitwidth>5</bitwidth>
 				</Value>
@@ -15167,7 +15167,7 @@
 						<opType></opType>
 						<implIndex></implIndex>
 						<coreName></coreName>
-						<coreId>0</coreId>
+						<coreId>60961</coreId>
 					</Obj>
 					<bitwidth>32</bitwidth>
 				</Value>
@@ -15450,7 +15450,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>4221587488</coreId>
+					<coreId>2009440896</coreId>
 				</Obj>
 				<node_objs>
 					<count>174</count>
@@ -15651,7 +15651,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>297</coreId>
+					<coreId>540</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -15709,7 +15709,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>4228300630</coreId>
+					<coreId>601</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -15796,7 +15796,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>4228300630</coreId>
+					<coreId>6276</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -15825,7 +15825,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>730</coreId>
+					<coreId>1555</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -15854,7 +15854,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>786</coreId>
+					<coreId>1270</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -15883,7 +15883,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>1402</coreId>
+					<coreId>209</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -15912,7 +15912,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>4221767888</coreId>
+					<coreId>2010194160</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -15941,7 +15941,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>1490</coreId>
+					<coreId>0</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -15970,7 +15970,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>2</coreId>
+					<coreId>0</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -15999,7 +15999,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>0</coreId>
+					<coreId>2</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16057,7 +16057,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>0</coreId>
+					<coreId>3758096512</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16144,7 +16144,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>0</coreId>
+					<coreId>4294967295</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16173,7 +16173,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>4294967295</coreId>
+					<coreId>0</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16202,7 +16202,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>2003792416</coreId>
+					<coreId>0</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16231,7 +16231,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>1476395136</coreId>
+					<coreId>0</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16260,7 +16260,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>321</coreId>
+					<coreId>0</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16289,7 +16289,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>1166</coreId>
+					<coreId>1744</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16318,7 +16318,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>1592</coreId>
+					<coreId>1961</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16347,7 +16347,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>2229</coreId>
+					<coreId>2118</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16376,7 +16376,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>2816</coreId>
+					<coreId>3232</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16405,7 +16405,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>3503</coreId>
+					<coreId>3871</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16434,7 +16434,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>4139</coreId>
+					<coreId>4507</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16463,7 +16463,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>4775</coreId>
+					<coreId>5143</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16492,7 +16492,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>5411</coreId>
+					<coreId>5779</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16521,7 +16521,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>6047</coreId>
+					<coreId>6415</coreId>
 				</Obj>
 				<node_objs>
 					<count>2</count>
@@ -16550,7 +16550,7 @@
 					<opType></opType>
 					<implIndex></implIndex>
 					<coreName></coreName>
-					<coreId>6683</coreId>
+					<coreId>0</coreId>
 				</Obj>
 				<node_objs>
 					<count>5</count>

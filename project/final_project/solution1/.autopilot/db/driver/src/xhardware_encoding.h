@@ -96,6 +96,8 @@ void XHardware_encoding_Set_lzw_size(XHardware_encoding *InstancePtr, u64 Data);
 u64 XHardware_encoding_Get_lzw_size(XHardware_encoding *InstancePtr);
 void XHardware_encoding_Set_input_size(XHardware_encoding *InstancePtr, u64 Data);
 u64 XHardware_encoding_Get_input_size(XHardware_encoding *InstancePtr);
+void XHardware_encoding_Set_chunk_number(XHardware_encoding *InstancePtr, u64 Data);
+u64 XHardware_encoding_Get_chunk_number(XHardware_encoding *InstancePtr);
 
 void XHardware_encoding_InterruptGlobalEnable(XHardware_encoding *InstancePtr);
 void XHardware_encoding_InterruptGlobalDisable(XHardware_encoding *InstancePtr);

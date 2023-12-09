@@ -35,6 +35,9 @@ using namespace sc_dt;
 // wrapc file define:
 #define AUTOTB_TVIN_input_size "../tv/cdatafile/c.hardware_encoding.autotvin_input_size.dat"
 #define AUTOTB_TVOUT_input_size "../tv/cdatafile/c.hardware_encoding.autotvout_input_size.dat"
+// wrapc file define:
+#define AUTOTB_TVIN_chunk_number "../tv/cdatafile/c.hardware_encoding.autotvin_chunk_number.dat"
+#define AUTOTB_TVOUT_chunk_number "../tv/cdatafile/c.hardware_encoding.autotvout_chunk_number.dat"
 
 #define INTER_TCL "../tv/cdatafile/ref.tcl"
 
@@ -50,6 +53,8 @@ using namespace sc_dt;
 #define AUTOTB_TVOUT_PC_lzw_size "../tv/rtldatafile/rtl.hardware_encoding.autotvout_lzw_size.dat"
 // tvout file define:
 #define AUTOTB_TVOUT_PC_input_size "../tv/rtldatafile/rtl.hardware_encoding.autotvout_input_size.dat"
+// tvout file define:
+#define AUTOTB_TVOUT_PC_chunk_number "../tv/rtldatafile/rtl.hardware_encoding.autotvout_chunk_number.dat"
 
 class INTER_TCL_FILE {
   public:
@@ -61,6 +66,7 @@ INTER_TCL_FILE(const char* name) {
   output_depth = 0;
   lzw_size_depth = 0;
   input_size_depth = 0;
+  chunk_number_depth = 0;
   trans_num =0;
 }
 ~INTER_TCL_FILE() {
@@ -84,6 +90,7 @@ string get_depth_list () {
   total_list << "{output_r " << output_depth << "}\n";
   total_list << "{lzw_size " << lzw_size_depth << "}\n";
   total_list << "{input_size " << input_size_depth << "}\n";
+  total_list << "{chunk_number " << chunk_number_depth << "}\n";
   return total_list.str();
 }
 void set_num (int num , int* class_num) {
@@ -99,6 +106,7 @@ void set_string(std::string list, std::string* class_list) {
     int output_depth;
     int lzw_size_depth;
     int input_size_depth;
+    int chunk_number_depth;
     int trans_num;
   private:
     ofstream mFile;
@@ -140,9 +148,9 @@ static void RTLOutputCheckAndReplacement(std::string &AESL_token, std::string Po
       no_x = true;
   }
 }
-extern "C" void hardware_encoding_hw_stub_wrapper(volatile void *, volatile void *, volatile void *, volatile void *);
+extern "C" void hardware_encoding_hw_stub_wrapper(volatile void *, volatile void *, volatile void *, volatile void *, volatile void *);
 
-extern "C" void apatb_hardware_encoding_hw(volatile void * __xlx_apatb_param_s1, volatile void * __xlx_apatb_param_output, volatile void * __xlx_apatb_param_lzw_size, volatile void * __xlx_apatb_param_input_size) {
+extern "C" void apatb_hardware_encoding_hw(volatile void * __xlx_apatb_param_s1, volatile void * __xlx_apatb_param_output, volatile void * __xlx_apatb_param_lzw_size, volatile void * __xlx_apatb_param_input_size, volatile void * __xlx_apatb_param_chunk_number) {
   refine_signal_handler();
   fstream wrapc_switch_file_token;
   wrapc_switch_file_token.open(".hls_cosim_wrapc_switch.log");
@@ -172,7 +180,7 @@ extern "C" void apatb_hardware_encoding_hw(volatile void * __xlx_apatb_param_s1,
           exit(1);
         }
         if (atoi(AESL_num.c_str()) == AESL_transaction_pc) {
-          std::vector<sc_bv<32> > HP3_pc_buffer(2);
+          std::vector<sc_bv<64> > HP3_pc_buffer(10250);
           int i = 0;
 
           rtl_tv_out_file >> AESL_token; //data
@@ -192,11 +200,11 @@ extern "C" void apatb_hardware_encoding_hw(volatile void * __xlx_apatb_param_s1,
           }
           if (i > 0) {{
             int i = 0;
-            for (int j = 0, e = 1; j < e; j += 1, ++i) {
-            ((int*)__xlx_apatb_param_output)[j] = HP3_pc_buffer[i].to_int64();
+            for (int j = 0, e = 10245; j < e; j += 1, ++i) {
+            ((long long*)__xlx_apatb_param_output)[j] = HP3_pc_buffer[i].to_int64();
           }
-            for (int j = 0, e = 1; j < e; j += 1, ++i) {
-            ((int*)__xlx_apatb_param_lzw_size)[j] = HP3_pc_buffer[i].to_int64();
+            for (int j = 0, e = 5; j < e; j += 1, ++i) {
+            ((long long*)__xlx_apatb_param_lzw_size)[j] = HP3_pc_buffer[i].to_int64();
           }}}
         } // end transaction
       } // end file is good
@@ -228,33 +236,46 @@ aesl_fh.touch(AUTOTB_TVOUT_lzw_size);
 //input_size
 aesl_fh.touch(AUTOTB_TVIN_input_size);
 aesl_fh.touch(AUTOTB_TVOUT_input_size);
+//chunk_number
+aesl_fh.touch(AUTOTB_TVIN_chunk_number);
+aesl_fh.touch(AUTOTB_TVOUT_chunk_number);
 CodeState = DUMP_INPUTS;
 unsigned __xlx_offset_byte_param_s1 = 0;
 unsigned __xlx_offset_byte_param_input_size = 0;
+unsigned __xlx_offset_byte_param_chunk_number = 0;
 // print HP1 Transactions
 {
   sprintf(__xlx_sprintf_buffer.data(), "[[transaction]] %d\n", AESL_transaction);
   aesl_fh.write(AUTOTB_TVIN_HP1, __xlx_sprintf_buffer.data());
   {  __xlx_offset_byte_param_s1 = 0*4;
   if (__xlx_apatb_param_s1) {
-    for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
+    for (int j = 0  - 0, e = 20480 - 0; j != e; ++j) {
 sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_s1)[j];
 
     sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
     aesl_fh.write(AUTOTB_TVIN_HP1, __xlx_sprintf_buffer.data()); 
       }
   }
-  __xlx_offset_byte_param_input_size = 1*4;
+  __xlx_offset_byte_param_input_size = 20480*4;
   if (__xlx_apatb_param_input_size) {
-    for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
+    for (int j = 0  - 0, e = 10 - 0; j != e; ++j) {
 sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_input_size)[j];
 
     sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
     aesl_fh.write(AUTOTB_TVIN_HP1, __xlx_sprintf_buffer.data()); 
       }
   }
+  __xlx_offset_byte_param_chunk_number = 20490*4;
+  if (__xlx_apatb_param_chunk_number) {
+    for (int j = 0  - 0, e = 11 - 0; j != e; ++j) {
+sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_chunk_number)[j];
+
+    sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
+    aesl_fh.write(AUTOTB_TVIN_HP1, __xlx_sprintf_buffer.data()); 
+      }
+  }
 }
-  tcl_file.set_num(2, &tcl_file.HP1_depth);
+  tcl_file.set_num(20501, &tcl_file.HP1_depth);
   sprintf(__xlx_sprintf_buffer.data(), "[[/transaction]] \n");
   aesl_fh.write(AUTOTB_TVIN_HP1, __xlx_sprintf_buffer.data());
 }
@@ -264,26 +285,26 @@ unsigned __xlx_offset_byte_param_lzw_size = 0;
 {
   sprintf(__xlx_sprintf_buffer.data(), "[[transaction]] %d\n", AESL_transaction);
   aesl_fh.write(AUTOTB_TVIN_HP3, __xlx_sprintf_buffer.data());
-  {  __xlx_offset_byte_param_output = 0*4;
+  {  __xlx_offset_byte_param_output = 0*8;
   if (__xlx_apatb_param_output) {
-    for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
-sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_output)[j];
+    for (int j = 0  - 0, e = 10245 - 0; j != e; ++j) {
+sc_bv<64> __xlx_tmp_lv = ((long long*)__xlx_apatb_param_output)[j];
 
     sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
     aesl_fh.write(AUTOTB_TVIN_HP3, __xlx_sprintf_buffer.data()); 
       }
   }
-  __xlx_offset_byte_param_lzw_size = 1*4;
+  __xlx_offset_byte_param_lzw_size = 10245*8;
   if (__xlx_apatb_param_lzw_size) {
-    for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
-sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_lzw_size)[j];
+    for (int j = 0  - 0, e = 5 - 0; j != e; ++j) {
+sc_bv<64> __xlx_tmp_lv = ((long long*)__xlx_apatb_param_lzw_size)[j];
 
     sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
     aesl_fh.write(AUTOTB_TVIN_HP3, __xlx_sprintf_buffer.data()); 
       }
   }
 }
-  tcl_file.set_num(2, &tcl_file.HP3_depth);
+  tcl_file.set_num(10250, &tcl_file.HP3_depth);
   sprintf(__xlx_sprintf_buffer.data(), "[[/transaction]] \n");
   aesl_fh.write(AUTOTB_TVIN_HP3, __xlx_sprintf_buffer.data());
 }
@@ -343,33 +364,47 @@ sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_lzw_size)[j];
   sprintf(__xlx_sprintf_buffer.data(), "[[/transaction]] \n");
   aesl_fh.write(AUTOTB_TVIN_input_size, __xlx_sprintf_buffer.data());
 }
+// print chunk_number Transactions
+{
+  sprintf(__xlx_sprintf_buffer.data(), "[[transaction]] %d\n", AESL_transaction);
+  aesl_fh.write(AUTOTB_TVIN_chunk_number, __xlx_sprintf_buffer.data());
+  {
+    sc_bv<64> __xlx_tmp_lv = __xlx_offset_byte_param_chunk_number;
+
+    sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
+    aesl_fh.write(AUTOTB_TVIN_chunk_number, __xlx_sprintf_buffer.data()); 
+  }
+  tcl_file.set_num(1, &tcl_file.chunk_number_depth);
+  sprintf(__xlx_sprintf_buffer.data(), "[[/transaction]] \n");
+  aesl_fh.write(AUTOTB_TVIN_chunk_number, __xlx_sprintf_buffer.data());
+}
 CodeState = CALL_C_DUT;
-hardware_encoding_hw_stub_wrapper(__xlx_apatb_param_s1, __xlx_apatb_param_output, __xlx_apatb_param_lzw_size, __xlx_apatb_param_input_size);
+hardware_encoding_hw_stub_wrapper(__xlx_apatb_param_s1, __xlx_apatb_param_output, __xlx_apatb_param_lzw_size, __xlx_apatb_param_input_size, __xlx_apatb_param_chunk_number);
 CodeState = DUMP_OUTPUTS;
 // print HP3 Transactions
 {
   sprintf(__xlx_sprintf_buffer.data(), "[[transaction]] %d\n", AESL_transaction);
   aesl_fh.write(AUTOTB_TVOUT_HP3, __xlx_sprintf_buffer.data());
-  {  __xlx_offset_byte_param_output = 0*4;
+  {  __xlx_offset_byte_param_output = 0*8;
   if (__xlx_apatb_param_output) {
-    for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
-sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_output)[j];
+    for (int j = 0  - 0, e = 10245 - 0; j != e; ++j) {
+sc_bv<64> __xlx_tmp_lv = ((long long*)__xlx_apatb_param_output)[j];
 
     sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
     aesl_fh.write(AUTOTB_TVOUT_HP3, __xlx_sprintf_buffer.data()); 
       }
   }
-  __xlx_offset_byte_param_lzw_size = 1*4;
+  __xlx_offset_byte_param_lzw_size = 10245*8;
   if (__xlx_apatb_param_lzw_size) {
-    for (int j = 0  - 0, e = 1 - 0; j != e; ++j) {
-sc_bv<32> __xlx_tmp_lv = ((int*)__xlx_apatb_param_lzw_size)[j];
+    for (int j = 0  - 0, e = 5 - 0; j != e; ++j) {
+sc_bv<64> __xlx_tmp_lv = ((long long*)__xlx_apatb_param_lzw_size)[j];
 
     sprintf(__xlx_sprintf_buffer.data(), "%s\n", __xlx_tmp_lv.to_string(SC_HEX).c_str());
     aesl_fh.write(AUTOTB_TVOUT_HP3, __xlx_sprintf_buffer.data()); 
       }
   }
 }
-  tcl_file.set_num(2, &tcl_file.HP3_depth);
+  tcl_file.set_num(10250, &tcl_file.HP3_depth);
   sprintf(__xlx_sprintf_buffer.data(), "[[/transaction]] \n");
   aesl_fh.write(AUTOTB_TVOUT_HP3, __xlx_sprintf_buffer.data());
 }

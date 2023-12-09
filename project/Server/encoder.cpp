@@ -134,9 +134,9 @@ int main(int argc, char* argv[]) {
 	int length = 0;
 	int packet_index = 0;
 	int bytes_read = 0;
-	unsigned char* lzw_header = (unsigned char*)malloc(4 * sizeof(unsigned char));
-	unsigned char* output_temp = (unsigned char*)malloc(4*CHUNK_SIZE* sizeof(unsigned char));
-	unsigned char* input_packet_buffer = (unsigned char*)malloc(4*8192* sizeof(unsigned char)); //293 585 920
+	unsigned char* lzw_header = (unsigned char*)malloc(10 * sizeof(unsigned char));
+	unsigned char* output_temp = (unsigned char*)malloc(10*CHUNK_SIZE* sizeof(unsigned char));
+	unsigned char* input_packet_buffer = (unsigned char*)malloc(10*8192* sizeof(unsigned char)); //293 585 920
 	unsigned char chunk_lzw_number[1];
 	
 
@@ -167,8 +167,9 @@ int main(int argc, char* argv[]) {
 
 	writer = pipe_depth;
 	
-	int lzw_size[4];
-	int input_size[4];	
+	int lzw_size[10];
+	int info_buffer[11];
+	int input_size[10];	
 	int flag = 0;
 	int chunk_index = 0;
 	int start = 0;
@@ -235,13 +236,13 @@ int main(int argc, char* argv[]) {
 			// getlzwheader(&lzw_header[0],chunk_index,1);
 			// memcpy(&file[offset], &lzw_header[0], 4);
 			// offset += 4;
-		    lzw_size[chunk_handle_number] = 4;
+		    info_buffer[chunk_handle_number+1] = 4;
 			input_size[chunk_handle_number] = chunk_index;
 			flag = 0;
 		}
 		else{
 			// unique chunk
-			lzw_size[chunk_handle_number] = 0;
+			info_buffer[chunk_handle_number+1] = 0;
             input_size[chunk_handle_number] = end - start;
 			memcpy(&input_packet_buffer[chunk_handle_number*8192],&buffer[HEADER+start],input_size[chunk_handle_number]);
 			// lzw_timer.start();
@@ -257,14 +258,14 @@ int main(int argc, char* argv[]) {
 
 		// encode
 
-		if(chunk_handle_number == 4){
-			int number_buffer[1];
-			number_buffer[0] = chunk_handle_number;
+		if(chunk_handle_number == 10){
+			
+			info_buffer[0] = chunk_handle_number;
 			lzw_timer.start();
-			hardware_encoding(input_packet_buffer,output_temp,lzw_size,input_size,number_buffer);
+			hardware_encoding(input_packet_buffer,output_temp,lzw_size,input_size,info_buffer);
 			lzw_timer.stop();
 			int total_size = 0;
-			for(int s = 0; s < 4;s++){
+			for(int s = 0; s < 10;s++){
 				std::cout << "lzw size:\t"<<lzw_size[s] << std::endl;
 				total_size = total_size + lzw_size[s];
 			}
@@ -284,12 +285,11 @@ int main(int argc, char* argv[]) {
 		encode_timer.stop();
 	}
 	if(chunk_handle_number!=0){
-		int number_buffer[1];
-		number_buffer[0] = chunk_handle_number;
+		info_buffer[0] = chunk_handle_number;
 		std::cout<< "input size:\t" << input_size[1]<<std::endl;
 		lzw_timer.start();
 		encode_timer.start();
-		hardware_encoding(input_packet_buffer,output_temp,lzw_size,input_size,number_buffer);
+		hardware_encoding(input_packet_buffer,output_temp,lzw_size,input_size,info_buffer);
 		encode_timer.stop();
 		lzw_timer.stop();
 		int total_size = 0;
@@ -361,4 +361,3 @@ int main(int argc, char* argv[]) {
 
 	return 0;
 }
-

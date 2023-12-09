@@ -7,8 +7,8 @@ set MemName hardware_encoding_temp_output
 set CoreName ap_simcore_mem
 set PortList { 0 2 }
 set DataWd 8
-set AddrRange 8192
-set AddrWd 13
+set AddrRange 8196
+set AddrWd 14
 set impl_style auto
 set TrueReset 0
 set HasInitializer 0
@@ -380,6 +380,14 @@ input_size {
 	mode ap_none
 	offset 52
 	offset_end 63
+}
+chunk_number { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 64
+	offset_end 75
 }
 ap_start { }
 ap_done { }

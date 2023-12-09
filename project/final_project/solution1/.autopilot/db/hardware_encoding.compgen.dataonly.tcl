@@ -34,6 +34,14 @@ input_size {
 	offset 52
 	offset_end 63
 }
+chunk_number { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 64
+	offset_end 75
+}
 ap_start { }
 ap_done { }
 ap_ready { }

@@ -94,11 +94,12 @@ int main(int argc, char *argv[])
     
     
     stopwatch ethernet_timer;
-	stopwatch encode_timer;
+    stopwatch total_timer;
     stopwatch cdc_timer;
     stopwatch sha_timer;
     stopwatch ded_timer;
     stopwatch lzw_timer;
+
 
     EventTimer timer1, timer2;
     timer1.add("Main program");
@@ -134,14 +135,14 @@ int main(int argc, char *argv[])
     cl::Buffer out_buf;
     cl::Buffer lzwsize_buf;
     cl::Buffer inputsize_buf;
-    cl::Buffer lzwchunk_buf;
+    cl::Buffer chunkflag_buf;
 
     
     in_buf = cl::Buffer(context, CL_MEM_READ_ONLY, LZW_CHUNK*8192*sizeof(unsigned char), NULL, &err);
     inputsize_buf  = cl::Buffer(context, CL_MEM_READ_ONLY, sizeof(int)*LZW_CHUNK,NULL,&err);
     out_buf = cl::Buffer(context, CL_MEM_WRITE_ONLY, LZW_CHUNK*8196*sizeof(unsigned char), NULL, &err);
     lzwsize_buf = cl::Buffer(context, CL_MEM_WRITE_ONLY, sizeof(int)*LZW_CHUNK,NULL, &err);
-    lzwchunk_buf = cl::Buffer(context, CL_MEM_READ_ONLY, sizeof(int)*1,NULL, &err);
+    chunkflag_buf = cl::Buffer(context, CL_MEM_READ_ONLY, sizeof(int)*(LZW_CHUNK+1),NULL, &err);
     
     
 
@@ -150,15 +151,16 @@ int main(int argc, char *argv[])
 
     unsigned char *Output;
     int *lzwsize;
-    int *lzwchunk;
+    int *chunkflag;
 
     
 
     in = (unsigned char *)q.enqueueMapBuffer(in_buf, CL_TRUE, CL_MAP_WRITE, 0, LZW_CHUNK*8192*sizeof(unsigned char));
     inputsize = (int *)q.enqueueMapBuffer(inputsize_buf,CL_TRUE,CL_MAP_WRITE,0,sizeof(int)*LZW_CHUNK);
-    lzwchunk = (int *)q.enqueueMapBuffer(lzwchunk_buf,CL_TRUE,CL_MAP_WRITE,0,sizeof(int)*1);
-    Output = (unsigned char *)q.enqueueMapBuffer(out_buf,CL_TRUE,CL_MAP_READ,0, LZW_CHUNK*8196*sizeof(unsigned char));
-    lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*LZW_CHUNK);
+    chunkflag = (int *)q.enqueueMapBuffer(chunkflag_buf,CL_TRUE,CL_MAP_WRITE,0,sizeof(int)*(LZW_CHUNK+1));
+    
+  //  Output = (unsigned char *)q.enqueueMapBuffer(out_buf,CL_TRUE,CL_MAP_READ,0, LZW_CHUNK*8196*sizeof(unsigned char));
+  //  lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*LZW_CHUNK);
 
 
     // ------------------------------------------------------------------------------------
@@ -210,10 +212,10 @@ int main(int argc, char *argv[])
     int start = 0;
     int end = 0;
     int lzw_chunk_counter = 0;
+    timer2.add("Encode");
     std::vector<cl::Event> read_events;
     std::vector<cl::Event> exec_events;
     std::vector<cl::Event> write_events;
-    timer2.add("Encode");
     while (!done)
     {
         // reset ring buffer
@@ -236,18 +238,25 @@ int main(int argc, char *argv[])
      
 
         chunk_number = 0; // initialize chunk number
-        encode_timer.start();
+
         cdc_timer.start();
+        total_timer.start();
         cdc(&buffer[HEADER], length,chunk_number,chunk_boundary);
+        total_timer.stop();
+        cdc_timer.stop();
         std::cout << "Chunk number:\t" << chunk_number << std::endl;
        
-        cdc_timer.stop();
+
 
         //Compute SHA
-        sha_timer.start();
+
         //SHA(&buffer[HEADER], hash_table,chunk_boundary,chunk_number,total_chunk_number);
+        sha_timer.start();
+        total_timer.start();
         sha_neon(&buffer[HEADER],new_hash_table,chunk_boundary,chunk_number,total_chunk_number);
+        total_timer.stop();
         sha_timer.stop();
+
         std::cout << "SHA OK!" << std::endl;
 
         // Copy DATA to buffer
@@ -260,47 +269,51 @@ int main(int argc, char *argv[])
         end = chunk_boundary[0];
 
         int LZW_count = 0;
+        total_timer.start();
         for (int i = 0; i < chunk_number; i++)
         {
             cl::Event write_ev,read_ev,exec_ev;
-            ded_timer.start();
             //hashing_deduplication(hash_table, total_chunk_number + i, flag, chunk_index);
+            ded_timer.start();
             hashing_deduplication_neon(new_hash_table,total_chunk_number+i,flag,chunk_index);
             ded_timer.stop();
             if (flag == 1)
             {
                 std::cout << "find!" << std::endl;
-                lzwsize[lzw_chunk_counter] = 4;
+                chunkflag[lzw_chunk_counter+1] = 4;
                 inputsize[lzw_chunk_counter] = chunk_index;
+                //std::cout <<"Chunk Counter:\t" <<lzw_chunk_counter << std::endl;
                 flag = 0;
             }
             else
             {
                 // unique chunk
                 std::cout << "Unique!" << std::endl;
-                std::cout << "current chunk:\t" << lzw_chunk_counter <<std::endl; 
-                lzwsize[lzw_chunk_counter] = 0;
-                std::cout << lzwsize[lzw_chunk_counter] << std::endl;
+                // std::cout << "current chunk:\t" << lzw_chunk_counter <<std::endl; 
+                chunkflag[lzw_chunk_counter+1] = 0;
+                // std::cout << lzwsize[lzw_chunk_counter] << std::endl;
                 inputsize[lzw_chunk_counter] = end - start;
-                std::cout << "Input Size:\t" << inputsize[lzw_chunk_counter] << std::endl;
+                // std::cout << "Input Size:\t" << inputsize[lzw_chunk_counter] << std::endl;
                 memcpy(&in[lzw_chunk_counter*8192],&buffer[HEADER+start],inputsize[lzw_chunk_counter]);
-                std::cout << "copy!" << std::endl;
+               // std::cout << "copy!" << std::endl;
+                //std::cout <<"Chunk Counter:\t" <<lzw_chunk_counter << std::endl;
                
             }
             lzw_chunk_counter++;
-            lzw_timer.start();
-            if(lzw_chunk_counter == 4){
-                lzwchunk[0] = lzw_chunk_counter;
+            
+            if(lzw_chunk_counter == LZW_CHUNK){
+                lzw_timer.start();
+                chunkflag[0] = lzw_chunk_counter;
                 krnl_hardware.setArg(0,in_buf);
                 krnl_hardware.setArg(1,out_buf);
                 krnl_hardware.setArg(2,lzwsize_buf);
                 krnl_hardware.setArg(3,inputsize_buf);
-                krnl_hardware.setArg(4,lzwchunk_buf);
+                krnl_hardware.setArg(4,chunkflag_buf);
 
                 if(LZW_count == 0){
-                    q.enqueueMigrateMemObjects({in_buf, inputsize_buf,lzwchunk_buf}, 0, NULL, &write_ev);
+                    q.enqueueMigrateMemObjects({in_buf, inputsize_buf,chunkflag_buf}, 0, NULL, &write_ev);
                 } else{
-                    q.enqueueMigrateMemObjects({in_buf, inputsize_buf,lzwchunk_buf}, 0, &read_events, &write_ev);
+                    q.enqueueMigrateMemObjects({in_buf, inputsize_buf,chunkflag_buf}, 0, &read_events, &write_ev);
                 }
                 
                 write_events.push_back(write_ev);
@@ -309,62 +322,72 @@ int main(int argc, char *argv[])
                 q.enqueueMigrateMemObjects({out_buf,lzwsize_buf}, CL_MIGRATE_MEM_OBJECT_HOST, &exec_events, &read_ev);
                 read_events.push_back(read_ev);
                 
-                if(LZW_count != 0){
+                Output = (unsigned char *)q.enqueueMapBuffer(out_buf,CL_TRUE,CL_MAP_READ,0, LZW_CHUNK*8196*sizeof(unsigned char));
+                lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*LZW_CHUNK);
                 int total_size = 0;
-                std::cout << "1 lzw size:\t" << lzwsize[0] << std::endl;
-                std::cout << "2 lzw size:\t" << lzwsize[1] << std::endl;
-                int t0 = lzwsize[0] + lzwsize[1];
-                std::cout << "3 lzw size:\t" << lzwsize[2] << std::endl;
-                std::cout << "4 lzw size:\t" << lzwsize[3] << std::endl;
-                int t1 = lzwsize[2] + lzwsize[3];
-                total_size = t0 + t1;
+                for(int ls = 0; ls < LZW_CHUNK ;ls++){
+                    if(chunkflag[ls + 1] == 4){
+                        total_size = total_size + 4;
+                    }
+                    else{
+                        total_size = total_size + lzwsize[ls];
+                    }
+                }
+                
                 memcpy(&file[offset], &Output[0],total_size);
                 offset +=total_size;
                 lzw_chunk_counter = 0;
-                }
+                
 
                 LZW_count++;
+                lzw_timer.stop();
             }
-            lzw_timer.stop();
             start = end;
             end = chunk_boundary[i + 1];
         }
+        total_timer.stop();
         writer++;
         total_chunk_number += chunk_number;
     }
+    total_timer.start();
     if(lzw_chunk_counter != 0){
+        lzw_timer.start();
     	cl::Event write_ev,read_ev,exec_ev;
-        lzwchunk[0] = lzw_chunk_counter;
+        chunkflag[0] = lzw_chunk_counter;
         krnl_hardware.setArg(0,in_buf);
         krnl_hardware.setArg(1,out_buf);
         krnl_hardware.setArg(2,lzwsize_buf);
         krnl_hardware.setArg(3,inputsize_buf);
-        krnl_hardware.setArg(4,lzwchunk_buf);
-        q.enqueueMigrateMemObjects({in_buf, inputsize_buf,lzwchunk_buf}, 0, &read_events, &write_ev);
+        krnl_hardware.setArg(4,chunkflag_buf);
+        q.enqueueMigrateMemObjects({in_buf, inputsize_buf,chunkflag_buf}, 0, &read_events, &write_ev);
         write_events.push_back(write_ev);
         q.enqueueTask(krnl_hardware, &write_events,&exec_ev);
         exec_events.push_back(exec_ev);
         q.enqueueMigrateMemObjects({out_buf,lzwsize_buf}, CL_MIGRATE_MEM_OBJECT_HOST, &exec_events, &read_ev);
+        std::cout << "OK" << std::endl;
         read_events.push_back(read_ev);
-        Output = (unsigned char *)q.enqueueMapBuffer(out_buf,CL_TRUE,CL_MAP_READ,0, LZW_CHUNK*8196*sizeof(unsigned char));
-        lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*LZW_CHUNK);
+         Output = (unsigned char *)q.enqueueMapBuffer(out_buf,CL_TRUE,CL_MAP_READ,0, LZW_CHUNK*8196*sizeof(unsigned char));
+         lzwsize = (int *)q.enqueueMapBuffer(lzwsize_buf,CL_TRUE,CL_MAP_READ,0,sizeof(int)*LZW_CHUNK);
         int total_size = 0;
-        std::cout << "1 lzw size:\t" << lzwsize[0] << std::endl;
-        std::cout << "2 lzw size:\t" << lzwsize[1] << std::endl;
-        int t0 = lzwsize[0] + lzwsize[1];
-        std::cout << "3 lzw size:\t" << lzwsize[2] << std::endl;
-        std::cout << "4 lzw size:\t" << lzwsize[3] << std::endl;
-        int t1 = lzwsize[2] + lzwsize[3];
-        total_size = t0 + t1;
-        memcpy(&file[offset], &Output[0],total_size);
-        offset +=total_size;
-        lzw_chunk_counter = 0;
+        for(int ls = 0; ls < lzw_chunk_counter ;ls++){
+                if(chunkflag[ls + 1] == 4){
+                        total_size = total_size + 4;
+                    }
+                    else{
+                        total_size = total_size + lzwsize[ls];
+                    }
+                }
+                
+         memcpy(&file[offset], &Output[0],total_size);
+         offset +=total_size;
+         lzw_timer.stop();
     }
+    total_timer.stop();
 
     q.finish();
-    encode_timer.stop();
+    
 
-
+   
 //Step 4
    
 
@@ -420,7 +443,7 @@ int main(int argc, char *argv[])
 
     std::cout << "--------------- Key Throughputs ---------------" << std::endl;
 	float ethernet_latency = ethernet_timer.latency() / 1000.0;
-	float encoder_latency = encode_timer.latency() / 1000.0;
+	float encoder_latency = total_timer.latency() / 1000.0;
 
 	float input_throughput = (bytes_read * 8 / 1000000.0) / ethernet_latency; // Mb/s
 	float encoder_throughput = (bytes_read * 8 / 1000000.0) / encoder_latency; // Mb/s
