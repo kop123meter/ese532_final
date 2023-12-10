@@ -2,8 +2,8 @@ set moduleName assoc_lookup
 set isTopModule 0
 set isCombinational 0
 set isDatapathOnly 0
-set isPipelined 0
-set pipeline_type none
+set isPipelined 1
+set pipeline_type function
 set FunctionProtocol ap_ctrl_hs
 set isOneStateSeq 0
 set ProfileFlag 0
@@ -26,7 +26,7 @@ set C_modelArgMapList {[
  	{ "Name" : "key", "interface" : "wire", "bitwidth" : 20, "direction" : "READONLY"} , 
  	{ "Name" : "ap_return", "interface" : "wire", "bitwidth" : 33} ]}
 # RTL Port declarations: 
-set portNum 21
+set portNum 22
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -34,6 +34,7 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
+	{ ap_ce sc_in sc_logic 1 ce -1 } 
 	{ mem_upper_key_mem_address0 sc_out sc_lv 9 signal 0 } 
 	{ mem_upper_key_mem_ce0 sc_out sc_logic 1 signal 0 } 
 	{ mem_upper_key_mem_q0 sc_in sc_lv 64 signal 0 } 
@@ -57,6 +58,7 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
+ 	{ "name": "ap_ce", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "ce", "bundle":{"name": "ap_ce", "role": "default" }} , 
  	{ "name": "mem_upper_key_mem_address0", "direction": "out", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "mem_upper_key_mem", "role": "address0" }} , 
  	{ "name": "mem_upper_key_mem_ce0", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "mem_upper_key_mem", "role": "ce0" }} , 
  	{ "name": "mem_upper_key_mem_q0", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "mem_upper_key_mem", "role": "q0" }} , 
@@ -78,12 +80,12 @@ set RtlHierarchyInfo {[
 		"CDFG" : "assoc_lookup",
 		"Protocol" : "ap_ctrl_hs",
 		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
-		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
-		"II" : "0",
-		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "2", "EstimateLatencyMax" : "4",
+		"Pipeline" : "Aligned", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "2", "EstimateLatencyMin" : "2", "EstimateLatencyMax" : "2",
 		"Combinational" : "0",
 		"Datapath" : "0",
-		"ClockEnable" : "0",
+		"ClockEnable" : "1",
 		"HasSubDataflow" : "0",
 		"InDataflowNetwork" : "0",
 		"HasNonBlockingOperation" : "0",
@@ -100,17 +102,18 @@ set ArgLastReadFirstWriteLatency {
 		mem_upper_key_mem {Type I LastRead 0 FirstWrite -1}
 		mem_middle_key_mem {Type I LastRead 0 FirstWrite -1}
 		mem_lower_key_mem {Type I LastRead 0 FirstWrite -1}
-		mem_value {Type I LastRead 2 FirstWrite -1}
+		mem_value {Type I LastRead 1 FirstWrite -1}
 		key {Type I LastRead 0 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0
 
 set PerformanceInfo {[
-	{"Name" : "Latency", "Min" : "2", "Max" : "4"}
-	, {"Name" : "Interval", "Min" : "2", "Max" : "4"}
+	{"Name" : "Latency", "Min" : "2", "Max" : "2"}
+	, {"Name" : "Interval", "Min" : "1", "Max" : "1"}
 ]}
 
 set PipelineEnableSignalInfo {[
+	{"Pipeline" : "0", "EnableSignal" : "ap_enable_pp0"}
 ]}
 
 set Spec2ImplPortList { 

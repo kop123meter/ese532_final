@@ -65,11 +65,13 @@ int main(){
 	int size_SW = 0;
 	Randomize_string(Input);
 	int* hw_length = (int*)malloc(sizeof(int) * 1);
+	int size2[1];
 	int* size_HW = (int*)malloc(sizeof(int));
 	size_HW[0] = 0;
 	hw_length[0] = STRING_LENGTH;
+	size2[0] = STRING_LENGTH;
 
-	hardware_encoding(Input, Output_HW, size_HW, hw_length);
+	hardware_encoding(Input, Output_HW, size_HW, hw_length,size2);
 	//hardware_encoding(Input, Output_HW, size_HW, hw_length);
 	encoding(Input, Output_SW, size_SW, STRING_LENGTH);
 	if(size_HW[0] != size_SW){
@@ -78,7 +80,7 @@ int main(){
 	}
 
 
-	bool Equal = Compare_strings(Output_SW, Output_HW, size_HW[0]);
+	bool Equal = Compare_strings(Output_SW, Output_HW, size_SW);
 
 	Destroy_string(Input);
 	Destroy_string(Output_HW);

@@ -37,21 +37,101 @@
          <obj_property name="Render_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding//AESL_inst_hardware_encoding_activity.dataflowTxWaveData.Cycles</obj_property>
          <obj_property name="Value_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding//AESL_inst_hardware_encoding_activity.dataflowTxWaveData.OutStanding</obj_property>
          <obj_property name="Detail_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding//AESL_inst_hardware_encoding_activity.dataflowTxTooltipData</obj_property>
-         <wvobject type="group" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/grp_assoc_lookup_fu_1124/grp_assoc_lookup_fu_1124_activity">
-            <obj_property name="label">grp_assoc_lookup_fu_1124_activity</obj_property>
+         <wvobject type="group" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/hardware_encoding_entry7_U0_activity">
+            <obj_property name="label">hardware_encoding_entry7_U0_activity</obj_property>
             <obj_property name="DisplayName">label</obj_property>
             <obj_property name="UseFullPath">true</obj_property>
-            <obj_property name="ElementShortName">grp_assoc_lookup_fu_1124_activity</obj_property>
-            <obj_property name="ObjectShortName">grp_assoc_lookup_fu_1124_activity</obj_property>
+            <obj_property name="ElementShortName">hardware_encoding_entry7_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">hardware_encoding_entry7_U0_activity</obj_property>
             <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
             <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
             <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
             <obj_property name="UseCustomSignalColor">true</obj_property>
             <obj_property name="CustomSignalColor">turquoise</obj_property>
             <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
-            <obj_property name="Render_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/grp_assoc_lookup_fu_1124/grp_assoc_lookup_fu_1124_activity.dataflowTxWaveData.Cycles</obj_property>
-            <obj_property name="Value_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/grp_assoc_lookup_fu_1124/grp_assoc_lookup_fu_1124_activity.dataflowTxWaveData.OutStanding</obj_property>
-            <obj_property name="Detail_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/grp_assoc_lookup_fu_1124/grp_assoc_lookup_fu_1124_activity.dataflowTxTooltipData</obj_property>
+            <obj_property name="Render_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/hardware_encoding_entry7_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/hardware_encoding_entry7_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/hardware_encoding_entry7_U0_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/read_input_U0_activity">
+            <obj_property name="label">read_input_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">read_input_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">read_input_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/read_input_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/read_input_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/read_input_U0_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/computing_U0_activity">
+            <obj_property name="label">computing_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">computing_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">computing_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/computing_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/computing_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/computing_U0_activity.dataflowTxTooltipData</obj_property>
+            <wvobject type="group" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/grp_assoc_lookup_fu_432/grp_assoc_lookup_fu_432_activity">
+               <obj_property name="label">grp_assoc_lookup_fu_432_activity</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <obj_property name="UseFullPath">true</obj_property>
+               <obj_property name="ElementShortName">grp_assoc_lookup_fu_432_activity</obj_property>
+               <obj_property name="ObjectShortName">grp_assoc_lookup_fu_432_activity</obj_property>
+               <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+               <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+               <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+               <obj_property name="UseCustomSignalColor">true</obj_property>
+               <obj_property name="CustomSignalColor">turquoise</obj_property>
+               <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+               <obj_property name="Render_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/grp_assoc_lookup_fu_432/grp_assoc_lookup_fu_432_activity.dataflowTxWaveData.Cycles</obj_property>
+               <obj_property name="Value_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/grp_assoc_lookup_fu_432/grp_assoc_lookup_fu_432_activity.dataflowTxWaveData.OutStanding</obj_property>
+               <obj_property name="Detail_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/grp_assoc_lookup_fu_432/grp_assoc_lookup_fu_432_activity.dataflowTxTooltipData</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/write_output_U0_activity">
+            <obj_property name="label">write_output_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">write_output_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">write_output_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/write_output_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/write_output_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/write_output_U0_activity.dataflowTxTooltipData</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/Block_split28_proc_U0_activity">
+            <obj_property name="label">Block_split28_proc_U0_activity</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <obj_property name="UseFullPath">true</obj_property>
+            <obj_property name="ElementShortName">Block_split28_proc_U0_activity</obj_property>
+            <obj_property name="ObjectShortName">Block_split28_proc_U0_activity</obj_property>
+            <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+            <obj_property name="WaveformStyle">STYLE_ENUM_TRANSACTION</obj_property>
+            <obj_property name="EnumTransactionColorTable">0=blank ffff=blank 0bad=#FF0000</obj_property>
+            <obj_property name="UseCustomSignalColor">true</obj_property>
+            <obj_property name="CustomSignalColor">turquoise</obj_property>
+            <obj_property name="EnumTransactionValueTable">65535=blank</obj_property>
+            <obj_property name="Render_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/Block_split28_proc_U0_activity.dataflowTxWaveData.Cycles</obj_property>
+            <obj_property name="Value_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/Block_split28_proc_U0_activity.dataflowTxWaveData.OutStanding</obj_property>
+            <obj_property name="Detail_Data">/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/Block_split28_proc_U0_activity.dataflowTxTooltipData</obj_property>
          </wvobject>
       </wvobject>
    </wvobject>
@@ -62,9 +142,25 @@
    <wvobject type="group" fp_name="AESL_inst_hardware_encoding_group">
       <obj_property name="label">AESL_inst_hardware_encoding</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <wvobject type="protoinst" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/grp_assoc_lookup_fu_1124/grp_assoc_lookup_fu_1124_activity">
-         <obj_property name="ElementShortName">grp_assoc_lookup_fu_1124_activity</obj_property>
-         <obj_property name="ObjectShortName">grp_assoc_lookup_fu_1124_activity</obj_property>
+      <wvobject type="protoinst" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/hardware_encoding_entry7_U0_activity">
+         <obj_property name="ElementShortName">hardware_encoding_entry7_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">hardware_encoding_entry7_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/read_input_U0_activity">
+         <obj_property name="ElementShortName">read_input_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">read_input_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/computing_U0_activity">
+         <obj_property name="ElementShortName">computing_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">computing_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/write_output_U0_activity">
+         <obj_property name="ElementShortName">write_output_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">write_output_U0_activity</obj_property>
+      </wvobject>
+      <wvobject type="protoinst" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/Block_split28_proc_U0_activity">
+         <obj_property name="ElementShortName">Block_split28_proc_U0_activity</obj_property>
+         <obj_property name="ObjectShortName">Block_split28_proc_U0_activity</obj_property>
       </wvobject>
       <wvobject type="group" fp_name="AESL_inst_hardware_encoding_Handshake_group">
          <obj_property name="label">Block-level handshake</obj_property>
@@ -86,24 +182,500 @@
             <obj_property name="ObjectShortName">ap_continue</obj_property>
          </wvobject>
       </wvobject>
-      <wvobject type="group" fp_name="grp_assoc_lookup_fu_1124_group">
-         <obj_property name="label">grp_assoc_lookup_fu_1124</obj_property>
+      <wvobject type="group" fp_name="hardware_encoding_entry7_U0_group">
+         <obj_property name="label">hardware_encoding_entry7_U0</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <wvobject type="group" fp_name="grp_assoc_lookup_fu_1124_Handshake_group">
+         <wvobject type="group" fp_name="hardware_encoding_entry7_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="hardware_encoding_entry7_U0_Handshake_group">
             <obj_property name="label">Block-level handshake</obj_property>
             <obj_property name="DisplayName">label</obj_property>
-            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/grp_assoc_lookup_fu_1124/ap_start">
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/ap_start">
                <obj_property name="ElementShortName">ap_start</obj_property>
                <obj_property name="ObjectShortName">ap_start</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/grp_assoc_lookup_fu_1124/ap_ready">
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/real_start">
+               <obj_property name="ElementShortName">real_start</obj_property>
+               <obj_property name="ObjectShortName">real_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/ap_ready">
                <obj_property name="ElementShortName">ap_ready</obj_property>
                <obj_property name="ObjectShortName">ap_ready</obj_property>
             </wvobject>
-            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/grp_assoc_lookup_fu_1124/ap_done">
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/ap_done">
                <obj_property name="ElementShortName">ap_done</obj_property>
                <obj_property name="ObjectShortName">ap_done</obj_property>
             </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="hardware_encoding_entry7_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="s1_out_group">
+               <obj_property name="label">s1_out(s1_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/s1_out_blk_n">
+                  <obj_property name="ElementShortName">s1_out_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">s1_out_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/s1_out_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/s1_out_full_n">
+                  <obj_property name="ElementShortName">s1_out_full_n</obj_property>
+                  <obj_property name="ObjectShortName">s1_out_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/s1_out_write">
+                  <obj_property name="ElementShortName">s1_out_write</obj_property>
+                  <obj_property name="ObjectShortName">s1_out_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="output_out_group">
+               <obj_property name="label">output_out(output_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/output_out_blk_n">
+                  <obj_property name="ElementShortName">output_out_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">output_out_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/output_out_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/output_out_full_n">
+                  <obj_property name="ElementShortName">output_out_full_n</obj_property>
+                  <obj_property name="ObjectShortName">output_out_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/output_out_write">
+                  <obj_property name="ElementShortName">output_out_write</obj_property>
+                  <obj_property name="ObjectShortName">output_out_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="lzw_size_out_group">
+               <obj_property name="label">lzw_size_out(lzw_size_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/lzw_size_out_blk_n">
+                  <obj_property name="ElementShortName">lzw_size_out_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">lzw_size_out_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/lzw_size_out_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/lzw_size_out_full_n">
+                  <obj_property name="ElementShortName">lzw_size_out_full_n</obj_property>
+                  <obj_property name="ObjectShortName">lzw_size_out_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/lzw_size_out_write">
+                  <obj_property name="ElementShortName">lzw_size_out_write</obj_property>
+                  <obj_property name="ObjectShortName">lzw_size_out_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="input_size_out_group">
+               <obj_property name="label">input_size_out(input_size_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/input_size_out_blk_n">
+                  <obj_property name="ElementShortName">input_size_out_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">input_size_out_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/input_size_out_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/input_size_out_full_n">
+                  <obj_property name="ElementShortName">input_size_out_full_n</obj_property>
+                  <obj_property name="ObjectShortName">input_size_out_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/hardware_encoding_entry7_U0/input_size_out_write">
+                  <obj_property name="ElementShortName">input_size_out_write</obj_property>
+                  <obj_property name="ObjectShortName">input_size_out_write</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="read_input_U0_group">
+         <obj_property name="label">read_input_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="read_input_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="s1_group">
+               <obj_property name="label">s1(s1_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/s1_blk_n">
+                  <obj_property name="ElementShortName">s1_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">s1_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/s1_dout">
+                  <obj_property name="ElementShortName">s1_dout[63:0]</obj_property>
+                  <obj_property name="ObjectShortName">s1_dout[63:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/s1_empty_n">
+                  <obj_property name="ElementShortName">s1_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">s1_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/s1_read">
+                  <obj_property name="ElementShortName">s1_read</obj_property>
+                  <obj_property name="ObjectShortName">s1_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="input_size_group">
+               <obj_property name="label">input_size(input_size_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/input_size_blk_n">
+                  <obj_property name="ElementShortName">input_size_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">input_size_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/input_size_dout">
+                  <obj_property name="ElementShortName">input_size_dout[63:0]</obj_property>
+                  <obj_property name="ObjectShortName">input_size_dout[63:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/input_size_empty_n">
+                  <obj_property name="ElementShortName">input_size_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">input_size_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/input_size_read">
+                  <obj_property name="ElementShortName">input_size_read</obj_property>
+                  <obj_property name="ObjectShortName">input_size_read</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="read_input_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/real_start">
+               <obj_property name="ElementShortName">real_start</obj_property>
+               <obj_property name="ObjectShortName">real_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="read_input_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="input_r_group">
+               <obj_property name="label">input_r(input_stream_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/input_r_blk_n">
+                  <obj_property name="ElementShortName">input_r_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">input_r_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/input_r_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/input_r_full_n">
+                  <obj_property name="ElementShortName">input_r_full_n</obj_property>
+                  <obj_property name="ObjectShortName">input_r_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/input_r_write">
+                  <obj_property name="ElementShortName">input_r_write</obj_property>
+                  <obj_property name="ObjectShortName">input_r_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="inputsize_group">
+               <obj_property name="label">inputsize(inputsize_stream_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/inputsize_blk_n">
+                  <obj_property name="ElementShortName">inputsize_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">inputsize_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/inputsize_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/inputsize_full_n">
+                  <obj_property name="ElementShortName">inputsize_full_n</obj_property>
+                  <obj_property name="ObjectShortName">inputsize_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/read_input_U0/inputsize_write">
+                  <obj_property name="ElementShortName">inputsize_write</obj_property>
+                  <obj_property name="ObjectShortName">inputsize_write</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="computing_U0_group">
+         <obj_property name="label">computing_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="protoinst" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/grp_assoc_lookup_fu_432/grp_assoc_lookup_fu_432_activity">
+            <obj_property name="ElementShortName">grp_assoc_lookup_fu_432_activity</obj_property>
+            <obj_property name="ObjectShortName">grp_assoc_lookup_fu_432_activity</obj_property>
+         </wvobject>
+         <wvobject type="group" fp_name="computing_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="input_r_group">
+               <obj_property name="label">input_r(input_stream_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/input_r_blk_n">
+                  <obj_property name="ElementShortName">input_r_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">input_r_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/input_r_dout">
+                  <obj_property name="ElementShortName">input_r_dout[7:0]</obj_property>
+                  <obj_property name="ObjectShortName">input_r_dout[7:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/input_r_empty_n">
+                  <obj_property name="ElementShortName">input_r_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">input_r_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/input_r_read">
+                  <obj_property name="ElementShortName">input_r_read</obj_property>
+                  <obj_property name="ObjectShortName">input_r_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="inputsize_group">
+               <obj_property name="label">inputsize(inputsize_stream_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/inputsize_blk_n">
+                  <obj_property name="ElementShortName">inputsize_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">inputsize_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/inputsize_dout">
+                  <obj_property name="ElementShortName">inputsize_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">inputsize_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/inputsize_empty_n">
+                  <obj_property name="ElementShortName">inputsize_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">inputsize_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/inputsize_read">
+                  <obj_property name="ElementShortName">inputsize_read</obj_property>
+                  <obj_property name="ObjectShortName">inputsize_read</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="computing_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="computing_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="output_r_group">
+               <obj_property name="label">output_r(output_stream_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/output_r_blk_n">
+                  <obj_property name="ElementShortName">output_r_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">output_r_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/output_r_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/output_r_full_n">
+                  <obj_property name="ElementShortName">output_r_full_n</obj_property>
+                  <obj_property name="ObjectShortName">output_r_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/output_r_write">
+                  <obj_property name="ElementShortName">output_r_write</obj_property>
+                  <obj_property name="ObjectShortName">output_r_write</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="compress_size_0_out_group">
+               <obj_property name="label">compress_size_0_out(compress_size_0_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/compress_size_0_out_blk_n">
+                  <obj_property name="ElementShortName">compress_size_0_out_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">compress_size_0_out_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/compress_size_0_out_din">
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/compress_size_0_out_full_n">
+                  <obj_property name="ElementShortName">compress_size_0_out_full_n</obj_property>
+                  <obj_property name="ObjectShortName">compress_size_0_out_full_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/compress_size_0_out_write">
+                  <obj_property name="ElementShortName">compress_size_0_out_write</obj_property>
+                  <obj_property name="ObjectShortName">compress_size_0_out_write</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="grp_assoc_lookup_fu_432_group">
+            <obj_property name="label">grp_assoc_lookup_fu_432</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="grp_assoc_lookup_fu_432_Handshake_group">
+               <obj_property name="label">Block-level handshake</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/grp_assoc_lookup_fu_432/ap_start">
+                  <obj_property name="ElementShortName">ap_start</obj_property>
+                  <obj_property name="ObjectShortName">ap_start</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/grp_assoc_lookup_fu_432/ap_ready">
+                  <obj_property name="ElementShortName">ap_ready</obj_property>
+                  <obj_property name="ObjectShortName">ap_ready</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/computing_U0/grp_assoc_lookup_fu_432/ap_done">
+                  <obj_property name="ElementShortName">ap_done</obj_property>
+                  <obj_property name="ObjectShortName">ap_done</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="write_output_U0_group">
+         <obj_property name="label">write_output_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="write_output_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="output_stream_group">
+               <obj_property name="label">output_stream(output_stream_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/output_stream_blk_n">
+                  <obj_property name="ElementShortName">output_stream_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">output_stream_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/output_stream_dout">
+                  <obj_property name="ElementShortName">output_stream_dout[15:0]</obj_property>
+                  <obj_property name="ObjectShortName">output_stream_dout[15:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/output_stream_empty_n">
+                  <obj_property name="ElementShortName">output_stream_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">output_stream_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/output_stream_read">
+                  <obj_property name="ElementShortName">output_stream_read</obj_property>
+                  <obj_property name="ObjectShortName">output_stream_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="output_r_group">
+               <obj_property name="label">output_r(output_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/output_r_blk_n">
+                  <obj_property name="ElementShortName">output_r_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">output_r_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/output_r_dout">
+                  <obj_property name="ElementShortName">output_r_dout[63:0]</obj_property>
+                  <obj_property name="ObjectShortName">output_r_dout[63:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/output_r_empty_n">
+                  <obj_property name="ElementShortName">output_r_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">output_r_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/output_r_read">
+                  <obj_property name="ElementShortName">output_r_read</obj_property>
+                  <obj_property name="ObjectShortName">output_r_read</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="write_output_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/write_output_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="write_output_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject type="group" fp_name="Block_split28_proc_U0_group">
+         <obj_property name="label">Block_split28_proc_U0</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject type="group" fp_name="Block_split28_proc_U0_Input_group">
+            <obj_property name="label">Input Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="group" fp_name="compress_size_0_group">
+               <obj_property name="label">compress_size_0(compress_size_0_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/compress_size_0_blk_n">
+                  <obj_property name="ElementShortName">compress_size_0_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">compress_size_0_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/compress_size_0_dout">
+                  <obj_property name="ElementShortName">compress_size_0_dout[31:0]</obj_property>
+                  <obj_property name="ObjectShortName">compress_size_0_dout[31:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/compress_size_0_empty_n">
+                  <obj_property name="ElementShortName">compress_size_0_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">compress_size_0_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/compress_size_0_read">
+                  <obj_property name="ElementShortName">compress_size_0_read</obj_property>
+                  <obj_property name="ObjectShortName">compress_size_0_read</obj_property>
+               </wvobject>
+            </wvobject>
+            <wvobject type="group" fp_name="lzw_size_group">
+               <obj_property name="label">lzw_size(lzw_size_c_U, FIFO)</obj_property>
+               <obj_property name="DisplayName">label</obj_property>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/lzw_size_blk_n">
+                  <obj_property name="ElementShortName">lzw_size_blk_n</obj_property>
+                  <obj_property name="ObjectShortName">lzw_size_blk_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/lzw_size_dout">
+                  <obj_property name="ElementShortName">lzw_size_dout[63:0]</obj_property>
+                  <obj_property name="ObjectShortName">lzw_size_dout[63:0]</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/lzw_size_empty_n">
+                  <obj_property name="ElementShortName">lzw_size_empty_n</obj_property>
+                  <obj_property name="ObjectShortName">lzw_size_empty_n</obj_property>
+               </wvobject>
+               <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/lzw_size_read">
+                  <obj_property name="ElementShortName">lzw_size_read</obj_property>
+                  <obj_property name="ObjectShortName">lzw_size_read</obj_property>
+               </wvobject>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="Block_split28_proc_U0_Handshake_group">
+            <obj_property name="label">Block-level handshake</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/ap_start">
+               <obj_property name="ElementShortName">ap_start</obj_property>
+               <obj_property name="ObjectShortName">ap_start</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/ap_ready">
+               <obj_property name="ElementShortName">ap_ready</obj_property>
+               <obj_property name="ObjectShortName">ap_ready</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/ap_done">
+               <obj_property name="ElementShortName">ap_done</obj_property>
+               <obj_property name="ObjectShortName">ap_done</obj_property>
+            </wvobject>
+            <wvobject type="logic" fp_name="/apatb_hardware_encoding_top/AESL_inst_hardware_encoding/Block_split28_proc_U0/ap_continue">
+               <obj_property name="ElementShortName">ap_continue</obj_property>
+               <obj_property name="ObjectShortName">ap_continue</obj_property>
+            </wvobject>
+         </wvobject>
+         <wvobject type="group" fp_name="Block_split28_proc_U0_Output_group">
+            <obj_property name="label">Output Channels</obj_property>
+            <obj_property name="DisplayName">label</obj_property>
          </wvobject>
       </wvobject>
    </wvobject>

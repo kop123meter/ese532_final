@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'hardware_encoding'" level="0">
-<item name = "Date">Fri Dec  8 22:45:28 2023
+<item name = "Date">Sat Dec  9 20:27:39 2023
 </item>
 <item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
 <item name = "Project">final_project</item>
@@ -24,26 +24,22 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">?, ?, ?, ?, ?, ?, none</column>
+<column name="">?, ?, ?, ?, ?, ?, dataflow</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_assoc_lookup_fu_1124">assoc_lookup, 2, 4, 13.334 ns, 26.668 ns, 2, 4, none</column>
+<column name="grp_computing_fu_168">computing, ?, ?, ?, ?, ?, ?, none</column>
+<column name="grp_read_input_fu_177">read_input, ?, ?, ?, ?, ?, ?, none</column>
+<column name="grp_write_output_fu_187">write_output, 1, ?, 6.667 ns, ?, 1, ?, none</column>
+<column name="grp_Block_split28_proc_fu_196">Block_split28_proc, 70, 70, 0.467 us, 0.467 us, 70, 70, none</column>
+<column name="call_ln275_hardware_encoding_entry7_fu_204">hardware_encoding_entry7, 0, 0, 0 ns, 0 ns, 0, 0, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_245_1">10, 10, 2, 1, 1, 10, yes</column>
-<column name="- VITIS_LOOP_256_2">?, ?, ?, -, -, ?, no</column>
-<column name=" + VITIS_LOOP_298_3">16384, 16384, 1, 1, 1, 16384, yes</column>
-<column name=" + VITIS_LOOP_307_4">512, 512, 1, 1, 1, 512, yes</column>
-<column name=" + VITIS_LOOP_337_5">?, ?, 97 ~ 129, -, -, ?, no</column>
-<column name="  ++ VITIS_LOOP_24_1">20, 20, 1, 1, 1, 20, yes</column>
-<column name="  ++ VITIS_LOOP_24_1">20, 20, 1, 1, 1, 20, yes</column>
-<column name=" + VITIS_LOOP_417_6">?, ?, 71, -, -, ?, no</column>
 </table>
 </item>
 </section>

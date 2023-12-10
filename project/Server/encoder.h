@@ -11,6 +11,7 @@
 #define TARGET 0
 #define MODULUS 4096
 #define LZW_CHUNK 10
+#define CHUNK_BUFFER 2
 
 #define NUM_PACKETS 8
 #define pipe_depth 4

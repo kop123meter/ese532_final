@@ -2,13 +2,9 @@ INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
    Compiling ../../../../Server/Testbench.cpp in debug mode
 ../../../../Server/Testbench.cpp: In function ‘int main()’:
-../../../../Server/Testbench.cpp:72:56: error: too few arguments to function ‘void hardware_encoding(unsigned char*, unsigned char*, int*, int*, int*)’
-  hardware_encoding(Input, Output_HW, size_HW, hw_length);
-                                                        ^
-In file included from ../../../../Server/Testbench.cpp:4:0:
-../../../../Server/LZW_new.h:13:6: note: declared here
- void hardware_encoding(unsigned char s1[CHUNKS*8192],unsigned char output[CHUNKS*CHUNK_SIZE],int lzw_size[CHUNKS],int input_size[CHUNKS],int chunk_number[1]);
-      ^~~~~~~~~~~~~~~~~
+../../../../Server/Testbench.cpp:74:62: error: cannot convert ‘matrix_type* {aka unsigned char*}’ to ‘uint16_t* {aka short unsigned int*}’ for argument ‘2’ to ‘void hardware_encoding(unsigned char*, uint16_t*, int*, int*, int*)’
+  hardware_encoding(Input, Output_HW, size_HW, hw_length,size2);
+                                                              ^
 make: *** [csim.mk:72: obj/Testbench.o] Error 1
 ERR: [SIM 100] 'csim_design' failed: compilation error(s).
 INFO: [SIM 3] *************** CSIM finish ***************

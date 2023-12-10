@@ -1,342 +1,827 @@
 # This script segment is generated automatically by AutoPilot
 
-# Memory (RAM/ROM)  definition:
-set ID 6
-set hasByteEnable 0
-set MemName hardware_encoding_temp_output
-set CoreName ap_simcore_mem
-set PortList { 0 2 }
-set DataWd 8
-set AddrRange 8196
-set AddrWd 14
-set impl_style auto
-set TrueReset 0
-set HasInitializer 0
-set IsROM 0
-set ROMData {}
+# FIFO definition:
+set ID 34
+set FifoName hardware_encoding_fifo_w64_d2_S
+set InstName s1_c_U
+set CoreName ap_simcore_fifo
 set NumOfStage 2
-set MaxLatency -1
-set DelayBudget 1.352
-set ClkPeriod 6.667
 set RegisteredInput 0
-if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
-    eval "ap_gen_simcore_mem { \
-    id ${ID} \
-    name ${MemName} \
-    corename ${CoreName}  \
-    op mem \
-    hasByteEnable ${hasByteEnable} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${NumOfStage}  \
-    registered_input ${RegisteredInput} \
-    port_num 2 \
-    port_list \{${PortList}\} \
-    data_wd ${DataWd} \
-    addr_wd ${AddrWd} \
-    addr_range ${AddrRange} \
-    style ${impl_style} \
-    true_reset ${TrueReset} \
-    delay_budget ${DelayBudget} \
-    clk_period ${ClkPeriod} \
-    HasInitializer ${HasInitializer} \
-    rom_data \{${ROMData}\} \
- } "
-} else {
-    puts "@W \[IMPL-102\] Cannot find ap_gen_simcore_mem, check your platform lib"
-}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-  ::AP::rtl_comp_handler $MemName
-}
-
-
-set CoreName RAM
-if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
-if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RAM"} {
-    eval "::AESL_LIB_VIRTEX::xil_gen_RAM { \
-    id ${ID} \
-    name ${MemName} \
-    corename ${CoreName}  \
-    op mem \
-    hasByteEnable ${hasByteEnable} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${NumOfStage}  \
-    registered_input ${RegisteredInput} \
-    port_num 2 \
-    port_list \{${PortList}\} \
-    data_wd ${DataWd} \
-    addr_wd ${AddrWd} \
-    addr_range ${AddrRange} \
-    style ${impl_style} \
-    true_reset ${TrueReset} \
-    delay_budget ${DelayBudget} \
-    clk_period ${ClkPeriod} \
-    HasInitializer ${HasInitializer} \
-    rom_data \{${ROMData}\} \
- } "
-  } else {
-    puts "@W \[IMPL-104\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_RAM, check your platform lib"
-  }
-}
-
-
-# Memory (RAM/ROM)  definition:
-set ID 7
-set hasByteEnable 0
-set MemName hardware_encoding_hash_table_0
-set CoreName ap_simcore_mem
-set PortList { 2 2 }
-set DataWd 33
-set AddrRange 32768
-set AddrWd 15
-set impl_style auto
-set TrueReset 0
-set HasInitializer 0
-set IsROM 0
-set ROMData {}
-set NumOfStage 2
-set MaxLatency -1
-set DelayBudget 1.352
-set ClkPeriod 6.667
-set RegisteredInput 0
-if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
-    eval "ap_gen_simcore_mem { \
-    id ${ID} \
-    name ${MemName} \
-    corename ${CoreName}  \
-    op mem \
-    hasByteEnable ${hasByteEnable} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${NumOfStage}  \
-    registered_input ${RegisteredInput} \
-    port_num 2 \
-    port_list \{${PortList}\} \
-    data_wd ${DataWd} \
-    addr_wd ${AddrWd} \
-    addr_range ${AddrRange} \
-    style ${impl_style} \
-    true_reset ${TrueReset} \
-    delay_budget ${DelayBudget} \
-    clk_period ${ClkPeriod} \
-    HasInitializer ${HasInitializer} \
-    rom_data \{${ROMData}\} \
- } "
-} else {
-    puts "@W \[IMPL-102\] Cannot find ap_gen_simcore_mem, check your platform lib"
-}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-  ::AP::rtl_comp_handler $MemName
-}
-
-
-set CoreName RAM
-if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
-if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RAM"} {
-    eval "::AESL_LIB_VIRTEX::xil_gen_RAM { \
-    id ${ID} \
-    name ${MemName} \
-    corename ${CoreName}  \
-    op mem \
-    hasByteEnable ${hasByteEnable} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${NumOfStage}  \
-    registered_input ${RegisteredInput} \
-    port_num 2 \
-    port_list \{${PortList}\} \
-    data_wd ${DataWd} \
-    addr_wd ${AddrWd} \
-    addr_range ${AddrRange} \
-    style ${impl_style} \
-    true_reset ${TrueReset} \
-    delay_budget ${DelayBudget} \
-    clk_period ${ClkPeriod} \
-    HasInitializer ${HasInitializer} \
-    rom_data \{${ROMData}\} \
- } "
-  } else {
-    puts "@W \[IMPL-104\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_RAM, check your platform lib"
-  }
-}
-
-
-# Memory (RAM/ROM)  definition:
-set ID 8
-set hasByteEnable 0
-set MemName hardware_encoding_my_assoc_mem_upper_key_mem
-set CoreName ap_simcore_mem
-set PortList { 2 3 }
+set DualClock 0
+set Depth 2
 set DataWd 64
-set AddrRange 512
-set AddrWd 9
-set impl_style auto
-set TrueReset 0
-set HasInitializer 0
-set IsROM 0
-set ROMData {}
-set NumOfStage 2
-set MaxLatency -1
-set DelayBudget 1.352
-set ClkPeriod 6.667
-set RegisteredInput 0
+set AddrWd 1
+set FullThresh 0
+set FanoutToFrp 0
+set FanoutToFrpRdOutII 0
+set EmptyThresh 0
+set impl_style shiftReg
 if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
-    eval "ap_gen_simcore_mem { \
+if {[info proc ap_gen_simcore_fifo] == "ap_gen_simcore_fifo"} {
+eval "ap_gen_simcore_fifo { \
     id ${ID} \
-    name ${MemName} \
-    corename ${CoreName}  \
-    op mem \
-    hasByteEnable ${hasByteEnable} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${NumOfStage}  \
+    name ${FifoName} \
+    instname ${InstName}    corename ${CoreName} \
+    op fifo \
+    stage_num ${NumOfStage} \
     registered_input ${RegisteredInput} \
-    port_num 2 \
-    port_list \{${PortList}\} \
     data_wd ${DataWd} \
     addr_wd ${AddrWd} \
-    addr_range ${AddrRange} \
-    style ${impl_style} \
-    true_reset ${TrueReset} \
-    delay_budget ${DelayBudget} \
-    clk_period ${ClkPeriod} \
-    HasInitializer ${HasInitializer} \
-    rom_data \{${ROMData}\} \
- } "
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0\
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+}"
 } else {
-    puts "@W \[IMPL-102\] Cannot find ap_gen_simcore_mem, check your platform lib"
+puts "@W \[IMPL-106\] Cannot find ap_gen_simcore_fifo, check your platform lib"
 }
 }
 
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-  ::AP::rtl_comp_handler $MemName
+	::AP::rtl_comp_handler $FifoName
 }
 
 
-set CoreName RAM
 if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
-if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RAM"} {
-    eval "::AESL_LIB_VIRTEX::xil_gen_RAM { \
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_FIFO] == "::AESL_LIB_VIRTEX::xil_gen_FIFO"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_FIFO { \
     id ${ID} \
-    name ${MemName} \
-    corename ${CoreName}  \
-    op mem \
-    hasByteEnable ${hasByteEnable} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${NumOfStage}  \
+    name ${FifoName} \
+    instname ${InstName}
+    corename FIFO_SRL \
+    op fifo \
+    stage_num ${NumOfStage} \
     registered_input ${RegisteredInput} \
-    port_num 2 \
-    port_list \{${PortList}\} \
     data_wd ${DataWd} \
     addr_wd ${AddrWd} \
-    addr_range ${AddrRange} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0 \
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
     style ${impl_style} \
-    true_reset ${TrueReset} \
-    delay_budget ${DelayBudget} \
-    clk_period ${ClkPeriod} \
-    HasInitializer ${HasInitializer} \
-    rom_data \{${ROMData}\} \
- } "
-  } else {
-    puts "@W \[IMPL-104\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_RAM, check your platform lib"
-  }
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your platform lib"
+}
 }
 
 
-# Memory (RAM/ROM)  definition:
-set ID 9
-set hasByteEnable 0
-set MemName hardware_encoding_my_assoc_mem_value
-set CoreName ap_simcore_mem
-set PortList { 2 3 }
-set DataWd 12
-set AddrRange 64
-set AddrWd 6
-set impl_style auto
-set TrueReset 0
-set HasInitializer 0
-set IsROM 0
-set ROMData {}
+# FIFO definition:
+set ID 35
+set FifoName hardware_encoding_fifo_w64_d4_S
+set InstName output_c_U
+set CoreName ap_simcore_fifo
 set NumOfStage 2
-set MaxLatency -1
-set DelayBudget 0.79
-set ClkPeriod 6.667
 set RegisteredInput 0
+set DualClock 0
+set Depth 4
+set DataWd 64
+set AddrWd 2
+set FullThresh 0
+set FanoutToFrp 0
+set FanoutToFrpRdOutII 0
+set EmptyThresh 0
+set impl_style shiftReg
 if {${::AESL::PGuard_simmodel_gen}} {
-if {[info proc ap_gen_simcore_mem] == "ap_gen_simcore_mem"} {
-    eval "ap_gen_simcore_mem { \
+if {[info proc ap_gen_simcore_fifo] == "ap_gen_simcore_fifo"} {
+eval "ap_gen_simcore_fifo { \
     id ${ID} \
-    name ${MemName} \
-    corename ${CoreName}  \
-    op mem \
-    hasByteEnable ${hasByteEnable} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${NumOfStage}  \
+    name ${FifoName} \
+    instname ${InstName}    corename ${CoreName} \
+    op fifo \
+    stage_num ${NumOfStage} \
     registered_input ${RegisteredInput} \
-    port_num 2 \
-    port_list \{${PortList}\} \
     data_wd ${DataWd} \
     addr_wd ${AddrWd} \
-    addr_range ${AddrRange} \
-    style ${impl_style} \
-    true_reset ${TrueReset} \
-    delay_budget ${DelayBudget} \
-    clk_period ${ClkPeriod} \
-    HasInitializer ${HasInitializer} \
-    rom_data \{${ROMData}\} \
- } "
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0\
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+}"
 } else {
-    puts "@W \[IMPL-102\] Cannot find ap_gen_simcore_mem, check your platform lib"
+puts "@W \[IMPL-106\] Cannot find ap_gen_simcore_fifo, check your platform lib"
 }
 }
 
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-  ::AP::rtl_comp_handler $MemName
+	::AP::rtl_comp_handler $FifoName
 }
 
 
-set CoreName RAM
 if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
-if {[info proc ::AESL_LIB_VIRTEX::xil_gen_RAM] == "::AESL_LIB_VIRTEX::xil_gen_RAM"} {
-    eval "::AESL_LIB_VIRTEX::xil_gen_RAM { \
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_FIFO] == "::AESL_LIB_VIRTEX::xil_gen_FIFO"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_FIFO { \
     id ${ID} \
-    name ${MemName} \
-    corename ${CoreName}  \
-    op mem \
-    hasByteEnable ${hasByteEnable} \
-    reset_level 1 \
-    sync_rst true \
-    stage_num ${NumOfStage}  \
+    name ${FifoName} \
+    instname ${InstName}
+    corename FIFO_SRL \
+    op fifo \
+    stage_num ${NumOfStage} \
     registered_input ${RegisteredInput} \
-    port_num 2 \
-    port_list \{${PortList}\} \
     data_wd ${DataWd} \
     addr_wd ${AddrWd} \
-    addr_range ${AddrRange} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0 \
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
     style ${impl_style} \
-    true_reset ${TrueReset} \
-    delay_budget ${DelayBudget} \
-    clk_period ${ClkPeriod} \
-    HasInitializer ${HasInitializer} \
-    rom_data \{${ROMData}\} \
- } "
-  } else {
-    puts "@W \[IMPL-104\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_RAM, check your platform lib"
-  }
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your platform lib"
+}
+}
+
+
+# FIFO definition:
+set ID 36
+set FifoName hardware_encoding_fifo_w64_d4_S
+set InstName lzw_size_c_U
+set CoreName ap_simcore_fifo
+set NumOfStage 2
+set RegisteredInput 0
+set DualClock 0
+set Depth 4
+set DataWd 64
+set AddrWd 2
+set FullThresh 0
+set FanoutToFrp 0
+set FanoutToFrpRdOutII 0
+set EmptyThresh 0
+set impl_style shiftReg
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ap_gen_simcore_fifo] == "ap_gen_simcore_fifo"} {
+eval "ap_gen_simcore_fifo { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}    corename ${CoreName} \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0\
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+}"
+} else {
+puts "@W \[IMPL-106\] Cannot find ap_gen_simcore_fifo, check your platform lib"
+}
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $FifoName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_FIFO] == "::AESL_LIB_VIRTEX::xil_gen_FIFO"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_FIFO { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}
+    corename FIFO_SRL \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0 \
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+    style ${impl_style} \
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your platform lib"
+}
+}
+
+
+# FIFO definition:
+set ID 37
+set FifoName hardware_encoding_fifo_w64_d2_S
+set InstName input_size_c_U
+set CoreName ap_simcore_fifo
+set NumOfStage 2
+set RegisteredInput 0
+set DualClock 0
+set Depth 2
+set DataWd 64
+set AddrWd 1
+set FullThresh 0
+set FanoutToFrp 0
+set FanoutToFrpRdOutII 0
+set EmptyThresh 0
+set impl_style shiftReg
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ap_gen_simcore_fifo] == "ap_gen_simcore_fifo"} {
+eval "ap_gen_simcore_fifo { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}    corename ${CoreName} \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0\
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+}"
+} else {
+puts "@W \[IMPL-106\] Cannot find ap_gen_simcore_fifo, check your platform lib"
+}
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $FifoName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_FIFO] == "::AESL_LIB_VIRTEX::xil_gen_FIFO"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_FIFO { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}
+    corename FIFO_SRL \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0 \
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+    style ${impl_style} \
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your platform lib"
+}
+}
+
+
+# FIFO definition:
+set ID 38
+set FifoName hardware_encoding_fifo_w8_d75_S
+set InstName input_stream_U
+set CoreName ap_simcore_fifo
+set NumOfStage 2
+set RegisteredInput 0
+set DualClock 0
+set Depth 75
+set DataWd 8
+set AddrWd 7
+set FullThresh 0
+set FanoutToFrp 0
+set FanoutToFrpRdOutII 0
+set EmptyThresh 0
+set impl_style shiftReg
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ap_gen_simcore_fifo] == "ap_gen_simcore_fifo"} {
+eval "ap_gen_simcore_fifo { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}    corename ${CoreName} \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0\
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+}"
+} else {
+puts "@W \[IMPL-106\] Cannot find ap_gen_simcore_fifo, check your platform lib"
+}
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $FifoName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_FIFO] == "::AESL_LIB_VIRTEX::xil_gen_FIFO"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_FIFO { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}
+    corename FIFO_SRL \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0 \
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+    style ${impl_style} \
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your platform lib"
+}
+}
+
+
+# FIFO definition:
+set ID 39
+set FifoName hardware_encoding_fifo_w32_d75_A
+set InstName inputsize_stream_U
+set CoreName ap_simcore_fifo
+set NumOfStage 2
+set RegisteredInput 0
+set DualClock 0
+set Depth 75
+set DataWd 32
+set AddrWd 7
+set FullThresh 0
+set FanoutToFrp 0
+set FanoutToFrpRdOutII 0
+set EmptyThresh 0
+set impl_style auto
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ap_gen_simcore_fifo] == "ap_gen_simcore_fifo"} {
+eval "ap_gen_simcore_fifo { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}    corename ${CoreName} \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0\
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+}"
+} else {
+puts "@W \[IMPL-106\] Cannot find ap_gen_simcore_fifo, check your platform lib"
+}
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $FifoName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_FIFO] == "::AESL_LIB_VIRTEX::xil_gen_FIFO"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_FIFO { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}
+    corename FIFO \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0 \
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+    style ${impl_style} \
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your platform lib"
+}
+}
+
+
+# FIFO definition:
+set ID 40
+set FifoName hardware_encoding_fifo_w32_d2_S
+set InstName p_channel_U
+set CoreName ap_simcore_fifo
+set NumOfStage 2
+set RegisteredInput 0
+set DualClock 0
+set Depth 2
+set DataWd 32
+set AddrWd 1
+set FullThresh 0
+set FanoutToFrp 0
+set FanoutToFrpRdOutII 0
+set EmptyThresh 0
+set impl_style shiftReg
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ap_gen_simcore_fifo] == "ap_gen_simcore_fifo"} {
+eval "ap_gen_simcore_fifo { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}    corename ${CoreName} \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0\
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+}"
+} else {
+puts "@W \[IMPL-106\] Cannot find ap_gen_simcore_fifo, check your platform lib"
+}
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $FifoName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_FIFO] == "::AESL_LIB_VIRTEX::xil_gen_FIFO"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_FIFO { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}
+    corename FIFO_SRL \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0 \
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+    style ${impl_style} \
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your platform lib"
+}
+}
+
+
+# FIFO definition:
+set ID 41
+set FifoName hardware_encoding_fifo_w16_d75_A
+set InstName output_stream_U
+set CoreName ap_simcore_fifo
+set NumOfStage 2
+set RegisteredInput 0
+set DualClock 0
+set Depth 75
+set DataWd 16
+set AddrWd 7
+set FullThresh 0
+set FanoutToFrp 0
+set FanoutToFrpRdOutII 0
+set EmptyThresh 0
+set impl_style auto
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ap_gen_simcore_fifo] == "ap_gen_simcore_fifo"} {
+eval "ap_gen_simcore_fifo { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}    corename ${CoreName} \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0\
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+}"
+} else {
+puts "@W \[IMPL-106\] Cannot find ap_gen_simcore_fifo, check your platform lib"
+}
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $FifoName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_FIFO] == "::AESL_LIB_VIRTEX::xil_gen_FIFO"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_FIFO { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}
+    corename FIFO \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0 \
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+    style ${impl_style} \
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your platform lib"
+}
+}
+
+
+# FIFO definition:
+set ID 42
+set FifoName hardware_encoding_fifo_w32_d2_S
+set InstName compress_size_0_c_U
+set CoreName ap_simcore_fifo
+set NumOfStage 2
+set RegisteredInput 0
+set DualClock 0
+set Depth 2
+set DataWd 32
+set AddrWd 1
+set FullThresh 0
+set FanoutToFrp 0
+set FanoutToFrpRdOutII 0
+set EmptyThresh 0
+set impl_style shiftReg
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ap_gen_simcore_fifo] == "ap_gen_simcore_fifo"} {
+eval "ap_gen_simcore_fifo { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}    corename ${CoreName} \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0\
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+}"
+} else {
+puts "@W \[IMPL-106\] Cannot find ap_gen_simcore_fifo, check your platform lib"
+}
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $FifoName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_FIFO] == "::AESL_LIB_VIRTEX::xil_gen_FIFO"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_FIFO { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}
+    corename FIFO_SRL \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0 \
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+    style ${impl_style} \
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your platform lib"
+}
+}
+
+
+# FIFO definition:
+set ID 43
+set FifoName hardware_encoding_start_for_Block_split28_proc_U0
+set InstName start_for_Block_split28_proc_U0_U
+set CoreName ap_simcore_fifo
+set NumOfStage 2
+set RegisteredInput 0
+set DualClock 0
+set Depth 4
+set DataWd 1
+set AddrWd 2
+set FullThresh 0
+set FanoutToFrp 0
+set FanoutToFrpRdOutII 0
+set EmptyThresh 0
+set impl_style shiftReg
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ap_gen_simcore_fifo] == "ap_gen_simcore_fifo"} {
+eval "ap_gen_simcore_fifo { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}    corename ${CoreName} \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0\
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+}"
+} else {
+puts "@W \[IMPL-106\] Cannot find ap_gen_simcore_fifo, check your platform lib"
+}
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $FifoName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_FIFO] == "::AESL_LIB_VIRTEX::xil_gen_FIFO"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_FIFO { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}
+    corename FIFO_SRL \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0 \
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+    style ${impl_style} \
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your platform lib"
+}
+}
+
+
+# FIFO definition:
+set ID 44
+set FifoName hardware_encoding_start_for_computing_U0
+set InstName start_for_computing_U0_U
+set CoreName ap_simcore_fifo
+set NumOfStage 2
+set RegisteredInput 0
+set DualClock 0
+set Depth 2
+set DataWd 1
+set AddrWd 1
+set FullThresh 0
+set FanoutToFrp 0
+set FanoutToFrpRdOutII 0
+set EmptyThresh 0
+set impl_style shiftReg
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ap_gen_simcore_fifo] == "ap_gen_simcore_fifo"} {
+eval "ap_gen_simcore_fifo { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}    corename ${CoreName} \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0\
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+}"
+} else {
+puts "@W \[IMPL-106\] Cannot find ap_gen_simcore_fifo, check your platform lib"
+}
+}
+
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler $FifoName
+}
+
+
+if {${::AESL::PGuard_autocg_gen} && ${::AESL::PGuard_autocg_ipmgen}} {
+if {[info proc ::AESL_LIB_VIRTEX::xil_gen_FIFO] == "::AESL_LIB_VIRTEX::xil_gen_FIFO"} {
+eval "::AESL_LIB_VIRTEX::xil_gen_FIFO { \
+    id ${ID} \
+    name ${FifoName} \
+    instname ${InstName}
+    corename FIFO_SRL \
+    op fifo \
+    stage_num ${NumOfStage} \
+    registered_input ${RegisteredInput} \
+    data_wd ${DataWd} \
+    addr_wd ${AddrWd} \
+    reset_level 1 \
+    sync_rst true \
+    dual_clk 0 \
+    depth ${Depth} \
+    fanout_to_frp ${FanoutToFrp} \
+    with_num_data_valid ${FanoutToFrpRdOutII} \
+    empty_thresh ${EmptyThresh} \
+    full_thresh ${FullThresh} \
+    style ${impl_style} \
+}"
+} else {
+puts "@W \[IMPL-107\] Cannot find ::AESL_LIB_VIRTEX::xil_gen_FIFO, check your platform lib"
+}
 }
 
 
@@ -381,14 +866,6 @@ input_size {
 	offset 52
 	offset_end 63
 }
-chunk_number { 
-	dir I
-	width 64
-	depth 1
-	mode ap_none
-	offset 64
-	offset_end 75
-}
 ap_start { }
 ap_done { }
 ap_ready { }
@@ -402,7 +879,7 @@ dict set axilite_register_dict control $port_control
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 10 \
+			id 45 \
 			corename hardware_encoding_control_axilite \
 			name hardware_encoding_control_s_axi \
 			ports {$port_control} \
@@ -423,7 +900,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::m_axi_gen] == "::AESL_LIB_XILADAPTER::m_axi_gen"} {
 eval "::AESL_LIB_XILADAPTER::m_axi_gen { \
-    id 11 \
+    id 46 \
     corename {m_axi} \
     op interface \
     max_latency -1 \ 
@@ -444,7 +921,7 @@ if {${::AESL::PGuard_rtl_comp_handler}} {
 if {${::AESL::PGuard_simmodel_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::m_axi_gen] == "::AESL_LIB_XILADAPTER::m_axi_gen"} {
 eval "::AESL_LIB_XILADAPTER::m_axi_gen { \
-    id 12 \
+    id 47 \
     corename {m_axi} \
     op interface \
     max_latency -1 \ 
@@ -459,6 +936,27 @@ puts "@W \[IMPL-110\] Cannot find AXI interface model in the library. Ignored ge
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler hardware_encoding_HP3_m_axi
+}
+
+# Native M_AXI:
+if {${::AESL::PGuard_simmodel_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::m_axi_gen] == "::AESL_LIB_XILADAPTER::m_axi_gen"} {
+eval "::AESL_LIB_XILADAPTER::m_axi_gen { \
+    id 48 \
+    corename {m_axi} \
+    op interface \
+    max_latency -1 \ 
+    delay_budget 4.86691 \ 
+    is_flushable 0 \ 
+    name {hardware_encoding_HP0_m_axi} \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find AXI interface model in the library. Ignored generation of AXI interface for 'HP0'"
+}
+}
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler hardware_encoding_HP0_m_axi
 }
 
 

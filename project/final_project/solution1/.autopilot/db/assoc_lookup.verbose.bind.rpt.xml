@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'assoc_lookup'" level="0">
-<item name = "Date">Fri Dec  8 22:45:25 2023
+<item name = "Date">Sat Dec  9 20:27:36 2023
 </item>
 <item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
 <item name = "Project">final_project</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">6.67 ns, 2.726 ns, 1.80 ns</column>
+<column name="ap_clk">6.67 ns, 3.516 ns, 1.80 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">2, 4, 13.334 ns, 26.668 ns, 2, 4, none</column>
+<column name="">2, 2, 13.334 ns, 13.334 ns, 1, 1, yes</column>
 </table>
 </item>
 <item name = "Detail">

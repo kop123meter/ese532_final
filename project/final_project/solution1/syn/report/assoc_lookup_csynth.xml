@@ -11,32 +11,35 @@
 <TopModelName>assoc_lookup</TopModelName>
 <TargetClockPeriod>6.67</TargetClockPeriod>
 <ClockUncertainty>1.80</ClockUncertainty>
+<TargetInitiationInterval>4294967295</TargetInitiationInterval>
 <FlowTarget>vitis</FlowTarget>
 </UserAssignments>
 
 <PerformanceEstimates>
-<PipelineType>none</PipelineType>
+<PipelineType>yes</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>2.726</EstimatedClockPeriod>
+<EstimatedClockPeriod>3.516</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
 <Best-caseLatency>2</Best-caseLatency>
-<Average-caseLatency>3</Average-caseLatency>
-<Worst-caseLatency>4</Worst-caseLatency>
+<Average-caseLatency>2</Average-caseLatency>
+<Worst-caseLatency>2</Worst-caseLatency>
 <Best-caseRealTimeLatency>13.334 ns</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>20.001 ns</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>26.668 ns</Worst-caseRealTimeLatency>
-<Interval-min>2</Interval-min>
-<Interval-max>4</Interval-max>
+<Average-caseRealTimeLatency>13.334 ns</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>13.334 ns</Worst-caseRealTimeLatency>
+<PipelineInitiationInterval>1</PipelineInitiationInterval>
+<PipelineDepth>3</PipelineDepth>
+<Interval-min>1</Interval-min>
+<Interval-max>1</Interval-max>
 </SummaryOfOverallLatency>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<FF>36</FF>
-<LUT>1324</LUT>
+<FF>61</FF>
+<LUT>1252</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
 <URAM>0</URAM>
@@ -114,6 +117,17 @@
 <IOProtocol>ap_ctrl_hs</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>ap_ce</name>
+<Object>assoc_lookup</Object>
+<Type>return value</Type>
+<Scope></Scope>
+<IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>

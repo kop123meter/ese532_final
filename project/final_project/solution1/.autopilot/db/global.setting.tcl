@@ -4,7 +4,7 @@ set ClockPeriod 6.667
 set ClockList ap_clk
 set HasVivadoClockPeriod 0
 set CombLogicFlag 0
-set PipelineFlag 0
+set PipelineFlag 1
 set DataflowTaskPipelineFlag 1
 set TrivialPipelineFlag 0
 set noPortSwitchingFlag 0

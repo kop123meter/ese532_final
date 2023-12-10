@@ -27,6 +27,11 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>hls_stream_39.h</name>
+			<type>1</type>
+			<location>/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h</location>
+		</link>
+		<link>
 			<name>source</name>
 			<type>2</type>
 			<location>/mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/.apc/.src</location>
