@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Webtalk v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sun Dec 10 17:35:00 2023
+# Process ID: 14122
+# Current directory: /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/sim/verilog
+# Command line: wbtcv -mode batch -source /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/sim/verilog/xsim.dir/hardware_encoding/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/sim/verilog/webtalk.log
+# Journal file: /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/sim/verilog/webtalk.jou
+#-----------------------------------------------------------
+source /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/sim/verilog/xsim.dir/hardware_encoding/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sun Dec 10 17:35:01 2023...

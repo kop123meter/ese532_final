@@ -1,214 +1,455 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1702171662615">
-  <ports id="1" name="output_stream" type="PortType" originalName="output_stream" coreName="FIFO" coreId="1537012969" bitwidth="16" iftype="IfTypeRom">
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1702254562388">
+  <ports id="1" name="output_stream" type="PortType" originalName="output_stream" coreName="FIFO" coreId="4227858560" bitwidth="16" iftype="IfTypeRom">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="2" name="HP3" type="PortType" coreId="68" bitwidth="16" direction="DirOut" iftype="IfTypeFifo">
+  <ports id="2" name="HP3" type="PortType" coreId="33" bitwidth="16" direction="DirOut" iftype="IfTypeFifo">
+    <dataInputObjs>getelementptr</dataInputObjs>
     <dataInputObjs>getelementptr</dataInputObjs>
   </ports>
-  <ports id="3" name="compress_size" type="PortType" originalName="compress_size" coreId="68" bitwidth="32">
+  <ports id="3" name="output_r" type="PortType" coreName="FIFO_SRL" coreId="145" bitwidth="64" iftype="IfTypeRom">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="4" name="output_r" type="PortType" coreName="FIFO_SRL" coreId="68" bitwidth="64" iftype="IfTypeRom">
-    <dataOutputObjs>read</dataOutputObjs>
-  </ports>
-  <edges id="41" source_obj="//@ports.2" sink_obj="//@blocks.0/@node_objs.0"/>
-  <edges id="44" source_obj="//@ports.3" sink_obj="//@blocks.0/@node_objs.1"/>
-  <edges id="45" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.2"/>
-  <edges id="48" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.0/@node_objs.3"/>
-  <edges id="49" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.0/@node_objs.3"/>
-  <edges id="50" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.0/@node_objs.3"/>
-  <edges id="51" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.1/@node_objs.0"/>
-  <edges id="54" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.1/@node_objs.1"/>
-  <edges id="59" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@blocks.1/@node_objs.2"/>
-  <edges id="60" source_obj="//@blocks.1/@node_objs.3" sink_obj="//@ports.1"/>
-  <edges id="61" source_obj="//@blocks.1/@node_objs.2" sink_obj="//@blocks.1/@node_objs.3"/>
-  <edges id="64" source_obj="//@blocks.1/@node_objs.3" sink_obj="//@blocks.1/@node_objs.4"/>
-  <edges id="65" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.1/@node_objs.4"/>
-  <edges id="66" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@blocks.1/@node_objs.5"/>
-  <edges id="67" source_obj="//@regions.0/@basic_blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0" is_back_edge="1"/>
-  <edges id="68" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0" is_back_edge="1"/>
-  <edges id="71" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
-  <edges id="72" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1"/>
-  <edges id="75" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.2"/>
-  <edges id="76" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.2"/>
-  <edges id="77" source_obj="//@regions.0/@basic_blocks.0/@node_objs.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
-  <edges id="78" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
-  <edges id="79" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
-  <edges id="82" source_obj="//@ports.0" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.0"/>
-  <edges id="85" source_obj="//@blocks.1/@node_objs.3" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.1"/>
-  <edges id="86" source_obj="//@regions.0/@basic_blocks.1/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.1"/>
-  <edges id="89" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.2"/>
-  <edges id="92" source_obj="//@blocks.1/@node_objs.3" sink_obj="//@blocks.2/@node_objs.0"/>
-  <edges id="93" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.2/@node_objs.1"/>
-  <edges id="218" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.1"/>
-  <edges id="219" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.3"/>
-  <edges id="220" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@regions.0/@basic_blocks.0"/>
-  <edges id="221" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@blocks.2"/>
-  <edges id="222" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@regions.0/@basic_blocks.1"/>
-  <edges id="223" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.1" sink_obj="//@regions.0/@basic_blocks.0" is_back_edge="1"/>
-  <edges id="224" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.3"/>
-  <edges id="225" edge_type="VirtEdge" source_obj="//@blocks.1/@node_objs.4" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.1"/>
-  <blocks id="14" name="entry" type="BlockType">
-    <controlOutputObjs>.lr.ph.i</controlOutputObjs>
-    <controlOutputObjs>.exit</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="5" name="compress_size_read" lineNumber="268" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="31" contextFuncName="write_output" bitwidth="32" opcode="read" m_display="0" m_topoIndex="1" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="268" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
-      <dataInputObjs>compress_size</dataInputObjs>
-      <dataOutputObjs>icmp</dataOutputObjs>
-      <dataOutputObjs>trunc</dataOutputObjs>
-      <dataOutputObjs>writereq</dataOutputObjs>
-    </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="9" name="output_read" lineNumber="268" originalName="output" fileName="Server/LZW_new.cpp" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="auto" opType="fifo" coreId="81" contextFuncName="write_output" bitwidth="64" opcode="read" m_display="0" m_delay="2.16" m_topoIndex="2" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="268" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+  <edges id="65" source_obj="//@ports.2" sink_obj="//@blocks.0/@node_objs.0"/>
+  <edges id="66" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.0/@node_objs.1"/>
+  <edges id="67" source_obj="//@blocks.1/@node_objs.1" sink_obj="//@blocks.1/@node_objs.0" is_back_edge="1"/>
+  <edges id="68" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.1/@node_objs.0" is_back_edge="1"/>
+  <edges id="71" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="72" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.1/@node_objs.1"/>
+  <edges id="75" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.1/@node_objs.2"/>
+  <edges id="78" source_obj="//@blocks.1/@node_objs.2" sink_obj="//@blocks.1/@node_objs.3"/>
+  <edges id="79" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@blocks.1/@node_objs.3"/>
+  <edges id="80" edge_type="CtrlEdge" source_obj="//@blocks.4" sink_obj="//@blocks.1/@node_objs.3"/>
+  <edges id="83" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="86" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.2/@node_objs.0"/>
+  <edges id="87" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@blocks.2/@node_objs.1"/>
+  <edges id="90" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
+  <edges id="91" source_obj="//@regions.0/@basic_blocks.2/@node_objs.11" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0" is_back_edge="1"/>
+  <edges id="92" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0" is_back_edge="1"/>
+  <edges id="95" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1"/>
+  <edges id="96" source_obj="//@regions.0/@basic_blocks.0/@node_objs.3" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1" is_back_edge="1"/>
+  <edges id="97" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1" is_back_edge="1"/>
+  <edges id="98" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.2"/>
+  <edges id="101" source_obj="//@regions.0/@basic_blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
+  <edges id="103" source_obj="//@regions.0/@basic_blocks.0/@node_objs.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.4"/>
+  <edges id="104" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.4"/>
+  <edges id="105" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.4"/>
+  <edges id="108" source_obj="//@ports.0" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.0"/>
+  <edges id="109" source_obj="//@regions.0/@basic_blocks.1/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.1"/>
+  <edges id="112" source_obj="//@regions.0/@basic_blocks.1/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.2"/>
+  <edges id="113" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.2" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.2"/>
+  <edges id="114" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.2"/>
+  <edges id="115" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.0"/>
+  <edges id="116" source_obj="//@blocks.2/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.1"/>
+  <edges id="117" source_obj="//@regions.0/@basic_blocks.2/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.1"/>
+  <edges id="120" source_obj="//@regions.0/@basic_blocks.2/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.2"/>
+  <edges id="123" source_obj="//@regions.0/@basic_blocks.2/@node_objs.2" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.3"/>
+  <edges id="124" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.4"/>
+  <edges id="125" source_obj="//@regions.0/@basic_blocks.2/@node_objs.3" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.4"/>
+  <edges id="128" source_obj="//@regions.0/@basic_blocks.2/@node_objs.4" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.5"/>
+  <edges id="133" source_obj="//@regions.0/@basic_blocks.2/@node_objs.5" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.6"/>
+  <edges id="134" source_obj="//@regions.0/@basic_blocks.2/@node_objs.7" sink_obj="//@ports.1"/>
+  <edges id="135" source_obj="//@regions.0/@basic_blocks.2/@node_objs.6" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.7"/>
+  <edges id="138" source_obj="//@regions.0/@basic_blocks.2/@node_objs.7" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.8"/>
+  <edges id="142" source_obj="//@regions.0/@basic_blocks.2/@node_objs.7" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.9"/>
+  <edges id="143" source_obj="//@regions.0/@basic_blocks.1/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.9"/>
+  <edges id="148" source_obj="//@regions.0/@basic_blocks.2/@node_objs.7" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.10"/>
+  <edges id="149" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.11"/>
+  <edges id="151" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.12"/>
+  <edges id="152" source_obj="//@regions.0/@basic_blocks.0/@node_objs.1" sink_obj="//@blocks.3/@node_objs.0"/>
+  <edges id="155" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.3/@node_objs.1"/>
+  <edges id="157" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@blocks.3/@node_objs.1"/>
+  <edges id="159" source_obj="//@blocks.3/@node_objs.1" sink_obj="//@blocks.3/@node_objs.2"/>
+  <edges id="160" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.3/@node_objs.3"/>
+  <edges id="161" source_obj="//@blocks.3/@node_objs.2" sink_obj="//@blocks.3/@node_objs.3"/>
+  <edges id="163" source_obj="//@blocks.3/@node_objs.3" sink_obj="//@blocks.3/@node_objs.4"/>
+  <edges id="166" source_obj="//@blocks.3/@node_objs.4" sink_obj="//@blocks.3/@node_objs.5"/>
+  <edges id="167" source_obj="//@blocks.3/@node_objs.6" sink_obj="//@ports.1"/>
+  <edges id="168" source_obj="//@blocks.3/@node_objs.5" sink_obj="//@blocks.3/@node_objs.6"/>
+  <edges id="170" source_obj="//@blocks.3/@node_objs.6" sink_obj="//@blocks.3/@node_objs.7"/>
+  <edges id="173" source_obj="//@blocks.3/@node_objs.6" sink_obj="//@blocks.3/@node_objs.8"/>
+  <edges id="174" source_obj="//@blocks.3/@node_objs.0" sink_obj="//@blocks.3/@node_objs.8"/>
+  <edges id="177" source_obj="//@blocks.3/@node_objs.6" sink_obj="//@blocks.3/@node_objs.9"/>
+  <edges id="178" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.3/@node_objs.10"/>
+  <edges id="313" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@blocks.1"/>
+  <edges id="314" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.4"/>
+  <edges id="315" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@blocks.2"/>
+  <edges id="316" edge_type="CtrlEdge" source_obj="//@blocks.2" sink_obj="//@regions.0/@basic_blocks.0"/>
+  <edges id="317" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@regions.0/@basic_blocks.1"/>
+  <edges id="318" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@blocks.3"/>
+  <edges id="319" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.1" sink_obj="//@blocks.3"/>
+  <edges id="320" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.1" sink_obj="//@regions.0/@basic_blocks.2"/>
+  <edges id="321" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.2" sink_obj="//@regions.0/@basic_blocks.0" is_back_edge="1"/>
+  <edges id="322" edge_type="CtrlEdge" source_obj="//@blocks.3" sink_obj="//@blocks.1" is_back_edge="1"/>
+  <edges id="323" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.2/@node_objs.9" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.10"/>
+  <edges id="324" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.2/@node_objs.8" sink_obj="//@regions.0/@basic_blocks.2/@node_objs.9"/>
+  <edges id="325" edge_type="VirtEdge" source_obj="//@blocks.3/@node_objs.8" sink_obj="//@blocks.3/@node_objs.9"/>
+  <edges id="326" edge_type="VirtEdge" source_obj="//@blocks.3/@node_objs.7" sink_obj="//@blocks.3/@node_objs.8"/>
+  <blocks id="11" name="entry" type="BlockType">
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>block_17</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="7" name="output_read" lineNumber="286" originalName="output" fileName="Server/LZW_new.cpp" fileDirectory=".." coreName="FIFO_SRL" implIndex="srl" control="auto" opType="fifo" coreId="81" contextFuncName="write_output" bitwidth="64" opcode="read" m_display="0" m_delay="2.16" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="286" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
       <dataInputObjs>output_r</dataInputObjs>
-      <dataOutputObjs>partselect</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="12" name="icmp_ln269" lineNumber="269" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="icmp_ln269_fu_118_p2" opType="icmp" coreId="49" contextFuncName="write_output" bitwidth="1" opcode="icmp" m_display="0" m_delay="1.11" m_topoIndex="3" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="269" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
-      <dataInputObjs>read</dataInputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="10" name="br_ln287" lineNumber="287" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="4227858560" contextFuncName="write_output" opcode="br" m_display="0" m_delay="0.48" m_topoIndex="2" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="287" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <controlInputObjs>block_17</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="Server/LZW_new.cpp">
+      <validLinenumbers>286</validLinenumbers>
+      <validLinenumbers>287</validLinenumbers>
+      <validLinenumbers>312</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="17" name="block_17" type="BlockType">
+    <controlInputObjs>entry</controlInputObjs>
+    <controlInputObjs>.loopexit.i</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>.exit</controlOutputObjs>
+    <controlOutputObjs>.split2.i</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="12" name="c" lineNumber="287" originalName="c" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="49" contextFuncName="write_output" bitwidth="3" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="287" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <dataInputObjs>add</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>bitconcatenate</dataOutputObjs>
+      <dataOutputObjs>bitconcatenate</dataOutputObjs>
+      <dataOutputObjs>bitconcatenate</dataOutputObjs>
+      <dataOutputObjs>bitconcatenate</dataOutputObjs>
+      <controlInputObjs>.loopexit.i</controlInputObjs>
+      <controlInputObjs>entry</controlInputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="13" name="add_ln287" lineNumber="287" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="add_ln287_fu_173_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="write_output" bitwidth="3" opcode="add" nodeLabel="1.0" m_display="0" m_delay="0.74" m_topoIndex="4" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="287" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="14" name="icmp_ln287" lineNumber="287" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="icmp_ln287_fu_179_p2" opType="icmp" coreId="132" contextFuncName="write_output" bitwidth="1" opcode="icmp" nodeLabel="1.0" m_display="0" m_delay="0.69" m_topoIndex="5" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="287" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <dataInputObjs>phi</dataInputObjs>
       <dataOutputObjs>br</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="13" name="br_ln269" lineNumber="269" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="1919905824" contextFuncName="write_output" opcode="br" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="269" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="16" name="br_ln287" lineNumber="287" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="49" contextFuncName="write_output" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="287" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
       <dataInputObjs>icmp</dataInputObjs>
+      <controlInputObjs>.split2.i</controlInputObjs>
       <controlInputObjs>.exit</controlInputObjs>
-      <controlInputObjs>.lr.ph.i</controlInputObjs>
     </node_objs>
     <fileValidLineNumbers fileName="Server/LZW_new.cpp">
-      <validLinenumbers>268</validLinenumbers>
-      <validLinenumbers>269</validLinenumbers>
+      <validLinenumbers>287</validLinenumbers>
+      <validLinenumbers>312</validLinenumbers>
     </fileValidLineNumbers>
   </blocks>
-  <blocks id="21" name=".lr.ph.i" type="BlockType">
-    <controlInputObjs>entry</controlInputObjs>
+  <blocks id="21" name=".split2.i" type="BlockType">
+    <controlInputObjs>block_17</controlInputObjs>
     <controlOutputObjs>br</controlOutputObjs>
     <controlOutputObjs>phi</controlOutputObjs>
-    <controlOutputObjs>block_28</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="15" name="trunc_ln269" lineNumber="269" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="trunc_ln269_fu_144_p1" coreId="49" contextFuncName="write_output" bitwidth="31" opcode="trunc" nodeLabel="1.0" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="269" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
-      <dataInputObjs>read</dataInputObjs>
-      <dataOutputObjs>icmp</dataOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>block_29</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="19" name="or_ln" lineNumber="295" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="or_ln_fu_185_p4" coreId="49" contextFuncName="write_output" bitwidth="16" opcode="bitconcatenate" nodeLabel="1.0" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="295" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+      <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="16" name="trunc_ln269_1" lineNumber="269" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="trunc_ln269_1_fu_124_p4" coreId="49" contextFuncName="write_output" bitwidth="63" opcode="partselect" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="269" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="20" name="br_ln289" lineNumber="289" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="2582135648" contextFuncName="write_output" opcode="br" nodeLabel="1.0" m_display="0" m_delay="0.48" m_topoIndex="8" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="289" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <controlInputObjs>block_29</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="Server/LZW_new.cpp">
+      <validLinenumbers>295</validLinenumbers>
+      <validLinenumbers>289</validLinenumbers>
+      <validLinenumbers>312</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="60" name=".loopexit.i" type="BlockType">
+    <controlInputObjs>block_29</controlInputObjs>
+    <controlInputObjs>.split.i</controlInputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <controlOutputObjs>block_17</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="49" name="zext_ln299" lineNumber="299" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="zext_ln299_fu_306_p1" coreId="4227858560" contextFuncName="write_output" bitwidth="16" opcode="zext" nodeLabel="75.0" m_display="0" m_topoIndex="38" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="299" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>write</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="50" name="or_ln1" lineNumber="299" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="or_ln1_fu_265_p5" coreId="4227858560" contextFuncName="write_output" bitwidth="17" opcode="bitconcatenate" nodeLabel="73.0" m_display="0" m_topoIndex="31" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="299" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>zext</dataOutputObjs>
+      <constName>empty</constName>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="51" name="zext_ln299_1" lineNumber="299" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="zext_ln299_1_fu_277_p1" coreId="132" contextFuncName="write_output" bitwidth="64" opcode="zext" nodeLabel="73.0" m_display="0" m_topoIndex="32" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="299" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <dataInputObjs>bitconcatenate</dataInputObjs>
+      <dataOutputObjs>add</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="52" name="add_ln299" lineNumber="299" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="add_ln299_fu_281_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="write_output" bitwidth="64" opcode="add" nodeLabel="73.0" m_display="0" m_delay="1.47" m_topoIndex="33" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="299" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
       <dataInputObjs>read</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <dataOutputObjs>partselect</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="53" name="trunc_ln" lineNumber="299" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="trunc_ln_fu_286_p4" coreId="2582400480" contextFuncName="write_output" bitwidth="63" opcode="partselect" nodeLabel="73.0" m_display="0" m_topoIndex="34" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="299" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <dataInputObjs>add</dataInputObjs>
       <dataOutputObjs>sext</dataOutputObjs>
       <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="17" name="sext_ln269" lineNumber="269" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="sext_ln269_fu_134_p1" coreId="0" contextFuncName="write_output" bitwidth="64" opcode="sext" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="269" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="54" name="sext_ln299" lineNumber="299" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="sext_ln299_fu_296_p1" coreId="0" contextFuncName="write_output" bitwidth="64" opcode="sext" nodeLabel="73.0" m_display="0" m_topoIndex="35" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="299" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
       <dataInputObjs>partselect</dataInputObjs>
       <dataOutputObjs>getelementptr</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="18" name="HP3_addr" lineNumber="269" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="0" contextFuncName="write_output" bitwidth="16" opcode="getelementptr" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="269" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="55" name="HP3_addr" lineNumber="299" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="2582402208" contextFuncName="write_output" bitwidth="16" opcode="getelementptr" nodeLabel="73.0" m_display="0" m_topoIndex="36" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="299" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
       <dataInputObjs>sext</dataInputObjs>
       <dataOutputObjs>HP3</dataOutputObjs>
       <dataOutputObjs>writereq</dataOutputObjs>
       <dataOutputObjs>write</dataOutputObjs>
       <dataOutputObjs>writeresp</dataOutputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="19" name="empty" lineNumber="269" fileName="Server/LZW_new.cpp" fileDirectory=".." coreName="m_axi" implIndex="m_axi" control="auto" opType="writereq" coreId="121" contextFuncName="write_output" bitwidth="1" opcode="writereq" nodeLabel="1.0" m_display="0" m_delay="4.86" m_topoIndex="9" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="269" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="56" name="HP3_addr_req" lineNumber="299" fileName="Server/LZW_new.cpp" fileDirectory=".." coreName="m_axi" implIndex="m_axi" control="auto" opType="writereq" coreId="121" contextFuncName="write_output" bitwidth="1" opcode="writereq" nodeLabel="74.0" m_display="0" m_delay="4.86" m_topoIndex="37" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="299" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
       <dataInputObjs>getelementptr</dataInputObjs>
-      <dataInputObjs>read</dataInputObjs>
+      <constName>empty</constName>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="20" name="br_ln269" lineNumber="269" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="28271" contextFuncName="write_output" opcode="br" nodeLabel="1.0" m_display="0" m_delay="0.48" m_topoIndex="10" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="269" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
-      <controlInputObjs>block_28</controlInputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="57" name="HP3_addr_write_ln299" lineNumber="299" fileName="Server/LZW_new.cpp" fileDirectory=".." coreName="m_axi" implIndex="UNSUPPORTED" control="auto" coreId="121" contextFuncName="write_output" opcode="write" nodeLabel="75.0" m_display="0" m_delay="4.86" m_topoIndex="39" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="299" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <dataInputObjs>getelementptr</dataInputObjs>
+      <dataInputObjs>zext</dataInputObjs>
+      <constName>empty</constName>
     </node_objs>
-    <fileValidLineNumbers fileName="Server/LZW_new.cpp">
-      <validLinenumbers>269</validLinenumbers>
-    </fileValidLineNumbers>
-  </blocks>
-  <blocks id="36" name="._crit_edge.loopexit.i" type="BlockType">
-    <controlInputObjs>block_28</controlInputObjs>
-    <controlOutputObjs>br</controlOutputObjs>
-    <controlOutputObjs>.exit</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="34" name="empty_43" lineNumber="272" fileName="Server/LZW_new.cpp" fileDirectory=".." coreName="m_axi" implIndex="m_axi" control="auto" opType="writereq" coreId="121" contextFuncName="write_output" bitwidth="1" opcode="writeresp" nodeLabel="5.0" nodeLatency="67" m_display="0" m_delay="4.86" m_topoIndex="18" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="272" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="58" name="HP3_addr_resp" lineNumber="299" fileName="Server/LZW_new.cpp" fileDirectory=".." coreName="m_axi" implIndex="m_axi" control="auto" opType="writereq" coreId="121" contextFuncName="write_output" bitwidth="1" opcode="writeresp" nodeLabel="76.0" nodeLatency="67" m_display="0" m_delay="4.86" m_topoIndex="40" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="299" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
       <dataInputObjs>getelementptr</dataInputObjs>
     </node_objs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="35" name="br_ln272" lineNumber="272" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="0" contextFuncName="write_output" opcode="br" nodeLabel="72.0" m_display="0" m_topoIndex="19" m_clusterGroupNumber="-1">
-      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="272" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
-      <controlInputObjs>.exit</controlInputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="59" name="br_ln0" coreId="2582406137" opcode="br" nodeLabel="143.0" m_display="0" m_topoIndex="41" m_clusterGroupNumber="-1">
+      <controlInputObjs>block_17</controlInputObjs>
     </node_objs>
     <fileValidLineNumbers fileName="Server/LZW_new.cpp">
-      <validLinenumbers>272</validLinenumbers>
+      <validLinenumbers>299</validLinenumbers>
+      <validLinenumbers>312</validLinenumbers>
     </fileValidLineNumbers>
   </blocks>
-  <blocks id="38" name=".exit" type="BlockType">
-    <controlInputObjs>entry</controlInputObjs>
-    <controlInputObjs>._crit_edge.loopexit.i</controlInputObjs>
+  <blocks id="62" name=".exit" type="BlockType">
+    <controlInputObjs>block_17</controlInputObjs>
     <controlOutputObjs>br</controlOutputObjs>
-    <controlOutputObjs>br</controlOutputObjs>
-    <node_objs xsi:type="cdfg:CdfgNode" id="37" name="_ln0" coreId="1537024976" opcode="ret" nodeLabel="72.0" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1"/>
+    <node_objs xsi:type="cdfg:CdfgNode" id="61" name="_ln312" lineNumber="312" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="757935405" contextFuncName="hardware_encoding" opcode="ret" nodeLabel="1.0" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+    </node_objs>
+    <fileValidLineNumbers fileName="Server/LZW_new.cpp">
+      <validLinenumbers>312</validLinenumbers>
+    </fileValidLineNumbers>
   </blocks>
-  <regions anchor_node="-1" region_type="8" interval="1" typeName="Pipeline" id="329" pipe_depth="3" RegionName="VITIS_LOOP_269_1">
-    <basic_blocks id="28" name="block_28" type="BlockType">
-      <controlInputObjs>.lr.ph.i</controlInputObjs>
-      <controlInputObjs>.split.i</controlInputObjs>
+  <regions anchor_node="-1" region_type="8" interval="1" typeName="Pipeline" id="644" pipe_depth="71" RegionName="VITIS_LOOP_289_2">
+    <basic_blocks id="29" name="block_29" type="BlockType">
+      <controlInputObjs>.split2.i</controlInputObjs>
+      <controlInputObjs>block_48</controlInputObjs>
       <controlOutputObjs>br</controlOutputObjs>
       <controlOutputObjs>br</controlOutputObjs>
-      <controlOutputObjs>._crit_edge.loopexit.i</controlOutputObjs>
       <controlOutputObjs>.split.i</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="22" name="i" lineNumber="269" originalName="i" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="419" contextFuncName="write_output" bitwidth="31" opcode="phi" nodeLabel="2.0" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="269" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <controlOutputObjs>.loopexit.i</controlOutputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="22" name="i" lineNumber="295" originalName="i" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="2580244120" contextFuncName="write_output" bitwidth="14" opcode="phi" nodeLabel="2.0" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="295" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
         <dataInputObjs>add</dataInputObjs>
-        <dataOutputObjs>add</dataOutputObjs>
         <dataOutputObjs>icmp</dataOutputObjs>
-        <controlInputObjs>.split.i</controlInputObjs>
-        <controlInputObjs>.lr.ph.i</controlInputObjs>
+        <dataOutputObjs>zext</dataOutputObjs>
+        <dataOutputObjs>add</dataOutputObjs>
+        <controlInputObjs>.split2.i</controlInputObjs>
+        <controlInputObjs>block_48</controlInputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="23" name="add_ln269" lineNumber="269" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="add_ln269_fu_147_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="write_output" bitwidth="31" opcode="add" nodeLabel="2.0" m_display="0" m_delay="1.19" m_topoIndex="12" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="269" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <node_objs xsi:type="cdfg:CdfgNode" id="23" name="size" originalName="size" coreId="0" bitwidth="14" opcode="phi" nodeLabel="2.0" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
+        <dataInputObjs>add</dataInputObjs>
+        <dataOutputObjs>add</dataOutputObjs>
+        <dataOutputObjs>zext</dataOutputObjs>
+        <controlInputObjs>.split2.i</controlInputObjs>
+        <controlInputObjs>block_48</controlInputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="25" name="icmp_ln289" lineNumber="289" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="icmp_ln289_fu_195_p2" opType="icmp" coreId="1521" contextFuncName="write_output" bitwidth="1" opcode="icmp" nodeLabel="2.0" m_display="0" m_delay="0.86" m_topoIndex="12" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="289" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>phi</dataInputObjs>
+        <dataOutputObjs>br</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="27" name="size_1" lineNumber="296" originalName="size" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="size_1_fu_201_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="write_output" bitwidth="14" opcode="add" nodeLabel="2.0" m_display="0" m_delay="0.98" m_topoIndex="13" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="296" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
         <dataInputObjs>phi</dataInputObjs>
         <dataOutputObjs>phi</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="25" name="icmp_ln269_1" lineNumber="269" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="icmp_ln269_1_fu_153_p2" opType="icmp" coreId="1535534272" contextFuncName="write_output" bitwidth="1" opcode="icmp" nodeLabel="2.0" m_display="0" m_delay="1.09" m_topoIndex="13" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="269" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
-        <dataInputObjs>phi</dataInputObjs>
-        <dataInputObjs>trunc</dataInputObjs>
-        <dataOutputObjs>br</dataOutputObjs>
-      </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="27" name="br_ln269" lineNumber="269" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="1702258035" contextFuncName="write_output" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="269" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <node_objs xsi:type="cdfg:CdfgNode" id="28" name="br_ln289" lineNumber="289" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="0" contextFuncName="write_output" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="289" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
         <dataInputObjs>icmp</dataInputObjs>
+        <controlInputObjs>.loopexit.i</controlInputObjs>
         <controlInputObjs>.split.i</controlInputObjs>
-        <controlInputObjs>._crit_edge.loopexit.i</controlInputObjs>
       </node_objs>
       <fileValidLineNumbers fileName="Server/LZW_new.cpp">
-        <validLinenumbers>269</validLinenumbers>
+        <validLinenumbers>295</validLinenumbers>
+        <validLinenumbers>289</validLinenumbers>
+        <validLinenumbers>296</validLinenumbers>
+        <validLinenumbers>312</validLinenumbers>
       </fileValidLineNumbers>
     </basic_blocks>
-    <basic_blocks id="33" name=".split.i" type="BlockType">
-      <controlInputObjs>block_28</controlInputObjs>
-      <controlOutputObjs>phi</controlOutputObjs>
+    <basic_blocks id="34" name=".split.i" type="BlockType">
+      <controlInputObjs>block_29</controlInputObjs>
       <controlOutputObjs>br</controlOutputObjs>
-      <controlOutputObjs>block_28</controlOutputObjs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="30" name="tmp" lineNumber="145" originalName="tmp" fileName="/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO" implIndex="memory" control="auto" opType="fifo" coreId="78" contextFuncName="read" bitwidth="16" opcode="read" nodeLabel="3.0" m_display="0" m_delay="1.97" m_topoIndex="15" m_clusterGroupNumber="-1">
+      <controlOutputObjs>.loopexit.i</controlOutputObjs>
+      <controlOutputObjs>block_48</controlOutputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="31" name="tmp" lineNumber="145" originalName="tmp" fileName="/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h" fileDirectory=".." coreName="FIFO" implIndex="memory" control="auto" opType="fifo" coreId="78" contextFuncName="read" bitwidth="16" opcode="read" nodeLabel="2.0" m_display="0" m_delay="2.01" m_topoIndex="15" m_clusterGroupNumber="-1">
         <inlineStackInfo fileName="/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h" linenumber="145" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="read"/>
         <dataInputObjs>output_stream</dataInputObjs>
+        <dataOutputObjs>icmp</dataOutputObjs>
         <dataOutputObjs>write</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="31" name="HP3_addr_write_ln270" lineNumber="270" fileName="Server/LZW_new.cpp" fileDirectory=".." coreName="m_axi" implIndex="UNSUPPORTED" control="auto" coreId="121" contextFuncName="write_output" opcode="write" nodeLabel="4.0" m_display="0" m_delay="4.86" m_topoIndex="16" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="270" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+      <node_objs xsi:type="cdfg:CdfgNode" id="32" name="icmp_ln291" lineNumber="291" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="icmp_ln291_fu_207_p2" opType="icmp" coreId="49" contextFuncName="write_output" bitwidth="1" opcode="icmp" nodeLabel="2.0" m_display="0" m_delay="0.86" m_topoIndex="16" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="291" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>read</dataInputObjs>
+        <dataOutputObjs>br</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="33" name="br_ln291" lineNumber="291" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="2582408392" contextFuncName="write_output" opcode="br" nodeLabel="2.0" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="291" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>icmp</dataInputObjs>
+        <controlInputObjs>block_48</controlInputObjs>
+        <controlInputObjs>.loopexit.i</controlInputObjs>
+      </node_objs>
+      <fileValidLineNumbers fileName="Server/LZW_new.cpp">
+        <validLinenumbers>291</validLinenumbers>
+        <validLinenumbers>312</validLinenumbers>
+      </fileValidLineNumbers>
+      <fileValidLineNumbers fileName="/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h">
+        <validLinenumbers>145</validLinenumbers>
+      </fileValidLineNumbers>
+    </basic_blocks>
+    <basic_blocks id="48" name="block_48" type="BlockType">
+      <controlInputObjs>.split.i</controlInputObjs>
+      <controlOutputObjs>phi</controlOutputObjs>
+      <controlOutputObjs>phi</controlOutputObjs>
+      <controlOutputObjs>br</controlOutputObjs>
+      <controlOutputObjs>block_29</controlOutputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="35" name="zext_ln295" lineNumber="295" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="zext_ln295_fu_213_p1" coreId="2582407696" contextFuncName="write_output" bitwidth="16" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="18" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="295" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>phi</dataInputObjs>
+        <dataOutputObjs>add</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="36" name="add_ln295" lineNumber="295" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="add_ln295_fu_217_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="write_output" bitwidth="16" opcode="add" nodeLabel="2.0" m_display="0" m_delay="1.01" m_topoIndex="19" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="295" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>bitconcatenate</dataInputObjs>
+        <dataInputObjs>zext</dataInputObjs>
+        <dataOutputObjs>bitconcatenate</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="37" name="shl_ln" lineNumber="295" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="shl_ln_fu_222_p3" coreId="2582412304" contextFuncName="write_output" bitwidth="17" opcode="bitconcatenate" nodeLabel="2.0" m_display="0" m_topoIndex="20" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="295" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>add</dataInputObjs>
+        <dataOutputObjs>zext</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="38" name="zext_ln295_1" lineNumber="295" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="zext_ln295_1_fu_230_p1" coreId="4865" contextFuncName="write_output" bitwidth="64" opcode="zext" nodeLabel="2.0" m_display="0" m_topoIndex="21" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="295" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>bitconcatenate</dataInputObjs>
+        <dataOutputObjs>add</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="39" name="add_ln295_1" lineNumber="295" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="add_ln295_1_fu_234_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="write_output" bitwidth="64" opcode="add" nodeLabel="2.0" m_display="0" m_delay="1.47" m_topoIndex="22" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="295" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>read</dataInputObjs>
+        <dataInputObjs>zext</dataInputObjs>
+        <dataOutputObjs>partselect</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="40" name="trunc_ln1" lineNumber="295" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="trunc_ln1_fu_239_p4" coreId="0" contextFuncName="write_output" bitwidth="63" opcode="partselect" nodeLabel="2.0" m_display="0" m_topoIndex="23" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="295" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>add</dataInputObjs>
+        <dataOutputObjs>sext</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="41" name="sext_ln295" lineNumber="295" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="sext_ln295_fu_249_p1" coreId="0" contextFuncName="write_output" bitwidth="64" opcode="sext" nodeLabel="2.0" m_display="0" m_topoIndex="24" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="295" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>partselect</dataInputObjs>
+        <dataOutputObjs>getelementptr</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="42" name="HP3_addr_1" lineNumber="295" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="2582016976" contextFuncName="write_output" bitwidth="16" opcode="getelementptr" nodeLabel="2.0" m_display="0" m_topoIndex="25" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="295" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>sext</dataInputObjs>
+        <dataOutputObjs>HP3</dataOutputObjs>
+        <dataOutputObjs>writereq</dataOutputObjs>
+        <dataOutputObjs>write</dataOutputObjs>
+        <dataOutputObjs>writeresp</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="43" name="HP3_addr_1_req" lineNumber="295" fileName="Server/LZW_new.cpp" fileDirectory=".." coreName="m_axi" implIndex="m_axi" control="auto" opType="writereq" coreId="121" contextFuncName="write_output" bitwidth="1" opcode="writereq" nodeLabel="3.0" m_display="0" m_delay="4.86" m_topoIndex="27" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="295" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>getelementptr</dataInputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="44" name="HP3_addr_1_write_ln295" lineNumber="295" fileName="Server/LZW_new.cpp" fileDirectory=".." coreName="m_axi" implIndex="UNSUPPORTED" control="auto" coreId="121" contextFuncName="write_output" opcode="write" nodeLabel="4.0" m_display="0" m_delay="4.86" m_topoIndex="28" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="295" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
         <dataInputObjs>getelementptr</dataInputObjs>
         <dataInputObjs>read</dataInputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="32" name="br_ln0" coreId="49" opcode="br" nodeLabel="4.0" m_display="0" m_topoIndex="17" m_clusterGroupNumber="-1">
-        <controlInputObjs>block_28</controlInputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="45" name="HP3_addr_1_resp" lineNumber="295" fileName="Server/LZW_new.cpp" fileDirectory=".." coreName="m_axi" implIndex="m_axi" control="auto" opType="writereq" coreId="121" contextFuncName="write_output" bitwidth="1" opcode="writeresp" nodeLabel="5.0" nodeLatency="67" m_display="0" m_delay="4.86" m_topoIndex="29" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="295" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>getelementptr</dataInputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="46" name="add_ln289" lineNumber="289" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="add_ln289_fu_259_p2" coreName="Adder" implIndex="fabric" control="auto" opType="add" coreId="1" contextFuncName="write_output" bitwidth="14" opcode="add" nodeLabel="2.0" m_display="0" m_delay="0.98" m_topoIndex="26" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="289" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="write_output"/>
+        <dataInputObjs>phi</dataInputObjs>
+        <dataOutputObjs>phi</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="47" name="br_ln0" coreId="0" opcode="br" nodeLabel="72.0" m_display="0" m_topoIndex="30" m_clusterGroupNumber="-1">
+        <controlInputObjs>block_29</controlInputObjs>
       </node_objs>
       <fileValidLineNumbers fileName="Server/LZW_new.cpp">
-        <validLinenumbers>270</validLinenumbers>
-      </fileValidLineNumbers>
-      <fileValidLineNumbers fileName="/mnt/pollux/software/xilinx/2020.2/Vitis_HLS/2020.2/common/technology/autopilot/hls_stream_39.h">
-        <validLinenumbers>145</validLinenumbers>
+        <validLinenumbers>295</validLinenumbers>
+        <validLinenumbers>289</validLinenumbers>
+        <validLinenumbers>312</validLinenumbers>
       </fileValidLineNumbers>
     </basic_blocks>
   </regions>
@@ -285,105 +526,245 @@
   <ScheduleInfo time="70"/>
   <ScheduleInfo time="71"/>
   <ScheduleInfo time="72"/>
-  <regnodes realName="icmp_ln269_reg_164">
-    <nodeIds>12</nodeIds>
+  <ScheduleInfo time="73"/>
+  <ScheduleInfo time="74"/>
+  <ScheduleInfo time="75"/>
+  <ScheduleInfo time="76"/>
+  <ScheduleInfo time="77"/>
+  <ScheduleInfo time="78"/>
+  <ScheduleInfo time="79"/>
+  <ScheduleInfo time="80"/>
+  <ScheduleInfo time="81"/>
+  <ScheduleInfo time="82"/>
+  <ScheduleInfo time="83"/>
+  <ScheduleInfo time="84"/>
+  <ScheduleInfo time="85"/>
+  <ScheduleInfo time="86"/>
+  <ScheduleInfo time="87"/>
+  <ScheduleInfo time="88"/>
+  <ScheduleInfo time="89"/>
+  <ScheduleInfo time="90"/>
+  <ScheduleInfo time="91"/>
+  <ScheduleInfo time="92"/>
+  <ScheduleInfo time="93"/>
+  <ScheduleInfo time="94"/>
+  <ScheduleInfo time="95"/>
+  <ScheduleInfo time="96"/>
+  <ScheduleInfo time="97"/>
+  <ScheduleInfo time="98"/>
+  <ScheduleInfo time="99"/>
+  <ScheduleInfo time="100"/>
+  <ScheduleInfo time="101"/>
+  <ScheduleInfo time="102"/>
+  <ScheduleInfo time="103"/>
+  <ScheduleInfo time="104"/>
+  <ScheduleInfo time="105"/>
+  <ScheduleInfo time="106"/>
+  <ScheduleInfo time="107"/>
+  <ScheduleInfo time="108"/>
+  <ScheduleInfo time="109"/>
+  <ScheduleInfo time="110"/>
+  <ScheduleInfo time="111"/>
+  <ScheduleInfo time="112"/>
+  <ScheduleInfo time="113"/>
+  <ScheduleInfo time="114"/>
+  <ScheduleInfo time="115"/>
+  <ScheduleInfo time="116"/>
+  <ScheduleInfo time="117"/>
+  <ScheduleInfo time="118"/>
+  <ScheduleInfo time="119"/>
+  <ScheduleInfo time="120"/>
+  <ScheduleInfo time="121"/>
+  <ScheduleInfo time="122"/>
+  <ScheduleInfo time="123"/>
+  <ScheduleInfo time="124"/>
+  <ScheduleInfo time="125"/>
+  <ScheduleInfo time="126"/>
+  <ScheduleInfo time="127"/>
+  <ScheduleInfo time="128"/>
+  <ScheduleInfo time="129"/>
+  <ScheduleInfo time="130"/>
+  <ScheduleInfo time="131"/>
+  <ScheduleInfo time="132"/>
+  <ScheduleInfo time="133"/>
+  <ScheduleInfo time="134"/>
+  <ScheduleInfo time="135"/>
+  <ScheduleInfo time="136"/>
+  <ScheduleInfo time="137"/>
+  <ScheduleInfo time="138"/>
+  <ScheduleInfo time="139"/>
+  <ScheduleInfo time="140"/>
+  <ScheduleInfo time="141"/>
+  <ScheduleInfo time="142"/>
+  <ScheduleInfo time="143"/>
+  <regnodes realName="tmp_reg_340">
+    <nodeIds>31</nodeIds>
   </regnodes>
-  <regnodes realName="HP3_addr_reg_168">
-    <nodeIds>18</nodeIds>
-  </regnodes>
-  <regnodes realName="tmp_reg_188">
-    <nodeIds>30</nodeIds>
-  </regnodes>
-  <regnodes realName="icmp_ln269_1_reg_184">
-    <nodeIds>25</nodeIds>
-  </regnodes>
-  <regnodes realName="add_ln269_reg_179">
+  <regnodes realName="size_reg_161">
     <nodeIds>23</nodeIds>
   </regnodes>
-  <regnodes realName="compress_size_read_reg_158">
-    <nodeIds>5</nodeIds>
+  <regnodes realName="HP3_addr_1_reg_349">
+    <nodeIds>42</nodeIds>
   </regnodes>
-  <regnodes realName="trunc_ln269_reg_174">
-    <nodeIds>15</nodeIds>
+  <regnodes realName="add_ln289_reg_355">
+    <nodeIds>46</nodeIds>
   </regnodes>
-  <regnodes realName="i_reg_107">
-    <nodeIds>22</nodeIds>
+  <regnodes realName="add_ln287_reg_317">
+    <nodeIds>13</nodeIds>
   </regnodes>
-  <expressionNodes realName="sext_ln269_fu_134">
-    <nodeIds>17</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="trunc_ln269_fu_144">
-    <nodeIds>15</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="icmp_ln269_fu_118">
+  <regnodes realName="c_reg_138">
     <nodeIds>12</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="icmp_ln269_1_fu_153">
-    <nodeIds>25</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="i_phi_fu_111">
+  </regnodes>
+  <regnodes realName="i_reg_150">
     <nodeIds>22</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="trunc_ln269_1_fu_124">
-    <nodeIds>16</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="add_ln269_fu_147">
-    <nodeIds>23</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="HP3_addr_fu_138">
-    <nodeIds>18</nodeIds>
-  </expressionNodes>
-  <ioNodes realName="grp_writeresp_fu_86">
+  </regnodes>
+  <regnodes realName="HP3_addr_reg_360">
+    <nodeIds>55</nodeIds>
+  </regnodes>
+  <regnodes realName="output_read_reg_311">
+    <nodeIds>7</nodeIds>
+  </regnodes>
+  <regnodes realName="icmp_ln287_reg_322">
+    <nodeIds>14</nodeIds>
+  </regnodes>
+  <regnodes realName="size_1_reg_335">
+    <nodeIds>27</nodeIds>
+  </regnodes>
+  <regnodes realName="icmp_ln289_reg_331">
+    <nodeIds>25</nodeIds>
+  </regnodes>
+  <regnodes realName="icmp_ln291_reg_345">
+    <nodeIds>32</nodeIds>
+  </regnodes>
+  <regnodes realName="or_ln_reg_326">
     <nodeIds>19</nodeIds>
-    <nodeIds>34</nodeIds>
+  </regnodes>
+  <expressionNodes realName="icmp_ln289_fu_195">
+    <nodeIds>25</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="HP3_addr_fu_300">
+    <nodeIds>55</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln299_1_fu_277">
+    <nodeIds>51</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="size_1_fu_201">
+    <nodeIds>27</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln291_fu_207">
+    <nodeIds>32</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln1_fu_239">
+    <nodeIds>40</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="or_ln1_fu_265">
+    <nodeIds>50</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln289_fu_259">
+    <nodeIds>46</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln295_fu_217">
+    <nodeIds>36</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln287_fu_179">
+    <nodeIds>14</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="trunc_ln_fu_286">
+    <nodeIds>53</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="c_phi_fu_142">
+    <nodeIds>12</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="size_phi_fu_165">
+    <nodeIds>23</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sext_ln299_fu_296">
+    <nodeIds>54</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="i_phi_fu_154">
+    <nodeIds>22</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="HP3_addr_1_fu_253">
+    <nodeIds>42</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="or_ln_fu_185">
+    <nodeIds>19</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="shl_ln_fu_222">
+    <nodeIds>37</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln299_fu_281">
+    <nodeIds>52</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln295_1_fu_234">
+    <nodeIds>39</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln295_fu_213">
+    <nodeIds>35</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln299_fu_306">
+    <nodeIds>49</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="sext_ln295_fu_249">
+    <nodeIds>41</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="add_ln287_fu_173">
+    <nodeIds>13</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="zext_ln295_1_fu_230">
+    <nodeIds>38</nodeIds>
+  </expressionNodes>
+  <ioNodes realName="write_ln295_write_fu_113">
+    <nodeIds>44</nodeIds>
   </ioNodes>
-  <ioNodes realName="output_read_read_fu_80">
-    <nodeIds>9</nodeIds>
+  <ioNodes realName="output_read_read_fu_94">
+    <nodeIds>7</nodeIds>
   </ioNodes>
-  <ioNodes realName="write_ln270_write_fu_98">
+  <ioNodes realName="grp_writeresp_fu_106">
+    <nodeIds>43</nodeIds>
+    <nodeIds>45</nodeIds>
+  </ioNodes>
+  <ioNodes realName="write_ln299_write_fu_129">
+    <nodeIds>57</nodeIds>
+  </ioNodes>
+  <ioNodes realName="tmp_read_fu_100">
     <nodeIds>31</nodeIds>
   </ioNodes>
-  <ioNodes realName="tmp_read_fu_92">
-    <nodeIds>30</nodeIds>
-  </ioNodes>
-  <ioNodes realName="compress_size_read_read_fu_74">
-    <nodeIds>5</nodeIds>
+  <ioNodes realName="grp_writeresp_fu_122">
+    <nodeIds>56</nodeIds>
+    <nodeIds>58</nodeIds>
   </ioNodes>
   <ioPorts name="HP3"/>
-  <ioPorts name="compress_size">
-    <contents name="read">
-      <nodeIds>5</nodeIds>
-    </contents>
-  </ioPorts>
   <ioPorts name="output_r">
     <contents name="read">
-      <nodeIds>9</nodeIds>
+      <nodeIds>7</nodeIds>
     </contents>
   </ioPorts>
   <ioPorts name="output_stream">
     <contents name="read">
-      <nodeIds>30</nodeIds>
+      <nodeIds>31</nodeIds>
     </contents>
   </ioPorts>
   <fsm>
     <states id="1">
+      <operations id="4" stage="1" latency="1"/>
       <operations id="5" stage="1" latency="1"/>
       <operations id="6" stage="1" latency="1"/>
       <operations id="7" stage="1" latency="1"/>
       <operations id="8" stage="1" latency="1"/>
       <operations id="9" stage="1" latency="1"/>
       <operations id="10" stage="1" latency="1"/>
-      <operations id="11" stage="1" latency="1"/>
-      <operations id="12" stage="1" latency="1"/>
-      <operations id="13" stage="1" latency="1"/>
-      <operations id="16" stage="1" latency="1"/>
-      <operations id="17" stage="1" latency="1"/>
-      <operations id="18" stage="1" latency="1"/>
     </states>
     <states id="2">
+      <operations id="12" stage="1" latency="1"/>
+      <operations id="13" stage="1" latency="1"/>
+      <operations id="14" stage="1" latency="1"/>
       <operations id="15" stage="1" latency="1"/>
+      <operations id="16" stage="1" latency="1"/>
+      <operations id="18" stage="1" latency="1"/>
       <operations id="19" stage="1" latency="1"/>
       <operations id="20" stage="1" latency="1"/>
+      <operations id="61" stage="1" latency="1"/>
     </states>
     <states id="3">
       <operations id="22" stage="1" latency="1"/>
@@ -392,228 +773,675 @@
       <operations id="25" stage="1" latency="1"/>
       <operations id="26" stage="1" latency="1"/>
       <operations id="27" stage="1" latency="1"/>
-    </states>
-    <states id="4">
+      <operations id="28" stage="1" latency="1"/>
       <operations id="30" stage="1" latency="1"/>
-    </states>
-    <states id="5">
-      <operations id="29" stage="1" latency="1"/>
       <operations id="31" stage="1" latency="1"/>
       <operations id="32" stage="1" latency="1"/>
+      <operations id="33" stage="1" latency="1"/>
+      <operations id="35" stage="1" latency="1"/>
+      <operations id="36" stage="1" latency="1"/>
+      <operations id="37" stage="1" latency="1"/>
+      <operations id="38" stage="1" latency="1"/>
+      <operations id="39" stage="1" latency="1"/>
+      <operations id="40" stage="1" latency="1"/>
+      <operations id="41" stage="1" latency="1"/>
+      <operations id="42" stage="1" latency="1"/>
+      <operations id="46" stage="1" latency="1"/>
+    </states>
+    <states id="4">
+      <operations id="43" stage="1" latency="1"/>
+    </states>
+    <states id="5">
+      <operations id="44" stage="1" latency="1"/>
     </states>
     <states id="6">
-      <operations id="34" stage="68" latency="68"/>
+      <operations id="45" stage="68" latency="68"/>
     </states>
     <states id="7">
-      <operations id="34" stage="67" latency="68"/>
+      <operations id="45" stage="67" latency="68"/>
     </states>
     <states id="8">
-      <operations id="34" stage="66" latency="68"/>
+      <operations id="45" stage="66" latency="68"/>
     </states>
     <states id="9">
-      <operations id="34" stage="65" latency="68"/>
+      <operations id="45" stage="65" latency="68"/>
     </states>
     <states id="10">
-      <operations id="34" stage="64" latency="68"/>
+      <operations id="45" stage="64" latency="68"/>
     </states>
     <states id="11">
-      <operations id="34" stage="63" latency="68"/>
+      <operations id="45" stage="63" latency="68"/>
     </states>
     <states id="12">
-      <operations id="34" stage="62" latency="68"/>
+      <operations id="45" stage="62" latency="68"/>
     </states>
     <states id="13">
-      <operations id="34" stage="61" latency="68"/>
+      <operations id="45" stage="61" latency="68"/>
     </states>
     <states id="14">
-      <operations id="34" stage="60" latency="68"/>
+      <operations id="45" stage="60" latency="68"/>
     </states>
     <states id="15">
-      <operations id="34" stage="59" latency="68"/>
+      <operations id="45" stage="59" latency="68"/>
     </states>
     <states id="16">
-      <operations id="34" stage="58" latency="68"/>
+      <operations id="45" stage="58" latency="68"/>
     </states>
     <states id="17">
-      <operations id="34" stage="57" latency="68"/>
+      <operations id="45" stage="57" latency="68"/>
     </states>
     <states id="18">
-      <operations id="34" stage="56" latency="68"/>
+      <operations id="45" stage="56" latency="68"/>
     </states>
     <states id="19">
-      <operations id="34" stage="55" latency="68"/>
+      <operations id="45" stage="55" latency="68"/>
     </states>
     <states id="20">
-      <operations id="34" stage="54" latency="68"/>
+      <operations id="45" stage="54" latency="68"/>
     </states>
     <states id="21">
-      <operations id="34" stage="53" latency="68"/>
+      <operations id="45" stage="53" latency="68"/>
     </states>
     <states id="22">
-      <operations id="34" stage="52" latency="68"/>
+      <operations id="45" stage="52" latency="68"/>
     </states>
     <states id="23">
-      <operations id="34" stage="51" latency="68"/>
+      <operations id="45" stage="51" latency="68"/>
     </states>
     <states id="24">
-      <operations id="34" stage="50" latency="68"/>
+      <operations id="45" stage="50" latency="68"/>
     </states>
     <states id="25">
-      <operations id="34" stage="49" latency="68"/>
+      <operations id="45" stage="49" latency="68"/>
     </states>
     <states id="26">
-      <operations id="34" stage="48" latency="68"/>
+      <operations id="45" stage="48" latency="68"/>
     </states>
     <states id="27">
-      <operations id="34" stage="47" latency="68"/>
+      <operations id="45" stage="47" latency="68"/>
     </states>
     <states id="28">
-      <operations id="34" stage="46" latency="68"/>
+      <operations id="45" stage="46" latency="68"/>
     </states>
     <states id="29">
-      <operations id="34" stage="45" latency="68"/>
+      <operations id="45" stage="45" latency="68"/>
     </states>
     <states id="30">
-      <operations id="34" stage="44" latency="68"/>
+      <operations id="45" stage="44" latency="68"/>
     </states>
     <states id="31">
-      <operations id="34" stage="43" latency="68"/>
+      <operations id="45" stage="43" latency="68"/>
     </states>
     <states id="32">
-      <operations id="34" stage="42" latency="68"/>
+      <operations id="45" stage="42" latency="68"/>
     </states>
     <states id="33">
-      <operations id="34" stage="41" latency="68"/>
+      <operations id="45" stage="41" latency="68"/>
     </states>
     <states id="34">
-      <operations id="34" stage="40" latency="68"/>
+      <operations id="45" stage="40" latency="68"/>
     </states>
     <states id="35">
-      <operations id="34" stage="39" latency="68"/>
+      <operations id="45" stage="39" latency="68"/>
     </states>
     <states id="36">
-      <operations id="34" stage="38" latency="68"/>
+      <operations id="45" stage="38" latency="68"/>
     </states>
     <states id="37">
-      <operations id="34" stage="37" latency="68"/>
+      <operations id="45" stage="37" latency="68"/>
     </states>
     <states id="38">
-      <operations id="34" stage="36" latency="68"/>
+      <operations id="45" stage="36" latency="68"/>
     </states>
     <states id="39">
-      <operations id="34" stage="35" latency="68"/>
+      <operations id="45" stage="35" latency="68"/>
     </states>
     <states id="40">
-      <operations id="34" stage="34" latency="68"/>
+      <operations id="45" stage="34" latency="68"/>
     </states>
     <states id="41">
-      <operations id="34" stage="33" latency="68"/>
+      <operations id="45" stage="33" latency="68"/>
     </states>
     <states id="42">
-      <operations id="34" stage="32" latency="68"/>
+      <operations id="45" stage="32" latency="68"/>
     </states>
     <states id="43">
-      <operations id="34" stage="31" latency="68"/>
+      <operations id="45" stage="31" latency="68"/>
     </states>
     <states id="44">
-      <operations id="34" stage="30" latency="68"/>
+      <operations id="45" stage="30" latency="68"/>
     </states>
     <states id="45">
-      <operations id="34" stage="29" latency="68"/>
+      <operations id="45" stage="29" latency="68"/>
     </states>
     <states id="46">
-      <operations id="34" stage="28" latency="68"/>
+      <operations id="45" stage="28" latency="68"/>
     </states>
     <states id="47">
-      <operations id="34" stage="27" latency="68"/>
+      <operations id="45" stage="27" latency="68"/>
     </states>
     <states id="48">
-      <operations id="34" stage="26" latency="68"/>
+      <operations id="45" stage="26" latency="68"/>
     </states>
     <states id="49">
-      <operations id="34" stage="25" latency="68"/>
+      <operations id="45" stage="25" latency="68"/>
     </states>
     <states id="50">
-      <operations id="34" stage="24" latency="68"/>
+      <operations id="45" stage="24" latency="68"/>
     </states>
     <states id="51">
-      <operations id="34" stage="23" latency="68"/>
+      <operations id="45" stage="23" latency="68"/>
     </states>
     <states id="52">
-      <operations id="34" stage="22" latency="68"/>
+      <operations id="45" stage="22" latency="68"/>
     </states>
     <states id="53">
-      <operations id="34" stage="21" latency="68"/>
+      <operations id="45" stage="21" latency="68"/>
     </states>
     <states id="54">
-      <operations id="34" stage="20" latency="68"/>
+      <operations id="45" stage="20" latency="68"/>
     </states>
     <states id="55">
-      <operations id="34" stage="19" latency="68"/>
+      <operations id="45" stage="19" latency="68"/>
     </states>
     <states id="56">
-      <operations id="34" stage="18" latency="68"/>
+      <operations id="45" stage="18" latency="68"/>
     </states>
     <states id="57">
-      <operations id="34" stage="17" latency="68"/>
+      <operations id="45" stage="17" latency="68"/>
     </states>
     <states id="58">
-      <operations id="34" stage="16" latency="68"/>
+      <operations id="45" stage="16" latency="68"/>
     </states>
     <states id="59">
-      <operations id="34" stage="15" latency="68"/>
+      <operations id="45" stage="15" latency="68"/>
     </states>
     <states id="60">
-      <operations id="34" stage="14" latency="68"/>
+      <operations id="45" stage="14" latency="68"/>
     </states>
     <states id="61">
-      <operations id="34" stage="13" latency="68"/>
+      <operations id="45" stage="13" latency="68"/>
     </states>
     <states id="62">
-      <operations id="34" stage="12" latency="68"/>
+      <operations id="45" stage="12" latency="68"/>
     </states>
     <states id="63">
-      <operations id="34" stage="11" latency="68"/>
+      <operations id="45" stage="11" latency="68"/>
     </states>
     <states id="64">
-      <operations id="34" stage="10" latency="68"/>
+      <operations id="45" stage="10" latency="68"/>
     </states>
     <states id="65">
-      <operations id="34" stage="9" latency="68"/>
+      <operations id="45" stage="9" latency="68"/>
     </states>
     <states id="66">
-      <operations id="34" stage="8" latency="68"/>
+      <operations id="45" stage="8" latency="68"/>
     </states>
     <states id="67">
-      <operations id="34" stage="7" latency="68"/>
+      <operations id="45" stage="7" latency="68"/>
     </states>
     <states id="68">
-      <operations id="34" stage="6" latency="68"/>
+      <operations id="45" stage="6" latency="68"/>
     </states>
     <states id="69">
-      <operations id="34" stage="5" latency="68"/>
+      <operations id="45" stage="5" latency="68"/>
     </states>
     <states id="70">
-      <operations id="34" stage="4" latency="68"/>
+      <operations id="45" stage="4" latency="68"/>
     </states>
     <states id="71">
-      <operations id="34" stage="3" latency="68"/>
+      <operations id="45" stage="3" latency="68"/>
     </states>
     <states id="72">
-      <operations id="34" stage="2" latency="68"/>
+      <operations id="45" stage="2" latency="68"/>
     </states>
     <states id="73">
-      <operations id="34" stage="1" latency="68"/>
-      <operations id="35" stage="1" latency="1"/>
-      <operations id="37" stage="1" latency="1"/>
+      <operations id="45" stage="1" latency="68"/>
+      <operations id="47" stage="1" latency="1"/>
+    </states>
+    <states id="74">
+      <operations id="50" stage="1" latency="1"/>
+      <operations id="51" stage="1" latency="1"/>
+      <operations id="52" stage="1" latency="1"/>
+      <operations id="53" stage="1" latency="1"/>
+      <operations id="54" stage="1" latency="1"/>
+      <operations id="55" stage="1" latency="1"/>
+    </states>
+    <states id="75">
+      <operations id="56" stage="1" latency="1"/>
+    </states>
+    <states id="76">
+      <operations id="49" stage="1" latency="1"/>
+      <operations id="57" stage="1" latency="1"/>
+    </states>
+    <states id="77">
+      <operations id="58" stage="68" latency="68"/>
+    </states>
+    <states id="78">
+      <operations id="58" stage="67" latency="68"/>
+    </states>
+    <states id="79">
+      <operations id="58" stage="66" latency="68"/>
+    </states>
+    <states id="80">
+      <operations id="58" stage="65" latency="68"/>
+    </states>
+    <states id="81">
+      <operations id="58" stage="64" latency="68"/>
+    </states>
+    <states id="82">
+      <operations id="58" stage="63" latency="68"/>
+    </states>
+    <states id="83">
+      <operations id="58" stage="62" latency="68"/>
+    </states>
+    <states id="84">
+      <operations id="58" stage="61" latency="68"/>
+    </states>
+    <states id="85">
+      <operations id="58" stage="60" latency="68"/>
+    </states>
+    <states id="86">
+      <operations id="58" stage="59" latency="68"/>
+    </states>
+    <states id="87">
+      <operations id="58" stage="58" latency="68"/>
+    </states>
+    <states id="88">
+      <operations id="58" stage="57" latency="68"/>
+    </states>
+    <states id="89">
+      <operations id="58" stage="56" latency="68"/>
+    </states>
+    <states id="90">
+      <operations id="58" stage="55" latency="68"/>
+    </states>
+    <states id="91">
+      <operations id="58" stage="54" latency="68"/>
+    </states>
+    <states id="92">
+      <operations id="58" stage="53" latency="68"/>
+    </states>
+    <states id="93">
+      <operations id="58" stage="52" latency="68"/>
+    </states>
+    <states id="94">
+      <operations id="58" stage="51" latency="68"/>
+    </states>
+    <states id="95">
+      <operations id="58" stage="50" latency="68"/>
+    </states>
+    <states id="96">
+      <operations id="58" stage="49" latency="68"/>
+    </states>
+    <states id="97">
+      <operations id="58" stage="48" latency="68"/>
+    </states>
+    <states id="98">
+      <operations id="58" stage="47" latency="68"/>
+    </states>
+    <states id="99">
+      <operations id="58" stage="46" latency="68"/>
+    </states>
+    <states id="100">
+      <operations id="58" stage="45" latency="68"/>
+    </states>
+    <states id="101">
+      <operations id="58" stage="44" latency="68"/>
+    </states>
+    <states id="102">
+      <operations id="58" stage="43" latency="68"/>
+    </states>
+    <states id="103">
+      <operations id="58" stage="42" latency="68"/>
+    </states>
+    <states id="104">
+      <operations id="58" stage="41" latency="68"/>
+    </states>
+    <states id="105">
+      <operations id="58" stage="40" latency="68"/>
+    </states>
+    <states id="106">
+      <operations id="58" stage="39" latency="68"/>
+    </states>
+    <states id="107">
+      <operations id="58" stage="38" latency="68"/>
+    </states>
+    <states id="108">
+      <operations id="58" stage="37" latency="68"/>
+    </states>
+    <states id="109">
+      <operations id="58" stage="36" latency="68"/>
+    </states>
+    <states id="110">
+      <operations id="58" stage="35" latency="68"/>
+    </states>
+    <states id="111">
+      <operations id="58" stage="34" latency="68"/>
+    </states>
+    <states id="112">
+      <operations id="58" stage="33" latency="68"/>
+    </states>
+    <states id="113">
+      <operations id="58" stage="32" latency="68"/>
+    </states>
+    <states id="114">
+      <operations id="58" stage="31" latency="68"/>
+    </states>
+    <states id="115">
+      <operations id="58" stage="30" latency="68"/>
+    </states>
+    <states id="116">
+      <operations id="58" stage="29" latency="68"/>
+    </states>
+    <states id="117">
+      <operations id="58" stage="28" latency="68"/>
+    </states>
+    <states id="118">
+      <operations id="58" stage="27" latency="68"/>
+    </states>
+    <states id="119">
+      <operations id="58" stage="26" latency="68"/>
+    </states>
+    <states id="120">
+      <operations id="58" stage="25" latency="68"/>
+    </states>
+    <states id="121">
+      <operations id="58" stage="24" latency="68"/>
+    </states>
+    <states id="122">
+      <operations id="58" stage="23" latency="68"/>
+    </states>
+    <states id="123">
+      <operations id="58" stage="22" latency="68"/>
+    </states>
+    <states id="124">
+      <operations id="58" stage="21" latency="68"/>
+    </states>
+    <states id="125">
+      <operations id="58" stage="20" latency="68"/>
+    </states>
+    <states id="126">
+      <operations id="58" stage="19" latency="68"/>
+    </states>
+    <states id="127">
+      <operations id="58" stage="18" latency="68"/>
+    </states>
+    <states id="128">
+      <operations id="58" stage="17" latency="68"/>
+    </states>
+    <states id="129">
+      <operations id="58" stage="16" latency="68"/>
+    </states>
+    <states id="130">
+      <operations id="58" stage="15" latency="68"/>
+    </states>
+    <states id="131">
+      <operations id="58" stage="14" latency="68"/>
+    </states>
+    <states id="132">
+      <operations id="58" stage="13" latency="68"/>
+    </states>
+    <states id="133">
+      <operations id="58" stage="12" latency="68"/>
+    </states>
+    <states id="134">
+      <operations id="58" stage="11" latency="68"/>
+    </states>
+    <states id="135">
+      <operations id="58" stage="10" latency="68"/>
+    </states>
+    <states id="136">
+      <operations id="58" stage="9" latency="68"/>
+    </states>
+    <states id="137">
+      <operations id="58" stage="8" latency="68"/>
+    </states>
+    <states id="138">
+      <operations id="58" stage="7" latency="68"/>
+    </states>
+    <states id="139">
+      <operations id="58" stage="6" latency="68"/>
+    </states>
+    <states id="140">
+      <operations id="58" stage="5" latency="68"/>
+    </states>
+    <states id="141">
+      <operations id="58" stage="4" latency="68"/>
+    </states>
+    <states id="142">
+      <operations id="58" stage="3" latency="68"/>
+    </states>
+    <states id="143">
+      <operations id="58" stage="2" latency="68"/>
+    </states>
+    <states id="144">
+      <operations id="58" stage="1" latency="68"/>
+      <operations id="59" stage="1" latency="1"/>
     </states>
     <transitions inState="1" outState="2">
       <condition id="-1"/>
     </transitions>
-    <transitions inState="1" outState="73">
+    <transitions inState="2" outState="3">
       <condition id="-1"/>
     </transitions>
-    <transitions inState="2" outState="3">
+    <transitions inState="74" outState="75">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="75" outState="76">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="76" outState="77">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="77" outState="78">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="78" outState="79">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="79" outState="80">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="80" outState="81">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="81" outState="82">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="82" outState="83">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="83" outState="84">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="84" outState="85">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="85" outState="86">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="86" outState="87">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="87" outState="88">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="88" outState="89">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="89" outState="90">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="90" outState="91">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="91" outState="92">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="92" outState="93">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="93" outState="94">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="94" outState="95">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="95" outState="96">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="96" outState="97">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="97" outState="98">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="98" outState="99">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="99" outState="100">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="100" outState="101">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="101" outState="102">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="102" outState="103">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="103" outState="104">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="104" outState="105">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="105" outState="106">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="106" outState="107">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="107" outState="108">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="108" outState="109">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="109" outState="110">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="110" outState="111">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="111" outState="112">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="112" outState="113">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="113" outState="114">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="114" outState="115">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="115" outState="116">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="116" outState="117">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="117" outState="118">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="118" outState="119">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="119" outState="120">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="120" outState="121">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="121" outState="122">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="122" outState="123">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="123" outState="124">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="124" outState="125">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="125" outState="126">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="126" outState="127">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="127" outState="128">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="128" outState="129">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="129" outState="130">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="130" outState="131">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="131" outState="132">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="132" outState="133">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="133" outState="134">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="134" outState="135">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="135" outState="136">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="136" outState="137">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="137" outState="138">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="138" outState="139">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="139" outState="140">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="140" outState="141">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="141" outState="142">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="142" outState="143">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="143" outState="144">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="144" outState="2">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="4" outState="5">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="5" outState="6">
       <condition id="-1"/>
     </transitions>
     <transitions inState="6" outState="7">
@@ -817,13 +1645,10 @@
     <transitions inState="72" outState="73">
       <condition id="-1"/>
     </transitions>
-    <transitions inState="4" outState="5">
+    <transitions inState="73" outState="3">
       <condition id="-1"/>
     </transitions>
-    <transitions inState="5" outState="3">
-      <condition id="-1"/>
-    </transitions>
-    <transitions inState="3" outState="6">
+    <transitions inState="3" outState="74">
       <condition id="-1"/>
     </transitions>
     <transitions inState="3" outState="4">
@@ -831,29 +1656,39 @@
     </transitions>
   </fsm>
   <CFGRegionsRoot>
-    <cfgRegions mId="1" mTag="write_output" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="1" mMaxLatency="-1">
+    <cfgRegions mId="1" mTag="write_output" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="716" mMaxLatency="41671">
       <subRegions>2</subRegions>
       <subRegions>3</subRegions>
-      <subRegions>4</subRegions>
-      <subRegions>5</subRegions>
+      <subRegions>7</subRegions>
       <mDfPipe/>
     </cfgRegions>
-    <cfgRegions mId="2" mTag="Entry" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMaxLatency="1">
-      <basicBlocks>14</basicBlocks>
+    <cfgRegions mId="2" mTag="Entry" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>11</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="3" mTag="VITIS_LOOP_287_1" mII="-1" mDepth="-1" mMinTripCount="5" mMaxTripCount="5" mMinLatency="715" mMaxLatency="41670" mType="1">
+      <subRegions>4</subRegions>
+      <subRegions>5</subRegions>
+      <subRegions>6</subRegions>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="4" mTag="Region 1" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>17</basicBlocks>
       <basicBlocks>21</basicBlocks>
       <mDfPipe/>
     </cfgRegions>
-    <cfgRegions mId="3" mTag="VITIS_LOOP_269_1" mII="1" mDepth="3" mMinTripCount="1" mMaxTripCount="-1" mMinLatency="2" mMaxLatency="-1" mType="1">
-      <basicBlocks>28</basicBlocks>
-      <basicBlocks>33</basicBlocks>
+    <cfgRegions mId="5" mTag="VITIS_LOOP_289_2" mII="1" mDepth="71" mMinTripCount="1" mMaxTripCount="8192" mMinLatency="70" mMaxLatency="8261" mType="1">
+      <basicBlocks>29</basicBlocks>
+      <basicBlocks>34</basicBlocks>
+      <basicBlocks>48</basicBlocks>
       <mDfPipe/>
     </cfgRegions>
-    <cfgRegions mId="4" mTag="Region 1" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="67" mMaxLatency="67">
-      <basicBlocks>36</basicBlocks>
+    <cfgRegions mId="6" mTag="Region 2" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="70" mMaxLatency="70">
+      <basicBlocks>60</basicBlocks>
       <mDfPipe/>
     </cfgRegions>
-    <cfgRegions mId="5" mTag="Return" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
-      <basicBlocks>38</basicBlocks>
+    <cfgRegions mId="7" mTag="Return" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>62</basicBlocks>
       <mDfPipe/>
     </cfgRegions>
   </CFGRegionsRoot>

@@ -8,8 +8,8 @@
 #include <unordered_map>
 #include <stdlib.h>
 #include "stopwatch.h"
-#define CHUNKS 4
+#define CHUNKS 4 // Max chunk
 #define CHUNK_SIZE 8192
-void hardware_encoding(unsigned char s1[8192], uint16_t output[8192],int lzw_size[1],int input_size[1],int input2_size[1]);
+void hardware_encoding(unsigned char s1[CHUNKS * 8194], uint16_t output[CHUNKS * 8193]);
 void encoding(unsigned char * s1,unsigned char * output,int &size,int len);
 #endif

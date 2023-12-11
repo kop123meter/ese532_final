@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName /mnt/castor/seas_home/l/lize1/ese532_final/project/final_project/solution1/./sim/autowrap/testbench/LZW_new.cpp_pre.cpp.tb.cpp

@@ -18,22 +18,6 @@ output_r {
 	offset 28
 	offset_end 39
 }
-lzw_size { 
-	dir I
-	width 64
-	depth 1
-	mode ap_none
-	offset 40
-	offset_end 51
-}
-input_size { 
-	dir I
-	width 64
-	depth 1
-	mode ap_none
-	offset 52
-	offset_end 63
-}
 ap_start { }
 ap_done { }
 ap_ready { }

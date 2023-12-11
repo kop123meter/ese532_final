@@ -121,44 +121,6 @@ u64 XHardware_encoding_Get_output_r(XHardware_encoding *InstancePtr) {
     return Data;
 }
 
-void XHardware_encoding_Set_lzw_size(XHardware_encoding *InstancePtr, u64 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XHardware_encoding_WriteReg(InstancePtr->Control_BaseAddress, XHARDWARE_ENCODING_CONTROL_ADDR_LZW_SIZE_DATA, (u32)(Data));
-    XHardware_encoding_WriteReg(InstancePtr->Control_BaseAddress, XHARDWARE_ENCODING_CONTROL_ADDR_LZW_SIZE_DATA + 4, (u32)(Data >> 32));
-}
-
-u64 XHardware_encoding_Get_lzw_size(XHardware_encoding *InstancePtr) {
-    u64 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XHardware_encoding_ReadReg(InstancePtr->Control_BaseAddress, XHARDWARE_ENCODING_CONTROL_ADDR_LZW_SIZE_DATA);
-    Data += (u64)XHardware_encoding_ReadReg(InstancePtr->Control_BaseAddress, XHARDWARE_ENCODING_CONTROL_ADDR_LZW_SIZE_DATA + 4) << 32;
-    return Data;
-}
-
-void XHardware_encoding_Set_input_size(XHardware_encoding *InstancePtr, u64 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XHardware_encoding_WriteReg(InstancePtr->Control_BaseAddress, XHARDWARE_ENCODING_CONTROL_ADDR_INPUT_SIZE_DATA, (u32)(Data));
-    XHardware_encoding_WriteReg(InstancePtr->Control_BaseAddress, XHARDWARE_ENCODING_CONTROL_ADDR_INPUT_SIZE_DATA + 4, (u32)(Data >> 32));
-}
-
-u64 XHardware_encoding_Get_input_size(XHardware_encoding *InstancePtr) {
-    u64 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XHardware_encoding_ReadReg(InstancePtr->Control_BaseAddress, XHARDWARE_ENCODING_CONTROL_ADDR_INPUT_SIZE_DATA);
-    Data += (u64)XHardware_encoding_ReadReg(InstancePtr->Control_BaseAddress, XHARDWARE_ENCODING_CONTROL_ADDR_INPUT_SIZE_DATA + 4) << 32;
-    return Data;
-}
-
 void XHardware_encoding_InterruptGlobalEnable(XHardware_encoding *InstancePtr) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);

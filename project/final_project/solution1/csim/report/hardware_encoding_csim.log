@@ -1,10 +1,19 @@
 INFO: [SIM 2] *************** CSIM start ***************
 INFO: [SIM 4] CSIM will launch GCC as the compiler.
-   Compiling ../../../../Server/Testbench.cpp in debug mode
-../../../../Server/Testbench.cpp: In function ‘int main()’:
-../../../../Server/Testbench.cpp:74:62: error: cannot convert ‘matrix_type* {aka unsigned char*}’ to ‘uint16_t* {aka short unsigned int*}’ for argument ‘2’ to ‘void hardware_encoding(unsigned char*, uint16_t*, int*, int*, int*)’
-  hardware_encoding(Input, Output_HW, size_HW, hw_length,size2);
-                                                              ^
-make: *** [csim.mk:72: obj/Testbench.o] Error 1
-ERR: [SIM 100] 'csim_design' failed: compilation error(s).
+make: 'csim.exe' is up to date.
+compress size:6703
+compress size:6717
+compress size:6703
+compress size:6725
+data:94
+data:10
+data:197
+data:255
+data:27
+data:251
+data:15
+data:48
+data:27
+The maximum depth reached by any of the 2 hls::stream() instances in the design is 28208
+INFO: [SIM 1] CSim done with 0 errors.
 INFO: [SIM 3] *************** CSIM finish ***************

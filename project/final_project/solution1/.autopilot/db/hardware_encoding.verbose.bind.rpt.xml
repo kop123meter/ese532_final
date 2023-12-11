@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'hardware_encoding'" level="0">
-<item name = "Date">Sat Dec  9 20:27:39 2023
+<item name = "Date">Sun Dec 10 19:29:19 2023
 </item>
 <item name = "Version">2020.2 (Build 3064766 on Wed Nov 18 09:12:47 MST 2020)</item>
 <item name = "Project">final_project</item>
@@ -31,11 +31,9 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_computing_fu_168">computing, ?, ?, ?, ?, ?, ?, none</column>
-<column name="grp_read_input_fu_177">read_input, ?, ?, ?, ?, ?, ?, none</column>
-<column name="grp_write_output_fu_187">write_output, 1, ?, 6.667 ns, ?, 1, ?, none</column>
-<column name="grp_Block_split28_proc_fu_196">Block_split28_proc, 70, 70, 0.467 us, 0.467 us, 70, 70, none</column>
-<column name="call_ln275_hardware_encoding_entry7_fu_204">hardware_encoding_entry7, 0, 0, 0 ns, 0 ns, 0, 0, none</column>
+<column name="grp_computing_fu_106">computing, ?, ?, ?, ?, ?, ?, none</column>
+<column name="grp_read_input5_fu_112">read_input5, 313, 103617, 2.087 us, 0.691 ms, 313, 103617, none</column>
+<column name="grp_write_output_fu_124">write_output, 716, 41671, 4.774 us, 0.278 ms, 716, 41671, none</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

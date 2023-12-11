@@ -32,67 +32,41 @@ class AESL_RUNTIME_BC {
     fstream file_token;
     string mName;
 };
-extern "C" void hardware_encoding(int*, short*, int*, int, int, int, int);
-extern "C" void apatb_hardware_encoding_hw(volatile void * __xlx_apatb_param_s1, volatile void * __xlx_apatb_param_output, volatile void * __xlx_apatb_param_lzw_size, volatile void * __xlx_apatb_param_input_size) {
-  // Collect __xlx_s1_input_size__tmp_vec
-  vector<sc_bv<32> >__xlx_s1_input_size__tmp_vec;
-  for (int j = 0, e = 2048; j != e; ++j) {
-    __xlx_s1_input_size__tmp_vec.push_back(((int*)__xlx_apatb_param_s1)[j]);
+extern "C" void hardware_encoding(short*, short*, int, int);
+extern "C" void apatb_hardware_encoding_hw(volatile void * __xlx_apatb_param_s1, volatile void * __xlx_apatb_param_output) {
+  // Collect __xlx_s1__tmp_vec
+  vector<sc_bv<16> >__xlx_s1__tmp_vec;
+  for (int j = 0, e = 16388; j != e; ++j) {
+    __xlx_s1__tmp_vec.push_back(((short*)__xlx_apatb_param_s1)[j]);
   }
-  int __xlx_size_param_s1 = 2048;
+  int __xlx_size_param_s1 = 16388;
   int __xlx_offset_param_s1 = 0;
-  int __xlx_offset_byte_param_s1 = 0*4;
-  for (int j = 0, e = 1; j != e; ++j) {
-    __xlx_s1_input_size__tmp_vec.push_back(((int*)__xlx_apatb_param_input_size)[j]);
-  }
-  int __xlx_size_param_input_size = 1;
-  int __xlx_offset_param_input_size = 2048;
-  int __xlx_offset_byte_param_input_size = 2048*4;
-  int* __xlx_s1_input_size__input_buffer= new int[__xlx_s1_input_size__tmp_vec.size()];
-  for (int i = 0; i < __xlx_s1_input_size__tmp_vec.size(); ++i) {
-    __xlx_s1_input_size__input_buffer[i] = __xlx_s1_input_size__tmp_vec[i].range(31, 0).to_uint64();
+  int __xlx_offset_byte_param_s1 = 0*2;
+  short* __xlx_s1__input_buffer= new short[__xlx_s1__tmp_vec.size()];
+  for (int i = 0; i < __xlx_s1__tmp_vec.size(); ++i) {
+    __xlx_s1__input_buffer[i] = __xlx_s1__tmp_vec[i].range(15, 0).to_uint64();
   }
   // Collect __xlx_output__tmp_vec
   vector<sc_bv<16> >__xlx_output__tmp_vec;
-  for (int j = 0, e = 8192; j != e; ++j) {
+  for (int j = 0, e = 32772; j != e; ++j) {
     __xlx_output__tmp_vec.push_back(((short*)__xlx_apatb_param_output)[j]);
   }
-  int __xlx_size_param_output = 8192;
+  int __xlx_size_param_output = 32772;
   int __xlx_offset_param_output = 0;
   int __xlx_offset_byte_param_output = 0*2;
   short* __xlx_output__input_buffer= new short[__xlx_output__tmp_vec.size()];
   for (int i = 0; i < __xlx_output__tmp_vec.size(); ++i) {
     __xlx_output__input_buffer[i] = __xlx_output__tmp_vec[i].range(15, 0).to_uint64();
   }
-  // Collect __xlx_lzw_size__tmp_vec
-  vector<sc_bv<32> >__xlx_lzw_size__tmp_vec;
-  for (int j = 0, e = 1; j != e; ++j) {
-    __xlx_lzw_size__tmp_vec.push_back(((int*)__xlx_apatb_param_lzw_size)[j]);
-  }
-  int __xlx_size_param_lzw_size = 1;
-  int __xlx_offset_param_lzw_size = 0;
-  int __xlx_offset_byte_param_lzw_size = 0*4;
-  int* __xlx_lzw_size__input_buffer= new int[__xlx_lzw_size__tmp_vec.size()];
-  for (int i = 0; i < __xlx_lzw_size__tmp_vec.size(); ++i) {
-    __xlx_lzw_size__input_buffer[i] = __xlx_lzw_size__tmp_vec[i].range(31, 0).to_uint64();
-  }
   // DUT call
-  hardware_encoding(__xlx_s1_input_size__input_buffer, __xlx_output__input_buffer, __xlx_lzw_size__input_buffer, __xlx_offset_byte_param_s1, __xlx_offset_byte_param_output, __xlx_offset_byte_param_lzw_size, __xlx_offset_byte_param_input_size);
+  hardware_encoding(__xlx_s1__input_buffer, __xlx_output__input_buffer, __xlx_offset_byte_param_s1, __xlx_offset_byte_param_output);
 // print __xlx_apatb_param_s1
-  sc_bv<32>*__xlx_s1_output_buffer = new sc_bv<32>[__xlx_size_param_s1];
+  sc_bv<16>*__xlx_s1_output_buffer = new sc_bv<16>[__xlx_size_param_s1];
   for (int i = 0; i < __xlx_size_param_s1; ++i) {
-    __xlx_s1_output_buffer[i] = __xlx_s1_input_size__input_buffer[i+__xlx_offset_param_s1];
+    __xlx_s1_output_buffer[i] = __xlx_s1__input_buffer[i+__xlx_offset_param_s1];
   }
   for (int i = 0; i < __xlx_size_param_s1; ++i) {
-    ((int*)__xlx_apatb_param_s1)[i] = __xlx_s1_output_buffer[i].to_uint64();
-  }
-// print __xlx_apatb_param_input_size
-  sc_bv<32>*__xlx_input_size_output_buffer = new sc_bv<32>[__xlx_size_param_input_size];
-  for (int i = 0; i < __xlx_size_param_input_size; ++i) {
-    __xlx_input_size_output_buffer[i] = __xlx_s1_input_size__input_buffer[i+__xlx_offset_param_input_size];
-  }
-  for (int i = 0; i < __xlx_size_param_input_size; ++i) {
-    ((int*)__xlx_apatb_param_input_size)[i] = __xlx_input_size_output_buffer[i].to_uint64();
+    ((short*)__xlx_apatb_param_s1)[i] = __xlx_s1_output_buffer[i].to_uint64();
   }
 // print __xlx_apatb_param_output
   sc_bv<16>*__xlx_output_output_buffer = new sc_bv<16>[__xlx_size_param_output];
@@ -101,13 +75,5 @@ extern "C" void apatb_hardware_encoding_hw(volatile void * __xlx_apatb_param_s1,
   }
   for (int i = 0; i < __xlx_size_param_output; ++i) {
     ((short*)__xlx_apatb_param_output)[i] = __xlx_output_output_buffer[i].to_uint64();
-  }
-// print __xlx_apatb_param_lzw_size
-  sc_bv<32>*__xlx_lzw_size_output_buffer = new sc_bv<32>[__xlx_size_param_lzw_size];
-  for (int i = 0; i < __xlx_size_param_lzw_size; ++i) {
-    __xlx_lzw_size_output_buffer[i] = __xlx_lzw_size__input_buffer[i+__xlx_offset_param_lzw_size];
-  }
-  for (int i = 0; i < __xlx_size_param_lzw_size; ++i) {
-    ((int*)__xlx_apatb_param_lzw_size)[i] = __xlx_lzw_size_output_buffer[i].to_uint64();
   }
 }

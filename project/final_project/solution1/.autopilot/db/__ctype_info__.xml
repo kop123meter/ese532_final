@@ -4,7 +4,7 @@
 <CType>
 <TypeName>void</TypeName>
 <TypeWidth>8</TypeWidth>
-<PhysicalWidth>32</PhysicalWidth>
+<PhysicalWidth>16</PhysicalWidth>
 </CType>
 <CFractionWidth>0</CFractionWidth>
 <InvalidType>0</InvalidType>
@@ -15,16 +15,6 @@
 <TypeName>void</TypeName>
 <TypeWidth>8</TypeWidth>
 <PhysicalWidth>16</PhysicalWidth>
-</CType>
-<CFractionWidth>0</CFractionWidth>
-<InvalidType>0</InvalidType>
-</RtlPorts>
-<RtlPorts>
-<name>HP0</name>
-<CType>
-<TypeName>void</TypeName>
-<TypeWidth>8</TypeWidth>
-<PhysicalWidth>32</PhysicalWidth>
 </CType>
 <CFractionWidth>0</CFractionWidth>
 <InvalidType>0</InvalidType>

@@ -32,28 +32,14 @@
 // 0x20 : Data signal of output_r
 //        bit 31~0 - output_r[63:32] (Read/Write)
 // 0x24 : reserved
-// 0x28 : Data signal of lzw_size
-//        bit 31~0 - lzw_size[31:0] (Read/Write)
-// 0x2c : Data signal of lzw_size
-//        bit 31~0 - lzw_size[63:32] (Read/Write)
-// 0x30 : reserved
-// 0x34 : Data signal of input_size
-//        bit 31~0 - input_size[31:0] (Read/Write)
-// 0x38 : Data signal of input_size
-//        bit 31~0 - input_size[63:32] (Read/Write)
-// 0x3c : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
-#define XHARDWARE_ENCODING_CONTROL_ADDR_AP_CTRL         0x00
-#define XHARDWARE_ENCODING_CONTROL_ADDR_GIE             0x04
-#define XHARDWARE_ENCODING_CONTROL_ADDR_IER             0x08
-#define XHARDWARE_ENCODING_CONTROL_ADDR_ISR             0x0c
-#define XHARDWARE_ENCODING_CONTROL_ADDR_S1_DATA         0x10
-#define XHARDWARE_ENCODING_CONTROL_BITS_S1_DATA         64
-#define XHARDWARE_ENCODING_CONTROL_ADDR_OUTPUT_R_DATA   0x1c
-#define XHARDWARE_ENCODING_CONTROL_BITS_OUTPUT_R_DATA   64
-#define XHARDWARE_ENCODING_CONTROL_ADDR_LZW_SIZE_DATA   0x28
-#define XHARDWARE_ENCODING_CONTROL_BITS_LZW_SIZE_DATA   64
-#define XHARDWARE_ENCODING_CONTROL_ADDR_INPUT_SIZE_DATA 0x34
-#define XHARDWARE_ENCODING_CONTROL_BITS_INPUT_SIZE_DATA 64
+#define XHARDWARE_ENCODING_CONTROL_ADDR_AP_CTRL       0x00
+#define XHARDWARE_ENCODING_CONTROL_ADDR_GIE           0x04
+#define XHARDWARE_ENCODING_CONTROL_ADDR_IER           0x08
+#define XHARDWARE_ENCODING_CONTROL_ADDR_ISR           0x0c
+#define XHARDWARE_ENCODING_CONTROL_ADDR_S1_DATA       0x10
+#define XHARDWARE_ENCODING_CONTROL_BITS_S1_DATA       64
+#define XHARDWARE_ENCODING_CONTROL_ADDR_OUTPUT_R_DATA 0x1c
+#define XHARDWARE_ENCODING_CONTROL_BITS_OUTPUT_R_DATA 64
 

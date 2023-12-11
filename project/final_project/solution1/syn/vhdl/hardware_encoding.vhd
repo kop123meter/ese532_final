@@ -29,23 +29,12 @@ generic (
     C_M_AXI_HP3_ARUSER_WIDTH : INTEGER := 1;
     C_M_AXI_HP3_RUSER_WIDTH : INTEGER := 1;
     C_M_AXI_HP3_BUSER_WIDTH : INTEGER := 1;
-    C_M_AXI_HP0_ADDR_WIDTH : INTEGER := 64;
-    C_M_AXI_HP0_ID_WIDTH : INTEGER := 1;
-    C_M_AXI_HP0_AWUSER_WIDTH : INTEGER := 1;
-    C_M_AXI_HP0_DATA_WIDTH : INTEGER := 32;
-    C_M_AXI_HP0_WUSER_WIDTH : INTEGER := 1;
-    C_M_AXI_HP0_ARUSER_WIDTH : INTEGER := 1;
-    C_M_AXI_HP0_RUSER_WIDTH : INTEGER := 1;
-    C_M_AXI_HP0_BUSER_WIDTH : INTEGER := 1;
     C_M_AXI_HP1_USER_VALUE : INTEGER := 0;
     C_M_AXI_HP1_PROT_VALUE : INTEGER := 0;
     C_M_AXI_HP1_CACHE_VALUE : INTEGER := 3;
     C_M_AXI_HP3_USER_VALUE : INTEGER := 0;
     C_M_AXI_HP3_PROT_VALUE : INTEGER := 0;
-    C_M_AXI_HP3_CACHE_VALUE : INTEGER := 3;
-    C_M_AXI_HP0_USER_VALUE : INTEGER := 0;
-    C_M_AXI_HP0_PROT_VALUE : INTEGER := 0;
-    C_M_AXI_HP0_CACHE_VALUE : INTEGER := 3 );
+    C_M_AXI_HP3_CACHE_VALUE : INTEGER := 3 );
 port (
     s_axi_control_AWVALID : IN STD_LOGIC;
     s_axi_control_AWREADY : OUT STD_LOGIC;
@@ -156,59 +145,14 @@ port (
     m_axi_HP3_BREADY : OUT STD_LOGIC;
     m_axi_HP3_BRESP : IN STD_LOGIC_VECTOR (1 downto 0);
     m_axi_HP3_BID : IN STD_LOGIC_VECTOR (C_M_AXI_HP3_ID_WIDTH-1 downto 0);
-    m_axi_HP3_BUSER : IN STD_LOGIC_VECTOR (C_M_AXI_HP3_BUSER_WIDTH-1 downto 0);
-    m_axi_HP0_AWVALID : OUT STD_LOGIC;
-    m_axi_HP0_AWREADY : IN STD_LOGIC;
-    m_axi_HP0_AWADDR : OUT STD_LOGIC_VECTOR (C_M_AXI_HP0_ADDR_WIDTH-1 downto 0);
-    m_axi_HP0_AWID : OUT STD_LOGIC_VECTOR (C_M_AXI_HP0_ID_WIDTH-1 downto 0);
-    m_axi_HP0_AWLEN : OUT STD_LOGIC_VECTOR (7 downto 0);
-    m_axi_HP0_AWSIZE : OUT STD_LOGIC_VECTOR (2 downto 0);
-    m_axi_HP0_AWBURST : OUT STD_LOGIC_VECTOR (1 downto 0);
-    m_axi_HP0_AWLOCK : OUT STD_LOGIC_VECTOR (1 downto 0);
-    m_axi_HP0_AWCACHE : OUT STD_LOGIC_VECTOR (3 downto 0);
-    m_axi_HP0_AWPROT : OUT STD_LOGIC_VECTOR (2 downto 0);
-    m_axi_HP0_AWQOS : OUT STD_LOGIC_VECTOR (3 downto 0);
-    m_axi_HP0_AWREGION : OUT STD_LOGIC_VECTOR (3 downto 0);
-    m_axi_HP0_AWUSER : OUT STD_LOGIC_VECTOR (C_M_AXI_HP0_AWUSER_WIDTH-1 downto 0);
-    m_axi_HP0_WVALID : OUT STD_LOGIC;
-    m_axi_HP0_WREADY : IN STD_LOGIC;
-    m_axi_HP0_WDATA : OUT STD_LOGIC_VECTOR (C_M_AXI_HP0_DATA_WIDTH-1 downto 0);
-    m_axi_HP0_WSTRB : OUT STD_LOGIC_VECTOR (C_M_AXI_HP0_DATA_WIDTH/8-1 downto 0);
-    m_axi_HP0_WLAST : OUT STD_LOGIC;
-    m_axi_HP0_WID : OUT STD_LOGIC_VECTOR (C_M_AXI_HP0_ID_WIDTH-1 downto 0);
-    m_axi_HP0_WUSER : OUT STD_LOGIC_VECTOR (C_M_AXI_HP0_WUSER_WIDTH-1 downto 0);
-    m_axi_HP0_ARVALID : OUT STD_LOGIC;
-    m_axi_HP0_ARREADY : IN STD_LOGIC;
-    m_axi_HP0_ARADDR : OUT STD_LOGIC_VECTOR (C_M_AXI_HP0_ADDR_WIDTH-1 downto 0);
-    m_axi_HP0_ARID : OUT STD_LOGIC_VECTOR (C_M_AXI_HP0_ID_WIDTH-1 downto 0);
-    m_axi_HP0_ARLEN : OUT STD_LOGIC_VECTOR (7 downto 0);
-    m_axi_HP0_ARSIZE : OUT STD_LOGIC_VECTOR (2 downto 0);
-    m_axi_HP0_ARBURST : OUT STD_LOGIC_VECTOR (1 downto 0);
-    m_axi_HP0_ARLOCK : OUT STD_LOGIC_VECTOR (1 downto 0);
-    m_axi_HP0_ARCACHE : OUT STD_LOGIC_VECTOR (3 downto 0);
-    m_axi_HP0_ARPROT : OUT STD_LOGIC_VECTOR (2 downto 0);
-    m_axi_HP0_ARQOS : OUT STD_LOGIC_VECTOR (3 downto 0);
-    m_axi_HP0_ARREGION : OUT STD_LOGIC_VECTOR (3 downto 0);
-    m_axi_HP0_ARUSER : OUT STD_LOGIC_VECTOR (C_M_AXI_HP0_ARUSER_WIDTH-1 downto 0);
-    m_axi_HP0_RVALID : IN STD_LOGIC;
-    m_axi_HP0_RREADY : OUT STD_LOGIC;
-    m_axi_HP0_RDATA : IN STD_LOGIC_VECTOR (C_M_AXI_HP0_DATA_WIDTH-1 downto 0);
-    m_axi_HP0_RLAST : IN STD_LOGIC;
-    m_axi_HP0_RID : IN STD_LOGIC_VECTOR (C_M_AXI_HP0_ID_WIDTH-1 downto 0);
-    m_axi_HP0_RUSER : IN STD_LOGIC_VECTOR (C_M_AXI_HP0_RUSER_WIDTH-1 downto 0);
-    m_axi_HP0_RRESP : IN STD_LOGIC_VECTOR (1 downto 0);
-    m_axi_HP0_BVALID : IN STD_LOGIC;
-    m_axi_HP0_BREADY : OUT STD_LOGIC;
-    m_axi_HP0_BRESP : IN STD_LOGIC_VECTOR (1 downto 0);
-    m_axi_HP0_BID : IN STD_LOGIC_VECTOR (C_M_AXI_HP0_ID_WIDTH-1 downto 0);
-    m_axi_HP0_BUSER : IN STD_LOGIC_VECTOR (C_M_AXI_HP0_BUSER_WIDTH-1 downto 0) );
+    m_axi_HP3_BUSER : IN STD_LOGIC_VECTOR (C_M_AXI_HP3_BUSER_WIDTH-1 downto 0) );
 end;
 
 
 architecture behav of hardware_encoding is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "hardware_encoding_hardware_encoding,hls_ip_2020_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu3eg-sbva484-1-i,HLS_INPUT_CLOCK=6.667000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=4.866910,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=135,HLS_SYN_DSP=0,HLS_SYN_FF=5384,HLS_SYN_LUT=11381,HLS_VERSION=2020_2}";
+    "hardware_encoding_hardware_encoding,hls_ip_2020_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xczu3eg-sbva484-1-i,HLS_INPUT_CLOCK=6.667000,HLS_INPUT_ARCH=dataflow,HLS_SYN_CLOCK=4.866910,HLS_SYN_LAT=-1,HLS_SYN_TPT=-1,HLS_SYN_MEM=136,HLS_SYN_DSP=0,HLS_SYN_FF=4256,HLS_SYN_LUT=10141,HLS_VERSION=2020_2}";
     constant C_S_AXI_DATA_WIDTH : INTEGER range 63 downto 0 := 20;
     constant C_S_AXI_WSTRB_WIDTH : INTEGER range 63 downto 0 := 4;
     constant C_S_AXI_ADDR_WIDTH : INTEGER range 63 downto 0 := 20;
@@ -237,7 +181,6 @@ architecture behav of hardware_encoding is
     constant ap_const_lv4_1 : STD_LOGIC_VECTOR (3 downto 0) := "0001";
     constant ap_const_lv16_0 : STD_LOGIC_VECTOR (15 downto 0) := "0000000000000000";
     constant ap_const_lv16_1 : STD_LOGIC_VECTOR (15 downto 0) := "0000000000000001";
-    constant ap_const_boolean_1 : BOOLEAN := true;
 
 attribute shreg_extract : string;
     signal ap_rst_reg_2 : STD_LOGIC := '1';
@@ -248,8 +191,6 @@ attribute shreg_extract of ap_rst_reg_1 : signal is "no";
 attribute shreg_extract of ap_rst_n_inv : signal is "no";
     signal s1 : STD_LOGIC_VECTOR (63 downto 0);
     signal output_r : STD_LOGIC_VECTOR (63 downto 0);
-    signal lzw_size : STD_LOGIC_VECTOR (63 downto 0);
-    signal input_size : STD_LOGIC_VECTOR (63 downto 0);
     signal ap_start : STD_LOGIC;
     signal ap_ready : STD_LOGIC;
     signal ap_done : STD_LOGIC;
@@ -259,7 +200,7 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
     signal HP1_WREADY : STD_LOGIC;
     signal HP1_ARREADY : STD_LOGIC;
     signal HP1_RVALID : STD_LOGIC;
-    signal HP1_RDATA : STD_LOGIC_VECTOR (31 downto 0);
+    signal HP1_RDATA : STD_LOGIC_VECTOR (15 downto 0);
     signal HP1_RLAST : STD_LOGIC;
     signal HP1_RID : STD_LOGIC_VECTOR (0 downto 0);
     signal HP1_RUSER : STD_LOGIC_VECTOR (0 downto 0);
@@ -281,94 +222,58 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
     signal HP3_BRESP : STD_LOGIC_VECTOR (1 downto 0);
     signal HP3_BID : STD_LOGIC_VECTOR (0 downto 0);
     signal HP3_BUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal HP0_AWREADY : STD_LOGIC;
-    signal HP0_WREADY : STD_LOGIC;
-    signal HP0_ARREADY : STD_LOGIC;
-    signal HP0_RVALID : STD_LOGIC;
-    signal HP0_RDATA : STD_LOGIC_VECTOR (31 downto 0);
-    signal HP0_RLAST : STD_LOGIC;
-    signal HP0_RID : STD_LOGIC_VECTOR (0 downto 0);
-    signal HP0_RUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal HP0_RRESP : STD_LOGIC_VECTOR (1 downto 0);
-    signal HP0_BVALID : STD_LOGIC;
-    signal HP0_BRESP : STD_LOGIC_VECTOR (1 downto 0);
-    signal HP0_BID : STD_LOGIC_VECTOR (0 downto 0);
-    signal HP0_BUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal hardware_encoding_entry7_U0_ap_start : STD_LOGIC;
-    signal hardware_encoding_entry7_U0_ap_done : STD_LOGIC;
-    signal hardware_encoding_entry7_U0_ap_continue : STD_LOGIC;
-    signal hardware_encoding_entry7_U0_ap_idle : STD_LOGIC;
-    signal hardware_encoding_entry7_U0_ap_ready : STD_LOGIC;
-    signal hardware_encoding_entry7_U0_start_out : STD_LOGIC;
-    signal hardware_encoding_entry7_U0_start_write : STD_LOGIC;
-    signal hardware_encoding_entry7_U0_s1_out_din : STD_LOGIC_VECTOR (63 downto 0);
-    signal hardware_encoding_entry7_U0_s1_out_write : STD_LOGIC;
-    signal hardware_encoding_entry7_U0_output_out_din : STD_LOGIC_VECTOR (63 downto 0);
-    signal hardware_encoding_entry7_U0_output_out_write : STD_LOGIC;
-    signal hardware_encoding_entry7_U0_lzw_size_out_din : STD_LOGIC_VECTOR (63 downto 0);
-    signal hardware_encoding_entry7_U0_lzw_size_out_write : STD_LOGIC;
-    signal hardware_encoding_entry7_U0_input_size_out_din : STD_LOGIC_VECTOR (63 downto 0);
-    signal hardware_encoding_entry7_U0_input_size_out_write : STD_LOGIC;
-    signal read_input_U0_ap_start : STD_LOGIC;
-    signal read_input_U0_ap_done : STD_LOGIC;
-    signal read_input_U0_ap_continue : STD_LOGIC;
-    signal read_input_U0_ap_idle : STD_LOGIC;
-    signal read_input_U0_ap_ready : STD_LOGIC;
-    signal read_input_U0_start_out : STD_LOGIC;
-    signal read_input_U0_start_write : STD_LOGIC;
-    signal read_input_U0_m_axi_HP1_AWVALID : STD_LOGIC;
-    signal read_input_U0_m_axi_HP1_AWADDR : STD_LOGIC_VECTOR (63 downto 0);
-    signal read_input_U0_m_axi_HP1_AWID : STD_LOGIC_VECTOR (0 downto 0);
-    signal read_input_U0_m_axi_HP1_AWLEN : STD_LOGIC_VECTOR (31 downto 0);
-    signal read_input_U0_m_axi_HP1_AWSIZE : STD_LOGIC_VECTOR (2 downto 0);
-    signal read_input_U0_m_axi_HP1_AWBURST : STD_LOGIC_VECTOR (1 downto 0);
-    signal read_input_U0_m_axi_HP1_AWLOCK : STD_LOGIC_VECTOR (1 downto 0);
-    signal read_input_U0_m_axi_HP1_AWCACHE : STD_LOGIC_VECTOR (3 downto 0);
-    signal read_input_U0_m_axi_HP1_AWPROT : STD_LOGIC_VECTOR (2 downto 0);
-    signal read_input_U0_m_axi_HP1_AWQOS : STD_LOGIC_VECTOR (3 downto 0);
-    signal read_input_U0_m_axi_HP1_AWREGION : STD_LOGIC_VECTOR (3 downto 0);
-    signal read_input_U0_m_axi_HP1_AWUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal read_input_U0_m_axi_HP1_WVALID : STD_LOGIC;
-    signal read_input_U0_m_axi_HP1_WDATA : STD_LOGIC_VECTOR (31 downto 0);
-    signal read_input_U0_m_axi_HP1_WSTRB : STD_LOGIC_VECTOR (3 downto 0);
-    signal read_input_U0_m_axi_HP1_WLAST : STD_LOGIC;
-    signal read_input_U0_m_axi_HP1_WID : STD_LOGIC_VECTOR (0 downto 0);
-    signal read_input_U0_m_axi_HP1_WUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal read_input_U0_m_axi_HP1_ARVALID : STD_LOGIC;
-    signal read_input_U0_m_axi_HP1_ARADDR : STD_LOGIC_VECTOR (63 downto 0);
-    signal read_input_U0_m_axi_HP1_ARID : STD_LOGIC_VECTOR (0 downto 0);
-    signal read_input_U0_m_axi_HP1_ARLEN : STD_LOGIC_VECTOR (31 downto 0);
-    signal read_input_U0_m_axi_HP1_ARSIZE : STD_LOGIC_VECTOR (2 downto 0);
-    signal read_input_U0_m_axi_HP1_ARBURST : STD_LOGIC_VECTOR (1 downto 0);
-    signal read_input_U0_m_axi_HP1_ARLOCK : STD_LOGIC_VECTOR (1 downto 0);
-    signal read_input_U0_m_axi_HP1_ARCACHE : STD_LOGIC_VECTOR (3 downto 0);
-    signal read_input_U0_m_axi_HP1_ARPROT : STD_LOGIC_VECTOR (2 downto 0);
-    signal read_input_U0_m_axi_HP1_ARQOS : STD_LOGIC_VECTOR (3 downto 0);
-    signal read_input_U0_m_axi_HP1_ARREGION : STD_LOGIC_VECTOR (3 downto 0);
-    signal read_input_U0_m_axi_HP1_ARUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal read_input_U0_m_axi_HP1_RREADY : STD_LOGIC;
-    signal read_input_U0_m_axi_HP1_BREADY : STD_LOGIC;
-    signal read_input_U0_input_r_din : STD_LOGIC_VECTOR (7 downto 0);
-    signal read_input_U0_input_r_write : STD_LOGIC;
-    signal read_input_U0_inputsize_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal read_input_U0_inputsize_write : STD_LOGIC;
-    signal read_input_U0_s1_read : STD_LOGIC;
-    signal read_input_U0_input_size_read : STD_LOGIC;
+    signal read_input5_U0_ap_start : STD_LOGIC;
+    signal read_input5_U0_start_full_n : STD_LOGIC;
+    signal read_input5_U0_ap_done : STD_LOGIC;
+    signal read_input5_U0_ap_continue : STD_LOGIC;
+    signal read_input5_U0_ap_idle : STD_LOGIC;
+    signal read_input5_U0_ap_ready : STD_LOGIC;
+    signal read_input5_U0_start_out : STD_LOGIC;
+    signal read_input5_U0_start_write : STD_LOGIC;
+    signal read_input5_U0_m_axi_HP1_AWVALID : STD_LOGIC;
+    signal read_input5_U0_m_axi_HP1_AWADDR : STD_LOGIC_VECTOR (63 downto 0);
+    signal read_input5_U0_m_axi_HP1_AWID : STD_LOGIC_VECTOR (0 downto 0);
+    signal read_input5_U0_m_axi_HP1_AWLEN : STD_LOGIC_VECTOR (31 downto 0);
+    signal read_input5_U0_m_axi_HP1_AWSIZE : STD_LOGIC_VECTOR (2 downto 0);
+    signal read_input5_U0_m_axi_HP1_AWBURST : STD_LOGIC_VECTOR (1 downto 0);
+    signal read_input5_U0_m_axi_HP1_AWLOCK : STD_LOGIC_VECTOR (1 downto 0);
+    signal read_input5_U0_m_axi_HP1_AWCACHE : STD_LOGIC_VECTOR (3 downto 0);
+    signal read_input5_U0_m_axi_HP1_AWPROT : STD_LOGIC_VECTOR (2 downto 0);
+    signal read_input5_U0_m_axi_HP1_AWQOS : STD_LOGIC_VECTOR (3 downto 0);
+    signal read_input5_U0_m_axi_HP1_AWREGION : STD_LOGIC_VECTOR (3 downto 0);
+    signal read_input5_U0_m_axi_HP1_AWUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal read_input5_U0_m_axi_HP1_WVALID : STD_LOGIC;
+    signal read_input5_U0_m_axi_HP1_WDATA : STD_LOGIC_VECTOR (15 downto 0);
+    signal read_input5_U0_m_axi_HP1_WSTRB : STD_LOGIC_VECTOR (1 downto 0);
+    signal read_input5_U0_m_axi_HP1_WLAST : STD_LOGIC;
+    signal read_input5_U0_m_axi_HP1_WID : STD_LOGIC_VECTOR (0 downto 0);
+    signal read_input5_U0_m_axi_HP1_WUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal read_input5_U0_m_axi_HP1_ARVALID : STD_LOGIC;
+    signal read_input5_U0_m_axi_HP1_ARADDR : STD_LOGIC_VECTOR (63 downto 0);
+    signal read_input5_U0_m_axi_HP1_ARID : STD_LOGIC_VECTOR (0 downto 0);
+    signal read_input5_U0_m_axi_HP1_ARLEN : STD_LOGIC_VECTOR (31 downto 0);
+    signal read_input5_U0_m_axi_HP1_ARSIZE : STD_LOGIC_VECTOR (2 downto 0);
+    signal read_input5_U0_m_axi_HP1_ARBURST : STD_LOGIC_VECTOR (1 downto 0);
+    signal read_input5_U0_m_axi_HP1_ARLOCK : STD_LOGIC_VECTOR (1 downto 0);
+    signal read_input5_U0_m_axi_HP1_ARCACHE : STD_LOGIC_VECTOR (3 downto 0);
+    signal read_input5_U0_m_axi_HP1_ARPROT : STD_LOGIC_VECTOR (2 downto 0);
+    signal read_input5_U0_m_axi_HP1_ARQOS : STD_LOGIC_VECTOR (3 downto 0);
+    signal read_input5_U0_m_axi_HP1_ARREGION : STD_LOGIC_VECTOR (3 downto 0);
+    signal read_input5_U0_m_axi_HP1_ARUSER : STD_LOGIC_VECTOR (0 downto 0);
+    signal read_input5_U0_m_axi_HP1_RREADY : STD_LOGIC;
+    signal read_input5_U0_m_axi_HP1_BREADY : STD_LOGIC;
+    signal read_input5_U0_input_r_din : STD_LOGIC_VECTOR (7 downto 0);
+    signal read_input5_U0_input_r_write : STD_LOGIC;
+    signal read_input5_U0_output_out_din : STD_LOGIC_VECTOR (63 downto 0);
+    signal read_input5_U0_output_out_write : STD_LOGIC;
     signal computing_U0_ap_start : STD_LOGIC;
     signal computing_U0_ap_done : STD_LOGIC;
     signal computing_U0_ap_continue : STD_LOGIC;
     signal computing_U0_ap_idle : STD_LOGIC;
     signal computing_U0_ap_ready : STD_LOGIC;
-    signal computing_U0_input_2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal computing_U0_input_2_ap_vld : STD_LOGIC;
     signal computing_U0_input_r_read : STD_LOGIC;
     signal computing_U0_output_r_din : STD_LOGIC_VECTOR (15 downto 0);
     signal computing_U0_output_r_write : STD_LOGIC;
-    signal computing_U0_inputsize_read : STD_LOGIC;
-    signal computing_U0_compress_size_0_out_din : STD_LOGIC_VECTOR (31 downto 0);
-    signal computing_U0_compress_size_0_out_write : STD_LOGIC;
-    signal ap_channel_done_p_channel : STD_LOGIC;
-    signal p_channel_full_n : STD_LOGIC;
     signal write_output_U0_ap_start : STD_LOGIC;
     signal write_output_U0_ap_done : STD_LOGIC;
     signal write_output_U0_ap_continue : STD_LOGIC;
@@ -409,125 +314,31 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
     signal write_output_U0_m_axi_HP3_BREADY : STD_LOGIC;
     signal write_output_U0_output_r_read : STD_LOGIC;
     signal ap_sync_continue : STD_LOGIC;
-    signal Block_split28_proc_U0_ap_start : STD_LOGIC;
-    signal Block_split28_proc_U0_ap_done : STD_LOGIC;
-    signal Block_split28_proc_U0_ap_continue : STD_LOGIC;
-    signal Block_split28_proc_U0_ap_idle : STD_LOGIC;
-    signal Block_split28_proc_U0_ap_ready : STD_LOGIC;
-    signal Block_split28_proc_U0_compress_size_0_read : STD_LOGIC;
-    signal Block_split28_proc_U0_lzw_size_read : STD_LOGIC;
-    signal Block_split28_proc_U0_m_axi_HP0_AWVALID : STD_LOGIC;
-    signal Block_split28_proc_U0_m_axi_HP0_AWADDR : STD_LOGIC_VECTOR (63 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_AWID : STD_LOGIC_VECTOR (0 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_AWLEN : STD_LOGIC_VECTOR (31 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_AWSIZE : STD_LOGIC_VECTOR (2 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_AWBURST : STD_LOGIC_VECTOR (1 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_AWLOCK : STD_LOGIC_VECTOR (1 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_AWCACHE : STD_LOGIC_VECTOR (3 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_AWPROT : STD_LOGIC_VECTOR (2 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_AWQOS : STD_LOGIC_VECTOR (3 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_AWREGION : STD_LOGIC_VECTOR (3 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_AWUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_WVALID : STD_LOGIC;
-    signal Block_split28_proc_U0_m_axi_HP0_WDATA : STD_LOGIC_VECTOR (31 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_WSTRB : STD_LOGIC_VECTOR (3 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_WLAST : STD_LOGIC;
-    signal Block_split28_proc_U0_m_axi_HP0_WID : STD_LOGIC_VECTOR (0 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_WUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_ARVALID : STD_LOGIC;
-    signal Block_split28_proc_U0_m_axi_HP0_ARADDR : STD_LOGIC_VECTOR (63 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_ARID : STD_LOGIC_VECTOR (0 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_ARLEN : STD_LOGIC_VECTOR (31 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_ARSIZE : STD_LOGIC_VECTOR (2 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_ARBURST : STD_LOGIC_VECTOR (1 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_ARLOCK : STD_LOGIC_VECTOR (1 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_ARCACHE : STD_LOGIC_VECTOR (3 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_ARPROT : STD_LOGIC_VECTOR (2 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_ARQOS : STD_LOGIC_VECTOR (3 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_ARREGION : STD_LOGIC_VECTOR (3 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_ARUSER : STD_LOGIC_VECTOR (0 downto 0);
-    signal Block_split28_proc_U0_m_axi_HP0_RREADY : STD_LOGIC;
-    signal Block_split28_proc_U0_m_axi_HP0_BREADY : STD_LOGIC;
-    signal s1_c_full_n : STD_LOGIC;
-    signal s1_c_dout : STD_LOGIC_VECTOR (63 downto 0);
-    signal s1_c_empty_n : STD_LOGIC;
-    signal output_c_full_n : STD_LOGIC;
-    signal output_c_dout : STD_LOGIC_VECTOR (63 downto 0);
-    signal output_c_empty_n : STD_LOGIC;
-    signal lzw_size_c_full_n : STD_LOGIC;
-    signal lzw_size_c_dout : STD_LOGIC_VECTOR (63 downto 0);
-    signal lzw_size_c_empty_n : STD_LOGIC;
-    signal input_size_c_full_n : STD_LOGIC;
-    signal input_size_c_dout : STD_LOGIC_VECTOR (63 downto 0);
-    signal input_size_c_empty_n : STD_LOGIC;
     signal input_stream_full_n : STD_LOGIC;
     signal input_stream_dout : STD_LOGIC_VECTOR (7 downto 0);
     signal input_stream_empty_n : STD_LOGIC;
-    signal inputsize_stream_full_n : STD_LOGIC;
-    signal inputsize_stream_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal inputsize_stream_empty_n : STD_LOGIC;
-    signal p_channel_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal p_channel_empty_n : STD_LOGIC;
+    signal output_c_full_n : STD_LOGIC;
+    signal output_c_dout : STD_LOGIC_VECTOR (63 downto 0);
+    signal output_c_empty_n : STD_LOGIC;
     signal output_stream_full_n : STD_LOGIC;
     signal output_stream_dout : STD_LOGIC_VECTOR (15 downto 0);
     signal output_stream_empty_n : STD_LOGIC;
-    signal compress_size_0_c_full_n : STD_LOGIC;
-    signal compress_size_0_c_dout : STD_LOGIC_VECTOR (31 downto 0);
-    signal compress_size_0_c_empty_n : STD_LOGIC;
     signal ap_sync_done : STD_LOGIC;
     signal ap_sync_ready : STD_LOGIC;
-    signal ap_sync_reg_hardware_encoding_entry7_U0_ap_ready : STD_LOGIC := '0';
-    signal ap_sync_hardware_encoding_entry7_U0_ap_ready : STD_LOGIC;
-    signal ap_sync_reg_read_input_U0_ap_ready : STD_LOGIC := '0';
-    signal ap_sync_read_input_U0_ap_ready : STD_LOGIC;
-    signal start_for_Block_split28_proc_U0_din : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_Block_split28_proc_U0_full_n : STD_LOGIC;
-    signal start_for_Block_split28_proc_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
-    signal start_for_Block_split28_proc_U0_empty_n : STD_LOGIC;
     signal start_for_computing_U0_din : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_computing_U0_full_n : STD_LOGIC;
     signal start_for_computing_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
     signal start_for_computing_U0_empty_n : STD_LOGIC;
+    signal start_for_write_output_U0_din : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_write_output_U0_full_n : STD_LOGIC;
+    signal start_for_write_output_U0_dout : STD_LOGIC_VECTOR (0 downto 0);
+    signal start_for_write_output_U0_empty_n : STD_LOGIC;
     signal computing_U0_start_full_n : STD_LOGIC;
     signal computing_U0_start_write : STD_LOGIC;
     signal write_output_U0_start_full_n : STD_LOGIC;
     signal write_output_U0_start_write : STD_LOGIC;
-    signal Block_split28_proc_U0_start_full_n : STD_LOGIC;
-    signal Block_split28_proc_U0_start_write : STD_LOGIC;
-    signal ap_ce_reg : STD_LOGIC;
 
-    component hardware_encoding_hardware_encoding_entry7 IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        start_full_n : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_continue : IN STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        start_out : OUT STD_LOGIC;
-        start_write : OUT STD_LOGIC;
-        s1 : IN STD_LOGIC_VECTOR (63 downto 0);
-        output_r : IN STD_LOGIC_VECTOR (63 downto 0);
-        lzw_size : IN STD_LOGIC_VECTOR (63 downto 0);
-        input_size : IN STD_LOGIC_VECTOR (63 downto 0);
-        s1_out_din : OUT STD_LOGIC_VECTOR (63 downto 0);
-        s1_out_full_n : IN STD_LOGIC;
-        s1_out_write : OUT STD_LOGIC;
-        output_out_din : OUT STD_LOGIC_VECTOR (63 downto 0);
-        output_out_full_n : IN STD_LOGIC;
-        output_out_write : OUT STD_LOGIC;
-        lzw_size_out_din : OUT STD_LOGIC_VECTOR (63 downto 0);
-        lzw_size_out_full_n : IN STD_LOGIC;
-        lzw_size_out_write : OUT STD_LOGIC;
-        input_size_out_din : OUT STD_LOGIC_VECTOR (63 downto 0);
-        input_size_out_full_n : IN STD_LOGIC;
-        input_size_out_write : OUT STD_LOGIC );
-    end component;
-
-
-    component hardware_encoding_read_input IS
+    component hardware_encoding_read_input5 IS
     port (
         ap_clk : IN STD_LOGIC;
         ap_rst : IN STD_LOGIC;
@@ -554,8 +365,8 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
         m_axi_HP1_AWUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
         m_axi_HP1_WVALID : OUT STD_LOGIC;
         m_axi_HP1_WREADY : IN STD_LOGIC;
-        m_axi_HP1_WDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
-        m_axi_HP1_WSTRB : OUT STD_LOGIC_VECTOR (3 downto 0);
+        m_axi_HP1_WDATA : OUT STD_LOGIC_VECTOR (15 downto 0);
+        m_axi_HP1_WSTRB : OUT STD_LOGIC_VECTOR (1 downto 0);
         m_axi_HP1_WLAST : OUT STD_LOGIC;
         m_axi_HP1_WID : OUT STD_LOGIC_VECTOR (0 downto 0);
         m_axi_HP1_WUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
@@ -574,7 +385,7 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
         m_axi_HP1_ARUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
         m_axi_HP1_RVALID : IN STD_LOGIC;
         m_axi_HP1_RREADY : OUT STD_LOGIC;
-        m_axi_HP1_RDATA : IN STD_LOGIC_VECTOR (31 downto 0);
+        m_axi_HP1_RDATA : IN STD_LOGIC_VECTOR (15 downto 0);
         m_axi_HP1_RLAST : IN STD_LOGIC;
         m_axi_HP1_RID : IN STD_LOGIC_VECTOR (0 downto 0);
         m_axi_HP1_RUSER : IN STD_LOGIC_VECTOR (0 downto 0);
@@ -587,15 +398,11 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
         input_r_din : OUT STD_LOGIC_VECTOR (7 downto 0);
         input_r_full_n : IN STD_LOGIC;
         input_r_write : OUT STD_LOGIC;
-        inputsize_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        inputsize_full_n : IN STD_LOGIC;
-        inputsize_write : OUT STD_LOGIC;
-        s1_dout : IN STD_LOGIC_VECTOR (63 downto 0);
-        s1_empty_n : IN STD_LOGIC;
-        s1_read : OUT STD_LOGIC;
-        input_size_dout : IN STD_LOGIC_VECTOR (63 downto 0);
-        input_size_empty_n : IN STD_LOGIC;
-        input_size_read : OUT STD_LOGIC );
+        s1 : IN STD_LOGIC_VECTOR (63 downto 0);
+        output_r : IN STD_LOGIC_VECTOR (63 downto 0);
+        output_out_din : OUT STD_LOGIC_VECTOR (63 downto 0);
+        output_out_full_n : IN STD_LOGIC;
+        output_out_write : OUT STD_LOGIC );
     end component;
 
 
@@ -608,20 +415,12 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
         ap_continue : IN STD_LOGIC;
         ap_idle : OUT STD_LOGIC;
         ap_ready : OUT STD_LOGIC;
-        input_2 : OUT STD_LOGIC_VECTOR (31 downto 0);
-        input_2_ap_vld : OUT STD_LOGIC;
         input_r_dout : IN STD_LOGIC_VECTOR (7 downto 0);
         input_r_empty_n : IN STD_LOGIC;
         input_r_read : OUT STD_LOGIC;
         output_r_din : OUT STD_LOGIC_VECTOR (15 downto 0);
         output_r_full_n : IN STD_LOGIC;
-        output_r_write : OUT STD_LOGIC;
-        inputsize_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        inputsize_empty_n : IN STD_LOGIC;
-        inputsize_read : OUT STD_LOGIC;
-        compress_size_0_out_din : OUT STD_LOGIC_VECTOR (31 downto 0);
-        compress_size_0_out_full_n : IN STD_LOGIC;
-        compress_size_0_out_write : OUT STD_LOGIC );
+        output_r_write : OUT STD_LOGIC );
     end component;
 
 
@@ -682,107 +481,13 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
         m_axi_HP3_BRESP : IN STD_LOGIC_VECTOR (1 downto 0);
         m_axi_HP3_BID : IN STD_LOGIC_VECTOR (0 downto 0);
         m_axi_HP3_BUSER : IN STD_LOGIC_VECTOR (0 downto 0);
-        compress_size : IN STD_LOGIC_VECTOR (31 downto 0);
         output_r_dout : IN STD_LOGIC_VECTOR (63 downto 0);
         output_r_empty_n : IN STD_LOGIC;
         output_r_read : OUT STD_LOGIC );
     end component;
 
 
-    component hardware_encoding_Block_split28_proc IS
-    port (
-        ap_clk : IN STD_LOGIC;
-        ap_rst : IN STD_LOGIC;
-        ap_start : IN STD_LOGIC;
-        ap_done : OUT STD_LOGIC;
-        ap_continue : IN STD_LOGIC;
-        ap_idle : OUT STD_LOGIC;
-        ap_ready : OUT STD_LOGIC;
-        compress_size_0_dout : IN STD_LOGIC_VECTOR (31 downto 0);
-        compress_size_0_empty_n : IN STD_LOGIC;
-        compress_size_0_read : OUT STD_LOGIC;
-        lzw_size_dout : IN STD_LOGIC_VECTOR (63 downto 0);
-        lzw_size_empty_n : IN STD_LOGIC;
-        lzw_size_read : OUT STD_LOGIC;
-        m_axi_HP0_AWVALID : OUT STD_LOGIC;
-        m_axi_HP0_AWREADY : IN STD_LOGIC;
-        m_axi_HP0_AWADDR : OUT STD_LOGIC_VECTOR (63 downto 0);
-        m_axi_HP0_AWID : OUT STD_LOGIC_VECTOR (0 downto 0);
-        m_axi_HP0_AWLEN : OUT STD_LOGIC_VECTOR (31 downto 0);
-        m_axi_HP0_AWSIZE : OUT STD_LOGIC_VECTOR (2 downto 0);
-        m_axi_HP0_AWBURST : OUT STD_LOGIC_VECTOR (1 downto 0);
-        m_axi_HP0_AWLOCK : OUT STD_LOGIC_VECTOR (1 downto 0);
-        m_axi_HP0_AWCACHE : OUT STD_LOGIC_VECTOR (3 downto 0);
-        m_axi_HP0_AWPROT : OUT STD_LOGIC_VECTOR (2 downto 0);
-        m_axi_HP0_AWQOS : OUT STD_LOGIC_VECTOR (3 downto 0);
-        m_axi_HP0_AWREGION : OUT STD_LOGIC_VECTOR (3 downto 0);
-        m_axi_HP0_AWUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
-        m_axi_HP0_WVALID : OUT STD_LOGIC;
-        m_axi_HP0_WREADY : IN STD_LOGIC;
-        m_axi_HP0_WDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
-        m_axi_HP0_WSTRB : OUT STD_LOGIC_VECTOR (3 downto 0);
-        m_axi_HP0_WLAST : OUT STD_LOGIC;
-        m_axi_HP0_WID : OUT STD_LOGIC_VECTOR (0 downto 0);
-        m_axi_HP0_WUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
-        m_axi_HP0_ARVALID : OUT STD_LOGIC;
-        m_axi_HP0_ARREADY : IN STD_LOGIC;
-        m_axi_HP0_ARADDR : OUT STD_LOGIC_VECTOR (63 downto 0);
-        m_axi_HP0_ARID : OUT STD_LOGIC_VECTOR (0 downto 0);
-        m_axi_HP0_ARLEN : OUT STD_LOGIC_VECTOR (31 downto 0);
-        m_axi_HP0_ARSIZE : OUT STD_LOGIC_VECTOR (2 downto 0);
-        m_axi_HP0_ARBURST : OUT STD_LOGIC_VECTOR (1 downto 0);
-        m_axi_HP0_ARLOCK : OUT STD_LOGIC_VECTOR (1 downto 0);
-        m_axi_HP0_ARCACHE : OUT STD_LOGIC_VECTOR (3 downto 0);
-        m_axi_HP0_ARPROT : OUT STD_LOGIC_VECTOR (2 downto 0);
-        m_axi_HP0_ARQOS : OUT STD_LOGIC_VECTOR (3 downto 0);
-        m_axi_HP0_ARREGION : OUT STD_LOGIC_VECTOR (3 downto 0);
-        m_axi_HP0_ARUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
-        m_axi_HP0_RVALID : IN STD_LOGIC;
-        m_axi_HP0_RREADY : OUT STD_LOGIC;
-        m_axi_HP0_RDATA : IN STD_LOGIC_VECTOR (31 downto 0);
-        m_axi_HP0_RLAST : IN STD_LOGIC;
-        m_axi_HP0_RID : IN STD_LOGIC_VECTOR (0 downto 0);
-        m_axi_HP0_RUSER : IN STD_LOGIC_VECTOR (0 downto 0);
-        m_axi_HP0_RRESP : IN STD_LOGIC_VECTOR (1 downto 0);
-        m_axi_HP0_BVALID : IN STD_LOGIC;
-        m_axi_HP0_BREADY : OUT STD_LOGIC;
-        m_axi_HP0_BRESP : IN STD_LOGIC_VECTOR (1 downto 0);
-        m_axi_HP0_BID : IN STD_LOGIC_VECTOR (0 downto 0);
-        m_axi_HP0_BUSER : IN STD_LOGIC_VECTOR (0 downto 0) );
-    end component;
-
-
-    component hardware_encoding_fifo_w64_d2_S IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (63 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (63 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component hardware_encoding_fifo_w64_d4_S IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (63 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (63 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component hardware_encoding_fifo_w8_d75_S IS
+    component hardware_encoding_fifo_w8_d500_A IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -797,37 +502,22 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
     end component;
 
 
-    component hardware_encoding_fifo_w32_d75_A IS
+    component hardware_encoding_fifo_w64_d3_S IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
         if_read_ce : IN STD_LOGIC;
         if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (31 downto 0);
+        if_din : IN STD_LOGIC_VECTOR (63 downto 0);
         if_full_n : OUT STD_LOGIC;
         if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (31 downto 0);
+        if_dout : OUT STD_LOGIC_VECTOR (63 downto 0);
         if_empty_n : OUT STD_LOGIC;
         if_read : IN STD_LOGIC );
     end component;
 
 
-    component hardware_encoding_fifo_w32_d2_S IS
-    port (
-        clk : IN STD_LOGIC;
-        reset : IN STD_LOGIC;
-        if_read_ce : IN STD_LOGIC;
-        if_write_ce : IN STD_LOGIC;
-        if_din : IN STD_LOGIC_VECTOR (31 downto 0);
-        if_full_n : OUT STD_LOGIC;
-        if_write : IN STD_LOGIC;
-        if_dout : OUT STD_LOGIC_VECTOR (31 downto 0);
-        if_empty_n : OUT STD_LOGIC;
-        if_read : IN STD_LOGIC );
-    end component;
-
-
-    component hardware_encoding_fifo_w16_d75_A IS
+    component hardware_encoding_fifo_w16_d500_A IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -842,7 +532,7 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
     end component;
 
 
-    component hardware_encoding_start_for_Block_split28_proc_U0 IS
+    component hardware_encoding_start_for_computing_U0 IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -857,7 +547,7 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
     end component;
 
 
-    component hardware_encoding_start_for_computing_U0 IS
+    component hardware_encoding_start_for_write_output_U0 IS
     port (
         clk : IN STD_LOGIC;
         reset : IN STD_LOGIC;
@@ -899,8 +589,6 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
         ACLK_EN : IN STD_LOGIC;
         s1 : OUT STD_LOGIC_VECTOR (63 downto 0);
         output_r : OUT STD_LOGIC_VECTOR (63 downto 0);
-        lzw_size : OUT STD_LOGIC_VECTOR (63 downto 0);
-        input_size : OUT STD_LOGIC_VECTOR (63 downto 0);
         ap_start : OUT STD_LOGIC;
         interrupt : OUT STD_LOGIC;
         ap_ready : IN STD_LOGIC;
@@ -995,7 +683,7 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
         I_ARREGION : IN STD_LOGIC_VECTOR (3 downto 0);
         I_RVALID : OUT STD_LOGIC;
         I_RREADY : IN STD_LOGIC;
-        I_RDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
+        I_RDATA : OUT STD_LOGIC_VECTOR (15 downto 0);
         I_RID : OUT STD_LOGIC_VECTOR (0 downto 0);
         I_RUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
         I_RRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
@@ -1015,11 +703,11 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
         I_AWREGION : IN STD_LOGIC_VECTOR (3 downto 0);
         I_WVALID : IN STD_LOGIC;
         I_WREADY : OUT STD_LOGIC;
-        I_WDATA : IN STD_LOGIC_VECTOR (31 downto 0);
+        I_WDATA : IN STD_LOGIC_VECTOR (15 downto 0);
         I_WID : IN STD_LOGIC_VECTOR (0 downto 0);
         I_WUSER : IN STD_LOGIC_VECTOR (0 downto 0);
         I_WLAST : IN STD_LOGIC;
-        I_WSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
+        I_WSTRB : IN STD_LOGIC_VECTOR (1 downto 0);
         I_BVALID : OUT STD_LOGIC;
         I_BREADY : IN STD_LOGIC;
         I_BRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
@@ -1146,124 +834,6 @@ attribute shreg_extract of ap_rst_n_inv : signal is "no";
     end component;
 
 
-    component hardware_encoding_HP0_m_axi IS
-    generic (
-        CONSERVATIVE : INTEGER;
-        USER_DW : INTEGER;
-        USER_AW : INTEGER;
-        USER_MAXREQS : INTEGER;
-        NUM_READ_OUTSTANDING : INTEGER;
-        NUM_WRITE_OUTSTANDING : INTEGER;
-        MAX_READ_BURST_LENGTH : INTEGER;
-        MAX_WRITE_BURST_LENGTH : INTEGER;
-        C_M_AXI_ID_WIDTH : INTEGER;
-        C_M_AXI_ADDR_WIDTH : INTEGER;
-        C_M_AXI_DATA_WIDTH : INTEGER;
-        C_M_AXI_AWUSER_WIDTH : INTEGER;
-        C_M_AXI_ARUSER_WIDTH : INTEGER;
-        C_M_AXI_WUSER_WIDTH : INTEGER;
-        C_M_AXI_RUSER_WIDTH : INTEGER;
-        C_M_AXI_BUSER_WIDTH : INTEGER;
-        C_USER_VALUE : INTEGER;
-        C_PROT_VALUE : INTEGER;
-        C_CACHE_VALUE : INTEGER );
-    port (
-        AWVALID : OUT STD_LOGIC;
-        AWREADY : IN STD_LOGIC;
-        AWADDR : OUT STD_LOGIC_VECTOR (C_M_AXI_ADDR_WIDTH-1 downto 0);
-        AWID : OUT STD_LOGIC_VECTOR (C_M_AXI_ID_WIDTH-1 downto 0);
-        AWLEN : OUT STD_LOGIC_VECTOR (7 downto 0);
-        AWSIZE : OUT STD_LOGIC_VECTOR (2 downto 0);
-        AWBURST : OUT STD_LOGIC_VECTOR (1 downto 0);
-        AWLOCK : OUT STD_LOGIC_VECTOR (1 downto 0);
-        AWCACHE : OUT STD_LOGIC_VECTOR (3 downto 0);
-        AWPROT : OUT STD_LOGIC_VECTOR (2 downto 0);
-        AWQOS : OUT STD_LOGIC_VECTOR (3 downto 0);
-        AWREGION : OUT STD_LOGIC_VECTOR (3 downto 0);
-        AWUSER : OUT STD_LOGIC_VECTOR (C_M_AXI_AWUSER_WIDTH-1 downto 0);
-        WVALID : OUT STD_LOGIC;
-        WREADY : IN STD_LOGIC;
-        WDATA : OUT STD_LOGIC_VECTOR (C_M_AXI_DATA_WIDTH-1 downto 0);
-        WSTRB : OUT STD_LOGIC_VECTOR (C_M_AXI_DATA_WIDTH/8-1 downto 0);
-        WLAST : OUT STD_LOGIC;
-        WID : OUT STD_LOGIC_VECTOR (C_M_AXI_ID_WIDTH-1 downto 0);
-        WUSER : OUT STD_LOGIC_VECTOR (C_M_AXI_WUSER_WIDTH-1 downto 0);
-        ARVALID : OUT STD_LOGIC;
-        ARREADY : IN STD_LOGIC;
-        ARADDR : OUT STD_LOGIC_VECTOR (C_M_AXI_ADDR_WIDTH-1 downto 0);
-        ARID : OUT STD_LOGIC_VECTOR (C_M_AXI_ID_WIDTH-1 downto 0);
-        ARLEN : OUT STD_LOGIC_VECTOR (7 downto 0);
-        ARSIZE : OUT STD_LOGIC_VECTOR (2 downto 0);
-        ARBURST : OUT STD_LOGIC_VECTOR (1 downto 0);
-        ARLOCK : OUT STD_LOGIC_VECTOR (1 downto 0);
-        ARCACHE : OUT STD_LOGIC_VECTOR (3 downto 0);
-        ARPROT : OUT STD_LOGIC_VECTOR (2 downto 0);
-        ARQOS : OUT STD_LOGIC_VECTOR (3 downto 0);
-        ARREGION : OUT STD_LOGIC_VECTOR (3 downto 0);
-        ARUSER : OUT STD_LOGIC_VECTOR (C_M_AXI_ARUSER_WIDTH-1 downto 0);
-        RVALID : IN STD_LOGIC;
-        RREADY : OUT STD_LOGIC;
-        RDATA : IN STD_LOGIC_VECTOR (C_M_AXI_DATA_WIDTH-1 downto 0);
-        RLAST : IN STD_LOGIC;
-        RID : IN STD_LOGIC_VECTOR (C_M_AXI_ID_WIDTH-1 downto 0);
-        RUSER : IN STD_LOGIC_VECTOR (C_M_AXI_RUSER_WIDTH-1 downto 0);
-        RRESP : IN STD_LOGIC_VECTOR (1 downto 0);
-        BVALID : IN STD_LOGIC;
-        BREADY : OUT STD_LOGIC;
-        BRESP : IN STD_LOGIC_VECTOR (1 downto 0);
-        BID : IN STD_LOGIC_VECTOR (C_M_AXI_ID_WIDTH-1 downto 0);
-        BUSER : IN STD_LOGIC_VECTOR (C_M_AXI_BUSER_WIDTH-1 downto 0);
-        ACLK : IN STD_LOGIC;
-        ARESET : IN STD_LOGIC;
-        ACLK_EN : IN STD_LOGIC;
-        I_ARVALID : IN STD_LOGIC;
-        I_ARREADY : OUT STD_LOGIC;
-        I_ARADDR : IN STD_LOGIC_VECTOR (63 downto 0);
-        I_ARID : IN STD_LOGIC_VECTOR (0 downto 0);
-        I_ARLEN : IN STD_LOGIC_VECTOR (31 downto 0);
-        I_ARSIZE : IN STD_LOGIC_VECTOR (2 downto 0);
-        I_ARLOCK : IN STD_LOGIC_VECTOR (1 downto 0);
-        I_ARCACHE : IN STD_LOGIC_VECTOR (3 downto 0);
-        I_ARQOS : IN STD_LOGIC_VECTOR (3 downto 0);
-        I_ARPROT : IN STD_LOGIC_VECTOR (2 downto 0);
-        I_ARUSER : IN STD_LOGIC_VECTOR (0 downto 0);
-        I_ARBURST : IN STD_LOGIC_VECTOR (1 downto 0);
-        I_ARREGION : IN STD_LOGIC_VECTOR (3 downto 0);
-        I_RVALID : OUT STD_LOGIC;
-        I_RREADY : IN STD_LOGIC;
-        I_RDATA : OUT STD_LOGIC_VECTOR (31 downto 0);
-        I_RID : OUT STD_LOGIC_VECTOR (0 downto 0);
-        I_RUSER : OUT STD_LOGIC_VECTOR (0 downto 0);
-        I_RRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
-        I_RLAST : OUT STD_LOGIC;
-        I_AWVALID : IN STD_LOGIC;
-        I_AWREADY : OUT STD_LOGIC;
-        I_AWADDR : IN STD_LOGIC_VECTOR (63 downto 0);
-        I_AWID : IN STD_LOGIC_VECTOR (0 downto 0);
-        I_AWLEN : IN STD_LOGIC_VECTOR (31 downto 0);
-        I_AWSIZE : IN STD_LOGIC_VECTOR (2 downto 0);
-        I_AWLOCK : IN STD_LOGIC_VECTOR (1 downto 0);
-        I_AWCACHE : IN STD_LOGIC_VECTOR (3 downto 0);
-        I_AWQOS : IN STD_LOGIC_VECTOR (3 downto 0);
-        I_AWPROT : IN STD_LOGIC_VECTOR (2 downto 0);
-        I_AWUSER : IN STD_LOGIC_VECTOR (0 downto 0);
-        I_AWBURST : IN STD_LOGIC_VECTOR (1 downto 0);
-        I_AWREGION : IN STD_LOGIC_VECTOR (3 downto 0);
-        I_WVALID : IN STD_LOGIC;
-        I_WREADY : OUT STD_LOGIC;
-        I_WDATA : IN STD_LOGIC_VECTOR (31 downto 0);
-        I_WID : IN STD_LOGIC_VECTOR (0 downto 0);
-        I_WUSER : IN STD_LOGIC_VECTOR (0 downto 0);
-        I_WLAST : IN STD_LOGIC;
-        I_WSTRB : IN STD_LOGIC_VECTOR (3 downto 0);
-        I_BVALID : OUT STD_LOGIC;
-        I_BREADY : IN STD_LOGIC;
-        I_BRESP : OUT STD_LOGIC_VECTOR (1 downto 0);
-        I_BID : OUT STD_LOGIC_VECTOR (0 downto 0);
-        I_BUSER : OUT STD_LOGIC_VECTOR (0 downto 0) );
-    end component;
-
-
 
 begin
     control_s_axi_U : component hardware_encoding_control_s_axi
@@ -1293,8 +863,6 @@ begin
         ACLK_EN => ap_const_logic_1,
         s1 => s1,
         output_r => output_r,
-        lzw_size => lzw_size,
-        input_size => input_size,
         ap_start => ap_start,
         interrupt => interrupt,
         ap_ready => ap_ready,
@@ -1305,7 +873,7 @@ begin
     HP1_m_axi_U : component hardware_encoding_HP1_m_axi
     generic map (
         CONSERVATIVE => 0,
-        USER_DW => 32,
+        USER_DW => 16,
         USER_AW => 64,
         USER_MAXREQS => 69,
         NUM_READ_OUTSTANDING => 16,
@@ -1372,21 +940,21 @@ begin
         ACLK => ap_clk,
         ARESET => ap_rst_n_inv,
         ACLK_EN => ap_const_logic_1,
-        I_ARVALID => read_input_U0_m_axi_HP1_ARVALID,
+        I_ARVALID => read_input5_U0_m_axi_HP1_ARVALID,
         I_ARREADY => HP1_ARREADY,
-        I_ARADDR => read_input_U0_m_axi_HP1_ARADDR,
-        I_ARID => read_input_U0_m_axi_HP1_ARID,
-        I_ARLEN => read_input_U0_m_axi_HP1_ARLEN,
-        I_ARSIZE => read_input_U0_m_axi_HP1_ARSIZE,
-        I_ARLOCK => read_input_U0_m_axi_HP1_ARLOCK,
-        I_ARCACHE => read_input_U0_m_axi_HP1_ARCACHE,
-        I_ARQOS => read_input_U0_m_axi_HP1_ARQOS,
-        I_ARPROT => read_input_U0_m_axi_HP1_ARPROT,
-        I_ARUSER => read_input_U0_m_axi_HP1_ARUSER,
-        I_ARBURST => read_input_U0_m_axi_HP1_ARBURST,
-        I_ARREGION => read_input_U0_m_axi_HP1_ARREGION,
+        I_ARADDR => read_input5_U0_m_axi_HP1_ARADDR,
+        I_ARID => read_input5_U0_m_axi_HP1_ARID,
+        I_ARLEN => read_input5_U0_m_axi_HP1_ARLEN,
+        I_ARSIZE => read_input5_U0_m_axi_HP1_ARSIZE,
+        I_ARLOCK => read_input5_U0_m_axi_HP1_ARLOCK,
+        I_ARCACHE => read_input5_U0_m_axi_HP1_ARCACHE,
+        I_ARQOS => read_input5_U0_m_axi_HP1_ARQOS,
+        I_ARPROT => read_input5_U0_m_axi_HP1_ARPROT,
+        I_ARUSER => read_input5_U0_m_axi_HP1_ARUSER,
+        I_ARBURST => read_input5_U0_m_axi_HP1_ARBURST,
+        I_ARREGION => read_input5_U0_m_axi_HP1_ARREGION,
         I_RVALID => HP1_RVALID,
-        I_RREADY => read_input_U0_m_axi_HP1_RREADY,
+        I_RREADY => read_input5_U0_m_axi_HP1_RREADY,
         I_RDATA => HP1_RDATA,
         I_RID => HP1_RID,
         I_RUSER => HP1_RUSER,
@@ -1407,11 +975,11 @@ begin
         I_AWREGION => ap_const_lv4_0,
         I_WVALID => ap_const_logic_0,
         I_WREADY => HP1_WREADY,
-        I_WDATA => ap_const_lv32_0,
+        I_WDATA => ap_const_lv16_0,
         I_WID => ap_const_lv1_0,
         I_WUSER => ap_const_lv1_0,
         I_WLAST => ap_const_logic_0,
-        I_WSTRB => ap_const_lv4_0,
+        I_WSTRB => ap_const_lv2_0,
         I_BVALID => HP1_BVALID,
         I_BREADY => ap_const_logic_0,
         I_BRESP => HP1_BRESP,
@@ -1534,220 +1102,71 @@ begin
         I_BID => HP3_BID,
         I_BUSER => HP3_BUSER);
 
-    HP0_m_axi_U : component hardware_encoding_HP0_m_axi
-    generic map (
-        CONSERVATIVE => 0,
-        USER_DW => 32,
-        USER_AW => 64,
-        USER_MAXREQS => 69,
-        NUM_READ_OUTSTANDING => 16,
-        NUM_WRITE_OUTSTANDING => 16,
-        MAX_READ_BURST_LENGTH => 16,
-        MAX_WRITE_BURST_LENGTH => 16,
-        C_M_AXI_ID_WIDTH => C_M_AXI_HP0_ID_WIDTH,
-        C_M_AXI_ADDR_WIDTH => C_M_AXI_HP0_ADDR_WIDTH,
-        C_M_AXI_DATA_WIDTH => C_M_AXI_HP0_DATA_WIDTH,
-        C_M_AXI_AWUSER_WIDTH => C_M_AXI_HP0_AWUSER_WIDTH,
-        C_M_AXI_ARUSER_WIDTH => C_M_AXI_HP0_ARUSER_WIDTH,
-        C_M_AXI_WUSER_WIDTH => C_M_AXI_HP0_WUSER_WIDTH,
-        C_M_AXI_RUSER_WIDTH => C_M_AXI_HP0_RUSER_WIDTH,
-        C_M_AXI_BUSER_WIDTH => C_M_AXI_HP0_BUSER_WIDTH,
-        C_USER_VALUE => C_M_AXI_HP0_USER_VALUE,
-        C_PROT_VALUE => C_M_AXI_HP0_PROT_VALUE,
-        C_CACHE_VALUE => C_M_AXI_HP0_CACHE_VALUE)
-    port map (
-        AWVALID => m_axi_HP0_AWVALID,
-        AWREADY => m_axi_HP0_AWREADY,
-        AWADDR => m_axi_HP0_AWADDR,
-        AWID => m_axi_HP0_AWID,
-        AWLEN => m_axi_HP0_AWLEN,
-        AWSIZE => m_axi_HP0_AWSIZE,
-        AWBURST => m_axi_HP0_AWBURST,
-        AWLOCK => m_axi_HP0_AWLOCK,
-        AWCACHE => m_axi_HP0_AWCACHE,
-        AWPROT => m_axi_HP0_AWPROT,
-        AWQOS => m_axi_HP0_AWQOS,
-        AWREGION => m_axi_HP0_AWREGION,
-        AWUSER => m_axi_HP0_AWUSER,
-        WVALID => m_axi_HP0_WVALID,
-        WREADY => m_axi_HP0_WREADY,
-        WDATA => m_axi_HP0_WDATA,
-        WSTRB => m_axi_HP0_WSTRB,
-        WLAST => m_axi_HP0_WLAST,
-        WID => m_axi_HP0_WID,
-        WUSER => m_axi_HP0_WUSER,
-        ARVALID => m_axi_HP0_ARVALID,
-        ARREADY => m_axi_HP0_ARREADY,
-        ARADDR => m_axi_HP0_ARADDR,
-        ARID => m_axi_HP0_ARID,
-        ARLEN => m_axi_HP0_ARLEN,
-        ARSIZE => m_axi_HP0_ARSIZE,
-        ARBURST => m_axi_HP0_ARBURST,
-        ARLOCK => m_axi_HP0_ARLOCK,
-        ARCACHE => m_axi_HP0_ARCACHE,
-        ARPROT => m_axi_HP0_ARPROT,
-        ARQOS => m_axi_HP0_ARQOS,
-        ARREGION => m_axi_HP0_ARREGION,
-        ARUSER => m_axi_HP0_ARUSER,
-        RVALID => m_axi_HP0_RVALID,
-        RREADY => m_axi_HP0_RREADY,
-        RDATA => m_axi_HP0_RDATA,
-        RLAST => m_axi_HP0_RLAST,
-        RID => m_axi_HP0_RID,
-        RUSER => m_axi_HP0_RUSER,
-        RRESP => m_axi_HP0_RRESP,
-        BVALID => m_axi_HP0_BVALID,
-        BREADY => m_axi_HP0_BREADY,
-        BRESP => m_axi_HP0_BRESP,
-        BID => m_axi_HP0_BID,
-        BUSER => m_axi_HP0_BUSER,
-        ACLK => ap_clk,
-        ARESET => ap_rst_n_inv,
-        ACLK_EN => ap_const_logic_1,
-        I_ARVALID => ap_const_logic_0,
-        I_ARREADY => HP0_ARREADY,
-        I_ARADDR => ap_const_lv64_0,
-        I_ARID => ap_const_lv1_0,
-        I_ARLEN => ap_const_lv32_0,
-        I_ARSIZE => ap_const_lv3_0,
-        I_ARLOCK => ap_const_lv2_0,
-        I_ARCACHE => ap_const_lv4_0,
-        I_ARQOS => ap_const_lv4_0,
-        I_ARPROT => ap_const_lv3_0,
-        I_ARUSER => ap_const_lv1_0,
-        I_ARBURST => ap_const_lv2_0,
-        I_ARREGION => ap_const_lv4_0,
-        I_RVALID => HP0_RVALID,
-        I_RREADY => ap_const_logic_0,
-        I_RDATA => HP0_RDATA,
-        I_RID => HP0_RID,
-        I_RUSER => HP0_RUSER,
-        I_RRESP => HP0_RRESP,
-        I_RLAST => HP0_RLAST,
-        I_AWVALID => Block_split28_proc_U0_m_axi_HP0_AWVALID,
-        I_AWREADY => HP0_AWREADY,
-        I_AWADDR => Block_split28_proc_U0_m_axi_HP0_AWADDR,
-        I_AWID => Block_split28_proc_U0_m_axi_HP0_AWID,
-        I_AWLEN => Block_split28_proc_U0_m_axi_HP0_AWLEN,
-        I_AWSIZE => Block_split28_proc_U0_m_axi_HP0_AWSIZE,
-        I_AWLOCK => Block_split28_proc_U0_m_axi_HP0_AWLOCK,
-        I_AWCACHE => Block_split28_proc_U0_m_axi_HP0_AWCACHE,
-        I_AWQOS => Block_split28_proc_U0_m_axi_HP0_AWQOS,
-        I_AWPROT => Block_split28_proc_U0_m_axi_HP0_AWPROT,
-        I_AWUSER => Block_split28_proc_U0_m_axi_HP0_AWUSER,
-        I_AWBURST => Block_split28_proc_U0_m_axi_HP0_AWBURST,
-        I_AWREGION => Block_split28_proc_U0_m_axi_HP0_AWREGION,
-        I_WVALID => Block_split28_proc_U0_m_axi_HP0_WVALID,
-        I_WREADY => HP0_WREADY,
-        I_WDATA => Block_split28_proc_U0_m_axi_HP0_WDATA,
-        I_WID => Block_split28_proc_U0_m_axi_HP0_WID,
-        I_WUSER => Block_split28_proc_U0_m_axi_HP0_WUSER,
-        I_WLAST => Block_split28_proc_U0_m_axi_HP0_WLAST,
-        I_WSTRB => Block_split28_proc_U0_m_axi_HP0_WSTRB,
-        I_BVALID => HP0_BVALID,
-        I_BREADY => Block_split28_proc_U0_m_axi_HP0_BREADY,
-        I_BRESP => HP0_BRESP,
-        I_BID => HP0_BID,
-        I_BUSER => HP0_BUSER);
-
-    hardware_encoding_entry7_U0 : component hardware_encoding_hardware_encoding_entry7
+    read_input5_U0 : component hardware_encoding_read_input5
     port map (
         ap_clk => ap_clk,
         ap_rst => ap_rst_n_inv,
-        ap_start => hardware_encoding_entry7_U0_ap_start,
-        start_full_n => start_for_Block_split28_proc_U0_full_n,
-        ap_done => hardware_encoding_entry7_U0_ap_done,
-        ap_continue => hardware_encoding_entry7_U0_ap_continue,
-        ap_idle => hardware_encoding_entry7_U0_ap_idle,
-        ap_ready => hardware_encoding_entry7_U0_ap_ready,
-        start_out => hardware_encoding_entry7_U0_start_out,
-        start_write => hardware_encoding_entry7_U0_start_write,
-        s1 => s1,
-        output_r => output_r,
-        lzw_size => lzw_size,
-        input_size => input_size,
-        s1_out_din => hardware_encoding_entry7_U0_s1_out_din,
-        s1_out_full_n => s1_c_full_n,
-        s1_out_write => hardware_encoding_entry7_U0_s1_out_write,
-        output_out_din => hardware_encoding_entry7_U0_output_out_din,
-        output_out_full_n => output_c_full_n,
-        output_out_write => hardware_encoding_entry7_U0_output_out_write,
-        lzw_size_out_din => hardware_encoding_entry7_U0_lzw_size_out_din,
-        lzw_size_out_full_n => lzw_size_c_full_n,
-        lzw_size_out_write => hardware_encoding_entry7_U0_lzw_size_out_write,
-        input_size_out_din => hardware_encoding_entry7_U0_input_size_out_din,
-        input_size_out_full_n => input_size_c_full_n,
-        input_size_out_write => hardware_encoding_entry7_U0_input_size_out_write);
-
-    read_input_U0 : component hardware_encoding_read_input
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => read_input_U0_ap_start,
-        start_full_n => start_for_computing_U0_full_n,
-        ap_done => read_input_U0_ap_done,
-        ap_continue => read_input_U0_ap_continue,
-        ap_idle => read_input_U0_ap_idle,
-        ap_ready => read_input_U0_ap_ready,
-        start_out => read_input_U0_start_out,
-        start_write => read_input_U0_start_write,
-        m_axi_HP1_AWVALID => read_input_U0_m_axi_HP1_AWVALID,
+        ap_start => read_input5_U0_ap_start,
+        start_full_n => read_input5_U0_start_full_n,
+        ap_done => read_input5_U0_ap_done,
+        ap_continue => read_input5_U0_ap_continue,
+        ap_idle => read_input5_U0_ap_idle,
+        ap_ready => read_input5_U0_ap_ready,
+        start_out => read_input5_U0_start_out,
+        start_write => read_input5_U0_start_write,
+        m_axi_HP1_AWVALID => read_input5_U0_m_axi_HP1_AWVALID,
         m_axi_HP1_AWREADY => ap_const_logic_0,
-        m_axi_HP1_AWADDR => read_input_U0_m_axi_HP1_AWADDR,
-        m_axi_HP1_AWID => read_input_U0_m_axi_HP1_AWID,
-        m_axi_HP1_AWLEN => read_input_U0_m_axi_HP1_AWLEN,
-        m_axi_HP1_AWSIZE => read_input_U0_m_axi_HP1_AWSIZE,
-        m_axi_HP1_AWBURST => read_input_U0_m_axi_HP1_AWBURST,
-        m_axi_HP1_AWLOCK => read_input_U0_m_axi_HP1_AWLOCK,
-        m_axi_HP1_AWCACHE => read_input_U0_m_axi_HP1_AWCACHE,
-        m_axi_HP1_AWPROT => read_input_U0_m_axi_HP1_AWPROT,
-        m_axi_HP1_AWQOS => read_input_U0_m_axi_HP1_AWQOS,
-        m_axi_HP1_AWREGION => read_input_U0_m_axi_HP1_AWREGION,
-        m_axi_HP1_AWUSER => read_input_U0_m_axi_HP1_AWUSER,
-        m_axi_HP1_WVALID => read_input_U0_m_axi_HP1_WVALID,
+        m_axi_HP1_AWADDR => read_input5_U0_m_axi_HP1_AWADDR,
+        m_axi_HP1_AWID => read_input5_U0_m_axi_HP1_AWID,
+        m_axi_HP1_AWLEN => read_input5_U0_m_axi_HP1_AWLEN,
+        m_axi_HP1_AWSIZE => read_input5_U0_m_axi_HP1_AWSIZE,
+        m_axi_HP1_AWBURST => read_input5_U0_m_axi_HP1_AWBURST,
+        m_axi_HP1_AWLOCK => read_input5_U0_m_axi_HP1_AWLOCK,
+        m_axi_HP1_AWCACHE => read_input5_U0_m_axi_HP1_AWCACHE,
+        m_axi_HP1_AWPROT => read_input5_U0_m_axi_HP1_AWPROT,
+        m_axi_HP1_AWQOS => read_input5_U0_m_axi_HP1_AWQOS,
+        m_axi_HP1_AWREGION => read_input5_U0_m_axi_HP1_AWREGION,
+        m_axi_HP1_AWUSER => read_input5_U0_m_axi_HP1_AWUSER,
+        m_axi_HP1_WVALID => read_input5_U0_m_axi_HP1_WVALID,
         m_axi_HP1_WREADY => ap_const_logic_0,
-        m_axi_HP1_WDATA => read_input_U0_m_axi_HP1_WDATA,
-        m_axi_HP1_WSTRB => read_input_U0_m_axi_HP1_WSTRB,
-        m_axi_HP1_WLAST => read_input_U0_m_axi_HP1_WLAST,
-        m_axi_HP1_WID => read_input_U0_m_axi_HP1_WID,
-        m_axi_HP1_WUSER => read_input_U0_m_axi_HP1_WUSER,
-        m_axi_HP1_ARVALID => read_input_U0_m_axi_HP1_ARVALID,
+        m_axi_HP1_WDATA => read_input5_U0_m_axi_HP1_WDATA,
+        m_axi_HP1_WSTRB => read_input5_U0_m_axi_HP1_WSTRB,
+        m_axi_HP1_WLAST => read_input5_U0_m_axi_HP1_WLAST,
+        m_axi_HP1_WID => read_input5_U0_m_axi_HP1_WID,
+        m_axi_HP1_WUSER => read_input5_U0_m_axi_HP1_WUSER,
+        m_axi_HP1_ARVALID => read_input5_U0_m_axi_HP1_ARVALID,
         m_axi_HP1_ARREADY => HP1_ARREADY,
-        m_axi_HP1_ARADDR => read_input_U0_m_axi_HP1_ARADDR,
-        m_axi_HP1_ARID => read_input_U0_m_axi_HP1_ARID,
-        m_axi_HP1_ARLEN => read_input_U0_m_axi_HP1_ARLEN,
-        m_axi_HP1_ARSIZE => read_input_U0_m_axi_HP1_ARSIZE,
-        m_axi_HP1_ARBURST => read_input_U0_m_axi_HP1_ARBURST,
-        m_axi_HP1_ARLOCK => read_input_U0_m_axi_HP1_ARLOCK,
-        m_axi_HP1_ARCACHE => read_input_U0_m_axi_HP1_ARCACHE,
-        m_axi_HP1_ARPROT => read_input_U0_m_axi_HP1_ARPROT,
-        m_axi_HP1_ARQOS => read_input_U0_m_axi_HP1_ARQOS,
-        m_axi_HP1_ARREGION => read_input_U0_m_axi_HP1_ARREGION,
-        m_axi_HP1_ARUSER => read_input_U0_m_axi_HP1_ARUSER,
+        m_axi_HP1_ARADDR => read_input5_U0_m_axi_HP1_ARADDR,
+        m_axi_HP1_ARID => read_input5_U0_m_axi_HP1_ARID,
+        m_axi_HP1_ARLEN => read_input5_U0_m_axi_HP1_ARLEN,
+        m_axi_HP1_ARSIZE => read_input5_U0_m_axi_HP1_ARSIZE,
+        m_axi_HP1_ARBURST => read_input5_U0_m_axi_HP1_ARBURST,
+        m_axi_HP1_ARLOCK => read_input5_U0_m_axi_HP1_ARLOCK,
+        m_axi_HP1_ARCACHE => read_input5_U0_m_axi_HP1_ARCACHE,
+        m_axi_HP1_ARPROT => read_input5_U0_m_axi_HP1_ARPROT,
+        m_axi_HP1_ARQOS => read_input5_U0_m_axi_HP1_ARQOS,
+        m_axi_HP1_ARREGION => read_input5_U0_m_axi_HP1_ARREGION,
+        m_axi_HP1_ARUSER => read_input5_U0_m_axi_HP1_ARUSER,
         m_axi_HP1_RVALID => HP1_RVALID,
-        m_axi_HP1_RREADY => read_input_U0_m_axi_HP1_RREADY,
+        m_axi_HP1_RREADY => read_input5_U0_m_axi_HP1_RREADY,
         m_axi_HP1_RDATA => HP1_RDATA,
         m_axi_HP1_RLAST => HP1_RLAST,
         m_axi_HP1_RID => HP1_RID,
         m_axi_HP1_RUSER => HP1_RUSER,
         m_axi_HP1_RRESP => HP1_RRESP,
         m_axi_HP1_BVALID => ap_const_logic_0,
-        m_axi_HP1_BREADY => read_input_U0_m_axi_HP1_BREADY,
+        m_axi_HP1_BREADY => read_input5_U0_m_axi_HP1_BREADY,
         m_axi_HP1_BRESP => ap_const_lv2_0,
         m_axi_HP1_BID => ap_const_lv1_0,
         m_axi_HP1_BUSER => ap_const_lv1_0,
-        input_r_din => read_input_U0_input_r_din,
+        input_r_din => read_input5_U0_input_r_din,
         input_r_full_n => input_stream_full_n,
-        input_r_write => read_input_U0_input_r_write,
-        inputsize_din => read_input_U0_inputsize_din,
-        inputsize_full_n => inputsize_stream_full_n,
-        inputsize_write => read_input_U0_inputsize_write,
-        s1_dout => s1_c_dout,
-        s1_empty_n => s1_c_empty_n,
-        s1_read => read_input_U0_s1_read,
-        input_size_dout => input_size_c_dout,
-        input_size_empty_n => input_size_c_empty_n,
-        input_size_read => read_input_U0_input_size_read);
+        input_r_write => read_input5_U0_input_r_write,
+        s1 => s1,
+        output_r => output_r,
+        output_out_din => read_input5_U0_output_out_din,
+        output_out_full_n => output_c_full_n,
+        output_out_write => read_input5_U0_output_out_write);
 
     computing_U0 : component hardware_encoding_computing
     port map (
@@ -1758,20 +1177,12 @@ begin
         ap_continue => computing_U0_ap_continue,
         ap_idle => computing_U0_ap_idle,
         ap_ready => computing_U0_ap_ready,
-        input_2 => computing_U0_input_2,
-        input_2_ap_vld => computing_U0_input_2_ap_vld,
         input_r_dout => input_stream_dout,
         input_r_empty_n => input_stream_empty_n,
         input_r_read => computing_U0_input_r_read,
         output_r_din => computing_U0_output_r_din,
         output_r_full_n => output_stream_full_n,
-        output_r_write => computing_U0_output_r_write,
-        inputsize_dout => inputsize_stream_dout,
-        inputsize_empty_n => inputsize_stream_empty_n,
-        inputsize_read => computing_U0_inputsize_read,
-        compress_size_0_out_din => computing_U0_compress_size_0_out_din,
-        compress_size_0_out_full_n => compress_size_0_c_full_n,
-        compress_size_0_out_write => computing_U0_compress_size_0_out_write);
+        output_r_write => computing_U0_output_r_write);
 
     write_output_U0 : component hardware_encoding_write_output
     port map (
@@ -1830,164 +1241,37 @@ begin
         m_axi_HP3_BRESP => HP3_BRESP,
         m_axi_HP3_BID => HP3_BID,
         m_axi_HP3_BUSER => HP3_BUSER,
-        compress_size => p_channel_dout,
         output_r_dout => output_c_dout,
         output_r_empty_n => output_c_empty_n,
         output_r_read => write_output_U0_output_r_read);
 
-    Block_split28_proc_U0 : component hardware_encoding_Block_split28_proc
-    port map (
-        ap_clk => ap_clk,
-        ap_rst => ap_rst_n_inv,
-        ap_start => Block_split28_proc_U0_ap_start,
-        ap_done => Block_split28_proc_U0_ap_done,
-        ap_continue => Block_split28_proc_U0_ap_continue,
-        ap_idle => Block_split28_proc_U0_ap_idle,
-        ap_ready => Block_split28_proc_U0_ap_ready,
-        compress_size_0_dout => compress_size_0_c_dout,
-        compress_size_0_empty_n => compress_size_0_c_empty_n,
-        compress_size_0_read => Block_split28_proc_U0_compress_size_0_read,
-        lzw_size_dout => lzw_size_c_dout,
-        lzw_size_empty_n => lzw_size_c_empty_n,
-        lzw_size_read => Block_split28_proc_U0_lzw_size_read,
-        m_axi_HP0_AWVALID => Block_split28_proc_U0_m_axi_HP0_AWVALID,
-        m_axi_HP0_AWREADY => HP0_AWREADY,
-        m_axi_HP0_AWADDR => Block_split28_proc_U0_m_axi_HP0_AWADDR,
-        m_axi_HP0_AWID => Block_split28_proc_U0_m_axi_HP0_AWID,
-        m_axi_HP0_AWLEN => Block_split28_proc_U0_m_axi_HP0_AWLEN,
-        m_axi_HP0_AWSIZE => Block_split28_proc_U0_m_axi_HP0_AWSIZE,
-        m_axi_HP0_AWBURST => Block_split28_proc_U0_m_axi_HP0_AWBURST,
-        m_axi_HP0_AWLOCK => Block_split28_proc_U0_m_axi_HP0_AWLOCK,
-        m_axi_HP0_AWCACHE => Block_split28_proc_U0_m_axi_HP0_AWCACHE,
-        m_axi_HP0_AWPROT => Block_split28_proc_U0_m_axi_HP0_AWPROT,
-        m_axi_HP0_AWQOS => Block_split28_proc_U0_m_axi_HP0_AWQOS,
-        m_axi_HP0_AWREGION => Block_split28_proc_U0_m_axi_HP0_AWREGION,
-        m_axi_HP0_AWUSER => Block_split28_proc_U0_m_axi_HP0_AWUSER,
-        m_axi_HP0_WVALID => Block_split28_proc_U0_m_axi_HP0_WVALID,
-        m_axi_HP0_WREADY => HP0_WREADY,
-        m_axi_HP0_WDATA => Block_split28_proc_U0_m_axi_HP0_WDATA,
-        m_axi_HP0_WSTRB => Block_split28_proc_U0_m_axi_HP0_WSTRB,
-        m_axi_HP0_WLAST => Block_split28_proc_U0_m_axi_HP0_WLAST,
-        m_axi_HP0_WID => Block_split28_proc_U0_m_axi_HP0_WID,
-        m_axi_HP0_WUSER => Block_split28_proc_U0_m_axi_HP0_WUSER,
-        m_axi_HP0_ARVALID => Block_split28_proc_U0_m_axi_HP0_ARVALID,
-        m_axi_HP0_ARREADY => ap_const_logic_0,
-        m_axi_HP0_ARADDR => Block_split28_proc_U0_m_axi_HP0_ARADDR,
-        m_axi_HP0_ARID => Block_split28_proc_U0_m_axi_HP0_ARID,
-        m_axi_HP0_ARLEN => Block_split28_proc_U0_m_axi_HP0_ARLEN,
-        m_axi_HP0_ARSIZE => Block_split28_proc_U0_m_axi_HP0_ARSIZE,
-        m_axi_HP0_ARBURST => Block_split28_proc_U0_m_axi_HP0_ARBURST,
-        m_axi_HP0_ARLOCK => Block_split28_proc_U0_m_axi_HP0_ARLOCK,
-        m_axi_HP0_ARCACHE => Block_split28_proc_U0_m_axi_HP0_ARCACHE,
-        m_axi_HP0_ARPROT => Block_split28_proc_U0_m_axi_HP0_ARPROT,
-        m_axi_HP0_ARQOS => Block_split28_proc_U0_m_axi_HP0_ARQOS,
-        m_axi_HP0_ARREGION => Block_split28_proc_U0_m_axi_HP0_ARREGION,
-        m_axi_HP0_ARUSER => Block_split28_proc_U0_m_axi_HP0_ARUSER,
-        m_axi_HP0_RVALID => ap_const_logic_0,
-        m_axi_HP0_RREADY => Block_split28_proc_U0_m_axi_HP0_RREADY,
-        m_axi_HP0_RDATA => ap_const_lv32_0,
-        m_axi_HP0_RLAST => ap_const_logic_0,
-        m_axi_HP0_RID => ap_const_lv1_0,
-        m_axi_HP0_RUSER => ap_const_lv1_0,
-        m_axi_HP0_RRESP => ap_const_lv2_0,
-        m_axi_HP0_BVALID => HP0_BVALID,
-        m_axi_HP0_BREADY => Block_split28_proc_U0_m_axi_HP0_BREADY,
-        m_axi_HP0_BRESP => HP0_BRESP,
-        m_axi_HP0_BID => HP0_BID,
-        m_axi_HP0_BUSER => HP0_BUSER);
-
-    s1_c_U : component hardware_encoding_fifo_w64_d2_S
+    input_stream_U : component hardware_encoding_fifo_w8_d500_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => hardware_encoding_entry7_U0_s1_out_din,
-        if_full_n => s1_c_full_n,
-        if_write => hardware_encoding_entry7_U0_s1_out_write,
-        if_dout => s1_c_dout,
-        if_empty_n => s1_c_empty_n,
-        if_read => read_input_U0_s1_read);
-
-    output_c_U : component hardware_encoding_fifo_w64_d4_S
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => hardware_encoding_entry7_U0_output_out_din,
-        if_full_n => output_c_full_n,
-        if_write => hardware_encoding_entry7_U0_output_out_write,
-        if_dout => output_c_dout,
-        if_empty_n => output_c_empty_n,
-        if_read => write_output_U0_output_r_read);
-
-    lzw_size_c_U : component hardware_encoding_fifo_w64_d4_S
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => hardware_encoding_entry7_U0_lzw_size_out_din,
-        if_full_n => lzw_size_c_full_n,
-        if_write => hardware_encoding_entry7_U0_lzw_size_out_write,
-        if_dout => lzw_size_c_dout,
-        if_empty_n => lzw_size_c_empty_n,
-        if_read => Block_split28_proc_U0_lzw_size_read);
-
-    input_size_c_U : component hardware_encoding_fifo_w64_d2_S
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => hardware_encoding_entry7_U0_input_size_out_din,
-        if_full_n => input_size_c_full_n,
-        if_write => hardware_encoding_entry7_U0_input_size_out_write,
-        if_dout => input_size_c_dout,
-        if_empty_n => input_size_c_empty_n,
-        if_read => read_input_U0_input_size_read);
-
-    input_stream_U : component hardware_encoding_fifo_w8_d75_S
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => read_input_U0_input_r_din,
+        if_din => read_input5_U0_input_r_din,
         if_full_n => input_stream_full_n,
-        if_write => read_input_U0_input_r_write,
+        if_write => read_input5_U0_input_r_write,
         if_dout => input_stream_dout,
         if_empty_n => input_stream_empty_n,
         if_read => computing_U0_input_r_read);
 
-    inputsize_stream_U : component hardware_encoding_fifo_w32_d75_A
+    output_c_U : component hardware_encoding_fifo_w64_d3_S
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
         if_read_ce => ap_const_logic_1,
         if_write_ce => ap_const_logic_1,
-        if_din => read_input_U0_inputsize_din,
-        if_full_n => inputsize_stream_full_n,
-        if_write => read_input_U0_inputsize_write,
-        if_dout => inputsize_stream_dout,
-        if_empty_n => inputsize_stream_empty_n,
-        if_read => computing_U0_inputsize_read);
+        if_din => read_input5_U0_output_out_din,
+        if_full_n => output_c_full_n,
+        if_write => read_input5_U0_output_out_write,
+        if_dout => output_c_dout,
+        if_empty_n => output_c_empty_n,
+        if_read => write_output_U0_output_r_read);
 
-    p_channel_U : component hardware_encoding_fifo_w32_d2_S
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => computing_U0_input_2,
-        if_full_n => p_channel_full_n,
-        if_write => computing_U0_ap_done,
-        if_dout => p_channel_dout,
-        if_empty_n => p_channel_empty_n,
-        if_read => write_output_U0_ap_ready);
-
-    output_stream_U : component hardware_encoding_fifo_w16_d75_A
+    output_stream_U : component hardware_encoding_fifo_w16_d500_A
     port map (
         clk => ap_clk,
         reset => ap_rst_n_inv,
@@ -2000,32 +1284,6 @@ begin
         if_empty_n => output_stream_empty_n,
         if_read => write_output_U0_output_stream_read);
 
-    compress_size_0_c_U : component hardware_encoding_fifo_w32_d2_S
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => computing_U0_compress_size_0_out_din,
-        if_full_n => compress_size_0_c_full_n,
-        if_write => computing_U0_compress_size_0_out_write,
-        if_dout => compress_size_0_c_dout,
-        if_empty_n => compress_size_0_c_empty_n,
-        if_read => Block_split28_proc_U0_compress_size_0_read);
-
-    start_for_Block_split28_proc_U0_U : component hardware_encoding_start_for_Block_split28_proc_U0
-    port map (
-        clk => ap_clk,
-        reset => ap_rst_n_inv,
-        if_read_ce => ap_const_logic_1,
-        if_write_ce => ap_const_logic_1,
-        if_din => start_for_Block_split28_proc_U0_din,
-        if_full_n => start_for_Block_split28_proc_U0_full_n,
-        if_write => hardware_encoding_entry7_U0_start_write,
-        if_dout => start_for_Block_split28_proc_U0_dout,
-        if_empty_n => start_for_Block_split28_proc_U0_empty_n,
-        if_read => Block_split28_proc_U0_ap_ready);
-
     start_for_computing_U0_U : component hardware_encoding_start_for_computing_U0
     port map (
         clk => ap_clk,
@@ -2034,45 +1292,26 @@ begin
         if_write_ce => ap_const_logic_1,
         if_din => start_for_computing_U0_din,
         if_full_n => start_for_computing_U0_full_n,
-        if_write => read_input_U0_start_write,
+        if_write => read_input5_U0_start_write,
         if_dout => start_for_computing_U0_dout,
         if_empty_n => start_for_computing_U0_empty_n,
         if_read => computing_U0_ap_ready);
 
+    start_for_write_output_U0_U : component hardware_encoding_start_for_write_output_U0
+    port map (
+        clk => ap_clk,
+        reset => ap_rst_n_inv,
+        if_read_ce => ap_const_logic_1,
+        if_write_ce => ap_const_logic_1,
+        if_din => start_for_write_output_U0_din,
+        if_full_n => start_for_write_output_U0_full_n,
+        if_write => read_input5_U0_start_write,
+        if_dout => start_for_write_output_U0_dout,
+        if_empty_n => start_for_write_output_U0_empty_n,
+        if_read => write_output_U0_ap_ready);
 
 
 
-
-    ap_sync_reg_hardware_encoding_entry7_U0_ap_ready_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                ap_sync_reg_hardware_encoding_entry7_U0_ap_ready <= ap_const_logic_0;
-            else
-                if (((ap_sync_ready and ap_start) = ap_const_logic_1)) then 
-                    ap_sync_reg_hardware_encoding_entry7_U0_ap_ready <= ap_const_logic_0;
-                else 
-                    ap_sync_reg_hardware_encoding_entry7_U0_ap_ready <= ap_sync_hardware_encoding_entry7_U0_ap_ready;
-                end if; 
-            end if;
-        end if;
-    end process;
-
-
-    ap_sync_reg_read_input_U0_ap_ready_assign_proc : process(ap_clk)
-    begin
-        if (ap_clk'event and ap_clk =  '1') then
-            if (ap_rst_n_inv = '1') then
-                ap_sync_reg_read_input_U0_ap_ready <= ap_const_logic_0;
-            else
-                if (((ap_sync_ready and ap_start) = ap_const_logic_1)) then 
-                    ap_sync_reg_read_input_U0_ap_ready <= ap_const_logic_0;
-                else 
-                    ap_sync_reg_read_input_U0_ap_ready <= ap_sync_read_input_U0_ap_ready;
-                end if; 
-            end if;
-        end if;
-    end process;
 
 
     ap_rst_n_inv_assign_proc : process (ap_clk)
@@ -2095,31 +1334,23 @@ begin
                         ap_rst_reg_2 <= not(ap_rst_n);
         end if;
     end process;
-    Block_split28_proc_U0_ap_continue <= ap_sync_continue;
-    Block_split28_proc_U0_ap_start <= start_for_Block_split28_proc_U0_empty_n;
-    Block_split28_proc_U0_start_full_n <= ap_const_logic_1;
-    Block_split28_proc_U0_start_write <= ap_const_logic_0;
-    ap_channel_done_p_channel <= computing_U0_ap_done;
-    ap_done <= ap_sync_done;
-    ap_idle <= (write_output_U0_ap_idle and read_input_U0_ap_idle and hardware_encoding_entry7_U0_ap_idle and (p_channel_empty_n xor ap_const_logic_1) and computing_U0_ap_idle and Block_split28_proc_U0_ap_idle);
-    ap_ready <= ap_sync_ready;
-    ap_sync_continue <= (ap_sync_done and ap_continue);
-    ap_sync_done <= (write_output_U0_ap_done and Block_split28_proc_U0_ap_done);
-    ap_sync_hardware_encoding_entry7_U0_ap_ready <= (hardware_encoding_entry7_U0_ap_ready or ap_sync_reg_hardware_encoding_entry7_U0_ap_ready);
-    ap_sync_read_input_U0_ap_ready <= (read_input_U0_ap_ready or ap_sync_reg_read_input_U0_ap_ready);
-    ap_sync_ready <= (ap_sync_read_input_U0_ap_ready and ap_sync_hardware_encoding_entry7_U0_ap_ready);
-    computing_U0_ap_continue <= p_channel_full_n;
+    ap_done <= write_output_U0_ap_done;
+    ap_idle <= (write_output_U0_ap_idle and read_input5_U0_ap_idle and computing_U0_ap_idle);
+    ap_ready <= read_input5_U0_ap_ready;
+    ap_sync_continue <= ap_continue;
+    ap_sync_done <= write_output_U0_ap_done;
+    ap_sync_ready <= read_input5_U0_ap_ready;
+    computing_U0_ap_continue <= ap_const_logic_1;
     computing_U0_ap_start <= start_for_computing_U0_empty_n;
     computing_U0_start_full_n <= ap_const_logic_1;
     computing_U0_start_write <= ap_const_logic_0;
-    hardware_encoding_entry7_U0_ap_continue <= ap_const_logic_1;
-    hardware_encoding_entry7_U0_ap_start <= ((ap_sync_reg_hardware_encoding_entry7_U0_ap_ready xor ap_const_logic_1) and ap_start);
-    read_input_U0_ap_continue <= ap_const_logic_1;
-    read_input_U0_ap_start <= ((ap_sync_reg_read_input_U0_ap_ready xor ap_const_logic_1) and ap_start);
-    start_for_Block_split28_proc_U0_din <= (0=>ap_const_logic_1, others=>'-');
+    read_input5_U0_ap_continue <= ap_const_logic_1;
+    read_input5_U0_ap_start <= ap_start;
+    read_input5_U0_start_full_n <= (start_for_write_output_U0_full_n and start_for_computing_U0_full_n);
     start_for_computing_U0_din <= (0=>ap_const_logic_1, others=>'-');
-    write_output_U0_ap_continue <= ap_sync_continue;
-    write_output_U0_ap_start <= p_channel_empty_n;
+    start_for_write_output_U0_din <= (0=>ap_const_logic_1, others=>'-');
+    write_output_U0_ap_continue <= ap_continue;
+    write_output_U0_ap_start <= start_for_write_output_U0_empty_n;
     write_output_U0_start_full_n <= ap_const_logic_1;
     write_output_U0_start_write <= ap_const_logic_0;
 end behav;

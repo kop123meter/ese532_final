@@ -15,7 +15,8 @@
 
 #define NUM_PACKETS 8
 #define pipe_depth 4
-#define CHUNK_SIZE_MAX 8192
+#define CHUNK_SIZE_MAX 8193
+#define MAX_LZW_CHUNK 4
 #define CHUNK_NUMBER_MAX 100000
 #define DONE_BIT_L (1 << 7)
 #define DONE_BIT_H (1 << 15)

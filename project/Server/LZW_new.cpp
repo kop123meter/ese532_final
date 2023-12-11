@@ -20,7 +20,7 @@ unsigned int my_hash(unsigned long key)
     unsigned int hashed = 0;
 
     for(int i = 0; i < 20; i++)
-// #pragma HLS pipeline II=1
+//#pragma HLS pipeline II=2
     {
         hashed += (key >> i)&0x01;
         hashed += hashed << 10;
@@ -188,188 +188,146 @@ void lookup(unsigned long hash_table[2][CAPACITY], assoc_mem* mem, unsigned int 
     }
 }
 //****************************************************************************************************************
-void read_input(unsigned char s1[8192],int input_size[1],hls::stream<unsigned char>& input,hls::stream<int>& inputsize){
-	inputsize.write(input_size[0]);
-	for(int i = 0 ; i < input_size[0] ;i++){
-		input.write(s1[i]);
+/*
+ load function
+  s1 :
+ 	 chunk_size = s1[chunk*8194+0] * 100 + s1[chunk*8194+1]
+ 	 s1[chunk*8194 + 2~8193] = data
+ */
+
+void read_input(unsigned char s1[CHUNKS*8194],hls::stream<unsigned char>& input){
+	for(int c = 0; c < CHUNKS;c++){
+		// get chunk size
+		int size_upper = (int)s1[c * 8194 + 0];
+		int size_lower = (int)s1[c * 8194 + 1];
+		int size = size_upper * 100 + size_lower;
+		input.write(s1[c * 8194 + 0]);
+		input.write(s1[c * 8194 + 1]);
+		for(int i = 0; i < size ;i++){
+			input.write(s1[c * 8194 + i + 2]);
+		}
 	}
 
 }
+void computing(hls::stream<unsigned char>& input, hls::stream<uint16_t>& output){
+		unsigned char temp_chunk[8192];
 
-void computing(hls::stream<unsigned char>& input, hls::stream<uint16_t>& output, int compress_size[1],hls::stream<int>& inputsize){
+		for(int c = 0; c <CHUNKS;c++){
 
-
-	   // create hash table and assoc mem
-	   unsigned long hash_table[2][CAPACITY];
-	   assoc_mem my_assoc_mem;
-	   int output_pos = 0;
-	   int size = 0;
-	   output_char = 0;
-	   output_bit = 0;
-	   // make sure the memories are clear
+			// Get chunk size first
+			int len_upper = (int)input.read();
+			int len_lower = (int)input.read();
+			int len = len_upper * 100 + len_lower;
 
 
-	 //#pragma HLS array_partition variable=hash_table block factor=4 dim=2
-	      for(int i = 0; i < CAPACITY; i++)
-	      {
-	#pragma HLS unroll factor=2
-	          hash_table[0][i] = 0;
-	          hash_table[1][i] = 0;
-	       }
+			// Read Chunk data
+			for(int i = 0 ;i < len;i++){
+				temp_chunk[i] = input.read();
+			}
 
-	   my_assoc_mem.fill = 0;
-	   for(int i = 0; i < 512; i++)
-	   {
-	       my_assoc_mem.upper_key_mem[i] = 0;
-	       my_assoc_mem.middle_key_mem[i] = 0;
-	       my_assoc_mem.lower_key_mem[i] = 0;
-	   }
-	   int next_code = 256;
+			// Init
+			 // create hash table and assoc mem
+			unsigned long hash_table[2][CAPACITY];
+			assoc_mem my_assoc_mem;
 
+			// make sure the memories are clear
+			for(int i = 0; i < CAPACITY; i++)
+#pragma HLS unroll factor=2
+			{
+				hash_table[0][i] = 0;
+				hash_table[1][i] = 0;
+			}
+			my_assoc_mem.fill = 0;
+			for(int i = 0; i < 512; i++)
+			{
+				 my_assoc_mem.upper_key_mem[i] = 0;
+				 my_assoc_mem.middle_key_mem[i] = 0;
+				 my_assoc_mem.lower_key_mem[i] = 0;
+			}
+			int next_code = 256;
+			int prefix_code = temp_chunk[0];
+			unsigned int code = 0;
+			unsigned char next_char = 0;
+			// LZW computing
+			//size[c] = 0;
+			for(int i = 0; i < len;i++)
+			{
+				if(i + 1 == len){
+					//size[c]++;
+					output.write((uint16_t)prefix_code);
+					break;
+				}
+				next_char = temp_chunk[i+1];
+				bool hit = 0;
+				lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
+				if(!hit)
+				{
+					 //size[c]++;
+					 output.write((uint16_t)prefix_code);
+					 bool collision = 0;
+					 insert(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, next_code, &collision);
+					 if(collision)
+					 {
+					    std::cout << "ERROR: FAILED TO INSERT! NO MORE ROOM IN ASSOC MEM!" << std::endl;
+					    return;
+					 }
+					 next_code += 1;
+					 prefix_code = next_char;
+				} else{
+					 prefix_code = code;
+					  }
 
-
-	   int prefix_code = input.read();
-	   unsigned int code = 0;
-	   unsigned char next_char = 0;
-
-	    int len = inputsize.read();
-	    for(int i = 0; i < len; i++){
-	    	if(i + 1 == len){
-	    		output.write((uint16_t)prefix_code);
-	    		output_pos++;
-	    		break;
-	    	}
-	    	next_char = input.read();
-	    	bool hit = 0;
-	    	lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
-
-	    	if(!hit){
-
-	    		output.write((uint16_t)prefix_code);
-	    		output_pos++;
-	    		bool collision = 0;
-	    		insert(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, next_code, &collision);
-	    		if(collision)
-	    		{
-	    			std::cout << "ERROR: FAILED TO INSERT! NO MORE ROOM IN ASSOC MEM!" << std::endl;
-	    			return;
-	    		}
-		        	next_code += 1;
-		        	prefix_code = next_char;
-	    	} else{
-	    		prefix_code = code;
-	    	}
-	    }
-
-	    compress_size[0] = output_pos;
+			}
+			output.write((uint16_t)0xf000);
+			// end of one chunk computing
+		} // end of 4 chunks
 }
 
-void write_output(hls::stream<uint16_t>& output_stream, int compress_size[1], uint16_t output[8192]){
-	for(int i = 0; i < compress_size[0];i++){
-		output[i] = output_stream.read();
+void write_output(hls::stream<uint16_t>& output_stream, uint16_t output[CHUNKS*8193]){
+	for(int c = 0; c < CHUNKS ; c++){
+		int size = 0;
+		for(int i = 1; i < 	8193;i++){
+			uint16_t tmp_data = output_stream.read();
+			if( tmp_data == (uint16_t)(0xf000)){
+				break;
+			}
+
+			output[c*8193+i] = tmp_data;
+			size++;
+
+		}
+		output[c*8193+0] = size;
 	}
 }
+/****************************************************************
+ s1 :
+ 	 chunk_size = s1[chunk*8194+0] * 100 + s1[chunk*8194+1]
+ 	 s1[chunk*8194 + 2~8193] = data
 
+ output:
+ 	 output[chunk*8193+0] = compress size
+ 	 output[chunk*8193 + 1~8192] = data
+ */
 
-void hardware_encoding(unsigned char s1[8192], uint16_t output[8192],int lzw_size[1],int input_size[1])
+void hardware_encoding(unsigned char s1[CHUNKS * 8194], uint16_t output[CHUNKS * 8193])
 {
 #pragma HLS INTERFACE m_axi port=s1 bundle=HP1
 #pragma HLS INTERFACE m_axi port=output bundle=HP3
-#pragma HLS INTERFACE m_axi port=input_size bundle=HP1
-#pragma HLS INTERFACE m_axi port=lzw_size bundle=HP0
 
-unsigned char temp_output[CHUNK_SIZE];
+
 
    // Stream for Read buffer
    hls::stream<unsigned char> input_stream;
-  hls::stream<int> inputsize_stream;
 
    //Stream for Output buffer
    hls::stream<uint16_t> output_stream;
-#pragma HLS STREAM variable=input_stream depth=75
-#pragma HLS STREAM variable=inputsize_stream depth=75
-#pragma HLS STREAM variable=output_stream depth=75
+#pragma HLS STREAM variable=input_stream depth=500
+#pragma HLS STREAM variable=output_stream depth=500
 
-   	  int compress_size[1];
-   	  compress_size[0] = 0;
 
 #pragma HLS DATAFLOW
-   read_input(s1,input_size,input_stream,inputsize_stream);
-   computing(input_stream,output_stream, compress_size,inputsize_stream);
-   write_output(output_stream, compress_size,output);
-   lzw_size[0] = compress_size[0];
-
-
+   read_input(s1,input_stream);
+   computing(input_stream,output_stream);
+   write_output(output_stream, output);
 }
 
-//****************************************************************************************************************
-void encoding(unsigned char * s1,uint16_t * output,int &size,int len)
-{
-
-	int output_pos = 0;
-
-    std::unordered_map<std::string, int> table;
-    for (int i = 0; i <= 255; i++) {
-        std::string ch = "";
-        ch += char(i);
-        table[ch] = i;
-    }
-
-    std::string p = "", c = "";
-    p += s1[0];
-    int code = 256;
-    std::vector<int> output_code;
-    for (int i = 0; i < len; i++) {
-        if (i != len - 1)
-            c += s1[i + 1];
-        if (table.find(p + c) != table.end()) {
-            p = p + c;
-        }
-        else {
-            // output_code.push_back(table[p]);
-            output[output_pos++] = (uint16_t)(table[p]);
-            size += 1;
-            table[p + c] = code;
-            code++;
-            p = c;
-        }
-        c = "";
-    }
-    output_code.push_back(table[p]);
-    output[output_pos++] = (uint16_t)(table[p]);
-
-    size = output_pos;
-}
-
-void decoding(std::vector<int> op)
-{
-    std::cout << "\nDecoding\n";
-    std::unordered_map<int, std::string> table;
-    for (int i = 0; i <= 255; i++) {
-        std::string ch = "";
-        ch += char(i);
-        table[i] = ch;
-    }
-    int old = op[0], n;
-    std::string s = table[old];
-    std::string c = "";
-    c += s[0];
-    std::cout << s;
-    int count = 256;
-    for (int i = 0; i < op.size() - 1; i++) {
-        n = op[i + 1];
-        if (table.find(n) == table.end()) {
-            s = table[old];
-            s = s + c;
-        }
-        else {
-            s = table[n];
-        }
-        std::cout << s;
-        c = "";
-        c += s[0];
-        table[count] = table[old] + c;
-        count++;
-        old = n;
-    }
-}

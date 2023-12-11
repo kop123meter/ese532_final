@@ -1,189 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1702171663878">
-  <ports id="1" name="HP1" type="PortType" coreId="0" bitwidth="32" iftype="IfTypeFifo">
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1702254563500">
+  <ports id="1" name="HP1" type="PortType" coreId="2580208568" bitwidth="16" iftype="IfTypeFifo">
     <dataOutputObjs>call</dataOutputObjs>
   </ports>
-  <ports id="2" name="HP3" type="PortType" coreId="129" bitwidth="16" direction="DirOut" iftype="IfTypeFifo">
+  <ports id="2" name="HP3" type="PortType" coreId="0" bitwidth="16" direction="DirOut" iftype="IfTypeFifo">
     <dataInputObjs>call</dataInputObjs>
   </ports>
-  <ports id="3" name="HP0" type="PortType" coreId="225" bitwidth="32" direction="DirOut" iftype="IfTypeFifo">
-    <dataInputObjs>call</dataInputObjs>
-  </ports>
-  <ports id="4" name="s1" type="PortType" originalName="s1" coreId="0" bitwidth="64">
+  <ports id="3" name="s1" type="PortType" originalName="s1" coreId="0" bitwidth="64">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="5" name="output_r" type="PortType" originalName="output" coreId="0" bitwidth="64">
+  <ports id="4" name="output_r" type="PortType" originalName="output" coreId="0" bitwidth="64">
     <dataOutputObjs>read</dataOutputObjs>
   </ports>
-  <ports id="6" name="lzw_size" type="PortType" originalName="lzw_size" coreId="0" bitwidth="64">
-    <dataOutputObjs>read</dataOutputObjs>
-  </ports>
-  <ports id="7" name="input_size" type="PortType" originalName="input_size" coreId="0" bitwidth="64">
-    <dataOutputObjs>read</dataOutputObjs>
-  </ports>
-  <edges id="64" source_obj="//@ports.6" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
-  <edges id="66" source_obj="//@ports.5" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1"/>
-  <edges id="68" source_obj="//@ports.4" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.2"/>
-  <edges id="70" source_obj="//@ports.3" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
-  <edges id="83" source_obj="//@regions.0/@basic_blocks.0/@node_objs.3" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.13"/>
-  <edges id="84" source_obj="//@regions.0/@basic_blocks.0/@node_objs.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.13"/>
-  <edges id="85" source_obj="//@regions.0/@basic_blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.13"/>
-  <edges id="86" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.13"/>
-  <edges id="87" source_obj="//@regions.0/@basic_blocks.0/@node_objs.9" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.13"/>
-  <edges id="88" source_obj="//@regions.0/@basic_blocks.0/@node_objs.8" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.13"/>
-  <edges id="89" source_obj="//@regions.0/@basic_blocks.0/@node_objs.7" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.13"/>
-  <edges id="90" source_obj="//@regions.0/@basic_blocks.0/@node_objs.6" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.13"/>
-  <edges id="93" source_obj="//@ports.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.14"/>
-  <edges id="94" source_obj="//@regions.0/@basic_blocks.0/@node_objs.10" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.14"/>
-  <edges id="95" source_obj="//@regions.0/@basic_blocks.0/@node_objs.11" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.14"/>
-  <edges id="96" source_obj="//@regions.0/@basic_blocks.0/@node_objs.9" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.14"/>
-  <edges id="97" source_obj="//@regions.0/@basic_blocks.0/@node_objs.6" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.14"/>
-  <edges id="100" source_obj="//@regions.0/@basic_blocks.0/@node_objs.4" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.15"/>
-  <edges id="101" source_obj="//@regions.0/@basic_blocks.0/@node_objs.10" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.15"/>
-  <edges id="102" source_obj="//@regions.0/@basic_blocks.0/@node_objs.12" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.15"/>
-  <edges id="103" source_obj="//@regions.0/@basic_blocks.0/@node_objs.11" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.15"/>
-  <edges id="104" source_obj="//@regions.0/@basic_blocks.0/@node_objs.5" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.15"/>
-  <edges id="107" source_obj="//@regions.0/@basic_blocks.0/@node_objs.12" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.16"/>
-  <edges id="108" source_obj="//@regions.0/@basic_blocks.0/@node_objs.16" sink_obj="//@ports.1"/>
-  <edges id="109" source_obj="//@regions.0/@basic_blocks.0/@node_objs.4" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.16"/>
-  <edges id="110" source_obj="//@regions.0/@basic_blocks.0/@node_objs.8" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.16"/>
-  <edges id="113" source_obj="//@regions.0/@basic_blocks.0/@node_objs.5" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.17"/>
-  <edges id="114" source_obj="//@regions.0/@basic_blocks.0/@node_objs.7" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.17"/>
-  <edges id="115" source_obj="//@regions.0/@basic_blocks.0/@node_objs.17" sink_obj="//@ports.2"/>
-  <edges id="622" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.15" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.16"/>
-  <edges id="623" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.15" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.17"/>
-  <edges id="624" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.14" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.15"/>
-  <edges id="625" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.13" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.14"/>
-  <edges id="626" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.13" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.14"/>
-  <edges id="627" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.14" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.15"/>
-  <edges id="628" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.15" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.16"/>
-  <regions anchor_node="-1" region_type="16" typeName="Dataflow" id="234" RegionName="hardware_encoding">
-    <basic_blocks id="61" name="hardware_encoding" type="BlockType">
-      <node_objs xsi:type="cdfg:CdfgNode" id="8" name="input_size_read" originalName="input_size" coreName="s_axilite" implIndex="UNSUPPORTED" control="auto" coreId="122" bitwidth="64" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="1" m_clusterGroupNumber="-1">
-        <dataInputObjs>input_size</dataInputObjs>
-        <dataOutputObjs>call</dataOutputObjs>
-      </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="9" name="lzw_size_read" originalName="lzw_size" coreName="s_axilite" implIndex="UNSUPPORTED" control="auto" coreId="122" bitwidth="64" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="2" m_clusterGroupNumber="-1">
-        <dataInputObjs>lzw_size</dataInputObjs>
-        <dataOutputObjs>call</dataOutputObjs>
-      </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="10" name="output_read" originalName="output" coreName="s_axilite" implIndex="UNSUPPORTED" control="auto" coreId="122" bitwidth="64" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="3" m_clusterGroupNumber="-1">
+  <edges id="35" source_obj="//@ports.3" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
+  <edges id="37" source_obj="//@ports.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1"/>
+  <edges id="44" source_obj="//@ports.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.5"/>
+  <edges id="45" source_obj="//@regions.0/@basic_blocks.0/@node_objs.3" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.5"/>
+  <edges id="46" source_obj="//@regions.0/@basic_blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.5"/>
+  <edges id="47" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.5"/>
+  <edges id="48" source_obj="//@regions.0/@basic_blocks.0/@node_objs.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.5"/>
+  <edges id="51" source_obj="//@regions.0/@basic_blocks.0/@node_objs.3" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.6"/>
+  <edges id="52" source_obj="//@regions.0/@basic_blocks.0/@node_objs.4" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.6"/>
+  <edges id="55" source_obj="//@regions.0/@basic_blocks.0/@node_objs.4" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.7"/>
+  <edges id="56" source_obj="//@regions.0/@basic_blocks.0/@node_objs.7" sink_obj="//@ports.1"/>
+  <edges id="57" source_obj="//@regions.0/@basic_blocks.0/@node_objs.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.7"/>
+  <edges id="331" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.6" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.7"/>
+  <edges id="332" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.5" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.6"/>
+  <edges id="333" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.5" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.6"/>
+  <edges id="334" edge_type="VirtEdge" source_obj="//@regions.0/@basic_blocks.0/@node_objs.6" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.7"/>
+  <regions anchor_node="-1" region_type="16" typeName="Dataflow" id="119" RegionName="hardware_encoding">
+    <basic_blocks id="32" name="hardware_encoding" type="BlockType">
+      <node_objs xsi:type="cdfg:CdfgNode" id="5" name="output_read" lineNumber="312" originalName="output" fileName="Server/LZW_new.cpp" fileDirectory=".." coreName="s_axilite" implIndex="UNSUPPORTED" control="auto" coreId="122" contextFuncName="hardware_encoding" bitwidth="64" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="1" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
         <dataInputObjs>output_r</dataInputObjs>
         <dataOutputObjs>call</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="11" name="s1_read" originalName="s1" coreName="s_axilite" implIndex="UNSUPPORTED" control="auto" coreId="122" bitwidth="64" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="4" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="6" name="s1_read" lineNumber="312" originalName="s1" fileName="Server/LZW_new.cpp" fileDirectory=".." coreName="s_axilite" implIndex="UNSUPPORTED" control="auto" coreId="122" contextFuncName="hardware_encoding" bitwidth="64" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="2" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
         <dataInputObjs>s1</dataInputObjs>
         <dataOutputObjs>call</dataOutputObjs>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="12" name="p_channel" rtlName="p_channel_U" coreName="FIFO_SRL" implIndex="srl" control="auto" opType="fifo" coreId="81" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="7" name="output_c" lineNumber="312" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="output_c_U" coreName="FIFO_SRL" implIndex="srl" control="auto" opType="fifo" coreId="81" contextFuncName="hardware_encoding" bitwidth="64" opcode="alloca" m_display="0" m_topoIndex="3" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="312" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
         <dataOutputObjs>call</dataOutputObjs>
         <dataOutputObjs>call</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="13" name="compress_size_0_c" rtlName="compress_size_0_c_U" coreName="FIFO_SRL" implIndex="srl" control="auto" opType="fifo" coreId="81" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="6" m_clusterGroupNumber="-1">
+      <node_objs xsi:type="cdfg:CdfgNode" id="20" name="input_stream" lineNumber="320" originalName="input_stream" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="input_stream_U" coreName="FIFO" implIndex="memory" control="auto" opType="fifo" coreId="78" contextFuncName="hardware_encoding" bitwidth="8" opcode="alloca" m_display="0" m_topoIndex="4" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="320" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
         <dataOutputObjs>call</dataOutputObjs>
         <dataOutputObjs>call</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="14" name="input_size_c" lineNumber="275" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="input_size_c_U" coreName="FIFO_SRL" implIndex="srl" control="auto" opType="fifo" coreId="81" contextFuncName="hardware_encoding" bitwidth="64" opcode="alloca" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="275" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <node_objs xsi:type="cdfg:CdfgNode" id="23" name="output_stream" lineNumber="323" originalName="output_stream" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="output_stream_U" coreName="FIFO" implIndex="memory" control="auto" opType="fifo" coreId="78" contextFuncName="hardware_encoding" bitwidth="16" opcode="alloca" m_display="0" m_topoIndex="5" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="323" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
         <dataOutputObjs>call</dataOutputObjs>
         <dataOutputObjs>call</dataOutputObjs>
         <constName>empty</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="15" name="lzw_size_c" lineNumber="275" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="lzw_size_c_U" coreName="FIFO_SRL" implIndex="srl" control="auto" opType="fifo" coreId="81" contextFuncName="hardware_encoding" bitwidth="64" opcode="alloca" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="275" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
-        <dataOutputObjs>call</dataOutputObjs>
-        <dataOutputObjs>call</dataOutputObjs>
-        <constName>empty</constName>
-      </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="16" name="output_c" lineNumber="275" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="output_c_U" coreName="FIFO_SRL" implIndex="srl" control="auto" opType="fifo" coreId="81" contextFuncName="hardware_encoding" bitwidth="64" opcode="alloca" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="275" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
-        <dataOutputObjs>call</dataOutputObjs>
-        <dataOutputObjs>call</dataOutputObjs>
-        <constName>empty</constName>
-      </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="17" name="s1_c" lineNumber="275" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="s1_c_U" coreName="FIFO_SRL" implIndex="srl" control="auto" opType="fifo" coreId="81" contextFuncName="hardware_encoding" bitwidth="64" opcode="alloca" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="275" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
-        <dataOutputObjs>call</dataOutputObjs>
-        <dataOutputObjs>call</dataOutputObjs>
-        <constName>empty</constName>
-      </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="36" name="input_stream" lineNumber="285" originalName="input_stream" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="input_stream_U" coreName="FIFO_SRL" implIndex="srl" control="auto" opType="fifo" coreId="81" contextFuncName="hardware_encoding" bitwidth="8" opcode="alloca" m_display="0" m_topoIndex="11" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="285" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
-        <dataOutputObjs>call</dataOutputObjs>
-        <dataOutputObjs>call</dataOutputObjs>
-        <constName>empty</constName>
-      </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="39" name="inputsize_stream" lineNumber="286" originalName="inputsize_stream" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="inputsize_stream_U" coreName="FIFO" implIndex="memory" control="auto" opType="fifo" coreId="78" contextFuncName="hardware_encoding" bitwidth="32" opcode="alloca" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="286" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
-        <dataOutputObjs>call</dataOutputObjs>
-        <dataOutputObjs>call</dataOutputObjs>
-        <constName>empty</constName>
-      </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="42" name="output_stream" lineNumber="289" originalName="output_stream" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="output_stream_U" coreName="FIFO" implIndex="memory" control="auto" opType="fifo" coreId="78" contextFuncName="hardware_encoding" bitwidth="16" opcode="alloca" m_display="0" m_topoIndex="13" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="289" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
-        <dataOutputObjs>call</dataOutputObjs>
-        <dataOutputObjs>call</dataOutputObjs>
-        <constName>empty</constName>
-      </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="53" name="_ln275" lineNumber="275" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="hardware_encoding_entry7_U0" coreId="3154116736" contextFuncName="hardware_encoding" opcode="call" m_display="0" m_delay="2.16" m_topoIndex="14" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="275" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
-        <dataInputObjs>read</dataInputObjs>
-        <dataInputObjs>read</dataInputObjs>
-        <dataInputObjs>read</dataInputObjs>
-        <dataInputObjs>read</dataInputObjs>
-        <dataInputObjs>alloca</dataInputObjs>
-        <dataInputObjs>alloca</dataInputObjs>
-        <dataInputObjs>alloca</dataInputObjs>
-        <dataInputObjs>alloca</dataInputObjs>
-        <constName>hardware_encoding_entry7</constName>
-      </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="54" name="_ln299" lineNumber="299" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="read_input_U0" coreId="1539664633" contextFuncName="hardware_encoding" opcode="call" nodeLabel="1.0" nodeLatency="1" m_display="0" m_topoIndex="15" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="299" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <node_objs xsi:type="cdfg:CdfgNode" id="28" name="_ln329" lineNumber="329" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="read_input5_U0" coreId="0" contextFuncName="hardware_encoding" opcode="call" nodeLatency="1" m_display="0" m_delay="2.16" m_topoIndex="6" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="329" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
         <dataInputObjs>HP1</dataInputObjs>
         <dataInputObjs>alloca</dataInputObjs>
+        <dataInputObjs>read</dataInputObjs>
+        <dataInputObjs>read</dataInputObjs>
         <dataInputObjs>alloca</dataInputObjs>
-        <dataInputObjs>alloca</dataInputObjs>
-        <dataInputObjs>alloca</dataInputObjs>
-        <constName>read_input</constName>
+        <constName>read_input5</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="57" name="_ln300" lineNumber="300" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="computing_U0" coreId="1539665408" contextFuncName="hardware_encoding" opcode="call" nodeLabel="3.0" nodeLatency="1" m_display="0" m_topoIndex="16" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="300" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
-        <dataInputObjs>alloca</dataInputObjs>
-        <dataInputObjs>alloca</dataInputObjs>
-        <dataInputObjs>alloca</dataInputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="29" name="_ln330" lineNumber="330" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="computing_U0" coreId="2582039504" contextFuncName="hardware_encoding" opcode="call" nodeLabel="2.0" nodeLatency="1" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="330" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
         <dataInputObjs>alloca</dataInputObjs>
         <dataInputObjs>alloca</dataInputObjs>
         <constName>computing</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="58" name="_ln301" lineNumber="301" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="write_output_U0" coreId="49" contextFuncName="hardware_encoding" opcode="call" nodeLabel="5.0" nodeLatency="1" m_display="0" m_delay="1.11" m_topoIndex="17" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="301" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
-        <dataInputObjs>alloca</dataInputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="30" name="_ln331" lineNumber="331" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="write_output_U0" coreId="2577418848" contextFuncName="hardware_encoding" opcode="call" nodeLabel="4.0" nodeLatency="1" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="331" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
         <dataInputObjs>alloca</dataInputObjs>
         <dataInputObjs>alloca</dataInputObjs>
         <dataOutputObjs>HP3</dataOutputObjs>
         <constName>write_output</constName>
       </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="59" name="_ln275" lineNumber="275" fileName="Server/LZW_new.cpp" fileDirectory=".." rtlName="Block_split28_proc_U0" coreId="0" contextFuncName="hardware_encoding" opcode="call" nodeLabel="5.0" nodeLatency="1" m_display="0" m_topoIndex="18" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="275" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
-        <dataInputObjs>alloca</dataInputObjs>
-        <dataInputObjs>alloca</dataInputObjs>
-        <dataOutputObjs>HP0</dataOutputObjs>
-        <constName>Block_split28_proc</constName>
-      </node_objs>
-      <node_objs xsi:type="cdfg:CdfgNode" id="60" name="_ln305" lineNumber="305" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="8545" contextFuncName="hardware_encoding" opcode="ret" nodeLabel="6.0" m_display="0" m_topoIndex="19" m_clusterGroupNumber="-1">
-        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="305" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
+      <node_objs xsi:type="cdfg:CdfgNode" id="31" name="_ln332" lineNumber="332" fileName="Server/LZW_new.cpp" fileDirectory=".." coreId="305" contextFuncName="hardware_encoding" opcode="ret" nodeLabel="5.0" m_display="0" m_topoIndex="9" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="Server/LZW_new.cpp" linenumber="332" fileDirectory="/home1/l/lize1/ese532_final/project" functionName="hardware_encoding"/>
       </node_objs>
       <fileValidLineNumbers fileName="Server/LZW_new.cpp">
-        <validLinenumbers>275</validLinenumbers>
-        <validLinenumbers>285</validLinenumbers>
-        <validLinenumbers>286</validLinenumbers>
-        <validLinenumbers>289</validLinenumbers>
-        <validLinenumbers>299</validLinenumbers>
-        <validLinenumbers>300</validLinenumbers>
-        <validLinenumbers>301</validLinenumbers>
-        <validLinenumbers>305</validLinenumbers>
+        <validLinenumbers>312</validLinenumbers>
+        <validLinenumbers>320</validLinenumbers>
+        <validLinenumbers>323</validLinenumbers>
+        <validLinenumbers>329</validLinenumbers>
+        <validLinenumbers>330</validLinenumbers>
+        <validLinenumbers>331</validLinenumbers>
+        <validLinenumbers>332</validLinenumbers>
       </fileValidLineNumbers>
     </basic_blocks>
   </regions>
@@ -193,125 +100,87 @@
   <ScheduleInfo time="3"/>
   <ScheduleInfo time="4"/>
   <ScheduleInfo time="5"/>
-  <ScheduleInfo time="6"/>
-  <regnodes realName="input_size_c_reg_232">
-    <nodeIds>14</nodeIds>
+  <regnodes realName="s1_read_reg_137">
+    <nodeIds>6</nodeIds>
   </regnodes>
-  <regnodes realName="lzw_size_c_reg_238">
-    <nodeIds>15</nodeIds>
+  <regnodes realName="output_c_reg_142">
+    <nodeIds>7</nodeIds>
   </regnodes>
-  <regnodes realName="output_c_reg_244">
-    <nodeIds>16</nodeIds>
+  <regnodes realName="output_read_reg_132">
+    <nodeIds>5</nodeIds>
   </regnodes>
-  <regnodes realName="output_stream_reg_268">
-    <nodeIds>42</nodeIds>
+  <regnodes realName="input_stream_reg_148">
+    <nodeIds>20</nodeIds>
   </regnodes>
-  <regnodes realName="s1_c_reg_250">
-    <nodeIds>17</nodeIds>
+  <regnodes realName="output_stream_reg_154">
+    <nodeIds>23</nodeIds>
   </regnodes>
-  <regnodes realName="input_stream_reg_256">
-    <nodeIds>36</nodeIds>
-  </regnodes>
-  <regnodes realName="inputsize_stream_reg_262">
-    <nodeIds>39</nodeIds>
-  </regnodes>
-  <regnodes realName="compress_size_0_c_reg_226">
-    <nodeIds>13</nodeIds>
-  </regnodes>
-  <regnodes realName="p_channel_reg_220">
-    <nodeIds>12</nodeIds>
-  </regnodes>
-  <expressionNodes realName="input_size_c_fu_116">
-    <nodeIds>14</nodeIds>
+  <expressionNodes realName="input_stream_fu_86">
+    <nodeIds>20</nodeIds>
   </expressionNodes>
-  <expressionNodes realName="input_stream_fu_132">
-    <nodeIds>36</nodeIds>
+  <expressionNodes realName="output_c_fu_82">
+    <nodeIds>7</nodeIds>
   </expressionNodes>
-  <expressionNodes realName="output_stream_fu_140">
-    <nodeIds>42</nodeIds>
+  <expressionNodes realName="output_stream_fu_90">
+    <nodeIds>23</nodeIds>
   </expressionNodes>
-  <expressionNodes realName="output_c_fu_124">
-    <nodeIds>16</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="s1_c_fu_128">
-    <nodeIds>17</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="compress_size_0_c_fu_112">
-    <nodeIds>13</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="p_channel_fu_108">
-    <nodeIds>12</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="inputsize_stream_fu_136">
-    <nodeIds>39</nodeIds>
-  </expressionNodes>
-  <expressionNodes realName="lzw_size_c_fu_120">
-    <nodeIds>15</nodeIds>
-  </expressionNodes>
-  <moduleNodes realName="grp_write_output_fu_187">
-    <nodeIds>58</nodeIds>
+  <moduleNodes realName="grp_write_output_fu_124">
+    <nodeIds>30</nodeIds>
   </moduleNodes>
-  <moduleNodes realName="call_ln275_hardware_encoding_entry7_fu_204">
-    <nodeIds>53</nodeIds>
+  <moduleNodes realName="grp_read_input5_fu_112">
+    <nodeIds>28</nodeIds>
   </moduleNodes>
-  <moduleNodes realName="grp_read_input_fu_177">
-    <nodeIds>54</nodeIds>
+  <moduleNodes realName="grp_computing_fu_106">
+    <nodeIds>29</nodeIds>
   </moduleNodes>
-  <moduleNodes realName="grp_Block_split28_proc_fu_196">
-    <nodeIds>59</nodeIds>
-  </moduleNodes>
-  <moduleNodes realName="grp_computing_fu_168">
-    <nodeIds>57</nodeIds>
-  </moduleNodes>
-  <ioNodes realName="input_size_read_read_fu_144">
-    <nodeIds>8</nodeIds>
+  <ioNodes realName="output_read_read_fu_94">
+    <nodeIds>5</nodeIds>
   </ioNodes>
-  <ioNodes realName="s1_read_read_fu_162">
-    <nodeIds>11</nodeIds>
+  <ioNodes realName="s1_read_read_fu_100">
+    <nodeIds>6</nodeIds>
   </ioNodes>
-  <ioNodes realName="output_read_read_fu_156">
-    <nodeIds>10</nodeIds>
-  </ioNodes>
-  <ioNodes realName="lzw_size_read_read_fu_150">
-    <nodeIds>9</nodeIds>
-  </ioNodes>
-  <ioPorts name="HP0">
-    <contents name="call">
-      <nodeIds>59</nodeIds>
-    </contents>
-  </ioPorts>
   <ioPorts name="HP1">
     <contents name="call">
-      <nodeIds>54</nodeIds>
+      <nodeIds>28</nodeIds>
     </contents>
   </ioPorts>
   <ioPorts name="HP3">
     <contents name="call">
-      <nodeIds>58</nodeIds>
-    </contents>
-  </ioPorts>
-  <ioPorts name="input_size">
-    <contents name="read">
-      <nodeIds>8</nodeIds>
-    </contents>
-  </ioPorts>
-  <ioPorts name="lzw_size">
-    <contents name="read">
-      <nodeIds>9</nodeIds>
+      <nodeIds>30</nodeIds>
     </contents>
   </ioPorts>
   <ioPorts name="output_r">
     <contents name="read">
-      <nodeIds>10</nodeIds>
+      <nodeIds>5</nodeIds>
     </contents>
   </ioPorts>
   <ioPorts name="s1">
     <contents name="read">
-      <nodeIds>11</nodeIds>
+      <nodeIds>6</nodeIds>
     </contents>
   </ioPorts>
   <fsm>
     <states id="1">
+      <operations id="5" stage="1" latency="1"/>
+      <operations id="6" stage="1" latency="1"/>
+      <operations id="7" stage="1" latency="1"/>
+      <operations id="20" stage="1" latency="1"/>
+      <operations id="23" stage="1" latency="1"/>
+      <operations id="28" stage="2" latency="2"/>
+    </states>
+    <states id="2">
+      <operations id="28" stage="1" latency="2"/>
+    </states>
+    <states id="3">
+      <operations id="29" stage="2" latency="2"/>
+    </states>
+    <states id="4">
+      <operations id="29" stage="1" latency="2"/>
+    </states>
+    <states id="5">
+      <operations id="30" stage="2" latency="2"/>
+    </states>
+    <states id="6">
       <operations id="8" stage="1" latency="1"/>
       <operations id="9" stage="1" latency="1"/>
       <operations id="10" stage="1" latency="1"/>
@@ -322,65 +191,16 @@
       <operations id="15" stage="1" latency="1"/>
       <operations id="16" stage="1" latency="1"/>
       <operations id="17" stage="1" latency="1"/>
-      <operations id="36" stage="1" latency="1"/>
-      <operations id="39" stage="1" latency="1"/>
-      <operations id="42" stage="1" latency="1"/>
-      <operations id="53" stage="1" latency="1"/>
-    </states>
-    <states id="2">
-      <operations id="54" stage="2" latency="2"/>
-    </states>
-    <states id="3">
-      <operations id="54" stage="1" latency="2"/>
-    </states>
-    <states id="4">
-      <operations id="57" stage="2" latency="2"/>
-    </states>
-    <states id="5">
-      <operations id="57" stage="1" latency="2"/>
-    </states>
-    <states id="6">
-      <operations id="58" stage="2" latency="2"/>
-      <operations id="59" stage="2" latency="2"/>
-    </states>
-    <states id="7">
       <operations id="18" stage="1" latency="1"/>
       <operations id="19" stage="1" latency="1"/>
-      <operations id="20" stage="1" latency="1"/>
       <operations id="21" stage="1" latency="1"/>
       <operations id="22" stage="1" latency="1"/>
-      <operations id="23" stage="1" latency="1"/>
       <operations id="24" stage="1" latency="1"/>
       <operations id="25" stage="1" latency="1"/>
       <operations id="26" stage="1" latency="1"/>
       <operations id="27" stage="1" latency="1"/>
-      <operations id="28" stage="1" latency="1"/>
-      <operations id="29" stage="1" latency="1"/>
-      <operations id="30" stage="1" latency="1"/>
+      <operations id="30" stage="1" latency="2"/>
       <operations id="31" stage="1" latency="1"/>
-      <operations id="32" stage="1" latency="1"/>
-      <operations id="33" stage="1" latency="1"/>
-      <operations id="34" stage="1" latency="1"/>
-      <operations id="35" stage="1" latency="1"/>
-      <operations id="37" stage="1" latency="1"/>
-      <operations id="38" stage="1" latency="1"/>
-      <operations id="40" stage="1" latency="1"/>
-      <operations id="41" stage="1" latency="1"/>
-      <operations id="43" stage="1" latency="1"/>
-      <operations id="44" stage="1" latency="1"/>
-      <operations id="45" stage="1" latency="1"/>
-      <operations id="46" stage="1" latency="1"/>
-      <operations id="47" stage="1" latency="1"/>
-      <operations id="48" stage="1" latency="1"/>
-      <operations id="49" stage="1" latency="1"/>
-      <operations id="50" stage="1" latency="1"/>
-      <operations id="51" stage="1" latency="1"/>
-      <operations id="52" stage="1" latency="1"/>
-      <operations id="55" stage="1" latency="1"/>
-      <operations id="56" stage="1" latency="1"/>
-      <operations id="58" stage="1" latency="2"/>
-      <operations id="59" stage="1" latency="2"/>
-      <operations id="60" stage="1" latency="1"/>
     </states>
     <transitions inState="1" outState="2">
       <condition id="-1"/>
@@ -397,139 +217,60 @@
     <transitions inState="5" outState="6">
       <condition id="-1"/>
     </transitions>
-    <transitions inState="6" outState="7">
-      <condition id="-1"/>
-    </transitions>
   </fsm>
   <CFGRegionsRoot>
     <cfgRegions mId="1" mTag="hardware_encoding" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-1" mMaxLatency="-1" mIsDfPipe="true">
-      <basicBlocks>61</basicBlocks>
-      <mDfPipe allPipePinInst="//@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@processe_list.0/@pins.0/@inst //@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@processe_list.1/@pins.0/@inst //@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@processe_list.3/@pins.0/@inst //@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@processe_list.4/@pins.0/@inst //@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@channel_list.4/@sink/@inst">
-        <processe_list name="hardware_encoding_entry7_U0" ssdmobj_id="53">
+      <basicBlocks>32</basicBlocks>
+      <mDfPipe allPipePinInst="//@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@processe_list.0/@pins.0/@inst //@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@processe_list.2/@pins.0/@inst //@CFGRegionsRoot/@cfgRegions.0/@mDfPipe/@channel_list.0/@sink/@inst">
+        <processe_list name="read_input5_U0" ssdmobj_id="28">
           <pins>
-            <port name="s1" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_89" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="hardware_encoding_entry7_U0" ssdmobj_id="53" object_id="_96"/>
+            <port name="HP1" type="BUSType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_43" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_input5_U0" ssdmobj_id="28" object_id="_50"/>
           </pins>
           <pins>
-            <port name="output" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_90" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="hardware_encoding_entry7_U0" ssdmobj_id="53" object_id="_96"/>
+            <port name="s1" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_45" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_input5_U0" ssdmobj_id="28" object_id="_50"/>
           </pins>
           <pins>
-            <port name="lzw_size" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_91" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="hardware_encoding_entry7_U0" ssdmobj_id="53" object_id="_96"/>
-          </pins>
-          <pins>
-            <port name="input_size" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_92" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="hardware_encoding_entry7_U0" ssdmobj_id="53" object_id="_96"/>
+            <port name="output" type="SIOType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_46" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="read_input5_U0" ssdmobj_id="28" object_id="_50"/>
           </pins>
         </processe_list>
-        <processe_list name="read_input_U0" ssdmobj_id="54">
+        <processe_list name="computing_U0" ssdmobj_id="29"/>
+        <processe_list name="write_output_U0" ssdmobj_id="30">
           <pins>
-            <port name="HP1" type="BUSType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_86" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="read_input_U0" ssdmobj_id="54" object_id="_106"/>
+            <port name="HP3" dir="DirOut" type="BUSType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_44" chan_object_id="" chan_object_id_reference=""/>
+            <inst name="write_output_U0" ssdmobj_id="30" object_id="_59"/>
           </pins>
         </processe_list>
-        <processe_list name="computing_U0" ssdmobj_id="57"/>
-        <processe_list name="write_output_U0" ssdmobj_id="58">
-          <pins>
-            <port name="HP3" dir="DirOut" type="BUSType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_87" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="write_output_U0" ssdmobj_id="58" object_id="_111"/>
-          </pins>
-        </processe_list>
-        <processe_list name="Block_split28_proc_U0" ssdmobj_id="59">
-          <pins>
-            <port name="HP0" dir="DirOut" type="BUSType" need_hs="true" top_port_object_id="" top_port_object_id_reference="_88" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="Block_split28_proc_U0" ssdmobj_id="59" object_id="_115"/>
-          </pins>
-        </processe_list>
-        <channel_list depth="2" bitwidth="64" suggested_type="2" suggested_depth="2" name="s1_c" ssdmobj_id="17">
+        <channel_list depth="500" bitwidth="8" suggested_type="0" suggested_depth="500" name="input_stream" ssdmobj_id="20">
           <source>
             <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="hardware_encoding_entry7_U0" ssdmobj_id="53" object_id="_96"/>
+            <inst name="read_input5_U0" ssdmobj_id="28" object_id="_50"/>
           </source>
           <sink>
             <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="read_input_U0" ssdmobj_id="54" object_id="_106"/>
+            <inst name="computing_U0" ssdmobj_id="29" object_id="_65"/>
           </sink>
         </channel_list>
-        <channel_list depth="4" bitwidth="64" suggested_type="2" suggested_depth="4" name="output_c" ssdmobj_id="16">
+        <channel_list depth="3" bitwidth="64" suggested_type="2" suggested_depth="3" name="output_c" ssdmobj_id="7">
           <source>
             <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="hardware_encoding_entry7_U0" ssdmobj_id="53" object_id="_96"/>
+            <inst name="read_input5_U0" ssdmobj_id="28" object_id="_50"/>
           </source>
           <sink>
             <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="write_output_U0" ssdmobj_id="58" object_id="_111"/>
+            <inst name="write_output_U0" ssdmobj_id="30" object_id="_59"/>
           </sink>
         </channel_list>
-        <channel_list depth="4" bitwidth="64" suggested_type="2" suggested_depth="4" name="lzw_size_c" ssdmobj_id="15">
+        <channel_list depth="500" bitwidth="16" suggested_type="0" suggested_depth="500" name="output_stream" ssdmobj_id="23">
           <source>
             <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="hardware_encoding_entry7_U0" ssdmobj_id="53" object_id="_96"/>
+            <inst name="computing_U0" ssdmobj_id="29" object_id="_65"/>
           </source>
           <sink>
             <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="Block_split28_proc_U0" ssdmobj_id="59" object_id="_115"/>
-          </sink>
-        </channel_list>
-        <channel_list depth="2" bitwidth="64" suggested_type="2" suggested_depth="2" name="input_size_c" ssdmobj_id="14">
-          <source>
-            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="hardware_encoding_entry7_U0" ssdmobj_id="53" object_id="_96"/>
-          </source>
-          <sink>
-            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="read_input_U0" ssdmobj_id="54" object_id="_106"/>
-          </sink>
-        </channel_list>
-        <channel_list depth="75" bitwidth="8" suggested_type="0" suggested_depth="75" name="input_stream" ssdmobj_id="36">
-          <source>
-            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="read_input_U0" ssdmobj_id="54" object_id="_106"/>
-          </source>
-          <sink>
-            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="computing_U0" ssdmobj_id="57" object_id="_141"/>
-          </sink>
-        </channel_list>
-        <channel_list depth="75" bitwidth="32" suggested_type="0" suggested_depth="75" name="inputsize_stream" ssdmobj_id="39">
-          <source>
-            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="read_input_U0" ssdmobj_id="54" object_id="_106"/>
-          </source>
-          <sink>
-            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="computing_U0" ssdmobj_id="57" object_id="_141"/>
-          </sink>
-        </channel_list>
-        <channel_list depth="2" bitwidth="32" suggested_type="1" suggested_depth="2" name="p_channel" ssdmobj_id="12">
-          <source>
-            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="computing_U0" ssdmobj_id="57" object_id="_141"/>
-          </source>
-          <sink>
-            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="write_output_U0" ssdmobj_id="58" object_id="_111"/>
-          </sink>
-        </channel_list>
-        <channel_list depth="75" bitwidth="16" suggested_type="0" suggested_depth="75" name="output_stream" ssdmobj_id="42">
-          <source>
-            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="computing_U0" ssdmobj_id="57" object_id="_141"/>
-          </source>
-          <sink>
-            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="write_output_U0" ssdmobj_id="58" object_id="_111"/>
-          </sink>
-        </channel_list>
-        <channel_list depth="2" bitwidth="32" suggested_type="2" suggested_depth="2" name="compress_size_0_c" ssdmobj_id="13">
-          <source>
-            <port name="in" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="computing_U0" ssdmobj_id="57" object_id="_141"/>
-          </source>
-          <sink>
-            <port name="out" dir="DirOut" type="SIOType" top_port_object_id="" top_port_object_id_reference="" chan_object_id="" chan_object_id_reference=""/>
-            <inst name="Block_split28_proc_U0" ssdmobj_id="59" object_id="_115"/>
+            <inst name="write_output_U0" ssdmobj_id="30" object_id="_59"/>
           </sink>
         </channel_list>
       </mDfPipe>

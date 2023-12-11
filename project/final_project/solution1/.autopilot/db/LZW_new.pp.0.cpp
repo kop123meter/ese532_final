@@ -41027,7 +41027,7 @@ public:
 # 11 "Server/LZW_new.h" 2
 
 
-void hardware_encoding(unsigned char s1[8192], uint16_t output[8192],int lzw_size[1],int input_size[1],int input2_size[1]);
+__attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsigned char s1[4 * 8194], uint16_t output[4 * 8193]);
 void encoding(unsigned char * s1,unsigned char * output,int &size,int len);
 # 7 "Server/LZW_new.cpp" 2
 
@@ -41213,194 +41213,133 @@ void lookup(unsigned long hash_table[2][32768], assoc_mem* mem, unsigned int key
         assoc_lookup(mem, key, hit, result);
     }
 }
+# 198 "Server/LZW_new.cpp"
+void read_input(unsigned char s1[4*8194],hls::stream<unsigned char>& input){
+ VITIS_LOOP_199_1: for(int c = 0; c < 4;c++){
 
-void read_input(unsigned char s1[8192],int input_size[1],hls::stream<unsigned char>& input,hls::stream<int>& inputsize){
- inputsize.write(input_size[0]);
- VITIS_LOOP_193_1: for(int i = 0 ; i < input_size[0] ;i++){
-  input.write(s1[i]);
+  int size_upper = (int)s1[c * 8194 + 0];
+  int size_lower = (int)s1[c * 8194 + 1];
+  int size = size_upper * 100 + size_lower;
+  input.write(s1[c * 8194 + 0]);
+  input.write(s1[c * 8194 + 1]);
+  VITIS_LOOP_206_2: for(int i = 0; i < size ;i++){
+   input.write(s1[c * 8194 + i + 2]);
+  }
  }
 
 }
+void computing(hls::stream<unsigned char>& input, hls::stream<uint16_t>& output){
+  unsigned char temp_chunk[8192];
 
-int computing(hls::stream<unsigned char>& input, hls::stream<uint16_t>& output, int compress_size[1],hls::stream<int>& inputsize){
+  VITIS_LOOP_215_1: for(int c = 0; c <4;c++){
 
 
-
-    unsigned long hash_table[2][32768];
-    assoc_mem my_assoc_mem;
-    int output_pos = 0;
-    int size = 0;
-    output_char = 0;
-    output_bit = 0;
+   int len_upper = (int)input.read();
+   int len_lower = (int)input.read();
+   int len = len_upper * 100 + len_lower;
 
 
 
+   VITIS_LOOP_224_2: for(int i = 0 ;i < len;i++){
+    temp_chunk[i] = input.read();
+   }
 
-       VITIS_LOOP_213_1: for(int i = 0; i < 32768; i++)
-       {
+
+
+   unsigned long hash_table[2][32768];
+   assoc_mem my_assoc_mem;
+
+
+   VITIS_LOOP_234_3: for(int i = 0; i < 32768; i++)
 #pragma HLS unroll factor=2
- hash_table[0][i] = 0;
-           hash_table[1][i] = 0;
-        }
+ {
+    hash_table[0][i] = 0;
+    hash_table[1][i] = 0;
+   }
+   my_assoc_mem.fill = 0;
+   VITIS_LOOP_241_4: for(int i = 0; i < 512; i++)
+   {
+     my_assoc_mem.upper_key_mem[i] = 0;
+     my_assoc_mem.middle_key_mem[i] = 0;
+     my_assoc_mem.lower_key_mem[i] = 0;
+   }
+   int next_code = 256;
+   int prefix_code = temp_chunk[0];
+   unsigned int code = 0;
+   unsigned char next_char = 0;
 
-    my_assoc_mem.fill = 0;
-    VITIS_LOOP_221_2: for(int i = 0; i < 512; i++)
-    {
-        my_assoc_mem.upper_key_mem[i] = 0;
-        my_assoc_mem.middle_key_mem[i] = 0;
-        my_assoc_mem.lower_key_mem[i] = 0;
+
+   VITIS_LOOP_253_5: for(int i = 0; i < len;i++)
+   {
+    if(i + 1 == len){
+
+     output.write((uint16_t)prefix_code);
+     break;
     }
-    int next_code = 256;
+    next_char = temp_chunk[i+1];
+    bool hit = 0;
+    lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
+    if(!hit)
+    {
 
-
-
-    int prefix_code = input.read();
-    unsigned int code = 0;
-    unsigned char next_char = 0;
-
-     int len = inputsize.read();
-     VITIS_LOOP_236_3: for(int i = 0; i < len; i++){
-      if(i + 1 == len){
-       output.write((uint16_t)prefix_code);
-       output_pos++;
-       break;
+      output.write((uint16_t)prefix_code);
+      bool collision = 0;
+      insert(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, next_code, &collision);
+      if(collision)
+      {
+         std::cout << "ERROR: FAILED TO INSERT! NO MORE ROOM IN ASSOC MEM!" << std::endl;
+         return;
       }
-      next_char = input.read();
-      bool hit = 0;
-      lookup(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, &hit, &code);
-
-      if(!hit){
-
-       output.write((uint16_t)prefix_code);
-       output_pos++;
-       bool collision = 0;
-       insert(hash_table, &my_assoc_mem, (prefix_code << 8) + next_char, next_code, &collision);
-       if(collision)
-       {
-        std::cout << "ERROR: FAILED TO INSERT! NO MORE ROOM IN ASSOC MEM!" << std::endl;
-        return -1;
+      next_code += 1;
+      prefix_code = next_char;
+    } else{
+      prefix_code = code;
        }
-           next_code += 1;
-           prefix_code = next_char;
-      } else{
-       prefix_code = code;
-      }
-     }
 
-     compress_size[0] = output_pos;
-     return output_pos;
+   }
+   output.write((uint16_t)0xf000);
+
+  }
 }
 
-void write_output(hls::stream<uint16_t>& output_stream, int compress_size, uint16_t output[8192]){
- VITIS_LOOP_269_1: for(int i = 0; i < compress_size;i++){
-  output[i] = output_stream.read();
+void write_output(hls::stream<uint16_t>& output_stream, uint16_t output[4*8193]){
+ VITIS_LOOP_287_1: for(int c = 0; c < (4 +1) ; c++){
+  int size = 0;
+  VITIS_LOOP_289_2: for(int i = 1; i < 8193;i++){
+   uint16_t tmp_data = output_stream.read();
+   if( tmp_data == (uint16_t)(0xf000)){
+    break;
+   }
+
+   output[c*8193+i] = tmp_data;
+   size++;
+
+  }
+  output[c*8193+0] = size;
  }
 }
-
-
-__attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsigned char s1[8192], uint16_t output[8192],int lzw_size[1],int input_size[1])
-{_ssdm_SpecArrayDimSize(s1, 8192);_ssdm_SpecArrayDimSize(output, 8192);_ssdm_SpecArrayDimSize(lzw_size, 1);_ssdm_SpecArrayDimSize(input_size, 1);
+# 312 "Server/LZW_new.cpp"
+__attribute__((sdx_kernel("hardware_encoding", 0))) void hardware_encoding(unsigned char s1[4 * 8194], uint16_t output[4 * 8193])
+{_ssdm_SpecArrayDimSize(s1, 32776);_ssdm_SpecArrayDimSize(output, 32772);
 #pragma HLS TOP name=hardware_encoding
-# 276 "Server/LZW_new.cpp"
+# 313 "Server/LZW_new.cpp"
 
 #pragma HLS INTERFACE m_axi port=s1 bundle=HP1
 #pragma HLS INTERFACE m_axi port=output bundle=HP3
-#pragma HLS INTERFACE m_axi port=input_size bundle=HP1
-#pragma HLS INTERFACE m_axi port=lzw_size bundle=HP0
-
-unsigned char temp_output[8192];
 
 
-   hls::stream<unsigned char> input_stream;
-  hls::stream<int> inputsize_stream;
+
+
+ hls::stream<unsigned char> input_stream;
 
 
    hls::stream<uint16_t> output_stream;
-#pragma HLS STREAM variable=input_stream depth=75
-#pragma HLS STREAM variable=inputsize_stream depth=75
-#pragma HLS STREAM variable=output_stream depth=75
+#pragma HLS STREAM variable=input_stream depth=500
+#pragma HLS STREAM variable=output_stream depth=500
 
- int compress_size[1];
-      compress_size[0] = 0;
-      int tyyyy;
 
 #pragma HLS DATAFLOW
- read_input(s1,input_size,input_stream,inputsize_stream);
-   tyyyy = computing(input_stream,output_stream, compress_size,inputsize_stream);
-   write_output(output_stream, tyyyy,output);
-   lzw_size[0] = compress_size[0];
-
-
-}
-
-
-void encoding(unsigned char * s1,uint16_t * output,int &size,int len)
-{
-
- int output_pos = 0;
-
-    std::unordered_map<std::string, int> table;
-    VITIS_LOOP_314_1: for (int i = 0; i <= 255; i++) {
-        std::string ch = "";
-        ch += char(i);
-        table[ch] = i;
-    }
-
-    std::string p = "", c = "";
-    p += s1[0];
-    int code = 256;
-    std::vector<int> output_code;
-    VITIS_LOOP_324_2: for (int i = 0; i < len; i++) {
-        if (i != len - 1)
-            c += s1[i + 1];
-        if (table.find(p + c) != table.end()) {
-            p = p + c;
-        }
-        else {
-
-            output[output_pos++] = (uint16_t)(table[p]);
-            size += 1;
-            table[p + c] = code;
-            code++;
-            p = c;
-        }
-        c = "";
-    }
-    output_code.push_back(table[p]);
-    output[output_pos++] = (uint16_t)(table[p]);
-
-    size = output_pos;
-}
-
-void decoding(std::vector<int> op)
-{
-    std::cout << "\nDecoding\n";
-    std::unordered_map<int, std::string> table;
-    VITIS_LOOP_350_1: for (int i = 0; i <= 255; i++) {
-        std::string ch = "";
-        ch += char(i);
-        table[i] = ch;
-    }
-    int old = op[0], n;
-    std::string s = table[old];
-    std::string c = "";
-    c += s[0];
-    std::cout << s;
-    int count = 256;
-    VITIS_LOOP_361_2: for (int i = 0; i < op.size() - 1; i++) {
-        n = op[i + 1];
-        if (table.find(n) == table.end()) {
-            s = table[old];
-            s = s + c;
-        }
-        else {
-            s = table[n];
-        }
-        std::cout << s;
-        c = "";
-        c += s[0];
-        table[count] = table[old] + c;
-        count++;
-        old = n;
-    }
+ read_input(s1,input_stream);
+   computing(input_stream,output_stream);
+   write_output(output_stream, output);
 }
